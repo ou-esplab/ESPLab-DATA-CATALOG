@@ -1,0 +1,17 @@
+metadata:
+  title: obs NetCDF Dataset Catalog
+  version: 1
+  description: Automatically generated catalog for obs data
+sources:
+  obs/indices/mlso:
+    description: 'mlso (unknown), Date range: 1979-01-01 to 2019-08-31'
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/indices/mlso/*.nc
+      consolidated: false
+    metadata:
+      long_name: mlso
+      units: unknown
+      date_range: 1979-01-01 to 2019-08-31
+      n_files: 1
+      data_location: /data/esplab/shared/obs/indices/mlso

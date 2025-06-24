@@ -1,0 +1,29 @@
+metadata:
+  title: model NetCDF Dataset Catalog
+  version: 1
+  description: Automatically generated catalog for model data
+sources:
+  model/initialized/NCAR-CESM2-CLIMO:
+    description: 'Fraction of sfc area covered by land (fraction), Date range: unknown'
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/*.nc
+      consolidated: false
+    metadata:
+      long_name: Fraction of sfc area covered by land
+      units: fraction
+      date_range: unknown
+      n_files: 1
+      data_location: /data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO
+  model/uninitialized/GammaT63L26AC:
+    description: 'geo (unknown), Date range: 1950-01-01 to 1950-01-30'
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/model/uninitialized/GammaT63L26AC/*.nc
+      consolidated: false
+    metadata:
+      long_name: geo
+      units: unknown
+      date_range: 1950-01-01 to 1950-01-30
+      n_files: 2081
+      data_location: /data/esplab/shared/model/uninitialized/GammaT63L26AC

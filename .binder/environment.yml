@@ -1,0 +1,17 @@
+name: climate-dashboard
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - panel
+  - intake
+  - intake-xarray
+  - xarray
+  - netCDF4
+  - dask
+  - matplotlib
+  - pandas
+  - pip
+  - pip:
+      - jupyter-server-proxy
+

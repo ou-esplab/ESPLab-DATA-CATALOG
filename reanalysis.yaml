@@ -1,0 +1,29 @@
+metadata:
+  title: reanalysis NetCDF Dataset Catalog
+  version: 1
+  description: Automatically generated catalog for reanalysis data
+sources:
+  reanalysis/era5-land/daily:
+    description: 'precip (unknown), Date range: 1979-01-01 to 2020-12-31'
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5-land/daily/*.nc
+      consolidated: false
+    metadata:
+      long_name: precip
+      units: unknown
+      date_range: 1979-01-01 to 2020-12-31
+      n_files: 1
+      data_location: /data/esplab/shared/reanalysis/era5-land/daily
+  reanalysis/merra-2/daily:
+    description: 'vertical_pressure_velocity (Pa s-1), Date range: 1980-01-01 to 2024-05-01'
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/daily/*.nc
+      consolidated: false
+    metadata:
+      long_name: vertical_pressure_velocity
+      units: Pa s-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 2
+      data_location: /data/esplab/shared/reanalysis/merra-2/daily
