@@ -71,7 +71,7 @@ To test the Panel app locally:
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/ESPLab-DATA-CATALOG.git
+git clone https://github.com/ou-esplab/ESPLab-DATA-CATALOG.git
 cd ESPLab-DATA-CATALOG
 
 # Create environment (optional)
