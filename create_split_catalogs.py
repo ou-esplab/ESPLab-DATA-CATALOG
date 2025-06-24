@@ -5,7 +5,8 @@ import pandas as pd
 import cftime
 
 base_dir = "/data/esplab/shared"
-categories = ["model", "obs", "reanalysis"]
+#categories = ["model", "obs", "reanalysis"]
+categories = ["model"]
 
 def get_netcdf_files(variable_dir):
     return sorted([os.path.join(variable_dir, f) for f in os.listdir(variable_dir) if f.endswith(".nc")])
