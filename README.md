@@ -59,7 +59,7 @@ Expandable views and scrollable panels to accommodate large datasets.
 
 Try the catalog in your browser—no installation needed:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/your-org/your-repo/main?urlpath=proxy/5006/data_catalog_app)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ou-esplab/ESPLab-DATA-CATALOG/main?urlpath=proxy/5006/data_catalog_app)
 
 > **Note**: It may take 1–2 minutes to start the Binder environment.
 
