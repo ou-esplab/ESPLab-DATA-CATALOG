@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Trigger Binder build
         run: |
-          curl -X POST https://mybinder.org/build/gh/<YOUR_GITHUB_USERNAME>/<YOUR_REPO>/HEAD
+          curl -X POST https://mybinder.org/build/gh/ou-esplab/ESPLab-DATA-CATALOG/HEAD
 
