@@ -1,17 +1,11 @@
 metadata:
   title: ESPLab Top Catalog
-  description: Root catalog linking model, obs, and reanalysis datasets
+  description: Root catalog linking obs and reanalysis datasets
   version: 1
 
 sources:
-  model:
-    description: Model simulations (initialized and uninitialized)
-    driver: intake.catalog.local.YAMLFileCatalog
-    args:
-      path: model.yaml
-
   obs:
-    description: Observational datasets (gridded, indices, station)
+    description: Observational datasets (gridded/atm, gridded/ocn, fluxes, ice, land)
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: obs.yaml
