@@ -1,0 +1,2 @@
+#!/bin/bash
+panel serve data_catalog_app.py --allow-websocket-origin="*"
