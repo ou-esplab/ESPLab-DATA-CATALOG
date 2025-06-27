@@ -1,0 +1,4 @@
+#!/bin/bash
+jupyter lab &  # Start Jupyter in the background
+panel serve data_catalog_app.py --address=0.0.0.0 --port=5006 --allow-websocket-origin="*"  # Start Panel app
+I
