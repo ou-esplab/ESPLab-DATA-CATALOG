@@ -1,0 +1,16 @@
+name: Binder Cache Build
+
+on:
+  push:
+    branches:
+      - main  # or change to the branches you want to trigger on
+
+jobs:
+  trigger-binder-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Binder build
+        run: |
+          curl -X POST https://mybinder.org/build/gh/<YOUR_GITHUB_USERNAME>/<YOUR_REPO>/HEAD
+
