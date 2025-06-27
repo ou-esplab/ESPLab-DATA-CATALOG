@@ -12,7 +12,6 @@ dependencies:
   - dask
   - matplotlib
   - pandas
-  - pip
-  - pip:
-      - jupyter-server-proxy
+  - jupyterlab
+  - jupyter-server-proxy
 
