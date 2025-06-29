@@ -52,6 +52,10 @@ def build_obs_catalog(base_dir):
     print(f"Building OBS catalog from base dir: {base_dir}")
     # Expected structure: obs/gridded/<domain>/<variable>/<temporal_resolution>/<dataset>
     gridded_path = os.path.join(base_dir, "gridded")
+    if not os.path.isdir(gridded_path):
+        print(f"Error: Expected gridded directory at {gridded_path} not found.")
+        return catalog
+
     for domain in sorted(os.listdir(gridded_path)):
         if domain in IGNORE_DIRS:
             continue
@@ -82,6 +86,7 @@ def build_obs_catalog(base_dir):
 
                     nc_files = get_netcdf_files(dataset_path)
                     if not nc_files:
+                        print(f"⚠️ No NetCDF files found in {dataset_path}, skipping.")
                         continue
 
                     print(f"✔️ Processing obs/gridded/{domain}/{variable}/{temp_res}/{dataset}")
