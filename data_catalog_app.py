@@ -86,6 +86,12 @@ def show_metadata(obs_sources, domain, variable, temp_res, dataset):
     return pn.pane.Markdown('\n'.join(lines), width=400)
 
 def main():
+
+    import os
+    print("PWD:", os.getcwd())
+    print("Files:", os.listdir('.'))
+    print("Has obs.yaml:", os.path.exists("obs.yaml"))
+    print("Has reanalysis.yaml:", os.path.exists("reanalysis.yaml"))
     obs_catalog = load_catalog("obs.yaml")
     rean_catalog = load_catalog("reanalysis.yaml")
 
