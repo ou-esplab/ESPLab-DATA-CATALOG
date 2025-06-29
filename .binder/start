@@ -5,12 +5,11 @@ echo "Running .binder/start"
 pwd
 ls -l
 
-# start Jupyter so Binder is happy
-#jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' &
+# Start Jupyter in the background so Binder hub is satisfied
+jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' &
 
 sleep 5
 
 echo "Starting panel serve..."
-ls -l data_catalog_app.py
 panel serve data_catalog_app.py --address=0.0.0.0 --port=5006 --allow-websocket-origin="*"
 
