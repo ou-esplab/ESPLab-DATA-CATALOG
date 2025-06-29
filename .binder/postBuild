@@ -1,3 +1,0 @@
-#!/bin/bash
-# install any needed npm or bokeh deps here
-echo "postBuild complete"
