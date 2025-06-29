@@ -1,15 +1,11 @@
 #!/bin/bash
 set -eux
 
-echo "Running .binder/start"
-pwd
-ls -l
-
-echo "Starting Jupyter Lab"
+echo "Starting Jupyter (Binder needs this)..."
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' &
-
 sleep 15
 
-echo "Starting panel serve..."
-panel serve data_catalog_app.py --address=0.0.0.0 --port=5006 --allow-websocket-origin="*" --log-level=debug
+echo "Starting Panel on port 5006..."
+panel serve data_catalog_app.py --address=0.0.0.0 --port=5006 --allow-websocket-origin="*" &
+wait
 
