@@ -113,6 +113,8 @@ def main():
 
     layout.servable()
 
+    return layout
+
 #if __name__.startswith("bokeh"):
 #    main()
 
