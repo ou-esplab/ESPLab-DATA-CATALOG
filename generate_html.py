@@ -28,10 +28,11 @@ def generate_obs_page(catalog):
 
     # Build dataset dict for JS: key by domain->dataset->temporal_res->variable list of entries
     data_dict = {}
-
+    print(catalog["sources"].items())
     for key, source in catalog["sources"].items():
         # key example: obs/gridded/atm/precip/daily/CMORPH
         parts = key.split("/")
+        print(parts)
 #        if len(parts) < 6:
 #            continue
 #        _, _, domain, variable, temp, dataset = parts
@@ -39,6 +40,7 @@ def generate_obs_page(catalog):
         variable = parts[3]
         temp = parts[4]
         dataset = "/".join(parts[5:])  # join remaining parts as dataset
+        print(dataset)
 
 
         # Append to lists
