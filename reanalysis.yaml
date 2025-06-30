@@ -1,0 +1,632 @@
+metadata:
+  title: Reanalysis Data Catalog
+  version: 1
+  description: Auto-generated reanalysis data catalog
+sources:
+  reanalysis/era5/4xdaily/msl:
+    description: Mean sea level pressure
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: Pa
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/4xdaily/u:
+    description: U component of wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/4xdaily/u10:
+    description: 10 metre U wind component
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/4xdaily/v:
+    description: V component of wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/4xdaily/v10:
+    description: 10 metre V wind component
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/4xdaily/z:
+    description: Geopotential
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m**2 s**-2
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/evap:
+    description: e
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/olr:
+    description: ttr
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 83
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/omega:
+    description: w
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/precip:
+    description: tp
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 83
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/psfc:
+    description: sp
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/q:
+    description: q
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/sst:
+    description: sst
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 83
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/swvl1p:
+    description: swvl1
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/t:
+    description: t
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/t2m:
+    description: t2m
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/tcwv:
+    description: tcwv
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/u:
+    description: u
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/u10:
+    description: u10
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/u200:
+    description: u
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/u500:
+    description: u
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/u850:
+    description: u
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/v:
+    description: v
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/v10:
+    description: v10
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/v200:
+    description: v
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/v500:
+    description: v
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/v850:
+    description: v
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/vimd:
+    description: vimd
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/vinevf:
+    description: p71.162
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/vinwvf:
+    description: p72.162
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/z:
+    description: z
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 44
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/z200:
+    description: z
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/z500:
+    description: z
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/daily/z850:
+    description: z
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/evap:
+    description: Evaporation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m of water equivalent
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/olr:
+    description: Top net long-wave (thermal) radiation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: J m**-2
+      date_range: 1940-01-01 07:00:00 to 1940-01-31 23:00:00
+      n_files: 1003
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/omega:
+    description: Vertical velocity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: Pa s**-1
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/precip:
+    description: Total precipitation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m
+      date_range: 1940-01-01 07:00:00 to 1940-01-31 23:00:00
+      n_files: 1003
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/psfc:
+    description: Surface pressure
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: Pa
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 541
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/q:
+    description: Specific humidity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: kg kg**-1
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1006
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/sst:
+    description: Sea surface temperature
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: K
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1008
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/swvl1p:
+    description: Volumetric soil water layer 1
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m**3 m**-3
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1004
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/t:
+    description: Temperature
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: K
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1006
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/t2m:
+    description: 2 metre temperature
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: K
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1003
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/tcwv:
+    description: Total column vertically-integrated water vapour
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: kg m**-2
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/u:
+    description: U component of wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1008
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/v:
+    description: V component of wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m s**-1
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1008
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/vimd:
+    description: Vertically integrated moisture divergence
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: kg m**-2
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/vinevf:
+    description: Vertical integral of eastward water vapour flux
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: kg m**-1 s**-1
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/vinwvf:
+    description: Vertical integral of northward water vapour flux
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: kg m**-1 s**-1
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5/hourly/z:
+    description: Geopotential
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/*.nc
+      engine: netcdf4
+    metadata:
+      units: m**2 s**-2
+      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      n_files: 1008
+      data_location: /data/esplab/shared/reanalysis/era5
+  reanalysis/era5-land/daily/precip:
+    description: tp
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5-land/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5-land
+  reanalysis/era5-land/daily/t2m:
+    description: t2m
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5-land/*.nc
+      engine: netcdf4
+    metadata:
+      units: unknown
+      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      n_files: 45
+      data_location: /data/esplab/shared/reanalysis/era5-land
+  reanalysis/era5-land/hourly/precip:
+    description: Total precipitation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5-land/*.nc
+      engine: netcdf4
+    metadata:
+      units: m
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5-land
+  reanalysis/era5-land/hourly/t2m:
+    description: 2 metre temperature
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5-land/*.nc
+      engine: netcdf4
+    metadata:
+      units: K
+      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      n_files: 540
+      data_location: /data/esplab/shared/reanalysis/era5-land
+  reanalysis/merra-2/daily/OMEGA500:
+    description: vertical_pressure_velocity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/*.nc
+      engine: netcdf4
+    metadata:
+      units: Pa s-1
+      date_range: 1980-01-01 00:00:00 to 2024-05-01 00:00:00
+      n_files: 1
+      data_location: /data/esplab/shared/reanalysis/merra-2
+  reanalysis/merra-2/daily/zg500:
+    description: edge_heights
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/*.nc
+      engine: netcdf4
+    metadata:
+      units: m
+      date_range: 1980-01-01 00:00:00 to 2024-05-01 00:00:00
+      n_files: 1
+      data_location: /data/esplab/shared/reanalysis/merra-2
