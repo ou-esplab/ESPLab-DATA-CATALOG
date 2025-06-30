@@ -1,306 +1,329 @@
-[
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "daily",
-    "dataset": "CMORPH",
-    "metadata": {
-      "long_name": "time_bounds",
-      "units": "unknown",
-      "date_range": "1998-01-01 00:00:00 to 1998-01-01 00:00:00",
-      "n_files": 9740,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "daily",
-      "dataset": "CMORPH"
-    },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH/*.nc"
+{
+  "metadata": {
+    "title": "Observational Data Catalog",
+    "version": 1,
+    "description": "Auto-generated obs data catalog"
   },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "daily",
-    "dataset": "CPC-UNI-CONUS-0.25deg",
-    "metadata": {
-      "long_name": "Land Sea Mask",
-      "units": "unknown",
-      "date_range": "0001-01-01 00:00:00 to 0001-01-01 00:00:00",
-      "n_files": 60,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "daily",
-      "dataset": "CPC-UNI-CONUS-0.25deg"
+  "sources": {
+    "obs/gridded/atm/precip/daily/CMORPH": {
+      "description": "time_bounds (unknown), 1998-01-01 00:00:00 to 1998-01-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "time_bounds",
+        "units": "unknown",
+        "date_range": "1998-01-01 00:00:00 to 1998-01-01 00:00:00",
+        "n_files": 9740,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "daily",
+        "dataset": "CMORPH"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "daily",
-    "dataset": "CPC-UNI-GLOBAL",
-    "metadata": {
-      "long_name": "Daily total of precipitation",
-      "units": "mm",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "daily",
-      "dataset": "CPC-UNI-GLOBAL"
+    "obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg": {
+      "description": "Land Sea Mask (unknown), 0001-01-01 00:00:00 to 0001-01-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Land Sea Mask",
+        "units": "unknown",
+        "date_range": "0001-01-01 00:00:00 to 0001-01-01 00:00:00",
+        "n_files": 60,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "daily",
+        "dataset": "CPC-UNI-CONUS-0.25deg"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "daily",
-    "dataset": "NASA-GPCP-v01r03",
-    "metadata": {
-      "long_name": "longitude_bnds",
-      "units": "unknown",
-      "date_range": "1996-10-01 00:00:00 to 1996-12-31 00:00:00",
-      "n_files": 25,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "daily",
-      "dataset": "NASA-GPCP-v01r03"
+    "obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL": {
+      "description": "Daily total of precipitation (mm), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Daily total of precipitation",
+        "units": "mm",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "daily",
+        "dataset": "CPC-UNI-GLOBAL"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "monthly",
-    "dataset": "CPC-UNI-HIRES",
-    "metadata": {
-      "long_name": "Monthly Average of Daily Accumulated Precipitation",
-      "units": "mm/day",
-      "date_range": "1948-01-01 00:00:00 to 2022-10-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "monthly",
-      "dataset": "CPC-UNI-HIRES"
+    "obs/gridded/atm/precip/daily/NASA-GPCP-v01r03": {
+      "description": "longitude_bnds (unknown), 1996-10-01 00:00:00 to 1996-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "longitude_bnds",
+        "units": "unknown",
+        "date_range": "1996-10-01 00:00:00 to 1996-12-31 00:00:00",
+        "n_files": 25,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "daily",
+        "dataset": "NASA-GPCP-v01r03"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "monthly",
-    "dataset": "GPCC",
-    "metadata": {
-      "long_name": "Time Boundaries",
-      "units": "unknown",
-      "date_range": "1982-01-01 00:00:00 to 2023-08-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "monthly",
-      "dataset": "GPCC"
+    "obs/gridded/atm/precip/monthly/CPC-UNI-HIRES": {
+      "description": "Monthly Average of Daily Accumulated Precipitation (mm/day), 1948-01-01 00:00:00 to 2022-10-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Monthly Average of Daily Accumulated Precipitation",
+        "units": "mm/day",
+        "date_range": "1948-01-01 00:00:00 to 2022-10-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "monthly",
+        "dataset": "CPC-UNI-HIRES"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "monthly",
-    "dataset": "NASA-GPCP-v3.2",
-    "metadata": {
-      "long_name": "time_bnds",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 2023-09-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "monthly",
-      "dataset": "NASA-GPCP-v3.2"
+    "obs/gridded/atm/precip/monthly/GPCC": {
+      "description": "Time Boundaries (unknown), 1982-01-01 00:00:00 to 2023-08-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Time Boundaries",
+        "units": "unknown",
+        "date_range": "1982-01-01 00:00:00 to 2023-08-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "monthly",
+        "dataset": "GPCC"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2/*.nc"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "temporal_resolution": "monthly",
-    "dataset": "NOAA-PRECL",
-    "metadata": {
-      "long_name": "Average Monthly Rate of Precipitation",
-      "units": "mm/day",
-      "date_range": "1948-01-01 00:00:00 to 2023-10-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL",
-      "category": "obs",
-      "domain": "atm",
-      "variable": "precip",
-      "temporal_resolution": "monthly",
-      "dataset": "NOAA-PRECL"
+    "obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2": {
+      "description": "time_bnds (unknown), 1979-01-01 00:00:00 to 2023-09-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "time_bnds",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 2023-09-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "monthly",
+        "dataset": "NASA-GPCP-v3.2"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL/*.nc"
-  },
-  {
-    "domain": "fluxes-radiation",
-    "variable": "OLR",
-    "temporal_resolution": "daily",
-    "dataset": "NOAA-interp-OLR",
-    "metadata": {
-      "long_name": "Missing",
-      "units": "unknown",
-      "date_range": "1974-06-01 00:00:00 to 2022-12-31 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR",
-      "category": "obs",
-      "domain": "fluxes-radiation",
-      "variable": "OLR",
-      "temporal_resolution": "daily",
-      "dataset": "NOAA-interp-OLR"
+    "obs/gridded/atm/precip/monthly/NOAA-PRECL": {
+      "description": "Average Monthly Rate of Precipitation (mm/day), 1948-01-01 00:00:00 to 2023-10-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Average Monthly Rate of Precipitation",
+        "units": "mm/day",
+        "date_range": "1948-01-01 00:00:00 to 2023-10-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL",
+        "category": "obs",
+        "domain": "atm",
+        "variable": "precip",
+        "temporal_resolution": "monthly",
+        "dataset": "NOAA-PRECL"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR/*.nc"
-  },
-  {
-    "domain": "fluxes-radiation",
-    "variable": "OLR",
-    "temporal_resolution": "daily",
-    "dataset": "NOAA-noninterp-OLR",
-    "metadata": {
-      "long_name": "Daily OLR",
-      "units": "W/m^2",
-      "date_range": "2002-01-01 00:00:00 to 2023-07-26 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR",
-      "category": "obs",
-      "domain": "fluxes-radiation",
-      "variable": "OLR",
-      "temporal_resolution": "daily",
-      "dataset": "NOAA-noninterp-OLR"
+    "obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR": {
+      "description": "Missing (unknown), 1974-06-01 00:00:00 to 2022-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Missing",
+        "units": "unknown",
+        "date_range": "1974-06-01 00:00:00 to 2022-12-31 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR",
+        "category": "obs",
+        "domain": "fluxes-radiation",
+        "variable": "OLR",
+        "temporal_resolution": "daily",
+        "dataset": "NOAA-interp-OLR"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR/*.nc"
-  },
-  {
-    "domain": "ice",
-    "variable": "ice_concentration",
-    "temporal_resolution": "monthly",
-    "dataset": "NOAA-NSIDC",
-    "metadata": {
-      "long_name": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration",
-      "units": "1",
-      "date_range": "1979-01-01 00:00:00 to 2021-12-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC",
-      "category": "obs",
-      "domain": "ice",
-      "variable": "ice_concentration",
-      "temporal_resolution": "monthly",
-      "dataset": "NOAA-NSIDC"
+    "obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR": {
+      "description": "Daily OLR (W/m^2), 2002-01-01 00:00:00 to 2023-07-26 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Daily OLR",
+        "units": "W/m^2",
+        "date_range": "2002-01-01 00:00:00 to 2023-07-26 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR",
+        "category": "obs",
+        "domain": "fluxes-radiation",
+        "variable": "OLR",
+        "temporal_resolution": "daily",
+        "dataset": "NOAA-noninterp-OLR"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc"
-  },
-  {
-    "domain": "ice",
-    "variable": "ice_concentration",
-    "temporal_resolution": "monthly",
-    "dataset": "NOAA-NSIDC-REGRID",
-    "metadata": {
-      "long_name": "SIC",
-      "units": "unknown",
-      "date_range": "unknown",
-      "n_files": 516,
-      "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID",
-      "category": "obs",
-      "domain": "ice",
-      "variable": "ice_concentration",
-      "temporal_resolution": "monthly",
-      "dataset": "NOAA-NSIDC-REGRID"
+    "obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC": {
+      "description": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration (1), 1979-01-01 00:00:00 to 2021-12-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration",
+        "units": "1",
+        "date_range": "1979-01-01 00:00:00 to 2021-12-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC",
+        "category": "obs",
+        "domain": "ice",
+        "variable": "ice_concentration",
+        "temporal_resolution": "monthly",
+        "dataset": "NOAA-NSIDC"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID/*.nc"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "temporal_resolution": "daily",
-    "dataset": "NOAA-OISSTv2-HIRES",
-    "metadata": {
-      "long_name": "Daily Sea Surface Temperature",
-      "units": "degC",
-      "date_range": "1982-01-01 00:00:00 to 1982-12-31 00:00:00",
-      "n_files": 42,
-      "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES",
-      "category": "obs",
-      "domain": "ocn",
-      "variable": "SST",
-      "temporal_resolution": "daily",
-      "dataset": "NOAA-OISSTv2-HIRES"
+    "obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID": {
+      "description": "SIC (unknown), unknown",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "SIC",
+        "units": "unknown",
+        "date_range": "unknown",
+        "n_files": 516,
+        "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID",
+        "category": "obs",
+        "domain": "ice",
+        "variable": "ice_concentration",
+        "temporal_resolution": "monthly",
+        "dataset": "NOAA-NSIDC-REGRID"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES/*.nc"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "temporal_resolution": "monthly",
-    "dataset": "HADISST",
-    "metadata": {
-      "long_name": "time_bnds",
-      "units": "unknown",
-      "date_range": "1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST",
-      "category": "obs",
-      "domain": "ocn",
-      "variable": "SST",
-      "temporal_resolution": "monthly",
-      "dataset": "HADISST"
+    "obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES": {
+      "description": "Daily Sea Surface Temperature (degC), 1982-01-01 00:00:00 to 1982-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Daily Sea Surface Temperature",
+        "units": "degC",
+        "date_range": "1982-01-01 00:00:00 to 1982-12-31 00:00:00",
+        "n_files": 42,
+        "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES",
+        "category": "obs",
+        "domain": "ocn",
+        "variable": "SST",
+        "temporal_resolution": "daily",
+        "dataset": "NOAA-OISSTv2-HIRES"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST/*.nc"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "temporal_resolution": "monthly",
-    "dataset": "NOAA-ERSSTv5",
-    "metadata": {
-      "long_name": "Time Boundaries",
-      "units": "unknown",
-      "date_range": "1854-01-01 00:00:00 to 2024-02-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5",
-      "category": "obs",
-      "domain": "ocn",
-      "variable": "SST",
-      "temporal_resolution": "monthly",
-      "dataset": "NOAA-ERSSTv5"
+    "obs/gridded/ocn/SST/monthly/HADISST": {
+      "description": "time_bnds (unknown), 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "time_bnds",
+        "units": "unknown",
+        "date_range": "1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST",
+        "category": "obs",
+        "domain": "ocn",
+        "variable": "SST",
+        "temporal_resolution": "monthly",
+        "dataset": "HADISST"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5/*.nc"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "temporal_resolution": "weekly",
-    "dataset": "NOAA-OISSTv2",
-    "metadata": {
-      "long_name": "Monthly Mean of Sea Surface Temperature",
-      "units": "degC",
-      "date_range": "1981-12-01 00:00:00 to 2023-01-01 00:00:00",
-      "n_files": 3,
-      "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2",
-      "category": "obs",
-      "domain": "ocn",
-      "variable": "SST",
-      "temporal_resolution": "weekly",
-      "dataset": "NOAA-OISSTv2"
+    "obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5": {
+      "description": "Time Boundaries (unknown), 1854-01-01 00:00:00 to 2024-02-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Time Boundaries",
+        "units": "unknown",
+        "date_range": "1854-01-01 00:00:00 to 2024-02-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5",
+        "category": "obs",
+        "domain": "ocn",
+        "variable": "SST",
+        "temporal_resolution": "monthly",
+        "dataset": "NOAA-ERSSTv5"
+      }
     },
-    "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2/*.nc"
+    "obs/gridded/ocn/SST/weekly/NOAA-OISSTv2": {
+      "description": "Monthly Mean of Sea Surface Temperature (degC), 1981-12-01 00:00:00 to 2023-01-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Monthly Mean of Sea Surface Temperature",
+        "units": "degC",
+        "date_range": "1981-12-01 00:00:00 to 2023-01-01 00:00:00",
+        "n_files": 3,
+        "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2",
+        "category": "obs",
+        "domain": "ocn",
+        "variable": "SST",
+        "temporal_resolution": "weekly",
+        "dataset": "NOAA-OISSTv2"
+      }
+    }
   }
-]
+}

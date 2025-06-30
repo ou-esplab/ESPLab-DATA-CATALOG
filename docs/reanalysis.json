@@ -1,743 +1,864 @@
-[
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "msl",
-    "metadata": {
-      "long_name": "Mean sea level pressure",
-      "units": "Pa",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/msl"
-    },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/msl/*.nc"
+{
+  "metadata": {
+    "title": "Reanalysis Data Catalog",
+    "version": 1,
+    "description": "Auto-generated reanalysis data catalog"
   },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "u",
-    "metadata": {
-      "long_name": "U component of wind",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u"
+  "sources": {
+    "reanalysis/era5/4xdaily/msl": {
+      "description": "Mean sea level pressure (Pa), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/msl/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Mean sea level pressure",
+        "units": "Pa",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/msl"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "u10",
-    "metadata": {
-      "long_name": "10 metre U wind component",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u10"
+    "reanalysis/era5/4xdaily/u": {
+      "description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "U component of wind",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u10/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "v",
-    "metadata": {
-      "long_name": "V component of wind",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v"
+    "reanalysis/era5/4xdaily/u10": {
+      "description": "10 metre U wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u10/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "10 metre U wind component",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u10"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "v10",
-    "metadata": {
-      "long_name": "10 metre V wind component",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v10"
+    "reanalysis/era5/4xdaily/v": {
+      "description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "V component of wind",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v10/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "4xdaily",
-    "variable": "z",
-    "metadata": {
-      "long_name": "Geopotential",
-      "units": "m**2 s**-2",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/z"
+    "reanalysis/era5/4xdaily/v10": {
+      "description": "10 metre V wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v10/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "10 metre V wind component",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v10"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/z/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "evap",
-    "metadata": {
-      "long_name": "e",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/evap"
+    "reanalysis/era5/4xdaily/z": {
+      "description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/z/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Geopotential",
+        "units": "m**2 s**-2",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/z"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/evap/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "olr",
-    "metadata": {
-      "long_name": "ttr",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 83,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/olr"
+    "reanalysis/era5/daily/evap": {
+      "description": "e (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/evap/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "e",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/evap"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/olr/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "omega",
-    "metadata": {
-      "long_name": "w",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/omega"
+    "reanalysis/era5/daily/olr": {
+      "description": "ttr (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/olr/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "ttr",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 83,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/olr"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/omega/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "precip",
-    "metadata": {
-      "long_name": "tp",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 83,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/precip"
+    "reanalysis/era5/daily/omega": {
+      "description": "w (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/omega/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "w",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/omega"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/precip/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "psfc",
-    "metadata": {
-      "long_name": "sp",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/psfc"
+    "reanalysis/era5/daily/precip": {
+      "description": "tp (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/precip/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "tp",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 83,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/precip"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/psfc/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "q",
-    "metadata": {
-      "long_name": "q",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/q"
+    "reanalysis/era5/daily/psfc": {
+      "description": "sp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/psfc/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "sp",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/psfc"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/q/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "sst",
-    "metadata": {
-      "long_name": "sst",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 83,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/sst"
+    "reanalysis/era5/daily/q": {
+      "description": "q (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/q/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "q",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/q"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/sst/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "swvl1p",
-    "metadata": {
-      "long_name": "swvl1",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/swvl1p"
+    "reanalysis/era5/daily/sst": {
+      "description": "sst (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/sst/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "sst",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 83,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/sst"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/swvl1p/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "t",
-    "metadata": {
-      "long_name": "t",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/t"
+    "reanalysis/era5/daily/swvl1p": {
+      "description": "swvl1 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/swvl1p/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "swvl1",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/swvl1p"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/t/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "t2m",
-    "metadata": {
-      "long_name": "t2m",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/t2m"
+    "reanalysis/era5/daily/t": {
+      "description": "t (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/t/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "t",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/t"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/t2m/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "tcwv",
-    "metadata": {
-      "long_name": "tcwv",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/tcwv"
+    "reanalysis/era5/daily/t2m": {
+      "description": "t2m (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/t2m/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "t2m",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/t2m"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/tcwv/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "u",
-    "metadata": {
-      "long_name": "u",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/u"
+    "reanalysis/era5/daily/tcwv": {
+      "description": "tcwv (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/tcwv/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "tcwv",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/tcwv"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "u10",
-    "metadata": {
-      "long_name": "u10",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/u10"
+    "reanalysis/era5/daily/u": {
+      "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "u",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/u"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u10/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "u200",
-    "metadata": {
-      "long_name": "u",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/u200"
+    "reanalysis/era5/daily/u10": {
+      "description": "u10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u10/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "u10",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/u10"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u200/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "u500",
-    "metadata": {
-      "long_name": "u",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/u500"
+    "reanalysis/era5/daily/u200": {
+      "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u200/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "u",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/u200"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u500/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "u850",
-    "metadata": {
-      "long_name": "u",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/u850"
+    "reanalysis/era5/daily/u500": {
+      "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u500/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "u",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/u500"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u850/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "v",
-    "metadata": {
-      "long_name": "v",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/v"
+    "reanalysis/era5/daily/u850": {
+      "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/u850/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "u",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/u850"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "v10",
-    "metadata": {
-      "long_name": "v10",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/v10"
+    "reanalysis/era5/daily/v": {
+      "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "v",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/v"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v10/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "v200",
-    "metadata": {
-      "long_name": "v",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/v200"
+    "reanalysis/era5/daily/v10": {
+      "description": "v10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v10/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "v10",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/v10"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v200/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "v500",
-    "metadata": {
-      "long_name": "v",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/v500"
+    "reanalysis/era5/daily/v200": {
+      "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v200/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "v",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/v200"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v500/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "v850",
-    "metadata": {
-      "long_name": "v",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/v850"
+    "reanalysis/era5/daily/v500": {
+      "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v500/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "v",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/v500"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v850/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "vimd",
-    "metadata": {
-      "long_name": "vimd",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/vimd"
+    "reanalysis/era5/daily/v850": {
+      "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/v850/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "v",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/v850"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vimd/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "vinevf",
-    "metadata": {
-      "long_name": "p71.162",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinevf"
+    "reanalysis/era5/daily/vimd": {
+      "description": "vimd (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vimd/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "vimd",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/vimd"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinevf/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "vinwvf",
-    "metadata": {
-      "long_name": "p72.162",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinwvf"
+    "reanalysis/era5/daily/vinevf": {
+      "description": "p71.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinevf/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "p71.162",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinevf"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinwvf/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "z",
-    "metadata": {
-      "long_name": "z",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 44,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/z"
+    "reanalysis/era5/daily/vinwvf": {
+      "description": "p72.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinwvf/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "p72.162",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinwvf"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "z200",
-    "metadata": {
-      "long_name": "z",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/z200"
+    "reanalysis/era5/daily/z": {
+      "description": "z (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "z",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 44,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/z"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z200/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "z500",
-    "metadata": {
-      "long_name": "z",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/z500"
+    "reanalysis/era5/daily/z200": {
+      "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z200/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "z",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/z200"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z500/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "daily",
-    "variable": "z850",
-    "metadata": {
-      "long_name": "z",
-      "units": "unknown",
-      "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-      "n_files": 84,
-      "data_location": "/data/esplab/shared/reanalysis/era5/daily/z850"
+    "reanalysis/era5/daily/z500": {
+      "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z500/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "z",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/z500"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z850/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "evap",
-    "metadata": {
-      "long_name": "Evaporation",
-      "units": "m of water equivalent",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/evap"
+    "reanalysis/era5/daily/z850": {
+      "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/daily/z850/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "z",
+        "units": "unknown",
+        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "n_files": 84,
+        "data_location": "/data/esplab/shared/reanalysis/era5/daily/z850"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/evap/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "olr",
-    "metadata": {
-      "long_name": "Top net long-wave (thermal) radiation",
-      "units": "J m**-2",
-      "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1003,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/olr"
+    "reanalysis/era5/hourly/evap": {
+      "description": "Evaporation (m of water equivalent), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/evap/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Evaporation",
+        "units": "m of water equivalent",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/evap"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/olr/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "omega",
-    "metadata": {
-      "long_name": "Vertical velocity",
-      "units": "Pa s**-1",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/omega"
+    "reanalysis/era5/hourly/olr": {
+      "description": "Top net long-wave (thermal) radiation (J m**-2), 1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/olr/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Top net long-wave (thermal) radiation",
+        "units": "J m**-2",
+        "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1003,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/olr"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/omega/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "precip",
-    "metadata": {
-      "long_name": "Total precipitation",
-      "units": "m",
-      "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1003,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/precip"
+    "reanalysis/era5/hourly/omega": {
+      "description": "Vertical velocity (Pa s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/omega/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Vertical velocity",
+        "units": "Pa s**-1",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/omega"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/precip/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "psfc",
-    "metadata": {
-      "long_name": "Surface pressure",
-      "units": "Pa",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 541,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/psfc"
+    "reanalysis/era5/hourly/precip": {
+      "description": "Total precipitation (m), 1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/precip/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Total precipitation",
+        "units": "m",
+        "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1003,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/precip"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/psfc/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "q",
-    "metadata": {
-      "long_name": "Specific humidity",
-      "units": "kg kg**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1006,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/q"
+    "reanalysis/era5/hourly/psfc": {
+      "description": "Surface pressure (Pa), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/psfc/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Surface pressure",
+        "units": "Pa",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 541,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/psfc"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/q/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "sst",
-    "metadata": {
-      "long_name": "Sea surface temperature",
-      "units": "K",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1008,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/sst"
+    "reanalysis/era5/hourly/q": {
+      "description": "Specific humidity (kg kg**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/q/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Specific humidity",
+        "units": "kg kg**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1006,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/q"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/sst/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "swvl1p",
-    "metadata": {
-      "long_name": "Volumetric soil water layer 1",
-      "units": "m**3 m**-3",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1004,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p"
+    "reanalysis/era5/hourly/sst": {
+      "description": "Sea surface temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/sst/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Sea surface temperature",
+        "units": "K",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1008,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/sst"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "t",
-    "metadata": {
-      "long_name": "Temperature",
-      "units": "K",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1006,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t"
+    "reanalysis/era5/hourly/swvl1p": {
+      "description": "Volumetric soil water layer 1 (m**3 m**-3), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Volumetric soil water layer 1",
+        "units": "m**3 m**-3",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1004,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "t2m",
-    "metadata": {
-      "long_name": "2 metre temperature",
-      "units": "K",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1003,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t2m"
+    "reanalysis/era5/hourly/t": {
+      "description": "Temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Temperature",
+        "units": "K",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1006,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t2m/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "tcwv",
-    "metadata": {
-      "long_name": "Total column vertically-integrated water vapour",
-      "units": "kg m**-2",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/tcwv"
+    "reanalysis/era5/hourly/t2m": {
+      "description": "2 metre temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t2m/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "2 metre temperature",
+        "units": "K",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1003,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t2m"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/tcwv/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "u",
-    "metadata": {
-      "long_name": "U component of wind",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1008,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/u"
+    "reanalysis/era5/hourly/tcwv": {
+      "description": "Total column vertically-integrated water vapour (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/tcwv/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Total column vertically-integrated water vapour",
+        "units": "kg m**-2",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/tcwv"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/u/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "v",
-    "metadata": {
-      "long_name": "V component of wind",
-      "units": "m s**-1",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1008,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/v"
+    "reanalysis/era5/hourly/u": {
+      "description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/u/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "U component of wind",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1008,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/u"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/v/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "vimd",
-    "metadata": {
-      "long_name": "Vertically integrated moisture divergence",
-      "units": "kg m**-2",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vimd"
+    "reanalysis/era5/hourly/v": {
+      "description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/v/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "V component of wind",
+        "units": "m s**-1",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1008,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/v"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vimd/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "vinevf",
-    "metadata": {
-      "long_name": "Vertical integral of eastward water vapour flux",
-      "units": "kg m**-1 s**-1",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinevf"
+    "reanalysis/era5/hourly/vimd": {
+      "description": "Vertically integrated moisture divergence (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vimd/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Vertically integrated moisture divergence",
+        "units": "kg m**-2",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vimd"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinevf/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "vinwvf",
-    "metadata": {
-      "long_name": "Vertical integral of northward water vapour flux",
-      "units": "kg m**-1 s**-1",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf"
+    "reanalysis/era5/hourly/vinevf": {
+      "description": "Vertical integral of eastward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinevf/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Vertical integral of eastward water vapour flux",
+        "units": "kg m**-1 s**-1",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinevf"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf/*.nc"
-  },
-  {
-    "dataset": "era5",
-    "temporal_resolution": "hourly",
-    "variable": "z",
-    "metadata": {
-      "long_name": "Geopotential",
-      "units": "m**2 s**-2",
-      "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-      "n_files": 1008,
-      "data_location": "/data/esplab/shared/reanalysis/era5/hourly/z"
+    "reanalysis/era5/hourly/vinwvf": {
+      "description": "Vertical integral of northward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Vertical integral of northward water vapour flux",
+        "units": "kg m**-1 s**-1",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/z/*.nc"
-  },
-  {
-    "dataset": "era5-land",
-    "temporal_resolution": "daily",
-    "variable": "precip",
-    "metadata": {
-      "long_name": "tp",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/precip"
+    "reanalysis/era5/hourly/z": {
+      "description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5/hourly/z/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Geopotential",
+        "units": "m**2 s**-2",
+        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "n_files": 1008,
+        "data_location": "/data/esplab/shared/reanalysis/era5/hourly/z"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/precip/*.nc"
-  },
-  {
-    "dataset": "era5-land",
-    "temporal_resolution": "daily",
-    "variable": "t2m",
-    "metadata": {
-      "long_name": "t2m",
-      "units": "unknown",
-      "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-      "n_files": 45,
-      "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/t2m"
+    "reanalysis/era5-land/daily/precip": {
+      "description": "tp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/precip/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "tp",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/precip"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/t2m/*.nc"
-  },
-  {
-    "dataset": "era5-land",
-    "temporal_resolution": "hourly",
-    "variable": "precip",
-    "metadata": {
-      "long_name": "Total precipitation",
-      "units": "m",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/precip"
+    "reanalysis/era5-land/daily/t2m": {
+      "description": "t2m (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/t2m/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "t2m",
+        "units": "unknown",
+        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "n_files": 45,
+        "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/t2m"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/precip/*.nc"
-  },
-  {
-    "dataset": "era5-land",
-    "temporal_resolution": "hourly",
-    "variable": "t2m",
-    "metadata": {
-      "long_name": "2 metre temperature",
-      "units": "K",
-      "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-      "n_files": 540,
-      "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m"
+    "reanalysis/era5-land/hourly/precip": {
+      "description": "Total precipitation (m), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/precip/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "Total precipitation",
+        "units": "m",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/precip"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m/*.nc"
-  },
-  {
-    "dataset": "merra-2",
-    "temporal_resolution": "daily",
-    "variable": "OMEGA500",
-    "metadata": {
-      "long_name": "vertical_pressure_velocity",
-      "units": "Pa s-1",
-      "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500"
+    "reanalysis/era5-land/hourly/t2m": {
+      "description": "2 metre temperature (K), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "2 metre temperature",
+        "units": "K",
+        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "n_files": 540,
+        "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500/*.nc"
-  },
-  {
-    "dataset": "merra-2",
-    "temporal_resolution": "daily",
-    "variable": "zg500",
-    "metadata": {
-      "long_name": "edge_heights",
-      "units": "m",
-      "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
-      "n_files": 1,
-      "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/zg500"
+    "reanalysis/merra-2/daily/OMEGA500": {
+      "description": "vertical_pressure_velocity (Pa s-1), 1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "vertical_pressure_velocity",
+        "units": "Pa s-1",
+        "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500"
+      }
     },
-    "urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/zg500/*.nc"
+    "reanalysis/merra-2/daily/zg500": {
+      "description": "edge_heights (m), 1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+      "driver": "netcdf",
+      "args": {
+        "urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/zg500/*.nc",
+        "engine": "netcdf4"
+      },
+      "metadata": {
+        "long_name": "edge_heights",
+        "units": "m",
+        "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+        "n_files": 1,
+        "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/zg500"
+      }
+    }
   }
-]
+}
