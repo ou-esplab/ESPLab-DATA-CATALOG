@@ -1,109 +1,161 @@
-import os
 import yaml
+import html
+import os
+import json
 
-# Paths to your YAML catalogs
-OBS_YAML = "catalogs/obs.yaml"
-REANALYSIS_YAML = "catalogs/reanalysis.yaml"
-
-# Output directory for generated HTML files
+# constants
+CATALOG_DIR = "catalogs"
 OUTPUT_DIR = "docs"
 
-# Simple HTML template with placeholders
-HTML_TEMPLATE = """<!DOCTYPE html>
+# index.html content
+INDEX_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>{title}</title>
+<meta charset="UTF-8" />
+<title>Data Catalog Home</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+  a { display: block; margin: 1em 0; color: #2c3e50; font-size: 1.2em; }
+</style>
 </head>
 <body>
-    <h1>{title}</h1>
-    <p><strong>Description:</strong> {description}</p>
-    <p><strong>Units:</strong> {units}</p>
-    <p><strong>Date range:</strong> {date_range}</p>
-    <p><strong>Number of files:</strong> {n_files}</p>
-    <p><strong>Data location:</strong> {data_location}</p>
+<h1>ESPLab Data Catalog</h1>
+<a href="obs.html">Observational Data</a>
+<a href="reanalysis.html">Reanalysis Data</a>
 </body>
 </html>
 """
 
-def load_catalog(path):
-    with open(path, "r") as f:
-        catalog = yaml.safe_load(f)
-    return catalog
+def generate_filtered_html(catalog, output_path, title):
+    keys = list(catalog.get("sources", {}).keys())
 
-def generate_html_for_catalog(catalog, category_name):
-    sources = catalog.get("sources", {})
-    print(f"Generating HTML pages for {category_name} ({len(sources)} datasets)...")
-    
-    for source_key, source_info in sources.items():
-        # source_key example: "obs/gridded/atm/precip/monthly/NOAA-PRECL"
-        # split key to get folder structure + filename
-        parts = source_key.split("/")
-        # last part is dataset name, use for filename
-        filename = parts[-1] + ".html"
-        # folders for path = everything except last part
-        folder_path = os.path.join(OUTPUT_DIR, *parts[:-1])
-        os.makedirs(folder_path, exist_ok=True)
-        
-        # gather metadata for HTML page
-        description = source_info.get("description", "No description")
-        meta = source_info.get("metadata", {})
-        units = meta.get("units", "unknown")
-        date_range = meta.get("date_range", "unknown")
-        n_files = meta.get("n_files", "unknown")
-        data_location = meta.get("data_location", "unknown")
-        
-        # build title from source key or long_name
-        title = f"{source_key}"
-        if meta.get("long_name"):
-            title = meta.get("long_name")
-        
-        # fill template
-        html_content = HTML_TEMPLATE.format(
-            title=title,
-            description=description,
-            units=units,
-            date_range=date_range,
-            n_files=n_files,
-            data_location=data_location
-        )
-        
-        output_file = os.path.join(folder_path, filename)
-        with open(output_file, "w") as f:
-            f.write(html_content)
-        
-        print(f"  - Wrote {output_file}")
+    domain_set = set()
+    variable_set = set()
 
-def generate_overview_page(category, entries, OUTPUT_DIR):
-    # category: "obs" or "reanalysis"
-    page_path = os.path.join(OUTPUT_DIR, f"{category}.html")
-    with open(page_path, 'w') as f:
-        f.write(f"<html><head><title>{category.capitalize()} Data Overview</title></head><body>\n")
-        f.write(f"<h1>{category.capitalize()} Data</h1>\n<ul>\n")
-        for key, info in sorted(entries.items()):
-            # key example: obs/gridded/atm/precip/monthly/NOAA-PRECL
-            # Build relative URL to detailed page HTML:
-            # Assuming detailed pages are under OUTPUT_DIR/obs/... or output_dir/reanalysis/...
-            relative_path = key.replace("/", "_") + ".html"  # or your existing naming scheme
-            f.write(f'<li><a href="{category}/{relative_path}">{info["description"]}</a></li>\n')
-        f.write("</ul>\n")
-        f.write('<p><a href="index.html">Back to Home</a></p>\n')
-        f.write("</body></html>\n")
+    entries = []
 
+    for key in keys:
+        parts = key.split("/")
+        if len(parts) < 4:
+            continue
+        domain = parts[2]
+        variable = parts[3]
+        domain_set.add(domain)
+        variable_set.add(variable)
+
+        source = catalog["sources"][key]
+        desc = html.escape(source.get("description", "No description"))
+        meta = source.get("metadata", {})
+        units = html.escape(meta.get("units", "unknown"))
+        date_range = html.escape(meta.get("date_range", "unknown"))
+
+        entries.append({
+            "domain": domain,
+            "variable": variable,
+            "desc": desc,
+            "units": units,
+            "date_range": date_range
+        })
+
+    domains_sorted = sorted(domain_set)
+    variables_sorted = sorted(variable_set)
+
+    def build_options(options):
+        return "\n".join([f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>' for opt in options])
+
+    domain_options_html = '<option value="all">All</option>\n' + build_options(domains_sorted)
+    variable_options_html = '<option value="all">All</option>\n' + build_options(variables_sorted)
+
+    entries_json = json.dumps(entries, indent=2)
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>{title}</title>
+<style>
+  body {{ font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }}
+  h1 {{ color: #2c3e50; }}
+  ul {{ list-style-type: none; padding-left: 0; }}
+  li {{ background: white; margin: 0.5em 0; padding: 0.75em; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+  .desc {{ font-weight: bold; color: #34495e; }}
+  .meta {{ color: #7f8c8d; font-size: 0.9em; }}
+  label {{ margin-right: 0.5em; }}
+  select {{ margin-right: 2em; }}
+</style>
+</head>
+<body>
+<h1>{title}</h1>
+
+<a href="index.html">⬅ Back to Home</a><br/>
+
+<label for="domain-select">Domain:</label>
+<select id="domain-select">
+{domain_options_html}
+</select>
+
+<label for="variable-select">Variable:</label>
+<select id="variable-select">
+{variable_options_html}
+</select>
+
+<ul id="catalog-list"></ul>
+
+<script>
+const catalogEntries = {entries_json};
+
+function renderCatalog(entries) {{
+  const ul = document.getElementById('catalog-list');
+  ul.innerHTML = '';
+  if(entries.length === 0) {{
+    ul.innerHTML = '<li><em>No matching datasets found.</em></li>';
+    return;
+  }}
+  entries.forEach(e => {{
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="desc">${{e.desc}}</span><br/><span class="meta">(${{e.units}}), ${{e.date_range}}</span>`;
+    ul.appendChild(li);
+  }});
+}}
+
+function filterCatalog() {{
+  const domain = document.getElementById('domain-select').value;
+  const variable = document.getElementById('variable-select').value;
+
+  const filtered = catalogEntries.filter(e =>
+    (domain === 'all' || e.domain === domain) &&
+    (variable === 'all' || e.variable === variable)
+  );
+  renderCatalog(filtered);
+}}
+
+document.getElementById('domain-select').addEventListener('change', filterCatalog);
+document.getElementById('variable-select').addEventListener('change', filterCatalog);
+
+// Show all by default
+renderCatalog(catalogEntries);
+</script>
+
+</body>
+</html>"""
+
+    with open(output_path, "w") as f:
+        f.write(html_content)
+    print(f"✅ wrote {output_path}")
 
 def main():
-    # Load and generate for obs
-    obs_catalog = load_catalog(OBS_YAML)
-    generate_html_for_catalog(obs_catalog, "Observations")
-    
-    # Load and generate for reanalysis
-    reanalysis_catalog = load_catalog(REANALYSIS_YAML)
-    generate_html_for_catalog(reanalysis_catalog, "Reanalysis")
+    # ensure output dir exists
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # Example usage after detailed pages generation:
-    generate_overview_page("obs", obs_catalog["sources"], OUTPUT_DIR)
-    generate_overview_page("reanalysis", reanalysis_catalog["sources"], OUTPUT_DIR)
+    # index.html
+    with open(os.path.join(OUTPUT_DIR, "index.html"), "w") as f:
+        f.write(INDEX_HTML)
+    print("✅ wrote index.html")
 
-if __name__ == "__main__":
-    main()
+    # obs.html
+    with open(os.path.join(CATALOG_DIR, "obs.yaml")) as f:
+        obs_catalog = yaml.safe_load(f)
+    generate_filtered_html(obs_catalog, os.path.join(OUTPUT_DIR, "obs.html"), "Observational Data Catalog")
+
+    # reanalysis.htm
 
