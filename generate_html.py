@@ -1,399 +1,218 @@
-import os
-import yaml
 import json
+import os
 
-OUTPUT_DIR = "docs"  # Github Pages root folder
-OBS_YAML = "catalogs/obs.yaml"
-REAN_YAML = "catalogs/reanalysis.yaml"
+OUTPUT_DIR = "docs"
 
-def yaml_to_json(yaml_path, json_path):
-    with open(yaml_path, 'r') as f:
-        catalog = yaml.safe_load(f)
-    with open(json_path, 'w') as f:
-        json.dump(catalog, f, indent=2)
-    print(f"✅ Wrote JSON catalog: {json_path}")
+def load_json(filename):
+    with open(filename, 'r') as f:
+        return json.load(f)
 
-def generate_index_html(output_dir):
-    html = '''<!DOCTYPE html>
+def generate_page(title, catalog, category_name):
+    # Extract dropdown options for filtering based on catalog keys and metadata
+    # For obs: domain, dataset, temporal_resolution, variable (split key)
+    # For reanalysis: dataset, temporal_resolution, variable
+
+    keys = list(catalog["sources"].keys())
+    # Parse keys differently per category
+    # obs keys look like: obs/gridded/<domain>/<variable>/<temporal_resolution>/<dataset>
+    # reanalysis keys look like: reanalysis/<dataset>/<temporal_resolution>/<variable>
+
+    # Collect dropdown options
+    dropdowns = {}
+    if category_name == "Obs":
+        dropdowns = {
+            "Domain": set(),
+            "Variable": set(),
+            "Temporal Resolution": set(),
+            "Dataset": set()
+        }
+        for k in keys:
+            parts = k.split("/")
+            # obs/gridded/<domain>/<variable>/<temporal_resolution>/<dataset>
+            if len(parts) >= 6:
+                _, _, domain, variable, temp_res, dataset = parts[:6]
+                dropdowns["Domain"].add(domain)
+                dropdowns["Variable"].add(variable)
+                dropdowns["Temporal Resolution"].add(temp_res)
+                dropdowns["Dataset"].add(dataset)
+
+    elif category_name == "Reanalysis":
+        dropdowns = {
+            "Dataset": set(),
+            "Temporal Resolution": set(),
+            "Variable": set()
+        }
+        for k in keys:
+            parts = k.split("/")
+            # reanalysis/<dataset>/<temporal_resolution>/<variable>
+            if len(parts) >= 4:
+                _, dataset, temp_res, variable = parts[:4]
+                dropdowns["Dataset"].add(dataset)
+                dropdowns["Temporal Resolution"].add(temp_res)
+                dropdowns["Variable"].add(variable)
+
+    # Sort dropdown options
+    for k in dropdowns:
+        dropdowns[k] = sorted(dropdowns[k])
+
+    # Begin HTML
+    html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Climate Data Catalog</title>
+<title>ESPLab Data Catalog - {category_name}</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  .tabs { overflow: hidden; background: #eee; }
-  .tab-button {
-    background: #ddd;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    float: left;
-    font-weight: bold;
-  }
-  .tab-button.active { background: white; border-bottom: 2px solid #000; }
-  .tab-content { clear: both; padding: 20px; border: 1px solid #ddd; background: white; }
-  select, button { margin: 5px 10px 20px 0; padding: 5px; }
-  .dataset-list { margin-top: 20px; }
-  .dataset-item { margin-bottom: 10px; }
-  .dataset-name { font-weight: bold; cursor: pointer; }
-  .metadata { margin-left: 20px; font-style: italic; display: none; }
+body {{ font-family: Arial, sans-serif; margin: 20px; }}
+h1 {{ margin-bottom: 0.5em; }}
+label {{ font-weight: bold; margin-right: 0.5em; }}
+select {{ margin-right: 1em; margin-bottom: 1em; }}
+.dataset {{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}}
+.dataset b {{ font-size: 1.1em; }}
+.metadata div {{ margin-left: 10px; }}
 </style>
 </head>
 <body>
+<h1>ESPLab Data Catalog - {category_name}</h1>
+<div id="filters">
+"""
 
-<h1>Climate Data Catalog</h1>
+    # Add dropdowns in HTML
+    for dd_name, options in dropdowns.items():
+        html += f'<label for="{dd_name}">{dd_name}:</label>'
+        html += f'<select id="{dd_name}">'
+        html += f'<option value="">-- All --</option>'
+        for opt in options:
+            html += f'<option value="{opt}">{opt}</option>'
+        html += "</select>"
 
-<div class="tabs">
-  <button class="tab-button active" onclick="showTab('obs')">Observations</button>
-  <button class="tab-button" onclick="showTab('reanalysis')">Reanalysis</button>
-</div>
+    html += "</div>\n<div id='datasets'>\n"
 
-<div id="obs" class="tab-content">
-  <h2>Observations</h2>
-  <label>Domain:
-    <select id="obs-domain"></select>
-  </label>
-  <label>Dataset:
-    <select id="obs-dataset" disabled></select>
-  </label>
-  <label>Temporal Resolution:
-    <select id="obs-tempres" disabled></select>
-  </label>
-  <label>Variable:
-    <select id="obs-variable" disabled></select>
-  </label>
-  <div id="obs-datasets" class="dataset-list"></div>
-</div>
+    # Add datasets container; initially empty, fill with JS for filtering
+    html += "</div>\n"
 
-<div id="reanalysis" class="tab-content" style="display:none;">
-  <h2>Reanalysis</h2>
-  <label>Dataset:
-    <select id="rean-dataset"></select>
-  </label>
-  <label>Temporal Resolution:
-    <select id="rean-tempres" disabled></select>
-  </label>
-  <label>Variable:
-    <select id="rean-variable" disabled></select>
-  </label>
-  <div id="rean-datasets" class="dataset-list"></div>
-</div>
-
+    # Add JS to store data and filter
+    html += """
 <script>
-let obsCatalog = null;
-let reanCatalog = null;
+const catalog = """
+    # Embed the catalog JSON as a JS object
+    html += json.dumps(catalog["sources"], indent=2)
+    html += """;
 
-function showTab(tabName) {
-  document.querySelectorAll('.tab-content').forEach(div => div.style.display = 'none');
-  document.getElementById(tabName).style.display = 'block';
-  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+function createDatasetDiv(key, data) {
+  const container = document.createElement('div');
+  container.className = 'dataset';
+
+  // Dataset name bold
+  const nameDiv = document.createElement('div');
+  nameDiv.innerHTML = `<b>${key}</b>`;
+  container.appendChild(nameDiv);
+
+  // Description, Units, Date Range, Number of Files, Data Location
+  const metaDiv = document.createElement('div');
+  metaDiv.className = 'metadata';
+
+  const desc = data.description || 'No description available';
+  const units = data.metadata?.units || 'unknown';
+  const date_range = data.metadata?.date_range || 'unknown';
+  const n_files = data.metadata?.n_files || 'unknown';
+  const urlpath = data.args?.urlpath || 'unknown';
+
+  metaDiv.innerHTML = `
+    <div><b>Description:</b> ${desc}</div>
+    <div><b>Units:</b> ${units}</div>
+    <div><b>Date Range:</b> ${date_range}</div>
+    <div><b>Number of Files:</b> ${n_files}</div>
+    <div><b>Data Location:</b> ${urlpath}</div>
+  `;
+
+  container.appendChild(metaDiv);
+  return container;
 }
 
-// Utilities to get unique sorted values from catalog keys
-function uniqueSorted(arr) {
-  return [...new Set(arr)].sort();
+function getKeyParts(key) {
+  return key.split('/');
 }
 
-// --- OBSERVATIONS --- //
-function initObsDropdowns() {
-  const keys = Object.keys(obsCatalog.sources);
+function filterDatasets() {
+  const container = document.getElementById('datasets');
+  container.innerHTML = '';
 
-  // Extract domain, dataset, tempres, variable from keys like:
-  // obs/gridded/<domain>/<variable>/<tempres>/<dataset>
-  let domains = new Set();
-  keys.forEach(k => {
-    const parts = k.split('/');
-    if(parts.length === 6) {
-      domains.add(parts[2]);
-    }
-  });
-  const domainSelect = document.getElementById('obs-domain');
-  domainSelect.innerHTML = '<option value="">--Select Domain--</option>';
-  uniqueSorted([...domains]).forEach(d => {
-    domainSelect.innerHTML += `<option value="${d}">${d}</option>`;
-  });
-
-  // Clear and disable others initially
-  disableSelect('obs-dataset');
-  disableSelect('obs-tempres');
-  disableSelect('obs-variable');
-  clearDiv('obs-datasets');
-
-  domainSelect.onchange = () => {
-    const domain = domainSelect.value;
-    if(!domain) {
-      disableSelect('obs-dataset');
-      disableSelect('obs-tempres');
-      disableSelect('obs-variable');
-      clearDiv('obs-datasets');
-      return;
-    }
-
-    // Populate datasets for this domain
-    const datasets = new Set();
-    keys.forEach(k => {
-      const parts = k.split('/');
-      if(parts.length === 6 && parts[2] === domain) {
-        datasets.add(parts[5]);
-      }
-    });
-    const datasetSelect = document.getElementById('obs-dataset');
-    datasetSelect.innerHTML = '<option value="">--Select Dataset--</option>';
-    uniqueSorted([...datasets]).forEach(ds => {
-      datasetSelect.innerHTML += `<option value="${ds}">${ds}</option>`;
-    });
-    datasetSelect.disabled = false;
-
-    disableSelect('obs-tempres');
-    disableSelect('obs-variable');
-    clearDiv('obs-datasets');
-  };
-
-  document.getElementById('obs-dataset').onchange = () => {
-    const domain = domainSelect.value;
-    const dataset = document.getElementById('obs-dataset').value;
-    if(!dataset) {
-      disableSelect('obs-tempres');
-      disableSelect('obs-variable');
-      clearDiv('obs-datasets');
-      return;
-    }
-    // Populate temporal resolutions
-    const tempresSet = new Set();
-    Object.keys(obsCatalog.sources).forEach(k => {
-      const parts = k.split('/');
-      if(parts.length === 6 && parts[2] === domain && parts[5] === dataset) {
-        tempresSet.add(parts[4]);
-      }
-    });
-    const tempresSelect = document.getElementById('obs-tempres');
-    tempresSelect.innerHTML = '<option value="">--Select Temporal Resolution--</option>';
-    uniqueSorted([...tempresSet]).forEach(tr => {
-      tempresSelect.innerHTML += `<option value="${tr}">${tr}</option>`;
-    });
-    tempresSelect.disabled = false;
-
-    disableSelect('obs-variable');
-    clearDiv('obs-datasets');
-  };
-
-  document.getElementById('obs-tempres').onchange = () => {
-    const domain = domainSelect.value;
-    const dataset = document.getElementById('obs-dataset').value;
-    const tempres = document.getElementById('obs-tempres').value;
-    if(!tempres) {
-      disableSelect('obs-variable');
-      clearDiv('obs-datasets');
-      return;
-    }
-    // Populate variables
-    const varsSet = new Set();
-    Object.keys(obsCatalog.sources).forEach(k => {
-      const parts = k.split('/');
-      if(parts.length === 6 && parts[2] === domain && parts[5] === dataset && parts[4] === tempres) {
-        varsSet.add(parts[3]);
-      }
-    });
-    const varSelect = document.getElementById('obs-variable');
-    varSelect.innerHTML = '<option value="">--Select Variable--</option>';
-    uniqueSorted([...varsSet]).forEach(v => {
-      varSelect.innerHTML += `<option value="${v}">${v}</option>`;
-    });
-    varSelect.disabled = false;
-    clearDiv('obs-datasets');
-  };
-
-  document.getElementById('obs-variable').onchange = () => {
-    const domain = domainSelect.value;
-    const dataset = document.getElementById('obs-dataset').value;
-    const tempres = document.getElementById('obs-tempres').value;
-    const variable = document.getElementById('obs-variable').value;
-    if(!variable) {
-      clearDiv('obs-datasets');
-      return;
-    }
-    // Show matching datasets
-    const listDiv = document.getElementById('obs-datasets');
-    listDiv.innerHTML = '';
-    Object.entries(obsCatalog.sources).forEach(([k,v]) => {
-      const parts = k.split('/');
-      if(parts.length === 6 && parts[2] === domain && parts[3] === variable && parts[4] === tempres && parts[5] === dataset) {
-        listDiv.innerHTML += `
-          <div class="dataset-item">
-            <div class="dataset-name" onclick="toggleMetadata(this.nextElementSibling)">${parts[5]}</div>
-            <div class="metadata">
-              <div><b>Description:</b> ${v.description}</div>
-              <div><b>Files:</b> ${v.metadata.n_files}</div>
-              <div><b>Data Location:</b> ${v.args.urlpath}</div>
-            </div>
-          </div>`;
-      }
-    });
-  };
-}
-
-// --- REANALYSIS --- //
-function initReanDropdowns() {
-  const keys = Object.keys(reanCatalog.sources);
-
-  // keys like: reanalysis/<dataset>/<tempres>/<variable>
-  let datasets = new Set();
-  keys.forEach(k => {
-    const parts = k.split('/');
-    if(parts.length === 4) {
-      datasets.add(parts[1]);
+  const filters = {};
+  ['Domain', 'Variable', 'Temporal Resolution', 'Dataset'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) {
+      filters[id] = el.value.trim();
     }
   });
 
-  const datasetSelect = document.getElementById('rean-dataset');
-  datasetSelect.innerHTML = '<option value="">--Select Dataset--</option>';
-  uniqueSorted([...datasets]).forEach(d => {
-    datasetSelect.innerHTML += `<option value="${d}">${d}</option>`;
+  Object.entries(catalog).forEach(([key, data]) => {
+    const parts = getKeyParts(key);
+    let match = true;
+
+    if(filters['Domain'] !== undefined && filters['Domain']) {
+      // obs keys: obs/gridded/<domain>/<variable>/<temporal_resolution>/<dataset>
+      // reanalysis keys: no domain, so skip filter
+      if(parts[0] === 'obs') {
+        if(parts[2] !== filters['Domain']) match = false;
+      }
+    }
+    if(filters['Variable'] && (parts[0] === 'obs' ? parts[3] !== filters['Variable'] : parts[3] !== filters['Variable'])) {
+      match = false;
+    }
+    if(filters['Temporal Resolution'] && (parts[0] === 'obs' ? parts[4] !== filters['Temporal Resolution'] : parts[2] !== filters['Temporal Resolution'])) {
+      match = false;
+    }
+    if(filters['Dataset'] && (parts[0] === 'obs' ? parts[5] !== filters['Dataset'] : parts[1] !== filters['Dataset'])) {
+      match = false;
+    }
+
+    if(match) {
+      container.appendChild(createDatasetDiv(key, data));
+    }
   });
-
-  disableSelect('rean-tempres');
-  disableSelect('rean-variable');
-  clearDiv('rean-datasets');
-
-  datasetSelect.onchange = () => {
-    const dataset = datasetSelect.value;
-    if(!dataset) {
-      disableSelect('rean-tempres');
-      disableSelect('rean-variable');
-      clearDiv('rean-datasets');
-      return;
-    }
-
-    // Populate temporal resolution
-    const tempresSet = new Set();
-    keys.forEach(k => {
-      const parts = k.split('/');
-      if(parts.length === 4 && parts[1] === dataset) {
-        tempresSet.add(parts[2]);
-      }
-    });
-
-    const tempresSelect = document.getElementById('rean-tempres');
-    tempresSelect.innerHTML = '<option value="">--Select Temporal Resolution--</option>';
-    uniqueSorted([...tempresSet]).forEach(t => {
-      tempresSelect.innerHTML += `<option value="${t}">${t}</option>`;
-    });
-    tempresSelect.disabled = false;
-
-    disableSelect('rean-variable');
-    clearDiv('rean-datasets');
-  };
-
-  document.getElementById('rean-tempres').onchange = () => {
-    const dataset = datasetSelect.value;
-    const tempres = document.getElementById('rean-tempres').value;
-    if(!tempres) {
-      disableSelect('rean-variable');
-      clearDiv('rean-datasets');
-      return;
-    }
-
-    // Populate variables
-    const varsSet = new Set();
-    keys.forEach(k => {
-      const parts = k.split('/');
-      if(parts.length === 4 && parts[1] === dataset && parts[2] === tempres) {
-        varsSet.add(parts[3]);
-      }
-    });
-
-    const varSelect = document.getElementById('rean-variable');
-    varSelect.innerHTML = '<option value="">--Select Variable--</option>';
-    uniqueSorted([...varsSet]).forEach(v => {
-      varSelect.innerHTML += `<option value="${v}">${v}</option>`;
-    });
-    varSelect.disabled = false;
-    clearDiv('rean-datasets');
-  };
-
-  document.getElementById('rean-variable').onchange = () => {
-    const dataset = datasetSelect.value;
-    const tempres = document.getElementById('rean-tempres').value;
-    const variable = document.getElementById('rean-variable').value;
-    if(!variable) {
-      clearDiv('rean-datasets');
-      return;
-    }
-    const listDiv = document.getElementById('rean-datasets');
-    listDiv.innerHTML = '';
-    Object.entries(reanCatalog.sources).forEach(([k,v]) => {
-      const parts = k.split('/');
-      if(parts.length === 4 && parts[1] === dataset && parts[2] === tempres && parts[3] === variable) {
-        listDiv.innerHTML += `
-          <div class="dataset-item">
-            <div class="dataset-name" onclick="toggleMetadata(this.nextElementSibling)">${variable}</div>
-            <div class="metadata">
-              <div><b>Description:</b> ${v.description}</div>
-              <div><b>Files:</b> ${v.metadata.n_files}</div>
-              <div><b>Data Location:</b> ${v.args.urlpath}</div>
-            </div>
-          </div>`;
-      }
-    });
-  };
 }
 
-// Helpers
-function disableSelect(id) {
+// Add event listeners to dropdowns
+['Domain', 'Variable', 'Temporal Resolution', 'Dataset'].forEach(id => {
   const el = document.getElementById(id);
-  el.disabled = true;
-  el.innerHTML = '<option value="">--Select--</option>';
-}
-function clearDiv(id) {
-  document.getElementById(id).innerHTML = '';
-}
-function toggleMetadata(elem) {
-  if(elem.style.display === 'none' || elem.style.display === '') {
-    elem.style.display = 'block';
-  } else {
-    elem.style.display = 'none';
+  if(el) {
+    el.addEventListener('change', filterDatasets);
   }
-}
+});
 
-// Load catalogs and initialize
-async function loadCatalogs() {
-  try {
-    const [obsResp, reanResp] = await Promise.all([
-      fetch('obs.json'),
-      fetch('reanalysis.json')
-    ]);
-    obsCatalog = await obsResp.json();
-    reanCatalog = await reanResp.json();
-
-    initObsDropdowns();
-    initReanDropdowns();
-  } catch(err) {
-    console.error('Failed to load catalogs:', err);
-  }
-}
-
-window.onload = loadCatalogs;
-
+// Initial population
+filterDatasets();
 </script>
-
 </body>
-</html>'''
-    index_path = os.path.join(output_dir, "index.html")
-    with open(index_path, "w") as f:
-        f.write(html)
-    print(f"✅ Wrote {index_path}")
+</html>
+"""
+    return html
+
 
 def main():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    obs_catalog_file = os.path.join(OUTPUT_DIR, "obs.json")
+    reanalysis_catalog_file = os.path.join(OUTPUT_DIR, "reanalysis.json")
 
-    # Convert YAML to JSON for JS usage
-    yaml_to_json(OBS_YAML, os.path.join(OUTPUT_DIR, "obs.json"))
-    yaml_to_json(REAN_YAML, os.path.join(OUTPUT_DIR, "reanalysis.json"))
+    obs_catalog = load_json(obs_catalog_file)
+    reanalysis_catalog = load_json(reanalysis_catalog_file)
 
-    # Generate index.html with tabs and dropdowns
-    generate_index_html(OUTPUT_DIR)
+    # Generate Obs page
+    obs_html = generate_page("ESPLab Data Catalog", obs_catalog, "Obs")
+    with open(os.path.join(OUTPUT_DIR, "obs.html"), 'w') as f:
+        f.write(obs_html)
+    print("Generated obs.html")
+
+    # Generate Reanalysis page
+    reanalysis_html = generate_page("ESPLab Data Catalog", reanalysis_catalog, "Reanalysis")
+    with open(os.path.join(OUTPUT_DIR, "reanalysis.html"), 'w') as f:
+        f.write(reanalysis_html)
+    print("Generated reanalysis.html")
+
 
 if __name__ == "__main__":
     main()

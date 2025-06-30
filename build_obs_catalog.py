@@ -99,25 +99,19 @@ def build_obs_catalog(base_dir):
 
                     key = f"obs/gridded/{domain}/{variable}/{temp_res}/{dataset}"
                     catalog["sources"][key] = {
-                        "description": f"{meta['long_name']} ({meta['units']}), {meta['date_range']}",
-                        "driver": "netcdf",
-                        "args": {
-                            "urlpath": os.path.join(dataset_path, "*.nc"),
-                            "engine": "netcdf4"
-                        },
-                        "metadata": {
-                            "long_name": meta['long_name'],
-                            "units": meta['units'],
-                            "date_range": meta['date_range'],
-                            "n_files": meta['n_files'],
-                            "data_location": dataset_path,
-                            "category": "obs",
-                            "domain": domain,
-                            "variable": variable,
-                            "temporal_resolution": temp_res,
-                            "dataset": dataset
-                        }
-                    }
+                       "description": meta['long_name'],
+                       "driver": "netcdf",
+                       "args": {
+                           "urlpath": os.path.join(dataset_path, "*.nc"),
+                           "engine": "netcdf4"
+                       },
+                       "metadata": {
+                           "units": meta['units'],
+                           "date_range": meta['date_range'],
+                           "n_files": meta['n_files'],
+                           "data_location": dataset_path
+                       }
+                   }
 
     return catalog
 
