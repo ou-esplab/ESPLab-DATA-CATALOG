@@ -2,162 +2,232 @@ import os
 import json
 import yaml
 
+# Change these paths as needed
+OBS_JSON = "docs/obs.json"
+REANALYSIS_JSON = "docs/reanalysis.json"
 OUTPUT_DIR = "docs"
-OBS_JSON = os.path.join(OUTPUT_DIR, "obs.json")
-REANALYSIS_JSON = os.path.join(OUTPUT_DIR, "reanalysis.json")
 
-HTML_TEMPLATE = """
-<!DOCTYPE html>
+# Use University of Oklahoma colors
+OU_PRIMARY = "#c9000d"  # OU Crimson Red
+OU_SECONDARY = "#fdbb30"  # OU Gold
+OU_BG = "#ffffff"
+OU_TEXT = "#000000"
+
+def load_json(json_path):
+    with open(json_path) as f:
+        return json.load(f)
+
+def write_file(path, content):
+    with open(path, "w") as f:
+        f.write(content)
+    print(f"Written: {path}")
+
+def generate_index_page():
+    html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ESPLab Data Catalog</title>
 <style>
-  body {{ font-family: Arial, sans-serif; margin: 20px; }}
-  select {{ margin: 5px; padding: 5px; }}
-  .dataset {{ border: 1px solid #ccc; margin: 8px 0; padding: 10px; border-radius: 5px; }}
-  .dataset-name {{ font-weight: bold; font-size: 1.1em; margin-bottom: 4px; }}
-  .metadata {{ margin-left: 10px; font-size: 0.9em; color: #555; }}
-  .hidden {{ display: none; }}
+  body {{
+    font-family: Arial, sans-serif;
+    background-color: {OU_BG};
+    color: {OU_TEXT};
+    margin: 20px;
+  }}
+  h1 {{
+    color: {OU_PRIMARY};
+    border-bottom: 3px solid {OU_SECONDARY};
+    padding-bottom: 5px;
+  }}
+  .tab {{
+    overflow: hidden;
+    border-bottom: 2px solid {OU_PRIMARY};
+  }}
+  .tab button {{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.3s;
+    font-size: 16px;
+    color: {OU_PRIMARY};
+  }}
+  .tab button:hover {{
+    background-color: {OU_SECONDARY};
+    color: #000;
+  }}
+  .tab button.active {{
+    border-bottom: 3px solid {OU_PRIMARY};
+    font-weight: bold;
+  }}
+  .tabcontent {{
+    display: none;
+    padding: 15px 0px;
+  }}
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog</h1>
+  <h1>ESPLab Data Catalog</h1>
+  <div class="tab">
+    <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
+    <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
+  </div>
 
-{dropdowns}
+  <div id="obs" class="tabcontent" style="display:block;">
+    <iframe src="obs/index.html" style="border:none; width:100%; height:800px;"></iframe>
+  </div>
 
-<div id="datasets-container"></div>
+  <div id="reanalysis" class="tabcontent">
+    <iframe src="reanalysis/index.html" style="border:none; width:100%; height:800px;"></iframe>
+  </div>
 
 <script>
-const catalog = {catalog_json};
-
-const filterOrder = {filter_order};
-
-function createDropdown(id, options, label) {{
-  let sel = document.createElement("select");
-  sel.id = id;
-  sel.innerHTML = '<option value="">Select ' + label + '</option>';
-  options.forEach(opt => {{
-    let option = document.createElement("option");
-    option.value = opt;
-    option.textContent = opt;
-    sel.appendChild(option);
-  }});
-  return sel;
-}}
-
-function getUniqueValues(data, key) {{
-  const vals = new Set();
-  for (const dsKey in data.sources) {{
-    const parts = dsKey.split("/");
-    // keys vary by catalog, so map keys to positions
-    if (filterOrder[key] !== undefined && parts.length > filterOrder[key]) {{
-      vals.add(parts[filterOrder[key]]);
-    }}
+function openTab(evt, tabName) {{
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {{
+    tabcontent[i].style.display = "none";
   }}
-  return Array.from(vals).sort();
-}}
-
-function renderDatasets(selectedFilters) {{
-  const container = document.getElementById("datasets-container");
-  container.innerHTML = "";
-  for (const dsKey in catalog.sources) {{
-    const parts = dsKey.split("/");
-    let show = true;
-    for (const [filterName, pos] of Object.entries(filterOrder)) {{
-      const selectedVal = selectedFilters[filterName];
-      if (selectedVal && parts[pos] !== selectedVal) {{
-        show = false;
-        break;
-      }}
-    }}
-    if (!show) continue;
-
-    const ds = catalog.sources[dsKey];
-    const meta = ds.metadata || {{}};
-    const div = document.createElement("div");
-    div.className = "dataset";
-    div.innerHTML = `
-      <div class="dataset-name">${{parts.slice(-1)[0]}}</div>
-      <div class="metadata"><strong>Description:</strong> ${{ds.description || 'No description'}}<br/>
-      <strong>Date Range:</strong> ${{meta.date_range || 'unknown'}}<br/>
-      <strong>Units:</strong> ${{meta.units || 'unknown'}}<br/>
-      <strong>Files:</strong> ${{meta.n_files || 'unknown'}}<br/>
-      <strong>Data Location:</strong> ${{meta.data_location || 'unknown'}}</div>
-    `;
-    container.appendChild(div);
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {{
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }}
-  if (container.innerHTML === "") {{
-    container.textContent = "No datasets match the selected filters.";
-  }}
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }}
+</script>
 
-function setupFilters() {{
-  const filtersDiv = document.createElement("div");
-  filtersDiv.id = "filters";
+</body>
+</html>
+"""
+    write_file(os.path.join(OUTPUT_DIR, "index.html"), html)
 
-  const selectedFilters = {{}};
+def generate_data_page(data_json_path, output_subdir, dropdown_fields):
+    data = load_json(data_json_path)
+    dropdown_html = ""
+    for field in dropdown_fields:
+        options = sorted(set(entry.get(field, "Unknown") for entry in data["sources"].values()))
+        dropdown_html += f'<label for="{field}-select" style="font-weight:600;">{field.replace("_"," ").title()}: </label>'
+        dropdown_html += f'<select id="{field}-select"><option value="">-- Select {field} --</option>'
+        for opt in options:
+            dropdown_html += f'<option value="{opt}">{opt}</option>'
+        dropdown_html += '</select><br/><br/>'
 
-  // Create dropdowns in filterOrder keys order
-  for (const filterName of Object.keys(filterOrder)) {{
-    const options = getUniqueValues(catalog, filterName);
-    const dropdown = createDropdown("filter-" + filterName, options, filterName);
-    dropdown.addEventListener("change", (e) => {{
-      selectedFilters[filterName] = e.target.value || null;
-      renderDatasets(selectedFilters);
-      // Reset subsequent dropdowns
-      const keys = Object.keys(filterOrder);
-      const currentIndex = keys.indexOf(filterName);
-      for (let i = currentIndex + 1; i < keys.length; i++) {{
-        const d = document.getElementById("filter-" + keys[i]);
-        d.selectedIndex = 0;
-        selectedFilters[keys[i]] = null;
+    datasets_html = ""
+    for key, entry in data["sources"].items():
+        meta = entry.get("metadata", {})
+        desc = meta.get("long_name", "No description")
+        units = meta.get("units", "unknown")
+        date_range = meta.get("date_range", "unknown")
+        n_files = meta.get("n_files", "?")
+        location = meta.get("data_location", "unknown")
+
+        # Build data- attributes string safely for dropdown fields
+        data_attrs = " ".join(
+            f'data-{field}="{entry.get(field, "")}"' for field in dropdown_fields
+        )
+
+        datasets_html += f'''
+<div class="dataset" {data_attrs}>
+  <strong>{key.split("/")[-1]}</strong><br/>
+  <em>{desc}</em><br/>
+  <small>Units: {units} | Date Range: {date_range} | Files: {n_files}</small><br/>
+  <small>Location: {location}</small>
+</div>
+<hr/>
+'''
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog - {output_subdir.title()}</title>
+<style>
+  body {{
+    font-family: Arial, sans-serif;
+    background-color: {OU_BG};
+    color: {OU_TEXT};
+    margin: 20px;
+  }}
+  h2 {{
+    color: {OU_PRIMARY};
+    border-bottom: 3px solid {OU_SECONDARY};
+    padding-bottom: 5px;
+  }}
+  label {{
+    font-weight: 600;
+  }}
+  select {{
+    font-size: 14px;
+    padding: 4px;
+    margin-right: 10px;
+  }}
+  .dataset {{
+    padding: 10px 0;
+  }}
+  hr {{
+    border: 0;
+    border-top: 1px solid #ccc;
+  }}
+</style>
+</head>
+<body>
+  <h2>{output_subdir.title()} Data Catalog</h2>
+  <div id="filters">
+    {dropdown_html}
+  </div>
+  <div id="datasets">
+    {datasets_html}
+  </div>
+
+<script>
+const filters = {json.dumps(dropdown_fields)};
+const selects = {{}};
+filters.forEach(field => {{
+  selects[field] = document.getElementById(field + '-select');
+}});
+
+function filterDatasets() {{
+  const datasets = document.querySelectorAll('.dataset');
+  datasets.forEach(ds => {{
+    let visible = true;
+    filters.forEach(field => {{
+      const filterVal = selects[field].value;
+      if (filterVal && ds.getAttribute('data-' + field) !== filterVal) {{
+        visible = false;
       }}
     }});
-    filtersDiv.appendChild(dropdown);
-  }}
-
-  document.body.insertBefore(filtersDiv, document.getElementById("datasets-container"));
-
-  renderDatasets(selectedFilters);
+    ds.style.display = visible ? 'block' : 'none';
+  }});
 }}
 
-window.onload = setupFilters;
+filters.forEach(field => {{
+  selects[field].addEventListener('change', filterDatasets);
+}});
+
+filterDatasets();
 </script>
 </body>
 </html>
 """
 
-def generate_html(catalog_path, output_path, filter_order):
-    with open(catalog_path) as f:
-        catalog = json.load(f)
+    output_path = os.path.join(OUTPUT_DIR, output_subdir, "index.html")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    write_file(output_path, html)
 
-    # Build dropdowns HTML (will be created dynamically by JS, so keep empty)
-    dropdowns = ""
+def main():
+    generate_index_page()
 
-    with open(output_path, "w") as f:
-        f.write(HTML_TEMPLATE.format(catalog_json=json.dumps(catalog), filter_order=json.dumps(filter_order), dropdowns=dropdowns))
+    # Observations dropdown order: Domain, Dataset, Temporal Resolution, Variable
+    generate_data_page(OBS_JSON, "obs", ["domain", "dataset", "temporal_resolution", "variable"])
 
-    print(f"✅ Generated {output_path}")
+    # Reanalysis dropdown order: Dataset, Temporal Resolution, Variable
+    generate_data_page(REANALYSIS_JSON, "reanalysis", ["dataset", "temporal_resolution", "variable"])
 
 if __name__ == "__main__":
-    # For obs, filter order: Domain (3), Dataset (4), Temporal Resolution (5), Variable (2)
-    obs_filter_order = {
-        "Domain": 2,          # obs/gridded/<domain>/variable/temp_res/dataset, so domain at pos 2
-        "Variable": 3,
-        "TemporalResolution": 4,
-        "Dataset": 5
-    }
-    # For your YAML obs keys, adjust the indices based on path structure
-
-    # For reanalysis: Dataset, TemporalResolution, Variable
-    reanalysis_filter_order = {
-        "Dataset": 2,
-        "TemporalResolution": 3,
-        "Variable": 4
-    }
-
-    generate_html("docs/obs.json", "docs/obs.html", obs_filter_order)
-    generate_html("docs/reanalysis.json", "docs/reanalysis.html", reanalysis_filter_order)
+    main()
 
