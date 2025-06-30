@@ -1,91 +1,233 @@
 import os
 import json
+import yaml
 
+# Change these paths as needed
+OBS_JSON = "docs/obs.json"
+REANALYSIS_JSON = "docs/reanalysis.json"
 OUTPUT_DIR = "docs"
 
-def generate_dataset_html(name, meta):
-    description = meta.get('description', 'No description available')
-    metadata = meta.get('metadata', {})
-    long_name = metadata.get('long_name', 'unknown')
-    units = metadata.get('units', 'unknown')
-    date_range = metadata.get('date_range', 'unknown')
-    n_files = metadata.get('n_files', 'unknown')
-    data_location = metadata.get('data_location', 'unknown')
+# Use University of Oklahoma colors
+OU_PRIMARY = "#c9000d"  # OU Crimson Red
+OU_SECONDARY = "#fdbb30"  # OU Gold
+OU_BG = "#ffffff"
+OU_TEXT = "#000000"
 
-    html = f"""
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>{name}</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> {description}<br>
-        <b>Date Range:</b> {date_range}<br>
-        <b>Units:</b> {units}<br>
-        <b>Files:</b> {n_files}<br>
-        <b>Data Location:</b> {data_location}<br>
-      </div>
-    </div>
-    """
-    return html
+def load_json(json_path):
+    with open(json_path) as f:
+        return json.load(f)
 
-def generate_html(catalog_json_path, output_html_path, page_title):
-    with open(catalog_json_path) as f:
-        catalog = json.load(f)
+def write_file(path, content):
+    with open(path, "w") as f:
+        f.write(content)
+    print(f"Written: {path}")
 
-    sources = catalog.get("sources", {})
-    # sort keys for consistent order
-    sorted_keys = sorted(sources.keys())
+def generate_index_page():
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog</title>
+<style>
+  body {{
+    font-family: Arial, sans-serif;
+    background-color: {OU_BG};
+    color: {OU_TEXT};
+    margin: 20px;
+  }}
+  h1 {{
+    color: {OU_PRIMARY};
+    border-bottom: 3px solid {OU_SECONDARY};
+    padding-bottom: 5px;
+  }}
+  .tab {{
+    overflow: hidden;
+    border-bottom: 2px solid {OU_PRIMARY};
+  }}
+  .tab button {{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.3s;
+    font-size: 16px;
+    color: {OU_PRIMARY};
+  }}
+  .tab button:hover {{
+    background-color: {OU_SECONDARY};
+    color: #000;
+  }}
+  .tab button.active {{
+    border-bottom: 3px solid {OU_PRIMARY};
+    font-weight: bold;
+  }}
+  .tabcontent {{
+    display: none;
+    padding: 15px 0px;
+  }}
+</style>
+</head>
+<body>
+  <h1>ESPLab Data Catalog</h1>
+  <div class="tab">
+    <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
+    <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
+  </div>
 
-    # Generate HTML entries for all datasets
-    entries_html = ""
-    for key in sorted_keys:
-        meta = sources[key]
-        # For display, show only the dataset folder name (last part of the key)
-        dataset_name = os.path.basename(key)
-        entries_html += generate_dataset_html(dataset_name, meta)
+  <div id="obs" class="tabcontent" style="display:block;">
+    <iframe src="obs/index.html" style="border:none; width:100%; height:800px;"></iframe>
+  </div>
 
-    html_content = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>{page_title}</title>
-      <style>
-        body {{
-          font-family: Arial, sans-serif;
-          margin: 2em;
-          background: #f9f9f9;
-          color: #222;
-        }}
-        h1 {{
-          color: #004080;
-        }}
-        .dataset-entry {{
-          background: white;
-          border-radius: 4px;
-          box-shadow: 0 0 5px #ccc;
-          padding: 10px;
-          margin-bottom: 10px;
-        }}
-        .metadata b {{
-          color: #004080;
-        }}
-      </style>
-    </head>
-    <body>
-      <h1>{page_title}</h1>
-      {entries_html}
-    </body>
-    </html>
-    """
+  <div id="reanalysis" class="tabcontent">
+    <iframe src="reanalysis/index.html" style="border:none; width:100%; height:800px;"></iframe>
+  </div>
 
-    with open(output_html_path, "w") as f:
-        f.write(html_content)
-    print(f"✅ Generated {output_html_path}")
+<script>
+function openTab(evt, tabName) {{
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {{
+    tabcontent[i].style.display = "none";
+  }}
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {{
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }}
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}}
+</script>
+
+</body>
+</html>
+"""
+    write_file(os.path.join(OUTPUT_DIR, "index.html"), html)
+
+def generate_data_page(data_json_path, output_subdir, dropdown_fields):
+    data = load_json(data_json_path)
+    dropdown_html = ""
+    for field in dropdown_fields:
+        options = sorted(set(entry.get(field, "Unknown") for entry in data["sources"].values()))
+        dropdown_html += f'<label for="{field}-select" style="font-weight:600;">{field.replace("_"," ").title()}: </label>'
+        dropdown_html += f'<select id="{field}-select"><option value="">-- Select {field} --</option>'
+        for opt in options:
+            dropdown_html += f'<option value="{opt}">{opt}</option>'
+        dropdown_html += '</select><br/><br/>'
+
+    datasets_html = ""
+    for key, entry in data["sources"].items():
+        meta = entry.get("metadata", {})
+        desc = meta.get("long_name", "No description")
+        units = meta.get("units", "unknown")
+        date_range = meta.get("date_range", "unknown")
+        n_files = meta.get("n_files", "?")
+        location = meta.get("data_location", "unknown")
+
+        # Build data- attributes string safely for dropdown fields
+        data_attrs = " ".join(
+            f'data-{field}="{entry.get(field, "")}"' for field in dropdown_fields
+        )
+
+        datasets_html += f'''
+<div class="dataset" {data_attrs}>
+  <strong>{key.split("/")[-1]}</strong><br/>
+  <em>{desc}</em><br/>
+  <small>Units: {units} | Date Range: {date_range} | Files: {n_files}</small><br/>
+  <small>Location: {location}</small>
+</div>
+<hr/>
+'''
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog - {output_subdir.title()}</title>
+<style>
+  body {{
+    font-family: Arial, sans-serif;
+    background-color: {OU_BG};
+    color: {OU_TEXT};
+    margin: 20px;
+  }}
+  h2 {{
+    color: {OU_PRIMARY};
+    border-bottom: 3px solid {OU_SECONDARY};
+    padding-bottom: 5px;
+  }}
+  label {{
+    font-weight: 600;
+  }}
+  select {{
+    font-size: 14px;
+    padding: 4px;
+    margin-right: 10px;
+  }}
+  .dataset {{
+    padding: 10px 0;
+  }}
+  hr {{
+    border: 0;
+    border-top: 1px solid #ccc;
+  }}
+</style>
+</head>
+<body>
+  <h2>{output_subdir.title()} Data Catalog</h2>
+  <div id="filters">
+    {dropdown_html}
+  </div>
+  <div id="datasets">
+    {datasets_html}
+  </div>
+
+<script>
+const filters = {json.dumps(dropdown_fields)};
+const selects = {{}};
+filters.forEach(field => {{
+  selects[field] = document.getElementById(field + '-select');
+}});
+
+function filterDatasets() {{
+  const datasets = document.querySelectorAll('.dataset');
+  datasets.forEach(ds => {{
+    let visible = true;
+    filters.forEach(field => {{
+      const filterVal = selects[field].value;
+      if (filterVal && ds.getAttribute('data-' + field) !== filterVal) {{
+        visible = false;
+      }}
+    }});
+    ds.style.display = visible ? 'block' : 'none';
+  }});
+}}
+
+filters.forEach(field => {{
+  selects[field].addEventListener('change', filterDatasets);
+}});
+
+filterDatasets();
+</script>
+</body>
+</html>
+"""
+
+    output_path = os.path.join(OUTPUT_DIR, output_subdir, "index.html")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    write_file(output_path, html)
+
+def main():
+    generate_index_page()
+
+    # Observations dropdown order: Domain, Dataset, Temporal Resolution, Variable
+    generate_data_page(OBS_JSON, "obs", ["domain", "dataset", "temporal_resolution", "variable"])
+
+    # Reanalysis dropdown order: Dataset, Temporal Resolution, Variable
+    generate_data_page(REANALYSIS_JSON, "reanalysis", ["dataset", "temporal_resolution", "variable"])
 
 if __name__ == "__main__":
-    # Adjust these paths as needed
-    obs_json = os.path.join(OUTPUT_DIR, "obs.json")
-    reanalysis_json = os.path.join(OUTPUT_DIR, "reanalysis.json")
-
-    generate_html(obs_json, os.path.join(OUTPUT_DIR, "obs.html"), "ESPLab Observational Data Catalog")
-    generate_html(reanalysis_json, os.path.join(OUTPUT_DIR, "reanalysis.html"), "ESPLab Reanalysis Data Catalog")
+    main()
 
