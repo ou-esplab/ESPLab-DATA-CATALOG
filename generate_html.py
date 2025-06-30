@@ -32,9 +32,14 @@ def generate_obs_page(catalog):
     for key, source in catalog["sources"].items():
         # key example: obs/gridded/atm/precip/daily/CMORPH
         parts = key.split("/")
-        if len(parts) < 6:
-            continue
-        _, _, domain, variable, temp, dataset = parts
+#        if len(parts) < 6:
+#            continue
+#        _, _, domain, variable, temp, dataset = parts
+        _, _, domain, variable, temp, dataset = parts[:6]
+        if len(parts) > 6:
+            subdataset = "/".join(parts[6:])
+            dataset = f"{dataset}/{subdataset}"
+
 
         # Append to lists
         domains.append(domain)
