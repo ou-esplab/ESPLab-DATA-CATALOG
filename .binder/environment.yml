@@ -1,17 +1,6 @@
-name: climate-dashboard
+name: minimal-panel
 channels:
   - conda-forge
 dependencies:
   - python=3.10
   - panel
-  - bokeh
-  - intake
-  - intake-xarray
-  - xarray
-  - netCDF4
-  - dask
-  - matplotlib
-  - pandas
-  - jupyterlab
-  - jupyter-server-proxy
-  - jupyter-panel-proxy
