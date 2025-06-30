@@ -1,52 +1,48 @@
 import os
-import glob
-import xarray as xr
 import yaml
-from tqdm import tqdm
+import xarray as xr
+import pandas as pd
 
-def get_metadata_from_sample_file(filepath):
+BASE_DIR = "/data/esplab/shared/reanalysis"
+IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints'}
+
+def get_netcdf_files(directory):
+    return sorted([
+        os.path.join(directory, f) for f in os.listdir(directory)
+        if f.endswith('.nc') and os.path.isfile(os.path.join(directory, f))
+    ])
+
+def extract_metadata(nc_files):
     try:
-        with xr.open_dataset(filepath, decode_times=False) as ds:
-            # Pick first data variable if exists, else fallback
-            if ds.data_vars:
-                var_name = list(ds.data_vars)[0]
-                var = ds[var_name]
-                long_name = var.attrs.get('long_name', var_name)
-                units = var.attrs.get('units', 'unknown')
-            else:
-                long_name = "unknown"
-                units = "unknown"
+        ds = xr.open_dataset(nc_files[0], decode_times=True, use_cftime=True)
+        var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
+        long_name = ds[var_name].attrs.get('long_name', var_name)
+        units = ds[var_name].attrs.get('units', 'unknown')
 
-            # Decode times to get date range
-            if 'time' in ds.coords:
-                ds_decoded = xr.decode_cf(ds)
-                time = ds_decoded['time']
-                date_range = f"{str(time.min().values)[:10]} to {str(time.max().values)[:10]}"
-            else:
-                date_range = "unknown"
+        if 'time' in ds.coords:
+            times = ds['time'].values
+            times_str = [str(t) for t in times]
+            date_range = f"{times_str[0]} to {times_str[-1]}"
+        else:
+            date_range = "unknown"
 
-            metadata = {
-                "long_name": long_name,
-                "units": units,
-                "date_range": date_range,
-            }
-
-            # Include some dimension sizes if present
-            for dim in ['latitude', 'longitude', 'level']:
-                if dim in ds.dims:
-                    metadata[f"{dim}_size"] = ds.dims[dim]
-
-            return metadata
+        ds.close()
+        return {
+            "long_name": long_name,
+            "units": units,
+            "date_range": date_range,
+            "n_files": len(nc_files)
+        }
     except Exception as e:
-        print(f"⚠️ Failed to read metadata from {filepath}: {e}")
+        print(f"⚠️ Failed to extract metadata from {nc_files[0]}: {e}")
         return {
             "long_name": "unknown",
             "units": "unknown",
             "date_range": "unknown",
-            "error": str(e)
+            "n_files": len(nc_files)
         }
 
-def build_catalog(rean_dir="/data/esplab/shared/reanalysis", output_yaml="reanalysis.yaml"):
+def build_reanalysis_catalog(base_dir):
     catalog = {
         "metadata": {
             "title": "Reanalysis Data Catalog",
@@ -56,41 +52,67 @@ def build_catalog(rean_dir="/data/esplab/shared/reanalysis", output_yaml="reanal
         "sources": {}
     }
 
-    print(f"Building REANALYSIS catalog from base dir: {rean_dir}")
+    print(f"Building Reanalysis catalog from base dir: {base_dir}")
+    # Expected structure: reanalysis/<dataset>/<temporal_resolution>/<variable>
+    if not os.path.isdir(base_dir):
+        print(f"Error: base directory {base_dir} not found.")
+        return catalog
 
-    for root, dirs, files in tqdm(os.walk(rean_dir), desc="Scanning directories"):
-        nc_files = sorted(glob.glob(os.path.join(root, "*.nc")))
-        if not nc_files:
+    for dataset in sorted(os.listdir(base_dir)):
+        if dataset in IGNORE_DIRS:
+            continue
+        dataset_path = os.path.join(base_dir, dataset)
+        if not os.path.isdir(dataset_path):
             continue
 
-        # Expected structure: reanalysis/<dataset>/<temporal_resolution>/<variable>
-        rel_path = os.path.relpath(root, rean_dir)
-        parts = rel_path.split(os.sep)
-        if len(parts) != 3:
-            # Skip unexpected paths
-            continue
+        for temp_res in sorted(os.listdir(dataset_path)):
+            if temp_res in IGNORE_DIRS:
+                continue
+            temp_path = os.path.join(dataset_path, temp_res)
+            if not os.path.isdir(temp_path):
+                continue
 
-        dataset, temp_res, variable = parts
-        entry_name = f"reanalysis/{dataset}/{temp_res}/{variable}"
+            for variable in sorted(os.listdir(temp_path)):
+                if variable in IGNORE_DIRS:
+                    continue
+                variable_path = os.path.join(temp_path, variable)
+                if not os.path.isdir(variable_path):
+                    continue
 
-        metadata = get_metadata_from_sample_file(nc_files[0])
-        metadata["n_files"] = len(nc_files)
-        metadata["data_location"] = root
+                nc_files = get_netcdf_files(variable_path)
+                if not nc_files:
+                    print(f"⚠️ No NetCDF files found in {variable_path}, skipping.")
+                    continue
 
-        catalog["sources"][entry_name] = {
-            "description": f"{metadata.get('long_name', 'unknown')} ({metadata.get('units', 'unknown')}), {metadata.get('date_range', 'unknown')}",
-            "driver": "netcdf",
-            "args": {
-                "urlpath": os.path.join(root, "*.nc"),
-                "engine": "netcdf4"
-            },
-            "metadata": metadata
-        }
+                print(f"✔️ Processing reanalysis/{dataset}/{temp_res}/{variable}")
+                meta = extract_metadata(nc_files)
 
-    with open(output_yaml, "w") as f:
+                key = f"reanalysis/{dataset}/{temp_res}/{variable}"
+                catalog["sources"][key] = {
+                    "description": f"{meta['long_name']} ({meta['units']}), {meta['date_range']}",
+                    "driver": "netcdf",
+                    "args": {
+                        "urlpath": os.path.join(variable_path, "*.nc"),
+                        "engine": "netcdf4"
+                    },
+                    "metadata": {
+                        "long_name": meta['long_name'],
+                        "units": meta['units'],
+                        "date_range": meta['date_range'],
+                        "n_files": meta['n_files'],
+                        "data_location": variable_path
+                    }
+                }
+
+    return catalog
+
+def write_catalog(catalog, output_path="reanalysis.yaml"):
+    with open(output_path, 'w') as f:
         yaml.dump(catalog, f, sort_keys=False)
+    print(f"✅ Catalog written to {output_path}")
 
-    print(f"✅ Catalog written to {output_yaml}")
-
+# Main
 if __name__ == "__main__":
-    build_catalog()
+    catalog = build_reanalysis_catalog(BASE_DIR)
+    write_catalog(catalog)
+

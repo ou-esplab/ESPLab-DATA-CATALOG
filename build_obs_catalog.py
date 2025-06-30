@@ -14,15 +14,20 @@ def get_netcdf_files(directory):
 
 def extract_metadata(nc_files):
     try:
-        ds = xr.open_dataset(nc_files[0])
+        ds = xr.open_dataset(nc_files[0], decode_times=True, use_cftime=True)
         var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
         long_name = ds[var_name].attrs.get('long_name', var_name)
         units = ds[var_name].attrs.get('units', 'unknown')
+        
         if 'time' in ds.coords:
-            times = pd.to_datetime(ds.time.values)
-            date_range = f"{times.min().strftime('%Y-%m-%d')} to {times.max().strftime('%Y-%m-%d')}"
+            times = ds['time'].values  # numpy array of cftime or datetime64
+            
+            # Convert to strings for formatting
+            times_str = [str(t) for t in times]
+            date_range = f"{times_str[0]} to {times_str[-1]}"
         else:
             date_range = "unknown"
+        
         ds.close()
         return {
             "long_name": long_name,
@@ -105,7 +110,12 @@ def build_obs_catalog(base_dir):
                             "units": meta['units'],
                             "date_range": meta['date_range'],
                             "n_files": meta['n_files'],
-                            "data_location": dataset_path
+                            "data_location": dataset_path,
+                            "category": "obs",
+                            "domain": domain,
+                            "variable": variable,
+                            "temporal_resolution": temp_res,
+                            "dataset": dataset
                         }
                     }
 

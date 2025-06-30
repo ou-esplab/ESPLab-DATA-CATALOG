@@ -1,7 +1,0 @@
-name: minimal-panel
-channels:
-  - conda-forge
-dependencies:
-  - python=3.10
-  - panel
-  - bokeh
