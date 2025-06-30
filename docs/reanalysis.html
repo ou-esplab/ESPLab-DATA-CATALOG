@@ -1,504 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Reanalysis Data Catalog</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
-  h1 { color: #2c3e50; }
-  ul { list-style-type: none; padding-left: 0; }
-  li { background: white; margin: 0.5em 0; padding: 0.75em; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-  .desc { font-weight: bold; color: #34495e; }
-  .meta { color: #7f8c8d; font-size: 0.9em; }
-  label { margin-right: 0.5em; }
-  select { margin-right: 2em; }
-</style>
+  <title>Reanalysis Data Catalog</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    details { margin-bottom: 10px; }
+    summary { font-weight: bold; cursor: pointer; }
+  </style>
 </head>
 <body>
-<h1>Reanalysis Data Catalog</h1>
-
-<a href="index.html">⬅ Back to Home</a><br/>
-
-<label for="domain-select">Domain:</label>
-<select id="domain-select">
-<option value="all">All</option>
-<option value="4xdaily">4xdaily</option>
-<option value="daily">daily</option>
-<option value="hourly">hourly</option>
-</select>
-
-<label for="variable-select">Variable:</label>
-<select id="variable-select">
-<option value="all">All</option>
-<option value="OMEGA500">OMEGA500</option>
-<option value="evap">evap</option>
-<option value="msl">msl</option>
-<option value="olr">olr</option>
-<option value="omega">omega</option>
-<option value="precip">precip</option>
-<option value="psfc">psfc</option>
-<option value="q">q</option>
-<option value="sst">sst</option>
-<option value="swvl1p">swvl1p</option>
-<option value="t">t</option>
-<option value="t2m">t2m</option>
-<option value="tcwv">tcwv</option>
-<option value="u">u</option>
-<option value="u10">u10</option>
-<option value="u200">u200</option>
-<option value="u500">u500</option>
-<option value="u850">u850</option>
-<option value="v">v</option>
-<option value="v10">v10</option>
-<option value="v200">v200</option>
-<option value="v500">v500</option>
-<option value="v850">v850</option>
-<option value="vimd">vimd</option>
-<option value="vinevf">vinevf</option>
-<option value="vinwvf">vinwvf</option>
-<option value="z">z</option>
-<option value="z200">z200</option>
-<option value="z500">z500</option>
-<option value="z850">z850</option>
-<option value="zg500">zg500</option>
-</select>
-
-<ul id="catalog-list"></ul>
-
-<script>
-const catalogEntries = [
-  {
-    "domain": "4xdaily",
-    "variable": "msl",
-    "desc": "Mean sea level pressure (Pa), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "Pa",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "4xdaily",
-    "variable": "u",
-    "desc": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "4xdaily",
-    "variable": "u10",
-    "desc": "10 metre U wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "4xdaily",
-    "variable": "v",
-    "desc": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "4xdaily",
-    "variable": "v10",
-    "desc": "10 metre V wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "4xdaily",
-    "variable": "z",
-    "desc": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-12-31 18:00:00",
-    "units": "m**2 s**-2",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "evap",
-    "desc": "e (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "olr",
-    "desc": "ttr (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "omega",
-    "desc": "w (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "precip",
-    "desc": "tp (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "psfc",
-    "desc": "sp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "q",
-    "desc": "q (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "sst",
-    "desc": "sst (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "swvl1p",
-    "desc": "swvl1 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "t",
-    "desc": "t (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "t2m",
-    "desc": "t2m (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "tcwv",
-    "desc": "tcwv (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "u",
-    "desc": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "u10",
-    "desc": "u10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "u200",
-    "desc": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "u500",
-    "desc": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "u850",
-    "desc": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "v",
-    "desc": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "v10",
-    "desc": "v10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "v200",
-    "desc": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "v500",
-    "desc": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "v850",
-    "desc": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "vimd",
-    "desc": "vimd (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "vinevf",
-    "desc": "p71.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "vinwvf",
-    "desc": "p72.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "z",
-    "desc": "z (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "z200",
-    "desc": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "z500",
-    "desc": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "z850",
-    "desc": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "evap",
-    "desc": "Evaporation (m of water equivalent), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "m of water equivalent",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "olr",
-    "desc": "Top net long-wave (thermal) radiation (J m**-2), 1940-01-01 07:00:00 to 1940-01-31 23:00:00",
-    "units": "J m**-2",
-    "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "omega",
-    "desc": "Vertical velocity (Pa s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "Pa s**-1",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "precip",
-    "desc": "Total precipitation (m), 1940-01-01 07:00:00 to 1940-01-31 23:00:00",
-    "units": "m",
-    "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "psfc",
-    "desc": "Surface pressure (Pa), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "Pa",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "q",
-    "desc": "Specific humidity (kg kg**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "kg kg**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "sst",
-    "desc": "Sea surface temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "K",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "swvl1p",
-    "desc": "Volumetric soil water layer 1 (m**3 m**-3), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "m**3 m**-3",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "t",
-    "desc": "Temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "K",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "t2m",
-    "desc": "2 metre temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "K",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "tcwv",
-    "desc": "Total column vertically-integrated water vapour (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "kg m**-2",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "u",
-    "desc": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "v",
-    "desc": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "m s**-1",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "vimd",
-    "desc": "Vertically integrated moisture divergence (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "kg m**-2",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "vinevf",
-    "desc": "Vertical integral of eastward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "kg m**-1 s**-1",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "vinwvf",
-    "desc": "Vertical integral of northward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "kg m**-1 s**-1",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "z",
-    "desc": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-01-31 23:00:00",
-    "units": "m**2 s**-2",
-    "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "precip",
-    "desc": "tp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "t2m",
-    "desc": "t2m (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "precip",
-    "desc": "Total precipitation (m), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "m",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "hourly",
-    "variable": "t2m",
-    "desc": "2 metre temperature (K), 1979-01-01 00:00:00 to 1979-01-31 23:00:00",
-    "units": "K",
-    "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "OMEGA500",
-    "desc": "vertical_pressure_velocity (Pa s-1), 1980-01-01 00:00:00 to 2024-05-01 00:00:00",
-    "units": "Pa s-1",
-    "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00"
-  },
-  {
-    "domain": "daily",
-    "variable": "zg500",
-    "desc": "edge_heights (m), 1980-01-01 00:00:00 to 2024-05-01 00:00:00",
-    "units": "m",
-    "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00"
-  }
-];
-
-function renderCatalog(entries) {
-  const ul = document.getElementById('catalog-list');
-  ul.innerHTML = '';
-  if(entries.length === 0) {
-    ul.innerHTML = '<li><em>No matching datasets found.</em></li>';
-    return;
-  }
-  entries.forEach(e => {
-    const li = document.createElement('li');
-    li.innerHTML = `<span class="desc">${e.desc}</span><br/><span class="meta">(${e.units}), ${e.date_range}</span>`;
-    ul.appendChild(li);
-  });
-}
-
-function filterCatalog() {
-  const domain = document.getElementById('domain-select').value;
-  const variable = document.getElementById('variable-select').value;
-
-  const filtered = catalogEntries.filter(e =>
-    (domain === 'all' || e.domain === domain) &&
-    (variable === 'all' || e.variable === variable)
-  );
-  renderCatalog(filtered);
-}
-
-document.getElementById('domain-select').addEventListener('change', filterCatalog);
-document.getElementById('variable-select').addEventListener('change', filterCatalog);
-
-// Show all by default
-renderCatalog(catalogEntries);
-</script>
+  <h1>Reanalysis Data Catalog</h1>
+<details>
+  <summary>reanalysis/era5/4xdaily/msl</summary>
+  <ul><li><strong>long_name</strong>: Mean sea level pressure</li><li><strong>units</strong>: Pa</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/msl</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/msl/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/4xdaily/u</summary>
+  <ul><li><strong>long_name</strong>: U component of wind</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/u</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/u/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/4xdaily/u10</summary>
+  <ul><li><strong>long_name</strong>: 10 metre U wind component</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/u10</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/u10/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/4xdaily/v</summary>
+  <ul><li><strong>long_name</strong>: V component of wind</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/v</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/v/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/4xdaily/v10</summary>
+  <ul><li><strong>long_name</strong>: 10 metre V wind component</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/v10</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/v10/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/4xdaily/z</summary>
+  <ul><li><strong>long_name</strong>: Geopotential</li><li><strong>units</strong>: m**2 s**-2</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 18:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/z</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/4xdaily/z/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/evap</summary>
+  <ul><li><strong>long_name</strong>: e</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/evap</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/evap/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/olr</summary>
+  <ul><li><strong>long_name</strong>: ttr</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 83</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/olr</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/olr/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/omega</summary>
+  <ul><li><strong>long_name</strong>: w</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/omega</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/omega/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/precip</summary>
+  <ul><li><strong>long_name</strong>: tp</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 83</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/precip</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/precip/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/psfc</summary>
+  <ul><li><strong>long_name</strong>: sp</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/psfc</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/psfc/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/q</summary>
+  <ul><li><strong>long_name</strong>: q</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/q</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/q/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/sst</summary>
+  <ul><li><strong>long_name</strong>: sst</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 83</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/sst</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/sst/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/swvl1p</summary>
+  <ul><li><strong>long_name</strong>: swvl1</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/swvl1p</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/swvl1p/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/t</summary>
+  <ul><li><strong>long_name</strong>: t</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/t</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/t/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/t2m</summary>
+  <ul><li><strong>long_name</strong>: t2m</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/t2m</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/t2m/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/tcwv</summary>
+  <ul><li><strong>long_name</strong>: tcwv</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/tcwv</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/tcwv/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/u</summary>
+  <ul><li><strong>long_name</strong>: u</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/u</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/u/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/u10</summary>
+  <ul><li><strong>long_name</strong>: u10</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/u10</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/u10/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/u200</summary>
+  <ul><li><strong>long_name</strong>: u</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/u200</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/u200/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/u500</summary>
+  <ul><li><strong>long_name</strong>: u</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/u500</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/u500/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/u850</summary>
+  <ul><li><strong>long_name</strong>: u</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/u850</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/u850/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/v</summary>
+  <ul><li><strong>long_name</strong>: v</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/v</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/v/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/v10</summary>
+  <ul><li><strong>long_name</strong>: v10</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/v10</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/v10/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/v200</summary>
+  <ul><li><strong>long_name</strong>: v</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/v200</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/v200/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/v500</summary>
+  <ul><li><strong>long_name</strong>: v</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/v500</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/v500/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/v850</summary>
+  <ul><li><strong>long_name</strong>: v</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/v850</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/v850/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/vimd</summary>
+  <ul><li><strong>long_name</strong>: vimd</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/vimd</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/vimd/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/vinevf</summary>
+  <ul><li><strong>long_name</strong>: p71.162</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/vinevf</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/vinevf/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/vinwvf</summary>
+  <ul><li><strong>long_name</strong>: p72.162</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/vinwvf</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/vinwvf/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/z</summary>
+  <ul><li><strong>long_name</strong>: z</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 44</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/z</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/z/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/z200</summary>
+  <ul><li><strong>long_name</strong>: z</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/z200</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/z200/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/z500</summary>
+  <ul><li><strong>long_name</strong>: z</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/z500</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/z500/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/daily/z850</summary>
+  <ul><li><strong>long_name</strong>: z</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-12-31 00:00:00</li><li><strong>n_files</strong>: 84</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/daily/z850</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/daily/z850/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/evap</summary>
+  <ul><li><strong>long_name</strong>: Evaporation</li><li><strong>units</strong>: m of water equivalent</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/evap</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/evap/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/olr</summary>
+  <ul><li><strong>long_name</strong>: Top net long-wave (thermal) radiation</li><li><strong>units</strong>: J m**-2</li><li><strong>date_range</strong>: 1940-01-01 07:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1003</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/olr</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/olr/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/omega</summary>
+  <ul><li><strong>long_name</strong>: Vertical velocity</li><li><strong>units</strong>: Pa s**-1</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/omega</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/omega/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/precip</summary>
+  <ul><li><strong>long_name</strong>: Total precipitation</li><li><strong>units</strong>: m</li><li><strong>date_range</strong>: 1940-01-01 07:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1003</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/precip</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/precip/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/psfc</summary>
+  <ul><li><strong>long_name</strong>: Surface pressure</li><li><strong>units</strong>: Pa</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 541</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/psfc</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/psfc/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/q</summary>
+  <ul><li><strong>long_name</strong>: Specific humidity</li><li><strong>units</strong>: kg kg**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1006</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/q</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/q/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/sst</summary>
+  <ul><li><strong>long_name</strong>: Sea surface temperature</li><li><strong>units</strong>: K</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1008</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/sst</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/sst/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/swvl1p</summary>
+  <ul><li><strong>long_name</strong>: Volumetric soil water layer 1</li><li><strong>units</strong>: m**3 m**-3</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1004</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/swvl1p</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/swvl1p/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/t</summary>
+  <ul><li><strong>long_name</strong>: Temperature</li><li><strong>units</strong>: K</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1006</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/t</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/t/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/t2m</summary>
+  <ul><li><strong>long_name</strong>: 2 metre temperature</li><li><strong>units</strong>: K</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1003</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/t2m</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/t2m/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/tcwv</summary>
+  <ul><li><strong>long_name</strong>: Total column vertically-integrated water vapour</li><li><strong>units</strong>: kg m**-2</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/tcwv</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/tcwv/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/u</summary>
+  <ul><li><strong>long_name</strong>: U component of wind</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1008</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/u</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/u/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/v</summary>
+  <ul><li><strong>long_name</strong>: V component of wind</li><li><strong>units</strong>: m s**-1</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1008</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/v</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/v/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/vimd</summary>
+  <ul><li><strong>long_name</strong>: Vertically integrated moisture divergence</li><li><strong>units</strong>: kg m**-2</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/vimd</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/vimd/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/vinevf</summary>
+  <ul><li><strong>long_name</strong>: Vertical integral of eastward water vapour flux</li><li><strong>units</strong>: kg m**-1 s**-1</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/vinevf</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/vinevf/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/vinwvf</summary>
+  <ul><li><strong>long_name</strong>: Vertical integral of northward water vapour flux</li><li><strong>units</strong>: kg m**-1 s**-1</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/vinwvf</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/vinwvf/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5/hourly/z</summary>
+  <ul><li><strong>long_name</strong>: Geopotential</li><li><strong>units</strong>: m**2 s**-2</li><li><strong>date_range</strong>: 1940-01-01 00:00:00 to 1940-01-31 23:00:00</li><li><strong>n_files</strong>: 1008</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5/hourly/z</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5/hourly/z/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5-land/daily/precip</summary>
+  <ul><li><strong>long_name</strong>: tp</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5-land/daily/precip</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5-land/daily/precip/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5-land/daily/t2m</summary>
+  <ul><li><strong>long_name</strong>: t2m</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5-land/daily/t2m</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5-land/daily/t2m/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5-land/hourly/precip</summary>
+  <ul><li><strong>long_name</strong>: Total precipitation</li><li><strong>units</strong>: m</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5-land/hourly/precip</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5-land/hourly/precip/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/era5-land/hourly/t2m</summary>
+  <ul><li><strong>long_name</strong>: 2 metre temperature</li><li><strong>units</strong>: K</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-01-31 23:00:00</li><li><strong>n_files</strong>: 540</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/era5-land/hourly/t2m</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/era5-land/hourly/t2m/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/merra-2/daily/OMEGA500</summary>
+  <ul><li><strong>long_name</strong>: vertical_pressure_velocity</li><li><strong>units</strong>: Pa s-1</li><li><strong>date_range</strong>: 1980-01-01 00:00:00 to 2024-05-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/merra-2/daily/OMEGA500</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/merra-2/daily/OMEGA500/*.nc</li></ul>
+</details>
+<details>
+  <summary>reanalysis/merra-2/daily/zg500</summary>
+  <ul><li><strong>long_name</strong>: edge_heights</li><li><strong>units</strong>: m</li><li><strong>date_range</strong>: 1980-01-01 00:00:00 to 2024-05-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/reanalysis/merra-2/daily/zg500</li><li><strong>urlpath</strong>: /data/esplab/shared/reanalysis/merra-2/daily/zg500/*.nc</li></ul>
+</details>
 
 </body>
 </html>

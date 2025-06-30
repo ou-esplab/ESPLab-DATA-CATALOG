@@ -1,161 +1,76 @@
-import yaml
-import html
 import os
-import json
+import yaml
 
-# constants
 CATALOG_DIR = "catalogs"
 OUTPUT_DIR = "docs"
 
-# index.html content
-INDEX_HTML = """<!DOCTYPE html>
-<html lang="en">
+def load_catalog(yaml_file):
+    with open(yaml_file) as f:
+        catalog = yaml.safe_load(f)
+    sources = catalog.get("sources", {})
+    entries = []
+    for key, value in sources.items():
+        entries.append({
+            "name": key,
+            "description": value.get("description", "No description"),
+            "metadata": value.get("metadata", {}),
+            "args": value.get("args", {}),
+        })
+    return entries
+
+def generate_filtered_html(entries, output_path, title):
+    html_content = f"""<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Data Catalog Home</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
-  a { display: block; margin: 1em 0; color: #2c3e50; font-size: 1.2em; }
-</style>
+  <title>{title}</title>
+  <meta charset="utf-8">
+  <style>
+    body {{ font-family: Arial, sans-serif; padding: 20px; }}
+    details {{ margin-bottom: 10px; }}
+    summary {{ font-weight: bold; cursor: pointer; }}
+  </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog</h1>
-<a href="obs.html">Observational Data</a>
-<a href="reanalysis.html">Reanalysis Data</a>
-</body>
-</html>
+  <h1>{title}</h1>
 """
 
-def generate_filtered_html(catalog, output_path, title):
-    keys = list(catalog.get("sources", {}).keys())
+    for entry in entries:
+        name = entry.get("name", "unknown")
+        metadata = entry.get("metadata", {})
+        urlpath = entry.get("args", {}).get("urlpath", "unknown")
+        meta_html = "<ul>"
+        for k, v in metadata.items():
+            meta_html += f"<li><strong>{k}</strong>: {v}</li>"
+        meta_html += f"<li><strong>urlpath</strong>: {urlpath}</li></ul>"
 
-    domain_set = set()
-    variable_set = set()
+        html_content += f"""<details>
+  <summary>{name}</summary>
+  {meta_html}
+</details>
+"""
 
-    entries = []
-
-    for key in keys:
-        parts = key.split("/")
-        if len(parts) < 4:
-            continue
-        domain = parts[2]
-        variable = parts[3]
-        domain_set.add(domain)
-        variable_set.add(variable)
-
-        source = catalog["sources"][key]
-        desc = html.escape(source.get("description", "No description"))
-        meta = source.get("metadata", {})
-        units = html.escape(meta.get("units", "unknown"))
-        date_range = html.escape(meta.get("date_range", "unknown"))
-
-        entries.append({
-            "domain": domain,
-            "variable": variable,
-            "desc": desc,
-            "units": units,
-            "date_range": date_range
-        })
-
-    domains_sorted = sorted(domain_set)
-    variables_sorted = sorted(variable_set)
-
-    def build_options(options):
-        return "\n".join([f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>' for opt in options])
-
-    domain_options_html = '<option value="all">All</option>\n' + build_options(domains_sorted)
-    variable_options_html = '<option value="all">All</option>\n' + build_options(variables_sorted)
-
-    entries_json = json.dumps(entries, indent=2)
-
-    html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>{title}</title>
-<style>
-  body {{ font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }}
-  h1 {{ color: #2c3e50; }}
-  ul {{ list-style-type: none; padding-left: 0; }}
-  li {{ background: white; margin: 0.5em 0; padding: 0.75em; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
-  .desc {{ font-weight: bold; color: #34495e; }}
-  .meta {{ color: #7f8c8d; font-size: 0.9em; }}
-  label {{ margin-right: 0.5em; }}
-  select {{ margin-right: 2em; }}
-</style>
-</head>
-<body>
-<h1>{title}</h1>
-
-<a href="index.html">⬅ Back to Home</a><br/>
-
-<label for="domain-select">Domain:</label>
-<select id="domain-select">
-{domain_options_html}
-</select>
-
-<label for="variable-select">Variable:</label>
-<select id="variable-select">
-{variable_options_html}
-</select>
-
-<ul id="catalog-list"></ul>
-
-<script>
-const catalogEntries = {entries_json};
-
-function renderCatalog(entries) {{
-  const ul = document.getElementById('catalog-list');
-  ul.innerHTML = '';
-  if(entries.length === 0) {{
-    ul.innerHTML = '<li><em>No matching datasets found.</em></li>';
-    return;
-  }}
-  entries.forEach(e => {{
-    const li = document.createElement('li');
-    li.innerHTML = `<span class="desc">${{e.desc}}</span><br/><span class="meta">(${{e.units}}), ${{e.date_range}}</span>`;
-    ul.appendChild(li);
-  }});
-}}
-
-function filterCatalog() {{
-  const domain = document.getElementById('domain-select').value;
-  const variable = document.getElementById('variable-select').value;
-
-  const filtered = catalogEntries.filter(e =>
-    (domain === 'all' || e.domain === domain) &&
-    (variable === 'all' || e.variable === variable)
-  );
-  renderCatalog(filtered);
-}}
-
-document.getElementById('domain-select').addEventListener('change', filterCatalog);
-document.getElementById('variable-select').addEventListener('change', filterCatalog);
-
-// Show all by default
-renderCatalog(catalogEntries);
-</script>
-
+    html_content += """
 </body>
 </html>"""
 
     with open(output_path, "w") as f:
         f.write(html_content)
-    print(f"✅ wrote {output_path}")
+    print(f"✅ wrote {output_path} with {len(entries)} entries.")
 
 def main():
-    # ensure output dir exists
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    obs_catalog = os.path.join(CATALOG_DIR, "obs.yaml")
+    reanalysis_catalog = os.path.join(CATALOG_DIR, "reanalysis.yaml")
 
-    # index.html
-    with open(os.path.join(OUTPUT_DIR, "index.html"), "w") as f:
-        f.write(INDEX_HTML)
-    print("✅ wrote index.html")
+    # load and generate obs
+    obs_entries = load_catalog(obs_catalog)
+    obs_output = os.path.join(OUTPUT_DIR, "obs.html")
+    generate_filtered_html(obs_entries, obs_output, title="Observational Data Catalog")
 
-    # obs.html
-    with open(os.path.join(CATALOG_DIR, "obs.yaml")) as f:
-        obs_catalog = yaml.safe_load(f)
-    generate_filtered_html(obs_catalog, os.path.join(OUTPUT_DIR, "obs.html"), "Observational Data Catalog")
+    # load and generate reanalysis
+    reanalysis_entries = load_catalog(reanalysis_catalog)
+    reanalysis_output = os.path.join(OUTPUT_DIR, "reanalysis.html")
+    generate_filtered_html(reanalysis_entries, reanalysis_output, title="Reanalysis Data Catalog")
 
-    # reanalysis.htm
+if __name__ == "__main__":
+    main()
 

@@ -1,191 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Observational Data Catalog</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
-  h1 { color: #2c3e50; }
-  ul { list-style-type: none; padding-left: 0; }
-  li { background: white; margin: 0.5em 0; padding: 0.75em; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-  .desc { font-weight: bold; color: #34495e; }
-  .meta { color: #7f8c8d; font-size: 0.9em; }
-  label { margin-right: 0.5em; }
-  select { margin-right: 2em; }
-</style>
+  <title>Observational Data Catalog</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    details { margin-bottom: 10px; }
+    summary { font-weight: bold; cursor: pointer; }
+  </style>
 </head>
 <body>
-<h1>Observational Data Catalog</h1>
-
-<a href="index.html">⬅ Back to Home</a><br/>
-
-<label for="domain-select">Domain:</label>
-<select id="domain-select">
-<option value="all">All</option>
-<option value="atm">atm</option>
-<option value="fluxes-radiation">fluxes-radiation</option>
-<option value="ice">ice</option>
-<option value="ocn">ocn</option>
-</select>
-
-<label for="variable-select">Variable:</label>
-<select id="variable-select">
-<option value="all">All</option>
-<option value="OLR">OLR</option>
-<option value="SST">SST</option>
-<option value="ice_concentration">ice_concentration</option>
-<option value="precip">precip</option>
-</select>
-
-<ul id="catalog-list"></ul>
-
-<script>
-const catalogEntries = [
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "time_bounds (unknown), 1998-01-01 00:00:00 to 1998-01-01 00:00:00",
-    "units": "unknown",
-    "date_range": "1998-01-01 00:00:00 to 1998-01-01 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "Land Sea Mask (unknown), 0001-01-01 00:00:00 to 0001-01-01 00:00:00",
-    "units": "unknown",
-    "date_range": "0001-01-01 00:00:00 to 0001-01-01 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "Daily total of precipitation (mm), 1979-01-01 00:00:00 to 1979-12-31 00:00:00",
-    "units": "mm",
-    "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "longitude_bnds (unknown), 1996-10-01 00:00:00 to 1996-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1996-10-01 00:00:00 to 1996-12-31 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "Monthly Average of Daily Accumulated Precipitation (mm/day), 1948-01-01 00:00:00 to 2022-10-01 00:00:00",
-    "units": "mm/day",
-    "date_range": "1948-01-01 00:00:00 to 2022-10-01 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "Time Boundaries (unknown), 1982-01-01 00:00:00 to 2023-08-01 00:00:00",
-    "units": "unknown",
-    "date_range": "1982-01-01 00:00:00 to 2023-08-01 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "time_bnds (unknown), 1979-01-01 00:00:00 to 2023-09-01 00:00:00",
-    "units": "unknown",
-    "date_range": "1979-01-01 00:00:00 to 2023-09-01 00:00:00"
-  },
-  {
-    "domain": "atm",
-    "variable": "precip",
-    "desc": "Average Monthly Rate of Precipitation (mm/day), 1948-01-01 00:00:00 to 2023-10-01 00:00:00",
-    "units": "mm/day",
-    "date_range": "1948-01-01 00:00:00 to 2023-10-01 00:00:00"
-  },
-  {
-    "domain": "fluxes-radiation",
-    "variable": "OLR",
-    "desc": "Missing (unknown), 1974-06-01 00:00:00 to 2022-12-31 00:00:00",
-    "units": "unknown",
-    "date_range": "1974-06-01 00:00:00 to 2022-12-31 00:00:00"
-  },
-  {
-    "domain": "fluxes-radiation",
-    "variable": "OLR",
-    "desc": "Daily OLR (W/m^2), 2002-01-01 00:00:00 to 2023-07-26 00:00:00",
-    "units": "W/m^2",
-    "date_range": "2002-01-01 00:00:00 to 2023-07-26 00:00:00"
-  },
-  {
-    "domain": "ice",
-    "variable": "ice_concentration",
-    "desc": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration (1), 1979-01-01 00:00:00 to 2021-12-01 00:00:00",
-    "units": "1",
-    "date_range": "1979-01-01 00:00:00 to 2021-12-01 00:00:00"
-  },
-  {
-    "domain": "ice",
-    "variable": "ice_concentration",
-    "desc": "SIC (unknown), unknown",
-    "units": "unknown",
-    "date_range": "unknown"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "desc": "Daily Sea Surface Temperature (degC), 1982-01-01 00:00:00 to 1982-12-31 00:00:00",
-    "units": "degC",
-    "date_range": "1982-01-01 00:00:00 to 1982-12-31 00:00:00"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "desc": "time_bnds (unknown), 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00",
-    "units": "unknown",
-    "date_range": "1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "desc": "Time Boundaries (unknown), 1854-01-01 00:00:00 to 2024-02-01 00:00:00",
-    "units": "unknown",
-    "date_range": "1854-01-01 00:00:00 to 2024-02-01 00:00:00"
-  },
-  {
-    "domain": "ocn",
-    "variable": "SST",
-    "desc": "Monthly Mean of Sea Surface Temperature (degC), 1981-12-01 00:00:00 to 2023-01-01 00:00:00",
-    "units": "degC",
-    "date_range": "1981-12-01 00:00:00 to 2023-01-01 00:00:00"
-  }
-];
-
-function renderCatalog(entries) {
-  const ul = document.getElementById('catalog-list');
-  ul.innerHTML = '';
-  if(entries.length === 0) {
-    ul.innerHTML = '<li><em>No matching datasets found.</em></li>';
-    return;
-  }
-  entries.forEach(e => {
-    const li = document.createElement('li');
-    li.innerHTML = `<span class="desc">${e.desc}</span><br/><span class="meta">(${e.units}), ${e.date_range}</span>`;
-    ul.appendChild(li);
-  });
-}
-
-function filterCatalog() {
-  const domain = document.getElementById('domain-select').value;
-  const variable = document.getElementById('variable-select').value;
-
-  const filtered = catalogEntries.filter(e =>
-    (domain === 'all' || e.domain === domain) &&
-    (variable === 'all' || e.variable === variable)
-  );
-  renderCatalog(filtered);
-}
-
-document.getElementById('domain-select').addEventListener('change', filterCatalog);
-document.getElementById('variable-select').addEventListener('change', filterCatalog);
-
-// Show all by default
-renderCatalog(catalogEntries);
-</script>
+  <h1>Observational Data Catalog</h1>
+<details>
+  <summary>obs/gridded/atm/precip/daily/CMORPH</summary>
+  <ul><li><strong>long_name</strong>: time_bounds</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1998-01-01 00:00:00 to 1998-01-01 00:00:00</li><li><strong>n_files</strong>: 9740</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: CMORPH</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg</summary>
+  <ul><li><strong>long_name</strong>: Land Sea Mask</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 0001-01-01 00:00:00 to 0001-01-01 00:00:00</li><li><strong>n_files</strong>: 60</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: CPC-UNI-CONUS-0.25deg</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL</summary>
+  <ul><li><strong>long_name</strong>: Daily total of precipitation</li><li><strong>units</strong>: mm</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 1979-12-31 00:00:00</li><li><strong>n_files</strong>: 45</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: CPC-UNI-GLOBAL</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/daily/NASA-GPCP-v01r03</summary>
+  <ul><li><strong>long_name</strong>: longitude_bnds</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1996-10-01 00:00:00 to 1996-12-31 00:00:00</li><li><strong>n_files</strong>: 25</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: NASA-GPCP-v01r03</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/monthly/CPC-UNI-HIRES</summary>
+  <ul><li><strong>long_name</strong>: Monthly Average of Daily Accumulated Precipitation</li><li><strong>units</strong>: mm/day</li><li><strong>date_range</strong>: 1948-01-01 00:00:00 to 2022-10-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: CPC-UNI-HIRES</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/monthly/GPCC</summary>
+  <ul><li><strong>long_name</strong>: Time Boundaries</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1982-01-01 00:00:00 to 2023-08-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: GPCC</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2</summary>
+  <ul><li><strong>long_name</strong>: time_bnds</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 2023-09-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: NASA-GPCP-v3.2</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/atm/precip/monthly/NOAA-PRECL</summary>
+  <ul><li><strong>long_name</strong>: Average Monthly Rate of Precipitation</li><li><strong>units</strong>: mm/day</li><li><strong>date_range</strong>: 1948-01-01 00:00:00 to 2023-10-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: atm</li><li><strong>variable</strong>: precip</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: NOAA-PRECL</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR</summary>
+  <ul><li><strong>long_name</strong>: Missing</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1974-06-01 00:00:00 to 2022-12-31 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: fluxes-radiation</li><li><strong>variable</strong>: OLR</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: NOAA-interp-OLR</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR</summary>
+  <ul><li><strong>long_name</strong>: Daily OLR</li><li><strong>units</strong>: W/m^2</li><li><strong>date_range</strong>: 2002-01-01 00:00:00 to 2023-07-26 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: fluxes-radiation</li><li><strong>variable</strong>: OLR</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: NOAA-noninterp-OLR</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC</summary>
+  <ul><li><strong>long_name</strong>: NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration</li><li><strong>units</strong>: 1</li><li><strong>date_range</strong>: 1979-01-01 00:00:00 to 2021-12-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ice</li><li><strong>variable</strong>: ice_concentration</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: NOAA-NSIDC</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID</summary>
+  <ul><li><strong>long_name</strong>: SIC</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: unknown</li><li><strong>n_files</strong>: 516</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ice</li><li><strong>variable</strong>: ice_concentration</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: NOAA-NSIDC-REGRID</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES</summary>
+  <ul><li><strong>long_name</strong>: Daily Sea Surface Temperature</li><li><strong>units</strong>: degC</li><li><strong>date_range</strong>: 1982-01-01 00:00:00 to 1982-12-31 00:00:00</li><li><strong>n_files</strong>: 42</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ocn</li><li><strong>variable</strong>: SST</li><li><strong>temporal_resolution</strong>: daily</li><li><strong>dataset</strong>: NOAA-OISSTv2-HIRES</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ocn/SST/monthly/HADISST</summary>
+  <ul><li><strong>long_name</strong>: time_bnds</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ocn</li><li><strong>variable</strong>: SST</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: HADISST</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5</summary>
+  <ul><li><strong>long_name</strong>: Time Boundaries</li><li><strong>units</strong>: unknown</li><li><strong>date_range</strong>: 1854-01-01 00:00:00 to 2024-02-01 00:00:00</li><li><strong>n_files</strong>: 1</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ocn</li><li><strong>variable</strong>: SST</li><li><strong>temporal_resolution</strong>: monthly</li><li><strong>dataset</strong>: NOAA-ERSSTv5</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5/*.nc</li></ul>
+</details>
+<details>
+  <summary>obs/gridded/ocn/SST/weekly/NOAA-OISSTv2</summary>
+  <ul><li><strong>long_name</strong>: Monthly Mean of Sea Surface Temperature</li><li><strong>units</strong>: degC</li><li><strong>date_range</strong>: 1981-12-01 00:00:00 to 2023-01-01 00:00:00</li><li><strong>n_files</strong>: 3</li><li><strong>data_location</strong>: /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2</li><li><strong>category</strong>: obs</li><li><strong>domain</strong>: ocn</li><li><strong>variable</strong>: SST</li><li><strong>temporal_resolution</strong>: weekly</li><li><strong>dataset</strong>: NOAA-OISSTv2</li><li><strong>urlpath</strong>: /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2/*.nc</li></ul>
+</details>
 
 </body>
 </html>
