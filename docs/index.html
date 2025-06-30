@@ -1,16 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Data Catalog Home</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
-  a { display: block; margin: 1em 0; color: #2c3e50; font-size: 1.2em; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ESPLab Data Catalog</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    .dataset-name { font-weight: bold; }
+    .metadata { display: none; margin-left: 1rem; font-size: 0.9rem; color: #555; }
+    .results { margin-top: 1rem; }
+  </style>
 </head>
-<body>
-<h1>ESPLab Data Catalog</h1>
-<a href="obs.html">Observational Data</a>
-<a href="reanalysis.html">Reanalysis Data</a>
+<body class="p-4">
+  <h1>ESPLab Data Catalog</h1>
+  <ul class="nav nav-tabs" id="catalogTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="obs-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#obs"
+        type="button"
+        role="tab"
+      >Observations</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="reanalysis-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#reanalysis"
+        type="button"
+        role="tab"
+      >Reanalysis</button>
+    </li>
+  </ul>
+  <div class="tab-content mt-3">
+    <!-- OBSERVATIONS TAB -->
+    <div class="tab-pane fade show active" id="obs" role="tabpanel">
+      <div class="row g-2 mb-3">
+        <div class="col">
+          <select id="obsDomain" class="form-select">
+            <option value="">Domain</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="obsDataset" class="form-select">
+            <option value="">Dataset</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="obsTemporal" class="form-select">
+            <option value="">Temporal Resolution</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="obsVariable" class="form-select">
+            <option value="">Variable</option>
+          </select>
+        </div>
+      </div>
+      <div id="obsResults" class="results"></div>
+    </div>
+
+    <!-- REANALYSIS TAB -->
+    <div class="tab-pane fade" id="reanalysis" role="tabpanel">
+      <div class="row g-2 mb-3">
+        <div class="col">
+          <select id="reanDataset" class="form-select">
+            <option value="">Dataset</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="reanTemporal" class="form-select">
+            <option value="">Temporal Resolution</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="reanVariable" class="form-select">
+            <option value="">Variable</option>
+          </select>
+        </div>
+      </div>
+      <div id="reanResults" class="results"></div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <script>
+    let obsData = [];
+    let reanData = [];
+
+    async function loadData() {
+      try {
+        const obsResp = await fetch('obs.json');
+        obsData = await obsResp.json();
+        const reanResp = await fetch('reanalysis.json');
+        reanData = await reanResp.json();
+        populateDropdowns();
+        filterResults('obs');
+        filterResults('rean');
+      } catch (e) {
+        console.error("Error loading JSON data", e);
+      }
+    }
+
+    function populateDropdowns() {
+      const obsDomain = new Set();
+      const obsDataset = new Set();
+      const obsTemporal = new Set();
+      const obsVariable = new Set();
+
+      obsData.forEach(item => {
+        obsDomain.add(item.domain);
+        obsDataset.add(item.dataset);
+        obsTemporal.add(item.temporal_resolution);
+        obsVariable.add(item.variable);
+      });
+
+      fillSelect("obsDomain", obsDomain);
+      fillSelect("obsDataset", obsDataset);
+      fillSelect("obsTemporal", obsTemporal);
+      fillSelect("obsVariable", obsVariable);
+
+      const reanDataset = new Set();
+      const reanTemporal = new Set();
+      const reanVariable = new Set();
+
+      reanData.forEach(item => {
+        reanDataset.add(item.dataset);
+        reanTemporal.add(item.temporal_resolution);
+        reanVariable.add(item.variable);
+      });
+
+      fillSelect("reanDataset", reanDataset);
+      fillSelect("reanTemporal", reanTemporal);
+      fillSelect("reanVariable", reanVariable);
+    }
+
+    function fillSelect(id, values) {
+      const sel = document.getElementById(id);
+      values.forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        opt.textContent = v;
+        sel.appendChild(opt);
+      });
+    }
+
+    function filterResults(tab) {
+      const container = document.getElementById(tab + "Results");
+      container.innerHTML = "";
+
+      let filtered = [];
+      if (tab === "obs") {
+        const domain = document.getElementById("obsDomain").value;
+        const dataset = document.getElementById("obsDataset").value;
+        const temporal = document.getElementById("obsTemporal").value;
+        const variable = document.getElementById("obsVariable").value;
+
+        filtered = obsData.filter(d =>
+          (!domain || d.domain === domain) &&
+          (!dataset || d.dataset === dataset) &&
+          (!temporal || d.temporal_resolution === temporal) &&
+          (!variable || d.variable === variable)
+        );
+      } else {
+        const dataset = document.getElementById("reanDataset").value;
+        const temporal = document.getElementById("reanTemporal").value;
+        const variable = document.getElementById("reanVariable").value;
+
+        filtered = reanData.filter(d =>
+          (!dataset || d.dataset === dataset) &&
+          (!temporal || d.temporal_resolution === temporal) &&
+          (!variable || d.variable === variable)
+        );
+      }
+
+      filtered.forEach(item => {
+        const div = document.createElement("div");
+        div.innerHTML = `<span class="dataset-name">${item.dataset}</span>
+        <button class="btn btn-link btn-sm" onclick="toggleMetadata(this)">details</button>
+        <div class="metadata">
+          <pre>${JSON.stringify(item, null, 2)}</pre>
+        </div>`;
+        container.appendChild(div);
+      });
+    }
+
+    function toggleMetadata(button) {
+      const md = button.nextElementSibling;
+      md.style.display = (md.style.display === "block" ? "none" : "block");
+    }
+
+    document.querySelectorAll("select").forEach(sel => {
+      sel.addEventListener("change", () => {
+        const tab = sel.closest(".tab-pane").id;
+        filterResults(tab);
+      });
+    });
+
+    loadData();
+  </script>
 </body>
 </html>
+i
