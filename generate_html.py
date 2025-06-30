@@ -35,10 +35,10 @@ def generate_obs_page(catalog):
 #        if len(parts) < 6:
 #            continue
 #        _, _, domain, variable, temp, dataset = parts
-        _, _, domain, variable, temp, dataset = parts[:6]
-        if len(parts) > 6:
-            subdataset = "/".join(parts[6:])
-            dataset = f"{dataset}/{subdataset}"
+        domain = parts[2]
+        variable = parts[3]
+        temp = parts[4]
+        dataset = "/".join(parts[5:])  # join remaining parts as dataset
 
 
         # Append to lists
