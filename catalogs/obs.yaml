@@ -10,21 +10,23 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH/*.nc
       engine: netcdf4
     metadata:
+      long_name: time_bounds
       units: unknown
       date_range: 1998-01-01 00:00:00 to 1998-01-01 00:00:00
       n_files: 9740
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH
-  obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg:
+  obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT:
     description: Land Sea Mask
     driver: netcdf
     args:
-      urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/*.nc
+      urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT/*.nc
       engine: netcdf4
     metadata:
+      long_name: Land Sea Mask
       units: unknown
       date_range: 0001-01-01 00:00:00 to 0001-01-01 00:00:00
-      n_files: 60
-      data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg
+      n_files: 35
+      data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT
   obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL:
     description: Daily total of precipitation
     driver: netcdf
@@ -32,6 +34,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL/*.nc
       engine: netcdf4
     metadata:
+      long_name: Daily total of precipitation
       units: mm
       date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
       n_files: 45
@@ -43,10 +46,35 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03/*.nc
       engine: netcdf4
     metadata:
+      long_name: longitude_bnds
       units: unknown
       date_range: 1996-10-01 00:00:00 to 1996-12-31 00:00:00
       n_files: 25
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03
+  obs/gridded/atm/precip/daily/chirps-v2.0/p05:
+    description: Climate Hazards group InfraRed Precipitation with Stations
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p05/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: Climate Hazards group InfraRed Precipitation with Stations
+      units: mm/day
+      date_range: 1981-01-01 00:00:00 to 1981-12-31 00:00:00
+      n_files: 44
+      data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p05
+  obs/gridded/atm/precip/daily/chirps-v2.0/p25:
+    description: Climate Hazards group InfraRed Precipitation with Stations
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p25/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: Climate Hazards group InfraRed Precipitation with Stations
+      units: mm/day
+      date_range: 1981-01-01 00:00:00 to 1981-12-31 00:00:00
+      n_files: 44
+      data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p25
   obs/gridded/atm/precip/monthly/CPC-UNI-HIRES:
     description: Monthly Average of Daily Accumulated Precipitation
     driver: netcdf
@@ -54,6 +82,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES/*.nc
       engine: netcdf4
     metadata:
+      long_name: Monthly Average of Daily Accumulated Precipitation
       units: mm/day
       date_range: 1948-01-01 00:00:00 to 2022-10-01 00:00:00
       n_files: 1
@@ -65,6 +94,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC/*.nc
       engine: netcdf4
     metadata:
+      long_name: Time Boundaries
       units: unknown
       date_range: 1982-01-01 00:00:00 to 2023-08-01 00:00:00
       n_files: 1
@@ -76,6 +106,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2/*.nc
       engine: netcdf4
     metadata:
+      long_name: time_bnds
       units: unknown
       date_range: 1979-01-01 00:00:00 to 2023-09-01 00:00:00
       n_files: 1
@@ -87,6 +118,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL/*.nc
       engine: netcdf4
     metadata:
+      long_name: Average Monthly Rate of Precipitation
       units: mm/day
       date_range: 1948-01-01 00:00:00 to 2023-10-01 00:00:00
       n_files: 1
@@ -98,6 +130,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR/*.nc
       engine: netcdf4
     metadata:
+      long_name: Missing
       units: unknown
       date_range: 1974-06-01 00:00:00 to 2022-12-31 00:00:00
       n_files: 1
@@ -109,6 +142,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR/*.nc
       engine: netcdf4
     metadata:
+      long_name: Daily OLR
       units: W/m^2
       date_range: 2002-01-01 00:00:00 to 2023-07-26 00:00:00
       n_files: 1
@@ -121,6 +155,8 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc
       engine: netcdf4
     metadata:
+      long_name: NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern
+        Hemisphere Sea Ice Concentration
       units: '1'
       date_range: 1979-01-01 00:00:00 to 2021-12-01 00:00:00
       n_files: 1
@@ -132,6 +168,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID/*.nc
       engine: netcdf4
     metadata:
+      long_name: SIC
       units: unknown
       date_range: unknown
       n_files: 516
@@ -143,6 +180,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES/*.nc
       engine: netcdf4
     metadata:
+      long_name: Daily Sea Surface Temperature
       units: degC
       date_range: 1982-01-01 00:00:00 to 1982-12-31 00:00:00
       n_files: 42
@@ -154,6 +192,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST/*.nc
       engine: netcdf4
     metadata:
+      long_name: time_bnds
       units: unknown
       date_range: 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00
       n_files: 1
@@ -165,6 +204,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5/*.nc
       engine: netcdf4
     metadata:
+      long_name: Time Boundaries
       units: unknown
       date_range: 1854-01-01 00:00:00 to 2024-02-01 00:00:00
       n_files: 1
@@ -176,6 +216,7 @@ sources:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2/*.nc
       engine: netcdf4
     metadata:
+      long_name: Monthly Mean of Sea Surface Temperature
       units: degC
       date_range: 1981-12-01 00:00:00 to 2023-01-01 00:00:00
       n_files: 3

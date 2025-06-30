@@ -2,6 +2,10 @@ import os
 import yaml
 import xarray as xr
 import pandas as pd
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
 
 BASE_DIR = "/data/esplab/shared/reanalysis"
 IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints'}
@@ -105,7 +109,7 @@ def build_reanalysis_catalog(base_dir):
 
     return catalog
 
-def write_catalog(catalog, output_path="reanalysis.yaml"):
+def write_catalog(catalog, output_path="catalogs/reanalysis.yaml"):
     with open(output_path, 'w') as f:
         yaml.dump(catalog, f, sort_keys=False)
     print(f"✅ Catalog written to {output_path}")

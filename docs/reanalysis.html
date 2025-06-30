@@ -1,831 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog - Reanalysis</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fff;
+    color: #222;
+}
+h1 {
+    color: #841617;
+}
+label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+select {
+    margin: 5px 15px 15px 0;
+    padding: 5px;
+    font-size: 1rem;
+}
+.dataset-entry {
+    border: 1px solid #FFB81C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff8e1;
+}
+.dataset-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #841617;
+}
+.meta-field {
+    margin-left: 10px;
+}
+</style>
+</head>
+<body>
+<h1>ESPLab Data Catalog - Reanalysis</h1>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>ESPLab Data Catalog - Reanalysis</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 2em;
-          background: #f9f9f9;
-          color: #222;
-        }
-        h1 {
-          color: #0076A8;
-          border-bottom: 3px solid #EE7624;
-          padding-bottom: 0.2em;
-        }
-        label {
-          margin-right: 0.5em;
-          font-weight: bold;
-        }
-        select {
-          margin-right: 1.5em;
-          padding: 0.3em;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          min-width: 150px;
-        }
-        .dataset-item:hover {
-          background-color: #eef6fc;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>ESPLab Data Catalog - Reanalysis</h1>
-      <div id="filters">
-        
-    <label for="dataset-select">Dataset:</label>
-    <select id="dataset-select" name="dataset-select">
-      <option value="">-- Select --</option><option value="era5">era5</option><option value="era5-land">era5-land</option><option value="merra-2">merra-2</option>
-    </select>
-    
+<div>
+<label for="dataset">Dataset:</label>
+<select id="dataset">
+  <option value="">-- Select Dataset --</option><option value="era5">era5</option>
+<option value="era5-land">era5-land</option>
+<option value="merra-2">merra-2</option>
+</select>
+<label for="tempres">Temporal Resolution:</label>
+<select id="tempres" disabled>
+  <option value="">-- Select Temporal Resolution --</option>
+</select>
+<label for="variable">Variable:</label>
+<select id="variable" disabled>
+  <option value="">-- Select Variable --</option>
+</select>
+</div>
 
-    <label for="temporal-select">Temporal Resolution:</label>
-    <select id="temporal-select" name="temporal-select">
-      <option value="">-- Select --</option><option value="4xdaily">4xdaily</option><option value="daily">daily</option><option value="hourly">hourly</option>
-    </select>
-    
+<div id="datasetList"></div>
 
-    <label for="variable-select">Variable:</label>
-    <select id="variable-select" name="variable-select">
-      <option value="">-- Select --</option><option value="OMEGA500">OMEGA500</option><option value="evap">evap</option><option value="msl">msl</option><option value="olr">olr</option><option value="omega">omega</option><option value="precip">precip</option><option value="psfc">psfc</option><option value="q">q</option><option value="sst">sst</option><option value="swvl1p">swvl1p</option><option value="t">t</option><option value="t2m">t2m</option><option value="tcwv">tcwv</option><option value="u">u</option><option value="u10">u10</option><option value="u200">u200</option><option value="u500">u500</option><option value="u850">u850</option><option value="v">v</option><option value="v10">v10</option><option value="v200">v200</option><option value="v500">v500</option><option value="v850">v850</option><option value="vimd">vimd</option><option value="vinevf">vinevf</option><option value="vinwvf">vinwvf</option><option value="z">z</option><option value="z200">z200</option><option value="z500">z500</option><option value="z850">z850</option><option value="zg500">zg500</option>
-    </select>
-    
-      </div>
-      <hr/>
-      <div id="datasets">
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="msl" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Mean sea level pressure</div>
-          <div><b>Units:</b> Pa</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/msl</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="u" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> U component of wind</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/u</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="u10" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> 10 metre U wind component</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/u10</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="v" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> V component of wind</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/v</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="v10" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> 10 metre V wind component</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/v10</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="4xdaily" data-variable="z" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Geopotential</div>
-          <div><b>Units:</b> m**2 s**-2</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/z</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="evap" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> e</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/evap</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="olr" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> ttr</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 83</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/olr</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="omega" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> w</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/omega</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="precip" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> tp</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 83</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/precip</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="psfc" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> sp</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/psfc</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="q" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> q</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/q</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="sst" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> sst</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 83</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/sst</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="swvl1p" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> swvl1</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/swvl1p</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="t" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> t</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/t</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="t2m" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> t2m</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/t2m</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="tcwv" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> tcwv</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/tcwv</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="u" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> u</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="u10" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> u10</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u10</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="u200" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> u</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u200</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="u500" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> u</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u500</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="u850" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> u</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u850</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="v" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> v</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="v10" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> v10</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v10</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="v200" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> v</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v200</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="v500" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> v</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v500</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="v850" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> v</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v850</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="vimd" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> vimd</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vimd</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="vinevf" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> p71.162</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vinevf</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="vinwvf" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> p72.162</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vinwvf</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="z" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> z</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 44</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="z200" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> z</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z200</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="z500" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> z</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z500</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="daily" data-variable="z850" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> z</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00</div>
-          <div><b>Files:</b> 84</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z850</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="evap" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Evaporation</div>
-          <div><b>Units:</b> m of water equivalent</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/evap</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="olr" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Top net long-wave (thermal) radiation</div>
-          <div><b>Units:</b> J m**-2</div>
-          <div><b>Date Range:</b> 1940-01-01 07:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1003</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/olr</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="omega" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Vertical velocity</div>
-          <div><b>Units:</b> Pa s**-1</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/omega</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="precip" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Total precipitation</div>
-          <div><b>Units:</b> m</div>
-          <div><b>Date Range:</b> 1940-01-01 07:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1003</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/precip</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="psfc" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Surface pressure</div>
-          <div><b>Units:</b> Pa</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 541</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/psfc</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="q" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Specific humidity</div>
-          <div><b>Units:</b> kg kg**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1006</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/q</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="sst" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Sea surface temperature</div>
-          <div><b>Units:</b> K</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1008</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/sst</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="swvl1p" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Volumetric soil water layer 1</div>
-          <div><b>Units:</b> m**3 m**-3</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1004</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/swvl1p</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="t" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Temperature</div>
-          <div><b>Units:</b> K</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1006</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/t</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="t2m" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> 2 metre temperature</div>
-          <div><b>Units:</b> K</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1003</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/t2m</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="tcwv" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Total column vertically-integrated water vapour</div>
-          <div><b>Units:</b> kg m**-2</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/tcwv</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="u" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> U component of wind</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1008</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/u</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="v" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> V component of wind</div>
-          <div><b>Units:</b> m s**-1</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1008</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/v</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="vimd" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Vertically integrated moisture divergence</div>
-          <div><b>Units:</b> kg m**-2</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vimd</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="vinevf" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Vertical integral of eastward water vapour flux</div>
-          <div><b>Units:</b> kg m**-1 s**-1</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vinevf</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="vinwvf" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Vertical integral of northward water vapour flux</div>
-          <div><b>Units:</b> kg m**-1 s**-1</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vinwvf</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5" data-temporal="hourly" data-variable="z" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Geopotential</div>
-          <div><b>Units:</b> m**2 s**-2</div>
-          <div><b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00</div>
-          <div><b>Files:</b> 1008</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/z</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5-land" data-temporal="daily" data-variable="precip" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5-land</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> tp</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/daily/precip</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5-land" data-temporal="daily" data-variable="t2m" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5-land</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> t2m</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/daily/t2m</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5-land" data-temporal="hourly" data-variable="precip" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5-land</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Total precipitation</div>
-          <div><b>Units:</b> m</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/hourly/precip</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="era5-land" data-temporal="hourly" data-variable="t2m" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>era5-land</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> 2 metre temperature</div>
-          <div><b>Units:</b> K</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00</div>
-          <div><b>Files:</b> 540</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/hourly/t2m</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="merra-2" data-temporal="daily" data-variable="OMEGA500" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>merra-2</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> vertical_pressure_velocity</div>
-          <div><b>Units:</b> Pa s-1</div>
-          <div><b>Date Range:</b> 1980-01-01 00:00:00 to 2024-05-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/merra-2/daily/OMEGA500</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-dataset="merra-2" data-temporal="daily" data-variable="zg500" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>merra-2</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> edge_heights</div>
-          <div><b>Units:</b> m</div>
-          <div><b>Date Range:</b> 1980-01-01 00:00:00 to 2024-05-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/reanalysis/merra-2/daily/zg500</div>
-        </div>
-        
-        </div>
-        
-      </div>
-      <script>
-    function filterDatasets() {
-      const domain = document.getElementById('domain-select') ? document.getElementById('domain-select').value : null;
-      const variable = document.getElementById('variable-select') ? document.getElementById('variable-select').value : null;
-      const temporal = document.getElementById('temporal-select') ? document.getElementById('temporal-select').value : null;
-      const dataset = document.getElementById('dataset-select') ? document.getElementById('dataset-select').value : null;
+<script>
+const catalog = {"era5": {"4xdaily": {"msl": [{"name": "era5", "long_name": "Mean sea level pressure", "description": "Mean sea level pressure (Pa), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "Pa", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/msl"}], "u": [{"name": "era5", "long_name": "U component of wind", "description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u"}], "u10": [{"name": "era5", "long_name": "10 metre U wind component", "description": "10 metre U wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u10"}], "v": [{"name": "era5", "long_name": "V component of wind", "description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v"}], "v10": [{"name": "era5", "long_name": "10 metre V wind component", "description": "10 metre V wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v10"}], "z": [{"name": "era5", "long_name": "Geopotential", "description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "units": "m**2 s**-2", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/z"}]}, "daily": {"evap": [{"name": "era5", "long_name": "e", "description": "e (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/evap"}], "olr": [{"name": "era5", "long_name": "ttr", "description": "ttr (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/olr"}], "omega": [{"name": "era5", "long_name": "w", "description": "w (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/omega"}], "precip": [{"name": "era5", "long_name": "tp", "description": "tp (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/precip"}], "psfc": [{"name": "era5", "long_name": "sp", "description": "sp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/psfc"}], "q": [{"name": "era5", "long_name": "q", "description": "q (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/q"}], "sst": [{"name": "era5", "long_name": "sst", "description": "sst (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/sst"}], "swvl1p": [{"name": "era5", "long_name": "swvl1", "description": "swvl1 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/swvl1p"}], "t": [{"name": "era5", "long_name": "t", "description": "t (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/t"}], "t2m": [{"name": "era5", "long_name": "t2m", "description": "t2m (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/t2m"}], "tcwv": [{"name": "era5", "long_name": "tcwv", "description": "tcwv (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/tcwv"}], "u": [{"name": "era5", "long_name": "u", "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u"}], "u10": [{"name": "era5", "long_name": "u10", "description": "u10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u10"}], "u200": [{"name": "era5", "long_name": "u", "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u200"}], "u500": [{"name": "era5", "long_name": "u", "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u500"}], "u850": [{"name": "era5", "long_name": "u", "description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u850"}], "v": [{"name": "era5", "long_name": "v", "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v"}], "v10": [{"name": "era5", "long_name": "v10", "description": "v10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v10"}], "v200": [{"name": "era5", "long_name": "v", "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v200"}], "v500": [{"name": "era5", "long_name": "v", "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v500"}], "v850": [{"name": "era5", "long_name": "v", "description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v850"}], "vimd": [{"name": "era5", "long_name": "vimd", "description": "vimd (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vimd"}], "vinevf": [{"name": "era5", "long_name": "p71.162", "description": "p71.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinevf"}], "vinwvf": [{"name": "era5", "long_name": "p72.162", "description": "p72.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinwvf"}], "z": [{"name": "era5", "long_name": "z", "description": "z (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 44, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z"}], "z200": [{"name": "era5", "long_name": "z", "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z200"}], "z500": [{"name": "era5", "long_name": "z", "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z500"}], "z850": [{"name": "era5", "long_name": "z", "description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z850"}]}, "hourly": {"evap": [{"name": "era5", "long_name": "Evaporation", "description": "Evaporation (m of water equivalent), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "m of water equivalent", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/evap"}], "olr": [{"name": "era5", "long_name": "Top net long-wave (thermal) radiation", "description": "Top net long-wave (thermal) radiation (J m**-2), 1940-01-01 07:00:00 to 1940-01-31 23:00:00", "units": "J m**-2", "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/olr"}], "omega": [{"name": "era5", "long_name": "Vertical velocity", "description": "Vertical velocity (Pa s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "Pa s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/omega"}], "precip": [{"name": "era5", "long_name": "Total precipitation", "description": "Total precipitation (m), 1940-01-01 07:00:00 to 1940-01-31 23:00:00", "units": "m", "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/precip"}], "psfc": [{"name": "era5", "long_name": "Surface pressure", "description": "Surface pressure (Pa), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "Pa", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 541, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/psfc"}], "q": [{"name": "era5", "long_name": "Specific humidity", "description": "Specific humidity (kg kg**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "kg kg**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/q"}], "sst": [{"name": "era5", "long_name": "Sea surface temperature", "description": "Sea surface temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/sst"}], "swvl1p": [{"name": "era5", "long_name": "Volumetric soil water layer 1", "description": "Volumetric soil water layer 1 (m**3 m**-3), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "m**3 m**-3", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1004, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p"}], "t": [{"name": "era5", "long_name": "Temperature", "description": "Temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t"}], "t2m": [{"name": "era5", "long_name": "2 metre temperature", "description": "2 metre temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t2m"}], "tcwv": [{"name": "era5", "long_name": "Total column vertically-integrated water vapour", "description": "Total column vertically-integrated water vapour (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "kg m**-2", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/tcwv"}], "u": [{"name": "era5", "long_name": "U component of wind", "description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/u"}], "v": [{"name": "era5", "long_name": "V component of wind", "description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/v"}], "vimd": [{"name": "era5", "long_name": "Vertically integrated moisture divergence", "description": "Vertically integrated moisture divergence (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "kg m**-2", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vimd"}], "vinevf": [{"name": "era5", "long_name": "Vertical integral of eastward water vapour flux", "description": "Vertical integral of eastward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinevf"}], "vinwvf": [{"name": "era5", "long_name": "Vertical integral of northward water vapour flux", "description": "Vertical integral of northward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf"}], "z": [{"name": "era5", "long_name": "Geopotential", "description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "units": "m**2 s**-2", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/z"}]}}, "era5-land": {"daily": {"precip": [{"name": "era5-land", "long_name": "tp", "description": "tp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/precip"}], "t2m": [{"name": "era5-land", "long_name": "t2m", "description": "t2m (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/t2m"}]}, "hourly": {"precip": [{"name": "era5-land", "long_name": "Total precipitation", "description": "Total precipitation (m), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "m", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/precip"}], "t2m": [{"name": "era5-land", "long_name": "2 metre temperature", "description": "2 metre temperature (K), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "units": "K", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m"}]}}, "merra-2": {"daily": {"OMEGA500": [{"name": "merra-2", "long_name": "vertical_pressure_velocity", "description": "vertical_pressure_velocity (Pa s-1), 1980-01-01 00:00:00 to 2024-05-01 00:00:00", "units": "Pa s-1", "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500"}], "zg500": [{"name": "merra-2", "long_name": "edge_heights", "description": "edge_heights (m), 1980-01-01 00:00:00 to 2024-05-01 00:00:00", "units": "m", "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/zg500"}]}}};
 
-      const datasets = document.querySelectorAll('.dataset-item');
-      datasets.forEach(ds => {
-        let show = true;
-        if(domain && ds.dataset.domain !== domain) show = false;
-        if(variable && ds.dataset.variable !== variable) show = false;
-        if(temporal && ds.dataset.temporal !== temporal) show = false;
-        if(dataset && ds.dataset.dataset !== dataset) show = false;
+function clearAndDisable(selectEl) {
+    selectEl.innerHTML = '<option value="">-- Select --</option>';
+    selectEl.disabled = true;
+}
 
-        ds.style.display = show ? 'block' : 'none';
-      });
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
+
+function populateSelect(selectEl, options) {
+    clearAndDisable(selectEl);
+    options.forEach(opt => {
+        let option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+
+function updateDatasets() {
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variable = document.getElementById("variable").value;
+    const container = document.getElementById("datasetList");
+    container.innerHTML = "";
+
+    if (!dataset || !tempres || !variable) {
+        return;
     }
 
-    document.querySelectorAll('select').forEach(sel => {
-      sel.addEventListener('change', filterDatasets);
-    });
+    const entries = catalog[dataset]?.[tempres]?.[variable];
+    if (!entries || entries.length === 0) {
+        container.textContent = "No datasets found for this selection.";
+        return;
+    }
 
-    // Initially hide all
-    filterDatasets();
-    </script>
-    </body>
-    </html>
-    
+    entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+document.getElementById("dataset").addEventListener("change", () => {
+    const dataset = document.getElementById("dataset").value;
+    const tempresSelect = document.getElementById("tempres");
+    const variableSelect = document.getElementById("variable");
+    clearAndDisable(variableSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!dataset) {
+        clearAndDisable(tempresSelect);
+        return;
+    }
+
+    const tempres = Object.keys(catalog[dataset]);
+    populateSelect(tempresSelect, tempres);
+});
+
+document.getElementById("tempres").addEventListener("change", () => {
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variableSelect = document.getElementById("variable");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!tempres) {
+        clearAndDisable(variableSelect);
+        return;
+    }
+
+    const vars = Object.keys(catalog[dataset][tempres]);
+    populateSelect(variableSelect, vars);
+});
+
+document.getElementById("variable").addEventListener("change", updateDatasets);
+</script>
+
+</body>
+</html>

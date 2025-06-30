@@ -3,6 +3,10 @@ import yaml
 import xarray as xr
 import pandas as pd
 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
 BASE_DIR = "/data/esplab/shared/obs"
 IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints'}
 
@@ -54,68 +58,82 @@ def build_obs_catalog(base_dir):
         "sources": {}
     }
 
-    print(f"Building OBS catalog from base dir: {base_dir}")
-    # Expected structure: obs/gridded/<domain>/<variable>/<temporal_resolution>/<dataset>
     gridded_path = os.path.join(base_dir, "gridded")
-    if not os.path.isdir(gridded_path):
-        print(f"Error: Expected gridded directory at {gridded_path} not found.")
-        return catalog
 
     for domain in sorted(os.listdir(gridded_path)):
-        if domain in IGNORE_DIRS:
-            continue
         domain_path = os.path.join(gridded_path, domain)
         if not os.path.isdir(domain_path):
             continue
 
         for variable in sorted(os.listdir(domain_path)):
-            if variable in IGNORE_DIRS:
-                continue
             variable_path = os.path.join(domain_path, variable)
             if not os.path.isdir(variable_path):
                 continue
 
             for temp_res in sorted(os.listdir(variable_path)):
-                if temp_res in IGNORE_DIRS:
-                    continue
                 temp_path = os.path.join(variable_path, temp_res)
                 if not os.path.isdir(temp_path):
                     continue
 
                 for dataset in sorted(os.listdir(temp_path)):
-                    if dataset in IGNORE_DIRS:
-                        continue
                     dataset_path = os.path.join(temp_path, dataset)
                     if not os.path.isdir(dataset_path):
                         continue
 
-                    nc_files = get_netcdf_files(dataset_path)
-                    if not nc_files:
-                        print(f"⚠️ No NetCDF files found in {dataset_path}, skipping.")
-                        continue
+                    # Check if dataset_path has subdirectories with files
+                    subdirs = [d for d in sorted(os.listdir(dataset_path))
+                               if os.path.isdir(os.path.join(dataset_path, d))]
 
-                    print(f"✔️ Processing obs/gridded/{domain}/{variable}/{temp_res}/{dataset}")
-                    meta = extract_metadata(nc_files)
-
-                    key = f"obs/gridded/{domain}/{variable}/{temp_res}/{dataset}"
-                    catalog["sources"][key] = {
-                       "description": meta['long_name'],
-                       "driver": "netcdf",
-                       "args": {
-                           "urlpath": os.path.join(dataset_path, "*.nc"),
-                           "engine": "netcdf4"
-                       },
-                       "metadata": {
-                           "units": meta['units'],
-                           "date_range": meta['date_range'],
-                           "n_files": meta['n_files'],
-                           "data_location": dataset_path
-                       }
-                   }
+                    if subdirs:
+                        # Use each subdir as dataset variant
+                        for sub in subdirs:
+                            sub_path = os.path.join(dataset_path, sub)
+                            nc_files = get_netcdf_files(sub_path)
+                            if not nc_files:
+                                continue
+                            key = f"obs/gridded/{domain}/{variable}/{temp_res}/{dataset}/{sub}"
+                            meta = extract_metadata(nc_files)
+                            catalog["sources"][key] = {
+                                "description": meta['long_name'],
+                                "driver": "netcdf",
+                                "args": {
+                                    "urlpath": os.path.join(sub_path, "*.nc"),
+                                    "engine": "netcdf4"
+                                },
+                                "metadata": {
+                                    "long_name": meta['long_name'],
+                                    "units": meta['units'],
+                                    "date_range": meta['date_range'],
+                                    "n_files": meta['n_files'],
+                                    "data_location": sub_path
+                                }
+                            }
+                    else:
+                        # No subdirs, use dataset_path as dataset
+                        nc_files = get_netcdf_files(dataset_path)
+                        if not nc_files:
+                            continue
+                        key = f"obs/gridded/{domain}/{variable}/{temp_res}/{dataset}"
+                        meta = extract_metadata(nc_files)
+                        catalog["sources"][key] = {
+                            "description": meta['long_name'],
+                            "driver": "netcdf",
+                            "args": {
+                                "urlpath": os.path.join(dataset_path, "*.nc"),
+                                "engine": "netcdf4"
+                            },
+                            "metadata": {
+                                "long_name": meta['long_name'],
+                                "units": meta['units'],
+                                "date_range": meta['date_range'],
+                                "n_files": meta['n_files'],
+                                "data_location": dataset_path
+                            }
+                        }
 
     return catalog
 
-def write_catalog(catalog, output_path="obs.yaml"):
+def write_catalog(catalog, output_path="catalogs/obs.yaml"):
     with open(output_path, 'w') as f:
         yaml.dump(catalog, f, sort_keys=False)
     print(f"✅ Catalog written to {output_path}")

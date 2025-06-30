@@ -1,304 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog - Observations</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fff;
+    color: #222;
+}
+h1 {
+    color: #841617;
+}
+label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+select {
+    margin: 5px 15px 15px 0;
+    padding: 5px;
+    font-size: 1rem;
+}
+.dataset-entry {
+    border: 1px solid #FFB81C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff8e1;
+}
+.dataset-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #841617;
+}
+.meta-field {
+    margin-left: 10px;
+}
+</style>
+</head>
+<body>
+<h1>ESPLab Data Catalog - Observations</h1>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>ESPLab Data Catalog - Observations</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 2em;
-          background: #f9f9f9;
-          color: #222;
-        }
-        h1 {
-          color: #0076A8;
-          border-bottom: 3px solid #EE7624;
-          padding-bottom: 0.2em;
-        }
-        label {
-          margin-right: 0.5em;
-          font-weight: bold;
-        }
-        select {
-          margin-right: 1.5em;
-          padding: 0.3em;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          min-width: 150px;
-        }
-        .dataset-item:hover {
-          background-color: #eef6fc;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>ESPLab Data Catalog - Observations</h1>
-      <div id="filters">
-        
-    <label for="domain-select">Domain:</label>
-    <select id="domain-select" name="domain-select">
-      <option value="">-- Select --</option><option value="atm">atm</option><option value="fluxes-radiation">fluxes-radiation</option><option value="ice">ice</option><option value="ocn">ocn</option>
-    </select>
-    
+<div>
+<label for="domain">Domain:</label>
+<select id="domain">
+  <option value="">-- Select Domain --</option><option value="atm">atm</option>
+<option value="fluxes-radiation">fluxes-radiation</option>
+<option value="ice">ice</option>
+<option value="ocn">ocn</option>
+</select>
+<label for="dataset">Dataset:</label>
+<select id="dataset" disabled>
+  <option value="">-- Select Dataset --</option>
+</select>
+<label for="tempres">Temporal Resolution:</label>
+<select id="tempres" disabled>
+  <option value="">-- Select Temporal Resolution --</option>
+</select>
+<label for="variable">Variable:</label>
+<select id="variable" disabled>
+  <option value="">-- Select Variable --</option>
+</select>
+</div>
 
-    <label for="variable-select">Variable:</label>
-    <select id="variable-select" name="variable-select">
-      <option value="">-- Select --</option><option value="OLR">OLR</option><option value="SST">SST</option><option value="ice_concentration">ice_concentration</option><option value="precip">precip</option>
-    </select>
-    
+<div id="datasetList"></div>
 
-    <label for="temporal-select">Temporal Resolution:</label>
-    <select id="temporal-select" name="temporal-select">
-      <option value="">-- Select --</option><option value="daily">daily</option><option value="monthly">monthly</option><option value="weekly">weekly</option>
-    </select>
-    
+<script>
+// Full catalog data:
+const catalog = {"atm": {"CMORPH": {"daily": {"precip": [{"name": "CMORPH", "long_name": "time_bounds", "description": "time_bounds (unknown), 1998-01-01 00:00:00 to 1998-01-01 00:00:00", "units": "unknown", "date_range": "1998-01-01 00:00:00 to 1998-01-01 00:00:00", "files": 9740, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH"}]}}, "CPC-UNI-CONUS-0.25deg": {"daily": {"precip": [{"name": "CPC-UNI-CONUS-0.25deg", "long_name": "Land Sea Mask", "description": "Land Sea Mask (unknown), 0001-01-01 00:00:00 to 0001-01-01 00:00:00", "units": "unknown", "date_range": "0001-01-01 00:00:00 to 0001-01-01 00:00:00", "files": 60, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg"}]}}, "CPC-UNI-GLOBAL": {"daily": {"precip": [{"name": "CPC-UNI-GLOBAL", "long_name": "Daily total of precipitation", "description": "Daily total of precipitation (mm), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "units": "mm", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "files": 45, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL"}]}}, "NASA-GPCP-v01r03": {"daily": {"precip": [{"name": "NASA-GPCP-v01r03", "long_name": "longitude_bnds", "description": "longitude_bnds (unknown), 1996-10-01 00:00:00 to 1996-12-31 00:00:00", "units": "unknown", "date_range": "1996-10-01 00:00:00 to 1996-12-31 00:00:00", "files": 25, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03"}]}}, "CPC-UNI-HIRES": {"monthly": {"precip": [{"name": "CPC-UNI-HIRES", "long_name": "Monthly Average of Daily Accumulated Precipitation", "description": "Monthly Average of Daily Accumulated Precipitation (mm/day), 1948-01-01 00:00:00 to 2022-10-01 00:00:00", "units": "mm/day", "date_range": "1948-01-01 00:00:00 to 2022-10-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES"}]}}, "GPCC": {"monthly": {"precip": [{"name": "GPCC", "long_name": "Time Boundaries", "description": "Time Boundaries (unknown), 1982-01-01 00:00:00 to 2023-08-01 00:00:00", "units": "unknown", "date_range": "1982-01-01 00:00:00 to 2023-08-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC"}]}}, "NASA-GPCP-v3.2": {"monthly": {"precip": [{"name": "NASA-GPCP-v3.2", "long_name": "time_bnds", "description": "time_bnds (unknown), 1979-01-01 00:00:00 to 2023-09-01 00:00:00", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 2023-09-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2"}]}}, "NOAA-PRECL": {"monthly": {"precip": [{"name": "NOAA-PRECL", "long_name": "Average Monthly Rate of Precipitation", "description": "Average Monthly Rate of Precipitation (mm/day), 1948-01-01 00:00:00 to 2023-10-01 00:00:00", "units": "mm/day", "date_range": "1948-01-01 00:00:00 to 2023-10-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL"}]}}}, "fluxes-radiation": {"NOAA-interp-OLR": {"daily": {"OLR": [{"name": "NOAA-interp-OLR", "long_name": "Missing", "description": "Missing (unknown), 1974-06-01 00:00:00 to 2022-12-31 00:00:00", "units": "unknown", "date_range": "1974-06-01 00:00:00 to 2022-12-31 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR"}]}}, "NOAA-noninterp-OLR": {"daily": {"OLR": [{"name": "NOAA-noninterp-OLR", "long_name": "Daily OLR", "description": "Daily OLR (W/m^2), 2002-01-01 00:00:00 to 2023-07-26 00:00:00", "units": "W/m^2", "date_range": "2002-01-01 00:00:00 to 2023-07-26 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR"}]}}}, "ice": {"NOAA-NSIDC": {"monthly": {"ice_concentration": [{"name": "NOAA-NSIDC", "long_name": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration", "description": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration (1), 1979-01-01 00:00:00 to 2021-12-01 00:00:00", "units": "1", "date_range": "1979-01-01 00:00:00 to 2021-12-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC"}]}}, "NOAA-NSIDC-REGRID": {"monthly": {"ice_concentration": [{"name": "NOAA-NSIDC-REGRID", "long_name": "SIC", "description": "SIC (unknown), unknown", "units": "unknown", "date_range": "unknown", "files": 516, "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID"}]}}}, "ocn": {"NOAA-OISSTv2-HIRES": {"daily": {"SST": [{"name": "NOAA-OISSTv2-HIRES", "long_name": "Daily Sea Surface Temperature", "description": "Daily Sea Surface Temperature (degC), 1982-01-01 00:00:00 to 1982-12-31 00:00:00", "units": "degC", "date_range": "1982-01-01 00:00:00 to 1982-12-31 00:00:00", "files": 42, "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES"}]}}, "HADISST": {"monthly": {"SST": [{"name": "HADISST", "long_name": "time_bnds", "description": "time_bnds (unknown), 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00", "units": "unknown", "date_range": "1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST"}]}}, "NOAA-ERSSTv5": {"monthly": {"SST": [{"name": "NOAA-ERSSTv5", "long_name": "Time Boundaries", "description": "Time Boundaries (unknown), 1854-01-01 00:00:00 to 2024-02-01 00:00:00", "units": "unknown", "date_range": "1854-01-01 00:00:00 to 2024-02-01 00:00:00", "files": 1, "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5"}]}}, "NOAA-OISSTv2": {"weekly": {"SST": [{"name": "NOAA-OISSTv2", "long_name": "Monthly Mean of Sea Surface Temperature", "description": "Monthly Mean of Sea Surface Temperature (degC), 1981-12-01 00:00:00 to 2023-01-01 00:00:00", "units": "degC", "date_range": "1981-12-01 00:00:00 to 2023-01-01 00:00:00", "files": 3, "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2"}]}}}};
 
-    <label for="dataset-select">Dataset:</label>
-    <select id="dataset-select" name="dataset-select">
-      <option value="">-- Select --</option><option value="CMORPH">CMORPH</option><option value="CPC-UNI-CONUS-0.25deg">CPC-UNI-CONUS-0.25deg</option><option value="CPC-UNI-GLOBAL">CPC-UNI-GLOBAL</option><option value="CPC-UNI-HIRES">CPC-UNI-HIRES</option><option value="GPCC">GPCC</option><option value="HADISST">HADISST</option><option value="NASA-GPCP-v01r03">NASA-GPCP-v01r03</option><option value="NASA-GPCP-v3.2">NASA-GPCP-v3.2</option><option value="NOAA-ERSSTv5">NOAA-ERSSTv5</option><option value="NOAA-NSIDC">NOAA-NSIDC</option><option value="NOAA-NSIDC-REGRID">NOAA-NSIDC-REGRID</option><option value="NOAA-OISSTv2">NOAA-OISSTv2</option><option value="NOAA-OISSTv2-HIRES">NOAA-OISSTv2-HIRES</option><option value="NOAA-PRECL">NOAA-PRECL</option><option value="NOAA-interp-OLR">NOAA-interp-OLR</option><option value="NOAA-noninterp-OLR">NOAA-noninterp-OLR</option>
-    </select>
-    
-      </div>
-      <hr/>
-      <div id="datasets">
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="daily" data-dataset="CMORPH" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>CMORPH</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> time_bounds</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1998-01-01 00:00:00 to 1998-01-01 00:00:00</div>
-          <div><b>Files:</b> 9740</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="daily" data-dataset="CPC-UNI-CONUS-0.25deg" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>CPC-UNI-CONUS-0.25deg</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Land Sea Mask</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 0001-01-01 00:00:00 to 0001-01-01 00:00:00</div>
-          <div><b>Files:</b> 60</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="daily" data-dataset="CPC-UNI-GLOBAL" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>CPC-UNI-GLOBAL</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Daily total of precipitation</div>
-          <div><b>Units:</b> mm</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00</div>
-          <div><b>Files:</b> 45</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="daily" data-dataset="NASA-GPCP-v01r03" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NASA-GPCP-v01r03</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> longitude_bnds</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1996-10-01 00:00:00 to 1996-12-31 00:00:00</div>
-          <div><b>Files:</b> 25</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="monthly" data-dataset="CPC-UNI-HIRES" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>CPC-UNI-HIRES</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Monthly Average of Daily Accumulated Precipitation</div>
-          <div><b>Units:</b> mm/day</div>
-          <div><b>Date Range:</b> 1948-01-01 00:00:00 to 2022-10-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="monthly" data-dataset="GPCC" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>GPCC</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Time Boundaries</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1982-01-01 00:00:00 to 2023-08-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="monthly" data-dataset="NASA-GPCP-v3.2" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NASA-GPCP-v3.2</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> time_bnds</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 2023-09-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="atm" data-variable="precip" data-temporal="monthly" data-dataset="NOAA-PRECL" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-PRECL</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Average Monthly Rate of Precipitation</div>
-          <div><b>Units:</b> mm/day</div>
-          <div><b>Date Range:</b> 1948-01-01 00:00:00 to 2023-10-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="fluxes-radiation" data-variable="OLR" data-temporal="daily" data-dataset="NOAA-interp-OLR" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-interp-OLR</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Missing</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1974-06-01 00:00:00 to 2022-12-31 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="fluxes-radiation" data-variable="OLR" data-temporal="daily" data-dataset="NOAA-noninterp-OLR" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-noninterp-OLR</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Daily OLR</div>
-          <div><b>Units:</b> W/m^2</div>
-          <div><b>Date Range:</b> 2002-01-01 00:00:00 to 2023-07-26 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ice" data-variable="ice_concentration" data-temporal="monthly" data-dataset="NOAA-NSIDC" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-NSIDC</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration</div>
-          <div><b>Units:</b> 1</div>
-          <div><b>Date Range:</b> 1979-01-01 00:00:00 to 2021-12-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ice" data-variable="ice_concentration" data-temporal="monthly" data-dataset="NOAA-NSIDC-REGRID" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-NSIDC-REGRID</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> SIC</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> unknown</div>
-          <div><b>Files:</b> 516</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ocn" data-variable="SST" data-temporal="daily" data-dataset="NOAA-OISSTv2-HIRES" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-OISSTv2-HIRES</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Daily Sea Surface Temperature</div>
-          <div><b>Units:</b> degC</div>
-          <div><b>Date Range:</b> 1982-01-01 00:00:00 to 1982-12-31 00:00:00</div>
-          <div><b>Files:</b> 42</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ocn" data-variable="SST" data-temporal="monthly" data-dataset="HADISST" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>HADISST</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> time_bnds</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1870-01-16 11:59:59.505615 to 2024-01-16 12:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ocn" data-variable="SST" data-temporal="monthly" data-dataset="NOAA-ERSSTv5" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-ERSSTv5</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Time Boundaries</div>
-          <div><b>Units:</b> unknown</div>
-          <div><b>Date Range:</b> 1854-01-01 00:00:00 to 2024-02-01 00:00:00</div>
-          <div><b>Files:</b> 1</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5</div>
-        </div>
-        
-        </div>
-        
-        <div class="dataset-item" data-domain="ocn" data-variable="SST" data-temporal="weekly" data-dataset="NOAA-OISSTv2" style="display:none; padding: 0.5em; border-bottom:1px solid #ddd;">
-          <b>NOAA-OISSTv2</b>
-          
-        <div style="margin-left:1em; font-size:0.9em; color:#444;">
-          <div><b>Description:</b> Monthly Mean of Sea Surface Temperature</div>
-          <div><b>Units:</b> degC</div>
-          <div><b>Date Range:</b> 1981-12-01 00:00:00 to 2023-01-01 00:00:00</div>
-          <div><b>Files:</b> 3</div>
-          <div><b>Data Location:</b> /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2</div>
-        </div>
-        
-        </div>
-        
-      </div>
-      <script>
-    function filterDatasets() {
-      const domain = document.getElementById('domain-select') ? document.getElementById('domain-select').value : null;
-      const variable = document.getElementById('variable-select') ? document.getElementById('variable-select').value : null;
-      const temporal = document.getElementById('temporal-select') ? document.getElementById('temporal-select').value : null;
-      const dataset = document.getElementById('dataset-select') ? document.getElementById('dataset-select').value : null;
+function clearAndDisable(selectEl) {
+    selectEl.innerHTML = '<option value="">-- Select --</option>';
+    selectEl.disabled = true;
+}
 
-      const datasets = document.querySelectorAll('.dataset-item');
-      datasets.forEach(ds => {
-        let show = true;
-        if(domain && ds.dataset.domain !== domain) show = false;
-        if(variable && ds.dataset.variable !== variable) show = false;
-        if(temporal && ds.dataset.temporal !== temporal) show = false;
-        if(dataset && ds.dataset.dataset !== dataset) show = false;
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
 
-        ds.style.display = show ? 'block' : 'none';
-      });
+function populateSelect(selectEl, options) {
+    clearAndDisable(selectEl);
+    options.forEach(opt => {
+        let option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+
+function updateDatasets() {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variable = document.getElementById("variable").value;
+    const container = document.getElementById("datasetList");
+    container.innerHTML = "";
+
+    if (!domain || !dataset || !tempres || !variable) {
+        // don't show datasets if any dropdown is unselected
+        return;
     }
 
-    document.querySelectorAll('select').forEach(sel => {
-      sel.addEventListener('change', filterDatasets);
-    });
+    const entries = catalog[domain]?.[dataset]?.[tempres]?.[variable];
+    if (!entries || entries.length === 0) {
+        container.textContent = "No datasets found for this selection.";
+        return;
+    }
 
-    // Initially hide all
-    filterDatasets();
-    </script>
-    </body>
-    </html>
-    
+    entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+document.getElementById("domain").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const datasetSelect = document.getElementById("dataset");
+    const tempresSelect = document.getElementById("tempres");
+    const variableSelect = document.getElementById("variable");
+
+    clearAndDisable(tempresSelect);
+    clearAndDisable(variableSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!domain) {
+        clearAndDisable(datasetSelect);
+        return;
+    }
+
+    const datasets = Object.keys(catalog[domain]);
+    populateSelect(datasetSelect, datasets);
+});
+
+document.getElementById("dataset").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempresSelect = document.getElementById("tempres");
+    const variableSelect = document.getElementById("variable");
+    clearAndDisable(variableSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!dataset) {
+        clearAndDisable(tempresSelect);
+        return;
+    }
+
+    const tempres = Object.keys(catalog[domain][dataset]);
+    populateSelect(tempresSelect, tempres);
+});
+
+document.getElementById("tempres").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variableSelect = document.getElementById("variable");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!tempres) {
+        clearAndDisable(variableSelect);
+        return;
+    }
+
+    const vars = Object.keys(catalog[domain][dataset][tempres]);
+    populateSelect(variableSelect, vars);
+});
+
+document.getElementById("variable").addEventListener("change", updateDatasets);
+</script>
+
+</body>
+</html>
