@@ -74,6 +74,23 @@ def generate_html_for_catalog(catalog, category_name):
         
         print(f"  - Wrote {output_file}")
 
+def generate_overview_page(category, entries, OUTPUT_DIR):
+    # category: "obs" or "reanalysis"
+    page_path = os.path.join(OUTPUT_DIR, f"{category}.html")
+    with open(page_path, 'w') as f:
+        f.write(f"<html><head><title>{category.capitalize()} Data Overview</title></head><body>\n")
+        f.write(f"<h1>{category.capitalize()} Data</h1>\n<ul>\n")
+        for key, info in sorted(entries.items()):
+            # key example: obs/gridded/atm/precip/monthly/NOAA-PRECL
+            # Build relative URL to detailed page HTML:
+            # Assuming detailed pages are under OUTPUT_DIR/obs/... or output_dir/reanalysis/...
+            relative_path = key.replace("/", "_") + ".html"  # or your existing naming scheme
+            f.write(f'<li><a href="{category}/{relative_path}">{info["description"]}</a></li>\n')
+        f.write("</ul>\n")
+        f.write('<p><a href="index.html">Back to Home</a></p>\n')
+        f.write("</body></html>\n")
+
+
 def main():
     # Load and generate for obs
     obs_catalog = load_catalog(OBS_YAML)
@@ -82,6 +99,10 @@ def main():
     # Load and generate for reanalysis
     reanalysis_catalog = load_catalog(REANALYSIS_YAML)
     generate_html_for_catalog(reanalysis_catalog, "Reanalysis")
+
+    # Example usage after detailed pages generation:
+    generate_overview_page("obs", obs_catalog["sources"], OUTPUT_DIR)
+    generate_overview_page("reanalysis", reanalysis_catalog["sources"], OUTPUT_DIR)
 
 if __name__ == "__main__":
     main()
