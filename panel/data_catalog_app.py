@@ -126,4 +126,4 @@ def main():
 
 if __name__ == "__main__":
     app = main()
-    pn.serve(app, port=5006)
+    pn.servable()
