@@ -1,661 +1,121 @@
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>ESPLab Reanalysis Data Catalog</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 2em;
-          background: #f9f9f9;
-          color: #222;
-        }
-        h1 {
-          color: #004080;
-        }
-        .dataset-entry {
-          background: white;
-          border-radius: 4px;
-          box-shadow: 0 0 5px #ccc;
-          padding: 10px;
-          margin-bottom: 10px;
-        }
-        .metadata b {
-          color: #004080;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>ESPLab Reanalysis Data Catalog</h1>
-      
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>precip</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> tp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/daily/precip<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t2m</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> t2m (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/daily/t2m<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>precip</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Total precipitation (m), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> m<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/hourly/precip<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t2m</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> 2 metre temperature (K), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> K<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5-land/hourly/t2m<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>msl</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Mean sea level pressure (Pa), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> Pa<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/msl<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/u<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u10</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> 10 metre U wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/u10<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/v<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v10</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> 10 metre V wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/v10<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 18:00:00<br>
-        <b>Units:</b> m**2 s**-2<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/4xdaily/z<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>evap</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> e (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/evap<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>olr</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> ttr (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 83<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/olr<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>omega</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> w (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/omega<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>precip</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> tp (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 83<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/precip<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>psfc</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> sp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/psfc<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>q</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> q (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/q<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>sst</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> sst (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 83<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/sst<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>swvl1p</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> swvl1 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/swvl1p<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> t (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/t<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t2m</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> t2m (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/t2m<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>tcwv</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> tcwv (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/tcwv<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u10</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> u10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u10<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u200</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u200<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u500</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u500<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u850</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/u850<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v10</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> v10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v10<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v200</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v200<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v500</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v500<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v850</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/v850<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vimd</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> vimd (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vimd<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vinevf</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> p71.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vinevf<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vinwvf</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> p72.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 45<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/vinwvf<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> z (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 44<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z200</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z200<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z500</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z500<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z850</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-12-31 00:00:00<br>
-        <b>Units:</b> unknown<br>
-        <b>Files:</b> 84<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/daily/z850<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>evap</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Evaporation (m of water equivalent), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> m of water equivalent<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/evap<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>olr</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Top net long-wave (thermal) radiation (J m**-2), 1940-01-01 07:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 07:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> J m**-2<br>
-        <b>Files:</b> 1003<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/olr<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>omega</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Vertical velocity (Pa s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> Pa s**-1<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/omega<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>precip</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Total precipitation (m), 1940-01-01 07:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 07:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> m<br>
-        <b>Files:</b> 1003<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/precip<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>psfc</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Surface pressure (Pa), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> Pa<br>
-        <b>Files:</b> 541<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/psfc<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>q</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Specific humidity (kg kg**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> kg kg**-1<br>
-        <b>Files:</b> 1006<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/q<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>sst</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Sea surface temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> K<br>
-        <b>Files:</b> 1008<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/sst<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>swvl1p</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Volumetric soil water layer 1 (m**3 m**-3), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> m**3 m**-3<br>
-        <b>Files:</b> 1004<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/swvl1p<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> K<br>
-        <b>Files:</b> 1006<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/t<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>t2m</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> 2 metre temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> K<br>
-        <b>Files:</b> 1003<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/t2m<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>tcwv</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Total column vertically-integrated water vapour (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> kg m**-2<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/tcwv<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>u</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 1008<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/u<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>v</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> m s**-1<br>
-        <b>Files:</b> 1008<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/v<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vimd</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Vertically integrated moisture divergence (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> kg m**-2<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vimd<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vinevf</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Vertical integral of eastward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> kg m**-1 s**-1<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vinevf<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>vinwvf</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Vertical integral of northward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Date Range:</b> 1979-01-01 00:00:00 to 1979-01-31 23:00:00<br>
-        <b>Units:</b> kg m**-1 s**-1<br>
-        <b>Files:</b> 540<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/vinwvf<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>z</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Date Range:</b> 1940-01-01 00:00:00 to 1940-01-31 23:00:00<br>
-        <b>Units:</b> m**2 s**-2<br>
-        <b>Files:</b> 1008<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/era5/hourly/z<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>OMEGA500</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> vertical_pressure_velocity (Pa s-1), 1980-01-01 00:00:00 to 2024-05-01 00:00:00<br>
-        <b>Date Range:</b> 1980-01-01 00:00:00 to 2024-05-01 00:00:00<br>
-        <b>Units:</b> Pa s-1<br>
-        <b>Files:</b> 1<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/merra-2/daily/OMEGA500<br>
-      </div>
-    </div>
-    
-    <div class="dataset-entry" style="margin-bottom:1em; padding:0.5em; border-bottom:1px solid #ccc;">
-      <strong>zg500</strong><br>
-      <div class="metadata" style="margin-left:1em;">
-        <b>Description:</b> edge_heights (m), 1980-01-01 00:00:00 to 2024-05-01 00:00:00<br>
-        <b>Date Range:</b> 1980-01-01 00:00:00 to 2024-05-01 00:00:00<br>
-        <b>Units:</b> m<br>
-        <b>Files:</b> 1<br>
-        <b>Data Location:</b> /data/esplab/shared/reanalysis/merra-2/daily/zg500<br>
-      </div>
-    </div>
-    
-    </body>
-    </html>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESPLab Data Catalog</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  select { margin: 5px; padding: 5px; }
+  .dataset { border: 1px solid #ccc; margin: 8px 0; padding: 10px; border-radius: 5px; }
+  .dataset-name { font-weight: bold; font-size: 1.1em; margin-bottom: 4px; }
+  .metadata { margin-left: 10px; font-size: 0.9em; color: #555; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<h1>ESPLab Data Catalog</h1>
+
+
+
+<div id="datasets-container"></div>
+
+<script>
+const catalog = {"metadata": {"title": "Reanalysis Data Catalog", "version": 1, "description": "Auto-generated reanalysis data catalog"}, "sources": {"reanalysis/era5/4xdaily/msl": {"description": "Mean sea level pressure (Pa), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/msl/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Mean sea level pressure", "units": "Pa", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/msl"}}, "reanalysis/era5/4xdaily/u": {"description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "U component of wind", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u"}}, "reanalysis/era5/4xdaily/u10": {"description": "10 metre U wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/u10/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "10 metre U wind component", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/u10"}}, "reanalysis/era5/4xdaily/v": {"description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "V component of wind", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v"}}, "reanalysis/era5/4xdaily/v10": {"description": "10 metre V wind component (m s**-1), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/v10/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "10 metre V wind component", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/v10"}}, "reanalysis/era5/4xdaily/z": {"description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-12-31 18:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/4xdaily/z/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Geopotential", "units": "m**2 s**-2", "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/4xdaily/z"}}, "reanalysis/era5/daily/evap": {"description": "e (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/evap/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "e", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/evap"}}, "reanalysis/era5/daily/olr": {"description": "ttr (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/olr/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "ttr", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/olr"}}, "reanalysis/era5/daily/omega": {"description": "w (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/omega/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "w", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/omega"}}, "reanalysis/era5/daily/precip": {"description": "tp (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/precip/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "tp", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/precip"}}, "reanalysis/era5/daily/psfc": {"description": "sp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/psfc/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "sp", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/psfc"}}, "reanalysis/era5/daily/q": {"description": "q (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/q/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "q", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/q"}}, "reanalysis/era5/daily/sst": {"description": "sst (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/sst/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "sst", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 83, "data_location": "/data/esplab/shared/reanalysis/era5/daily/sst"}}, "reanalysis/era5/daily/swvl1p": {"description": "swvl1 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/swvl1p/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "swvl1", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/swvl1p"}}, "reanalysis/era5/daily/t": {"description": "t (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/t/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "t", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/t"}}, "reanalysis/era5/daily/t2m": {"description": "t2m (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/t2m/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "t2m", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/t2m"}}, "reanalysis/era5/daily/tcwv": {"description": "tcwv (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/tcwv/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "tcwv", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/tcwv"}}, "reanalysis/era5/daily/u": {"description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/u/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "u", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u"}}, "reanalysis/era5/daily/u10": {"description": "u10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/u10/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "u10", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u10"}}, "reanalysis/era5/daily/u200": {"description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/u200/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "u", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u200"}}, "reanalysis/era5/daily/u500": {"description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/u500/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "u", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u500"}}, "reanalysis/era5/daily/u850": {"description": "u (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/u850/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "u", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/u850"}}, "reanalysis/era5/daily/v": {"description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/v/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "v", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v"}}, "reanalysis/era5/daily/v10": {"description": "v10 (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/v10/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "v10", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v10"}}, "reanalysis/era5/daily/v200": {"description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/v200/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "v", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v200"}}, "reanalysis/era5/daily/v500": {"description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/v500/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "v", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v500"}}, "reanalysis/era5/daily/v850": {"description": "v (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/v850/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "v", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/v850"}}, "reanalysis/era5/daily/vimd": {"description": "vimd (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/vimd/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "vimd", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vimd"}}, "reanalysis/era5/daily/vinevf": {"description": "p71.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinevf/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "p71.162", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinevf"}}, "reanalysis/era5/daily/vinwvf": {"description": "p72.162 (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/vinwvf/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "p72.162", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5/daily/vinwvf"}}, "reanalysis/era5/daily/z": {"description": "z (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/z/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "z", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 44, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z"}}, "reanalysis/era5/daily/z200": {"description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/z200/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "z", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z200"}}, "reanalysis/era5/daily/z500": {"description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/z500/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "z", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z500"}}, "reanalysis/era5/daily/z850": {"description": "z (unknown), 1940-01-01 00:00:00 to 1940-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/daily/z850/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "z", "units": "unknown", "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00", "n_files": 84, "data_location": "/data/esplab/shared/reanalysis/era5/daily/z850"}}, "reanalysis/era5/hourly/evap": {"description": "Evaporation (m of water equivalent), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/evap/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Evaporation", "units": "m of water equivalent", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/evap"}}, "reanalysis/era5/hourly/olr": {"description": "Top net long-wave (thermal) radiation (J m**-2), 1940-01-01 07:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/olr/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Top net long-wave (thermal) radiation", "units": "J m**-2", "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00", "n_files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/olr"}}, "reanalysis/era5/hourly/omega": {"description": "Vertical velocity (Pa s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/omega/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Vertical velocity", "units": "Pa s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/omega"}}, "reanalysis/era5/hourly/precip": {"description": "Total precipitation (m), 1940-01-01 07:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/precip/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Total precipitation", "units": "m", "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00", "n_files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/precip"}}, "reanalysis/era5/hourly/psfc": {"description": "Surface pressure (Pa), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/psfc/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Surface pressure", "units": "Pa", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 541, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/psfc"}}, "reanalysis/era5/hourly/q": {"description": "Specific humidity (kg kg**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/q/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Specific humidity", "units": "kg kg**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/q"}}, "reanalysis/era5/hourly/sst": {"description": "Sea surface temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/sst/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Sea surface temperature", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/sst"}}, "reanalysis/era5/hourly/swvl1p": {"description": "Volumetric soil water layer 1 (m**3 m**-3), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Volumetric soil water layer 1", "units": "m**3 m**-3", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1004, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/swvl1p"}}, "reanalysis/era5/hourly/t": {"description": "Temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Temperature", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t"}}, "reanalysis/era5/hourly/t2m": {"description": "2 metre temperature (K), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/t2m/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "2 metre temperature", "units": "K", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/t2m"}}, "reanalysis/era5/hourly/tcwv": {"description": "Total column vertically-integrated water vapour (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/tcwv/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Total column vertically-integrated water vapour", "units": "kg m**-2", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/tcwv"}}, "reanalysis/era5/hourly/u": {"description": "U component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/u/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "U component of wind", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/u"}}, "reanalysis/era5/hourly/v": {"description": "V component of wind (m s**-1), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/v/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "V component of wind", "units": "m s**-1", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/v"}}, "reanalysis/era5/hourly/vimd": {"description": "Vertically integrated moisture divergence (kg m**-2), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vimd/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Vertically integrated moisture divergence", "units": "kg m**-2", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vimd"}}, "reanalysis/era5/hourly/vinevf": {"description": "Vertical integral of eastward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinevf/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Vertical integral of eastward water vapour flux", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinevf"}}, "reanalysis/era5/hourly/vinwvf": {"description": "Vertical integral of northward water vapour flux (kg m**-1 s**-1), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Vertical integral of northward water vapour flux", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/vinwvf"}}, "reanalysis/era5/hourly/z": {"description": "Geopotential (m**2 s**-2), 1940-01-01 00:00:00 to 1940-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5/hourly/z/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Geopotential", "units": "m**2 s**-2", "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00", "n_files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5/hourly/z"}}, "reanalysis/era5-land/daily/precip": {"description": "tp (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/precip/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "tp", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/precip"}}, "reanalysis/era5-land/daily/t2m": {"description": "t2m (unknown), 1979-01-01 00:00:00 to 1979-12-31 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5-land/daily/t2m/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "t2m", "units": "unknown", "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00", "n_files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land/daily/t2m"}}, "reanalysis/era5-land/hourly/precip": {"description": "Total precipitation (m), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/precip/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "Total precipitation", "units": "m", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/precip"}}, "reanalysis/era5-land/hourly/t2m": {"description": "2 metre temperature (K), 1979-01-01 00:00:00 to 1979-01-31 23:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "2 metre temperature", "units": "K", "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00", "n_files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land/hourly/t2m"}}, "reanalysis/merra-2/daily/OMEGA500": {"description": "vertical_pressure_velocity (Pa s-1), 1980-01-01 00:00:00 to 2024-05-01 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "vertical_pressure_velocity", "units": "Pa s-1", "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00", "n_files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/OMEGA500"}}, "reanalysis/merra-2/daily/zg500": {"description": "edge_heights (m), 1980-01-01 00:00:00 to 2024-05-01 00:00:00", "driver": "netcdf", "args": {"urlpath": "/data/esplab/shared/reanalysis/merra-2/daily/zg500/*.nc", "engine": "netcdf4"}, "metadata": {"long_name": "edge_heights", "units": "m", "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00", "n_files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2/daily/zg500"}}}};
+
+const filterOrder = {"Dataset": 2, "TemporalResolution": 3, "Variable": 4};
+
+function createDropdown(id, options, label) {
+  let sel = document.createElement("select");
+  sel.id = id;
+  sel.innerHTML = '<option value="">Select ' + label + '</option>';
+  options.forEach(opt => {
+    let option = document.createElement("option");
+    option.value = opt;
+    option.textContent = opt;
+    sel.appendChild(option);
+  });
+  return sel;
+}
+
+function getUniqueValues(data, key) {
+  const vals = new Set();
+  for (const dsKey in data.sources) {
+    const parts = dsKey.split("/");
+    // keys vary by catalog, so map keys to positions
+    if (filterOrder[key] !== undefined && parts.length > filterOrder[key]) {
+      vals.add(parts[filterOrder[key]]);
+    }
+  }
+  return Array.from(vals).sort();
+}
+
+function renderDatasets(selectedFilters) {
+  const container = document.getElementById("datasets-container");
+  container.innerHTML = "";
+  for (const dsKey in catalog.sources) {
+    const parts = dsKey.split("/");
+    let show = true;
+    for (const [filterName, pos] of Object.entries(filterOrder)) {
+      const selectedVal = selectedFilters[filterName];
+      if (selectedVal && parts[pos] !== selectedVal) {
+        show = false;
+        break;
+      }
+    }
+    if (!show) continue;
+
+    const ds = catalog.sources[dsKey];
+    const meta = ds.metadata || {};
+    const div = document.createElement("div");
+    div.className = "dataset";
+    div.innerHTML = `
+      <div class="dataset-name">${parts.slice(-1)[0]}</div>
+      <div class="metadata"><strong>Description:</strong> ${ds.description || 'No description'}<br/>
+      <strong>Date Range:</strong> ${meta.date_range || 'unknown'}<br/>
+      <strong>Units:</strong> ${meta.units || 'unknown'}<br/>
+      <strong>Files:</strong> ${meta.n_files || 'unknown'}<br/>
+      <strong>Data Location:</strong> ${meta.data_location || 'unknown'}</div>
+    `;
+    container.appendChild(div);
+  }
+  if (container.innerHTML === "") {
+    container.textContent = "No datasets match the selected filters.";
+  }
+}
+
+function setupFilters() {
+  const filtersDiv = document.createElement("div");
+  filtersDiv.id = "filters";
+
+  const selectedFilters = {};
+
+  // Create dropdowns in filterOrder keys order
+  for (const filterName of Object.keys(filterOrder)) {
+    const options = getUniqueValues(catalog, filterName);
+    const dropdown = createDropdown("filter-" + filterName, options, filterName);
+    dropdown.addEventListener("change", (e) => {
+      selectedFilters[filterName] = e.target.value || null;
+      renderDatasets(selectedFilters);
+      // Reset subsequent dropdowns
+      const keys = Object.keys(filterOrder);
+      const currentIndex = keys.indexOf(filterName);
+      for (let i = currentIndex + 1; i < keys.length; i++) {
+        const d = document.getElementById("filter-" + keys[i]);
+        d.selectedIndex = 0;
+        selectedFilters[keys[i]] = null;
+      }
+    });
+    filtersDiv.appendChild(dropdown);
+  }
+
+  document.body.insertBefore(filtersDiv, document.getElementById("datasets-container"));
+
+  renderDatasets(selectedFilters);
+}
+
+window.onload = setupFilters;
+</script>
+</body>
+</html>
