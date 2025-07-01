@@ -30,7 +30,7 @@
       "metadata": {
         "long_name": "Land Sea Mask",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1948-01-01 to 2006-12-31",
         "n_files": 60,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg"
       }
@@ -45,7 +45,7 @@
       "metadata": {
         "long_name": "Daily total of precipitation",
         "units": "mm",
-        "date_range": "unknown",
+        "date_range": "1979-01-01 to 2023-09-28",
         "n_files": 45,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL"
       }
@@ -60,7 +60,7 @@
       "metadata": {
         "long_name": "longitude_bnds",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1996-10-01 to 2020-05-31",
         "n_files": 25,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03"
       }
@@ -75,7 +75,7 @@
       "metadata": {
         "long_name": "Climate Hazards group InfraRed Precipitation with Stations",
         "units": "mm/day",
-        "date_range": "unknown",
+        "date_range": "1981-01-01 to 2024-12-31",
         "n_files": 44,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p05"
       }
@@ -90,7 +90,7 @@
       "metadata": {
         "long_name": "Climate Hazards group InfraRed Precipitation with Stations",
         "units": "mm/day",
-        "date_range": "unknown",
+        "date_range": "1981-01-01 to 2024-12-31",
         "n_files": 44,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p25"
       }
@@ -105,7 +105,7 @@
       "metadata": {
         "long_name": "Monthly Average of Daily Accumulated Precipitation",
         "units": "mm/day",
-        "date_range": "unknown",
+        "date_range": "1948-01-01 to 2022-10-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES"
       }
@@ -120,7 +120,7 @@
       "metadata": {
         "long_name": "Time Boundaries",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1982-01-01 to 2023-08-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC"
       }
@@ -135,7 +135,7 @@
       "metadata": {
         "long_name": "time_bnds",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1979-01-01 to 2023-09-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2"
       }
@@ -150,7 +150,7 @@
       "metadata": {
         "long_name": "Average Monthly Rate of Precipitation",
         "units": "mm/day",
-        "date_range": "unknown",
+        "date_range": "1948-01-01 to 2023-10-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL"
       }
@@ -165,7 +165,7 @@
       "metadata": {
         "long_name": "Missing",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1974-06-01 to 2022-12-31",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR"
       }
@@ -180,7 +180,7 @@
       "metadata": {
         "long_name": "Daily OLR",
         "units": "W/m^2",
-        "date_range": "unknown",
+        "date_range": "2002-01-01 to 2023-07-26",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR"
       }
@@ -195,7 +195,7 @@
       "metadata": {
         "long_name": "NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration",
         "units": "1",
-        "date_range": "unknown",
+        "date_range": "1979-01-01 to 2021-12-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC"
       }
@@ -225,7 +225,7 @@
       "metadata": {
         "long_name": "Daily Sea Surface Temperature",
         "units": "degC",
-        "date_range": "unknown",
+        "date_range": "1982-01-01 to 2023-07-26",
         "n_files": 42,
         "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES"
       }
@@ -240,7 +240,7 @@
       "metadata": {
         "long_name": "time_bnds",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1870-01-16 to 2024-01-16",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST"
       }
@@ -255,7 +255,7 @@
       "metadata": {
         "long_name": "Time Boundaries",
         "units": "unknown",
-        "date_range": "unknown",
+        "date_range": "1854-01-01 to 2024-02-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5"
       }

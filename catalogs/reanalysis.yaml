@@ -11,7 +11,7 @@ sources:
       engine: netcdf4
     metadata:
       units: Pa
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/4xdaily/u:
@@ -22,7 +22,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/4xdaily/u10:
@@ -33,7 +33,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/4xdaily/v:
@@ -44,7 +44,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/4xdaily/v10:
@@ -55,7 +55,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/4xdaily/z:
@@ -66,7 +66,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m**2 s**-2
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 18:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/evap:
@@ -77,7 +77,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-17
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/olr:
@@ -88,7 +88,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2022-12-31
       n_files: 83
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/omega:
@@ -99,7 +99,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/precip:
@@ -110,7 +110,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2022-12-31
       n_files: 83
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/psfc:
@@ -121,7 +121,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-18
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/q:
@@ -132,7 +132,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-10-28
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/sst:
@@ -143,7 +143,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2022-12-31
       n_files: 83
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/swvl1p:
@@ -154,7 +154,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-08-21
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/t:
@@ -165,7 +165,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-10-26
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/t2m:
@@ -176,7 +176,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-07-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/tcwv:
@@ -187,7 +187,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-23
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/u:
@@ -198,7 +198,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/u10:
@@ -209,7 +209,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/u200:
@@ -220,7 +220,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/u500:
@@ -231,7 +231,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/u850:
@@ -242,7 +242,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v:
@@ -253,7 +253,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v10:
@@ -264,7 +264,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v200:
@@ -275,7 +275,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v500:
@@ -286,7 +286,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v850:
@@ -297,7 +297,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/vimd:
@@ -308,7 +308,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/vinevf:
@@ -319,7 +319,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/vinwvf:
@@ -330,7 +330,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/z:
@@ -341,7 +341,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2022-12-31
       n_files: 44
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/z200:
@@ -352,7 +352,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/z500:
@@ -363,7 +363,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/z850:
@@ -374,7 +374,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1940-01-01 00:00:00 to 1940-12-31 00:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/evap:
@@ -385,7 +385,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m of water equivalent
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-17
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/olr:
@@ -396,7 +396,7 @@ sources:
       engine: netcdf4
     metadata:
       units: J m**-2
-      date_range: 1940-01-01 07:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-07-23
       n_files: 1003
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/omega:
@@ -407,7 +407,7 @@ sources:
       engine: netcdf4
     metadata:
       units: Pa s**-1
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/precip:
@@ -418,7 +418,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m
-      date_range: 1940-01-01 07:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-07-19
       n_files: 1003
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/psfc:
@@ -429,7 +429,7 @@ sources:
       engine: netcdf4
     metadata:
       units: Pa
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-12-18
       n_files: 541
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/q:
@@ -440,7 +440,7 @@ sources:
       engine: netcdf4
     metadata:
       units: kg kg**-1
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-10-28
       n_files: 1006
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/sst:
@@ -451,7 +451,7 @@ sources:
       engine: netcdf4
     metadata:
       units: K
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 1008
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/swvl1p:
@@ -462,7 +462,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m**3 m**-3
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-08-21
       n_files: 1004
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/t:
@@ -473,7 +473,7 @@ sources:
       engine: netcdf4
     metadata:
       units: K
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-10-26
       n_files: 1006
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/t2m:
@@ -484,7 +484,7 @@ sources:
       engine: netcdf4
     metadata:
       units: K
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-07-23
       n_files: 1003
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/tcwv:
@@ -495,7 +495,7 @@ sources:
       engine: netcdf4
     metadata:
       units: kg m**-2
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-23
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/u:
@@ -506,7 +506,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 1008
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/v:
@@ -517,7 +517,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 1008
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/vimd:
@@ -528,7 +528,7 @@ sources:
       engine: netcdf4
     metadata:
       units: kg m**-2
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/vinevf:
@@ -539,7 +539,7 @@ sources:
       engine: netcdf4
     metadata:
       units: kg m**-1 s**-1
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/vinwvf:
@@ -550,7 +550,7 @@ sources:
       engine: netcdf4
     metadata:
       units: kg m**-1 s**-1
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-31
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/hourly/z:
@@ -561,7 +561,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m**2 s**-2
-      date_range: 1940-01-01 00:00:00 to 1940-01-31 23:00:00
+      date_range: 1940-01-01 to 2023-12-31
       n_files: 1008
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5-land/daily/precip:
@@ -572,7 +572,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-07
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5-land
   reanalysis/era5-land/daily/t2m:
@@ -583,7 +583,7 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 00:00:00 to 1979-12-31 00:00:00
+      date_range: 1979-01-01 to 2023-12-20
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5-land
   reanalysis/era5-land/hourly/precip:
@@ -594,7 +594,7 @@ sources:
       engine: netcdf4
     metadata:
       units: m
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-07
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5-land
   reanalysis/era5-land/hourly/t2m:
@@ -605,7 +605,7 @@ sources:
       engine: netcdf4
     metadata:
       units: K
-      date_range: 1979-01-01 00:00:00 to 1979-01-31 23:00:00
+      date_range: 1979-01-01 to 2023-12-20
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5-land
   reanalysis/merra-2/daily/OMEGA500:
@@ -616,7 +616,7 @@ sources:
       engine: netcdf4
     metadata:
       units: Pa s-1
-      date_range: 1980-01-01 00:00:00 to 2024-05-01 00:00:00
+      date_range: 1980-01-01 to 2024-05-01
       n_files: 1
       data_location: /data/esplab/shared/reanalysis/merra-2
   reanalysis/merra-2/daily/zg500:
@@ -627,6 +627,6 @@ sources:
       engine: netcdf4
     metadata:
       units: m
-      date_range: 1980-01-01 00:00:00 to 2024-05-01 00:00:00
+      date_range: 1980-01-01 to 2024-05-01
       n_files: 1
       data_location: /data/esplab/shared/reanalysis/merra-2

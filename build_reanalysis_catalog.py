@@ -16,6 +16,34 @@ def get_netcdf_files(directory):
         if f.endswith('.nc') and os.path.isfile(os.path.join(directory, f))
     ])
 
+def extract_metadata_all_files(nc_files):
+    try:
+        ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=False)
+        var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
+        long_name = ds[var_name].attrs.get('long_name', var_name)
+        units = ds[var_name].attrs.get('units', 'unknown')
+        if "time" in ds.coords:
+            times = pd.to_datetime(ds.time.values, errors='coerce')
+            times = times.dropna() if hasattr(times, 'dropna') else times
+            if len(times) == 0:
+                date_range = "unknown"
+            else:
+                date_range = f"{times.min().strftime('%Y-%m-%d')} to {times.max().strftime('%Y-%m-%d')}"
+        else:
+            date_range = "unknown"
+        ds.close()
+        return {
+            "long_name": long_name,
+            "units": units,
+            "date_range": date_range,
+            "n_files": len(nc_files)
+        }
+    except Exception as e:
+        print(f"⚠️ Failed to extract metadata from multiple files: {e}")
+        # fallback to first file metadata
+        return extract_metadata_all_files(nc_files)
+
+
 def extract_metadata(nc_files):
     try:
         ds = xr.open_dataset(nc_files[0], decode_times=True, use_cftime=True)
@@ -89,7 +117,7 @@ def build_reanalysis_catalog(base_dir):
                     continue
 
                 print(f"✔️ Processing reanalysis/{dataset}/{temp_res}/{variable}")
-                meta = extract_metadata(nc_files)
+                meta = extract_metadata_all_files(nc_files)
 
                 key = f"reanalysis/{dataset}/{temp_res}/{variable}"
                 catalog["sources"][key] = {

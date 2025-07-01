@@ -14,7 +14,7 @@
       },
       "metadata": {
         "units": "Pa",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -28,7 +28,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -42,7 +42,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -56,7 +56,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -70,7 +70,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -84,7 +84,7 @@
       },
       "metadata": {
         "units": "m**2 s**-2",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 18:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -98,7 +98,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-17",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -112,7 +112,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2022-12-31",
         "n_files": 83,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -126,7 +126,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -140,7 +140,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2022-12-31",
         "n_files": 83,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -154,7 +154,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-18",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -168,7 +168,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-10-28",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -182,7 +182,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2022-12-31",
         "n_files": 83,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -196,7 +196,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-08-21",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -210,7 +210,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-10-26",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -224,7 +224,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-07-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -238,7 +238,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-23",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -252,7 +252,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -266,7 +266,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -280,7 +280,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -294,7 +294,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -308,7 +308,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -322,7 +322,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -336,7 +336,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-06-23",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -350,7 +350,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -364,7 +364,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -378,7 +378,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -392,7 +392,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -406,7 +406,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -420,7 +420,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -434,7 +434,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2022-12-31",
         "n_files": 44,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -448,7 +448,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -462,7 +462,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -476,7 +476,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1940-01-01 00:00:00 to 1940-12-31 00:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 84,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -490,7 +490,7 @@
       },
       "metadata": {
         "units": "m of water equivalent",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-17",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -504,7 +504,7 @@
       },
       "metadata": {
         "units": "J m**-2",
-        "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-07-23",
         "n_files": 1003,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -518,7 +518,7 @@
       },
       "metadata": {
         "units": "Pa s**-1",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -532,7 +532,7 @@
       },
       "metadata": {
         "units": "m",
-        "date_range": "1940-01-01 07:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-07-19",
         "n_files": 1003,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -546,7 +546,7 @@
       },
       "metadata": {
         "units": "Pa",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-12-18",
         "n_files": 541,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -560,7 +560,7 @@
       },
       "metadata": {
         "units": "kg kg**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-10-28",
         "n_files": 1006,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -574,7 +574,7 @@
       },
       "metadata": {
         "units": "K",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 1008,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -588,7 +588,7 @@
       },
       "metadata": {
         "units": "m**3 m**-3",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-08-21",
         "n_files": 1004,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -602,7 +602,7 @@
       },
       "metadata": {
         "units": "K",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-10-26",
         "n_files": 1006,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -616,7 +616,7 @@
       },
       "metadata": {
         "units": "K",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-07-23",
         "n_files": 1003,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -630,7 +630,7 @@
       },
       "metadata": {
         "units": "kg m**-2",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-23",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -644,7 +644,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 1008,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -658,7 +658,7 @@
       },
       "metadata": {
         "units": "m s**-1",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 1008,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -672,7 +672,7 @@
       },
       "metadata": {
         "units": "kg m**-2",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -686,7 +686,7 @@
       },
       "metadata": {
         "units": "kg m**-1 s**-1",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -700,7 +700,7 @@
       },
       "metadata": {
         "units": "kg m**-1 s**-1",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-31",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -714,7 +714,7 @@
       },
       "metadata": {
         "units": "m**2 s**-2",
-        "date_range": "1940-01-01 00:00:00 to 1940-01-31 23:00:00",
+        "date_range": "1940-01-01 to 2023-12-31",
         "n_files": 1008,
         "data_location": "/data/esplab/shared/reanalysis/era5"
       }
@@ -728,7 +728,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-07",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5-land"
       }
@@ -742,7 +742,7 @@
       },
       "metadata": {
         "units": "unknown",
-        "date_range": "1979-01-01 00:00:00 to 1979-12-31 00:00:00",
+        "date_range": "1979-01-01 to 2023-12-20",
         "n_files": 45,
         "data_location": "/data/esplab/shared/reanalysis/era5-land"
       }
@@ -756,7 +756,7 @@
       },
       "metadata": {
         "units": "m",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-07",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5-land"
       }
@@ -770,7 +770,7 @@
       },
       "metadata": {
         "units": "K",
-        "date_range": "1979-01-01 00:00:00 to 1979-01-31 23:00:00",
+        "date_range": "1979-01-01 to 2023-12-20",
         "n_files": 540,
         "data_location": "/data/esplab/shared/reanalysis/era5-land"
       }
@@ -784,7 +784,7 @@
       },
       "metadata": {
         "units": "Pa s-1",
-        "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+        "date_range": "1980-01-01 to 2024-05-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/reanalysis/merra-2"
       }
@@ -798,7 +798,7 @@
       },
       "metadata": {
         "units": "m",
-        "date_range": "1980-01-01 00:00:00 to 2024-05-01 00:00:00",
+        "date_range": "1980-01-01 to 2024-05-01",
         "n_files": 1,
         "data_location": "/data/esplab/shared/reanalysis/merra-2"
       }
