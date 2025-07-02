@@ -69,8 +69,6 @@ def generate_obs_page(catalog):
   <a class="tab-button" href="model.html">Model</a>
 </div>
 
-<h1>Observations <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
-
 <div>
 <label for="domain">Domain:</label>
 <select id="domain">
@@ -243,7 +241,7 @@ def generate_reanalysis_page(catalog):
   <a class="tab-button" href="model.html">Model</a>
 </div>
 
-<h1>Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
+<h1>Reanalysis</h1>
 
 <div>
 <label for="dataset">Dataset:</label>
@@ -418,7 +416,7 @@ def generate_model_page(catalog):
   <a class="tab-button" href="model.html">Model</a>
 </div>
 
-<h1>Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
+<h1>Model</h1>
 
 <div>
 <label for="category">Category:</label>
@@ -579,55 +577,10 @@ def generate_index_html():
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog</title>
+<title><img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;">ESPLab Data Catalog</title>
 <link rel="stylesheet" href="docs/style.css" />
-<style>
-/* Simple tab styles */
-.tab {{
-  overflow: hidden;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}}
-
-.tab button {{
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 1rem;
-  font-weight: bold;
-  color: {OU_RED};
-}}
-
-.tab button:hover {{
-  background-color: {OU_GOLD};
-  color: black;
-}}
-
-.tab button.active {{
-  background-color: {OU_RED};
-  color: white;
-}}
-
-.tabcontent {{
-  display: none;
-  padding: 10px 0;
-}}
-
-.tabcontent iframe {{
-  width: 100%;
-  height: 600px;
-  border: none;
-}}
-</style>
 </head>
 <body>
-
-<h1>ESPLab Data Catalog</h1>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
@@ -635,6 +588,7 @@ def generate_index_html():
   <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
 </div>
 
+<!--
 <div id="obs" class="tabcontent" style="display: block;">
   <iframe src="obs.html"></iframe>
 </div>
@@ -646,6 +600,7 @@ def generate_index_html():
 <div id="model" class="tabcontent">
   <iframe src="model.html"></iframe>
 </div>
+-->
 
 <script>
 function openTab(evt, tabName) {{
