@@ -235,7 +235,7 @@ def generate_reanalysis_page(catalog):
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reanalysis</title>
-  <link rel="stylesheet" href="docs/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>Reanalysis</h1>
@@ -338,6 +338,8 @@ document.getElementById("variable").addEventListener("change", updateDatasets);
 
 def generate_model_page(catalog):
     categories = []
+    projects = []
+    experiments = []
     data_dict = {}
 
     for key, source in catalog["sources"].items():
@@ -345,43 +347,69 @@ def generate_model_page(catalog):
         if len(parts) < 4:
             continue
 
-        category = parts[1]
-        project = parts[2]
-        experiment = parts[3]
-        idx = 4
-
-        temporal = None
-        variable = None
-
-        # allow temporal res to be optional
-        if idx < len(parts) and parts[idx] in ["daily", "monthly", "weekly", "seasonal"]:
-            temporal = parts[idx]
-            idx += 1
-
-        if idx < len(parts):
-            variable = parts[idx]
-        else:
-            variable = "unknown"
+        category = parts[0]
+        project = parts[1]
+        experiment = parts[2]
 
         categories.append(category)
+        projects.append(project)
+        experiments.append(experiment)
 
-        # build the nested dict
+        # initialize project dict
         data_dict.setdefault(category, {})
         data_dict[category].setdefault(project, {})
         data_dict[category][project].setdefault(experiment, {})
 
-        if temporal:
-            data_dict[category][project][experiment].setdefault(temporal, {})
-            data_dict[category][project][experiment][temporal].setdefault(variable, [])
-            entry_list = data_dict[category][project][experiment][temporal][variable]
-        else:
+        if project == "subx":
+            # category/project/experiment/variable
+            variable = parts[3]
             data_dict[category][project][experiment].setdefault(variable, [])
             entry_list = data_dict[category][project][experiment][variable]
 
+        elif project == "nmme":
+            # category/project/experiment/temporal/variable
+            if len(parts) >= 5:
+                temporal = parts[3]
+                variable = parts[4]
+                data_dict[category][project][experiment].setdefault(temporal, {})
+                data_dict[category][project][experiment][temporal].setdefault(variable, [])
+                entry_list = data_dict[category][project][experiment][temporal][variable]
+            else:
+                continue
+
+        elif project == "NCAR-CESM2-SMYLE":
+            # category/project/experiment/temporal/YYYY/MM/
+            if len(parts) >= 6:
+                temporal = parts[3]
+                year = parts[4]
+                month = parts[5]
+                data_dict[category][project][experiment].setdefault(temporal, {})
+                data_dict[category][project][experiment][temporal].setdefault(year, {})
+                data_dict[category][project][experiment][temporal][year].setdefault(month, [])
+                entry_list = data_dict[category][project][experiment][temporal][year][month]
+            else:
+                continue
+
+        elif project == "NCAR-CESM2-CLIMO":
+            # category/project/experiment/datatype/variable
+            if len(parts) >= 5:
+                datatype = parts[3]
+                variable = parts[4]
+                data_dict[category][project][experiment].setdefault(datatype, {})
+                data_dict[category][project][experiment][datatype].setdefault(variable, [])
+                entry_list = data_dict[category][project][experiment][datatype][variable]
+            else:
+                continue
+
+        else:
+            # fallback
+            entry_list = []
+
+        # add entry
         entry = {
-            "name": variable,
+            "name": variable if 'variable' in locals() else "unknown",
             "long_name": source["metadata"].get("long_name", "No long name"),
-            "description": source.get("description","No description"),
+            "description": source.get("description", "No description"),
             "units": source["metadata"].get("units", "unknown"),
             "date_range": source["metadata"].get("date_range", "unknown"),
             "files": source["metadata"].get("n_files", 0),
@@ -389,171 +417,220 @@ def generate_model_page(catalog):
         }
         entry_list.append(entry)
 
+    # drop-down lists
     categories = sorted(set(categories))
+    projects = sorted(set(projects))
+    experiments = sorted(set(experiments))
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Model</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Model</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <h1>Model</h1>
 
 <div>
-<label for="category">Category:</label>
-<select id="category">
-  <option value="">-- Select Category --</option>
-  {"".join(f'<option value="{c}">{c}</option>' for c in categories)}
-</select>
+  <label for="category">Category:</label>
+  <select id="category">
+    <option value="">-- Select Category --</option>"""
+    for c in categories:
+        html += f"<option value='{c}'>{c}</option>\n"
+    html += "</select>"
 
-<label for="project">Project:</label>
-<select id="project" disabled>
-  <option value="">-- Select Project --</option>
-</select>
+    html += """
+  <label for="project">Project:</label>
+  <select id="project" disabled>
+    <option value="">-- Select Project --</option>
+  </select>
 
-<label for="experiment">Experiment:</label>
-<select id="experiment" disabled>
-  <option value="">-- Select Experiment --</option>
-</select>
+  <label for="experiment">Experiment:</label>
+  <select id="experiment" disabled>
+    <option value="">-- Select Experiment --</option>
+  </select>
 
-<label for="variable">Variable:</label>
-<select id="variable" disabled>
-  <option value="">-- Select Variable --</option>
-</select>
+  <label for="variable">Variable:</label>
+  <select id="variable" disabled>
+    <option value="">-- Select Variable --</option>
+  </select>
 
-<label for="tempres">Temporal Resolution:</label>
-<select id="tempres" disabled>
-  <option value="">-- Select Temporal Resolution --</option>
-</select>
+  <label for="tempres">Temporal Resolution:</label>
+  <select id="tempres" disabled>
+    <option value="">-- Select Temporal Resolution --</option>
+  </select>
 </div>
 
 <div id="datasetList"></div>
 
 <script>
-const catalog = {json.dumps(data_dict)};
+const catalog = {{json.dumps(data_dict)}};  // Python will fill this in
 
-function clearSelect(sel) {{
-    sel.innerHTML = '<option value="">-- Select --</option>';
-    sel.disabled = true;
-}}
-
-function populateSelect(sel, options) {{
-    clearSelect(sel);
-    options.forEach(opt => {{
-        let option = document.createElement("option");
-        option.value = opt;
-        option.textContent = opt;
-        sel.appendChild(option);
-    }});
-    sel.disabled = false;
-}}
-
-document.getElementById("category").addEventListener("change", () => {{
-    const category = document.getElementById("category").value;
-    const projectSel = document.getElementById("project");
-    const experimentSel = document.getElementById("experiment");
-    const variableSel = document.getElementById("variable");
-    const tempresSel = document.getElementById("tempres");
+// on category change
+document.getElementById("category").addEventListener("change", function() {
+    const category = this.value;
+    const projectSelect = document.getElementById("project");
+    clearAndDisable(projectSelect);
+    clearAndDisable(document.getElementById("experiment"));
+    clearAndDisable(document.getElementById("variable"));
+    clearAndDisable(document.getElementById("tempres"));
     document.getElementById("datasetList").innerHTML = "";
-    clearSelect(projectSel);
-    clearSelect(experimentSel);
-    clearSelect(variableSel);
-    clearSelect(tempresSel);
+
     if (!category) return;
-    const projects = Object.keys(catalog[category] || {{}});
-    populateSelect(projectSel, projects);
-}});
 
-document.getElementById("project").addEventListener("change", () => {{
+    const projects = Object.keys(catalog[category]);
+    populateSelect(projectSelect, projects);
+});
+
+// on project change
+document.getElementById("project").addEventListener("change", function() {
     const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experimentSel = document.getElementById("experiment");
-    const variableSel = document.getElementById("variable");
-    const tempresSel = document.getElementById("tempres");
+    const project = this.value;
+    const experimentSelect = document.getElementById("experiment");
+    clearAndDisable(experimentSelect);
+    clearAndDisable(document.getElementById("variable"));
+    clearAndDisable(document.getElementById("tempres"));
     document.getElementById("datasetList").innerHTML = "";
-    clearSelect(experimentSel);
-    clearSelect(variableSel);
-    clearSelect(tempresSel);
+
     if (!project) return;
-    const experiments = Object.keys(catalog[category][project] || {{}});
-    populateSelect(experimentSel, experiments);
-}});
 
-document.getElementById("experiment").addEventListener("change", () => {{
+    const experiments = Object.keys(catalog[category][project]);
+    populateSelect(experimentSelect, experiments);
+});
+
+// on experiment change
+document.getElementById("experiment").addEventListener("change", function() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const variableSel = document.getElementById("variable");
-    const tempresSel = document.getElementById("tempres");
+    const experiment = this.value;
+    const variableSelect = document.getElementById("variable");
+    const tempresSelect = document.getElementById("tempres");
+    clearAndDisable(variableSelect);
+    clearAndDisable(tempresSelect);
     document.getElementById("datasetList").innerHTML = "";
-    clearSelect(variableSel);
-    clearSelect(tempresSel);
+
     if (!experiment) return;
-    const variables = Object.keys(catalog[category][project][experiment] || {{}});
-    populateSelect(variableSel, variables);
-}});
 
-document.getElementById("variable").addEventListener("change", () => {{
+    // subx
+    if (project === "subx") {
+        const variables = Object.keys(catalog[category][project][experiment]);
+        populateSelect(variableSelect, variables);
+    }
+    // nmme
+    else if (project === "nmme") {
+        const temporals = Object.keys(catalog[category][project][experiment]);
+        populateSelect(tempresSelect, temporals);
+    }
+    // NCAR-CESM2-SMYLE
+    else if (project === "NCAR-CESM2-SMYLE") {
+        const temporals = Object.keys(catalog[category][project][experiment]);
+        populateSelect(tempresSelect, temporals);
+    }
+    // NCAR-CESM2-CLIMO
+    else if (project === "NCAR-CESM2-CLIMO") {
+        const datatypes = Object.keys(catalog[category][project][experiment]);
+        populateSelect(variableSelect, datatypes);  // here “variableSelect” is used for datatype select
+    }
+});
+
+// on variable change (for subx and NCAR-CESM2-CLIMO)
+document.getElementById("variable").addEventListener("change", function() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
     const experiment = document.getElementById("experiment").value;
-    const variable = document.getElementById("variable").value;
-    const tempresSel = document.getElementById("tempres");
+    const variable = this.value;
+    const tempresSelect = document.getElementById("tempres");
     document.getElementById("datasetList").innerHTML = "";
-    clearSelect(tempresSel);
+
     if (!variable) return;
-    const node = catalog[category][project][experiment][variable];
-    if (typeof node === "object" && !Array.isArray(node)) {{
-        // means temporal resolutions exist
-        const tempres = Object.keys(node);
-        populateSelect(tempresSel, tempres);
-    }} else {{
-        updateDatasetList();
-    }}
-}});
 
-document.getElementById("tempres").addEventListener("change", updateDatasetList);
+    if (project === "NCAR-CESM2-CLIMO") {
+        const variables = Object.keys(catalog[category][project][experiment][variable]);
+        populateSelect(tempresSelect, variables);
+    }
+    else if (project === "subx") {
+        updateDatasets(); // subx no tempres, show results
+    }
+});
 
-function updateDatasetList() {{
+// on temporal change
+document.getElementById("tempres").addEventListener("change", updateDatasets);
+
+function updateDatasets() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
     const experiment = document.getElementById("experiment").value;
     const variable = document.getElementById("variable").value;
     const tempres = document.getElementById("tempres").value;
-    const container = document.getElementById("datasetList");
+
+    let entries = [];
+    let container = document.getElementById("datasetList");
     container.innerHTML = "";
-    let entries;
-    if (tempres) {{
-        entries = catalog[category][project][experiment][variable][tempres] || [];
-    }} else {{
-        entries = catalog[category][project][experiment][variable] || [];
-    }}
-    if (!entries || entries.length === 0) {{
+
+    try {
+        if (project === "subx") {
+            entries = catalog[category][project][experiment][variable];
+        }
+        else if (project === "nmme") {
+            entries = catalog[category][project][experiment][tempres][variable];
+        }
+        else if (project === "NCAR-CESM2-SMYLE") {
+            entries = catalog[category][project][experiment][tempres];
+        }
+        else if (project === "NCAR-CESM2-CLIMO") {
+            entries = catalog[category][project][experiment][variable][tempres];
+        }
+    } catch (e) {
+        console.log("No matching entries");
+    }
+
+    if (!entries || entries.length === 0) {
         container.textContent = "No datasets found for this selection.";
         return;
-    }}
-    entries.forEach(entry => {{
+    }
+
+    entries.forEach(entry => {
         const div = document.createElement("div");
         div.className = "dataset-entry";
         div.innerHTML = `
-            <div class="dataset-name">${{entry.name}}</div>
-            <div><strong>Description:</strong> ${{entry.long_name}}</div>
-            <div><strong>Units:</strong> ${{entry.units}}</div>
-            <div><strong>Date Range:</strong> ${{entry.date_range}}</div>
-            <div><strong>Files:</strong> ${{entry.files}}</div>
-            <div><strong>Data Location:</strong> ${{entry.data_location}}</div>
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
         `;
         container.appendChild(div);
-    }});
-}}
-</script>
+    });
+}
 
+// helpers
+function clearAndDisable(selectEl) {
+    selectEl.innerHTML = '<option value="">-- Select --</option>';
+    selectEl.disabled = true;
+}
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
+function populateSelect(selectEl, options) {
+    clearAndDisable(selectEl);
+    options.forEach(opt => {
+        let option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+
+</script>
 </body>
-</html>"""
+</html>
+"""
+
     return html
 
 def generate_index_html():
