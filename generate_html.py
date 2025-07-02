@@ -65,44 +65,15 @@ def generate_obs_page(catalog):
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog - Observations</title>
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #fff;
-    color: #222;
-}}
-h1 {{
-    color: {OU_RED};
-}}
-label {{
-    font-weight: bold;
-    margin-right: 8px;
-}}
-select {{
-    margin: 5px 15px 15px 0;
-    padding: 5px;
-    font-size: 1rem;
-}}
-.dataset-entry {{
-    border: 1px solid {OU_GOLD};
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #fff8e1;
-}}
-.dataset-name {{
-    font-weight: bold;
-    font-size: 1.1em;
-    color: {OU_RED};
-}}
-.meta-field {{
-    margin-left: 10px;
-}}
-</style>
+<title>Observations</title>
+<link rel="stylesheet" href="docs/style.css">
 </head>
 <body>
+<div class="tabs">
+  <a class="tab-button" href="obs.html">Observations</a>
+  <a class="tab-button" href="reanalysis.html">Reanalysis</a>
+  <a class="tab-button" href="model.html">Model</a>
+</div>
 <h1>Observations</h1>
 
 <div>
@@ -261,24 +232,15 @@ def generate_reanalysis_page(catalog):
 <meta charset="UTF-8" />
 <title>Reanalysis</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}}
-h1 {{
-    color: {OU_RED};
-    display: flex;
-    align-items: center;
-}}
-h1 img {{
-    height: 50px;
-    margin-left: 15px;
-}}
-</style>
+<link rel="stylesheet" href="docs/style.css">
 </head>
 <body>
-<h1>ESPLab Data Catalog - Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
+<div class="tabs">
+  <a class="tab-button" href="obs.html">Observations</a>
+  <a class="tab-button" href="reanalysis.html">Reanalysis</a>
+  <a class="tab-button" href="model.html">Model</a>
+</div>
+<h1>Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
 <div>
 ...
 </div>
@@ -433,24 +395,15 @@ def generate_model_page(catalog):
 <meta charset="UTF-8" />
 <title>Model</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}}
-h1 {{
-    color: {OU_RED};
-    display: flex;
-    align-items: center;
-}}
-h1 img {{
-    height: 50px;
-    margin-left: 15px;
-}}
-</style>
+<link rel="stylesheet" href="docs/style.css">
 </head>
 <body>
-<h1>ESPLab Data Catalog - Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
+<div class="tabs">
+  <a class="tab-button" href="obs.html">Observations</a>
+  <a class="tab-button" href="reanalysis.html">Reanalysis</a>
+  <a class="tab-button" href="model.html">Model</a>
+</div>
+<h1>Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
 <div>
 ...
 </div>
@@ -604,21 +557,7 @@ def generate_index_html():
 <meta charset="UTF-8" />
 <title>ESPLab Data Catalog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}}
-h1 {{
-    color: {OU_RED};
-    display: flex;
-    align-items: center;
-}}
-h1 img {{
-    height: 50px;
-    margin-left: 15px;
-}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>ESPLab Data Catalog <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
