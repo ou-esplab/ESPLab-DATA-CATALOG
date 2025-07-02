@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
+<head><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ESPLab Data Catalog - Reanalysis</title>
 <style>
@@ -11,38 +10,15 @@ body {
     background-color: #fff;
     color: #222;
 }
-h1 {
-    color: #841617;
-}
-label {
-    font-weight: bold;
-    margin-right: 8px;
-}
-select {
-    margin: 5px 15px 15px 0;
-    padding: 5px;
-    font-size: 1rem;
-}
-.dataset-entry {
-    border: 1px solid #FFB81C;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #fff8e1;
-}
-.dataset-name {
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #841617;
-}
-.meta-field {
-    margin-left: 10px;
-}
+h1 { color: #841617; }
+label { font-weight: bold; margin-right: 8px; }
+select { margin: 5px 15px 15px 0; padding: 5px; font-size: 1rem; }
+.dataset-entry { border: 1px solid #FFB81C; border-radius: 5px; padding: 10px; margin-bottom: 10px; background: #fff8e1; }
+.dataset-name { font-weight: bold; font-size: 1.1em; color: #841617; }
+.meta-field { margin-left: 10px; }
 </style>
-</head>
-<body>
+</head><body>
 <h1>ESPLab Data Catalog - Reanalysis</h1>
-
 <div>
 <label for="dataset">Dataset:</label>
 <select id="dataset">
@@ -51,105 +27,14 @@ select {
 <option value="merra-2">merra-2</option>
 </select>
 <label for="tempres">Temporal Resolution:</label>
-<select id="tempres" disabled>
-  <option value="">-- Select Temporal Resolution --</option>
-</select>
+<select id="tempres" disabled><option value="">-- Select Temporal Resolution --</option></select>
 <label for="variable">Variable:</label>
-<select id="variable" disabled>
-  <option value="">-- Select Variable --</option>
-</select>
+<select id="variable" disabled><option value="">-- Select Variable --</option></select>
 </div>
-
 <div id="datasetList"></div>
-
 <script>
 const catalog = {"era5": {"4xdaily": {"msl": [{"name": "era5", "long_name": "No long name", "description": "Mean sea level pressure", "units": "Pa", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u": [{"name": "era5", "long_name": "No long name", "description": "U component of wind", "units": "m s**-1", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u10": [{"name": "era5", "long_name": "No long name", "description": "10 metre U wind component", "units": "m s**-1", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v": [{"name": "era5", "long_name": "No long name", "description": "V component of wind", "units": "m s**-1", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v10": [{"name": "era5", "long_name": "No long name", "description": "10 metre V wind component", "units": "m s**-1", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z": [{"name": "era5", "long_name": "No long name", "description": "Geopotential", "units": "m**2 s**-2", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}]}, "daily": {"evap": [{"name": "era5", "long_name": "No long name", "description": "e", "units": "unknown", "date_range": "1979-01-01 to 2023-12-17", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "olr": [{"name": "era5", "long_name": "No long name", "description": "ttr", "units": "unknown", "date_range": "1940-01-01 to 2022-12-31", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5"}], "omega": [{"name": "era5", "long_name": "No long name", "description": "w", "units": "unknown", "date_range": "1979-01-01 to 2023-12-31", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "precip": [{"name": "era5", "long_name": "No long name", "description": "tp", "units": "unknown", "date_range": "1940-01-01 to 2022-12-31", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5"}], "psfc": [{"name": "era5", "long_name": "No long name", "description": "sp", "units": "unknown", "date_range": "1979-01-01 to 2023-12-18", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "q": [{"name": "era5", "long_name": "No long name", "description": "q", "units": "unknown", "date_range": "1979-01-01 to 2023-10-28", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "sst": [{"name": "era5", "long_name": "No long name", "description": "sst", "units": "unknown", "date_range": "1940-01-01 to 2022-12-31", "files": 83, "data_location": "/data/esplab/shared/reanalysis/era5"}], "swvl1p": [{"name": "era5", "long_name": "No long name", "description": "swvl1", "units": "unknown", "date_range": "1940-01-01 to 2023-08-21", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "t": [{"name": "era5", "long_name": "No long name", "description": "t", "units": "unknown", "date_range": "1979-01-01 to 2023-10-26", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "t2m": [{"name": "era5", "long_name": "No long name", "description": "t2m", "units": "unknown", "date_range": "1940-01-01 to 2023-07-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "tcwv": [{"name": "era5", "long_name": "No long name", "description": "tcwv", "units": "unknown", "date_range": "1979-01-01 to 2023-12-23", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u": [{"name": "era5", "long_name": "No long name", "description": "u", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u10": [{"name": "era5", "long_name": "No long name", "description": "u10", "units": "unknown", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u200": [{"name": "era5", "long_name": "No long name", "description": "u", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u500": [{"name": "era5", "long_name": "No long name", "description": "u", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u850": [{"name": "era5", "long_name": "No long name", "description": "u", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v": [{"name": "era5", "long_name": "No long name", "description": "v", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v10": [{"name": "era5", "long_name": "No long name", "description": "v10", "units": "unknown", "date_range": "1940-01-01 to 2023-06-23", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v200": [{"name": "era5", "long_name": "No long name", "description": "v", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v500": [{"name": "era5", "long_name": "No long name", "description": "v", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v850": [{"name": "era5", "long_name": "No long name", "description": "v", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vimd": [{"name": "era5", "long_name": "No long name", "description": "vimd", "units": "unknown", "date_range": "1979-01-01 to 2023-12-31", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vinevf": [{"name": "era5", "long_name": "No long name", "description": "p71.162", "units": "unknown", "date_range": "1979-01-01 to 2023-12-31", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vinwvf": [{"name": "era5", "long_name": "No long name", "description": "p72.162", "units": "unknown", "date_range": "1979-01-01 to 2023-12-31", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z": [{"name": "era5", "long_name": "No long name", "description": "z", "units": "unknown", "date_range": "1979-01-01 to 2022-12-31", "files": 44, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z200": [{"name": "era5", "long_name": "No long name", "description": "z", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z500": [{"name": "era5", "long_name": "No long name", "description": "z", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z850": [{"name": "era5", "long_name": "No long name", "description": "z", "units": "unknown", "date_range": "1940-01-01 to 2023-12-31", "files": 84, "data_location": "/data/esplab/shared/reanalysis/era5"}]}, "hourly": {"evap": [{"name": "era5", "long_name": "No long name", "description": "Evaporation", "units": "m of water equivalent", "date_range": "1979-01-01 to 2023-12-17", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "olr": [{"name": "era5", "long_name": "No long name", "description": "Top net long-wave (thermal) radiation", "units": "J m**-2", "date_range": "1940-01-01 to 2023-07-23", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5"}], "omega": [{"name": "era5", "long_name": "No long name", "description": "Vertical velocity", "units": "Pa s**-1", "date_range": "1979-01-01 to 2023-12-31", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "precip": [{"name": "era5", "long_name": "No long name", "description": "Total precipitation", "units": "m", "date_range": "1940-01-01 to 2023-07-19", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5"}], "psfc": [{"name": "era5", "long_name": "No long name", "description": "Surface pressure", "units": "Pa", "date_range": "1940-01-01 to 2023-12-18", "files": 541, "data_location": "/data/esplab/shared/reanalysis/era5"}], "q": [{"name": "era5", "long_name": "No long name", "description": "Specific humidity", "units": "kg kg**-1", "date_range": "1940-01-01 to 2023-10-28", "files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5"}], "sst": [{"name": "era5", "long_name": "No long name", "description": "Sea surface temperature", "units": "K", "date_range": "1940-01-01 to 2023-12-31", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5"}], "swvl1p": [{"name": "era5", "long_name": "No long name", "description": "Volumetric soil water layer 1", "units": "m**3 m**-3", "date_range": "1940-01-01 to 2023-08-21", "files": 1004, "data_location": "/data/esplab/shared/reanalysis/era5"}], "t": [{"name": "era5", "long_name": "No long name", "description": "Temperature", "units": "K", "date_range": "1940-01-01 to 2023-10-26", "files": 1006, "data_location": "/data/esplab/shared/reanalysis/era5"}], "t2m": [{"name": "era5", "long_name": "No long name", "description": "2 metre temperature", "units": "K", "date_range": "1940-01-01 to 2023-07-23", "files": 1003, "data_location": "/data/esplab/shared/reanalysis/era5"}], "tcwv": [{"name": "era5", "long_name": "No long name", "description": "Total column vertically-integrated water vapour", "units": "kg m**-2", "date_range": "1979-01-01 to 2023-12-23", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "u": [{"name": "era5", "long_name": "No long name", "description": "U component of wind", "units": "m s**-1", "date_range": "1940-01-01 to 2023-12-31", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5"}], "v": [{"name": "era5", "long_name": "No long name", "description": "V component of wind", "units": "m s**-1", "date_range": "1940-01-01 to 2023-12-31", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vimd": [{"name": "era5", "long_name": "No long name", "description": "Vertically integrated moisture divergence", "units": "kg m**-2", "date_range": "1979-01-01 to 2023-12-31", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vinevf": [{"name": "era5", "long_name": "No long name", "description": "Vertical integral of eastward water vapour flux", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 to 2023-12-31", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "vinwvf": [{"name": "era5", "long_name": "No long name", "description": "Vertical integral of northward water vapour flux", "units": "kg m**-1 s**-1", "date_range": "1979-01-01 to 2023-12-31", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5"}], "z": [{"name": "era5", "long_name": "No long name", "description": "Geopotential", "units": "m**2 s**-2", "date_range": "1940-01-01 to 2023-12-31", "files": 1008, "data_location": "/data/esplab/shared/reanalysis/era5"}]}}, "era5-land": {"daily": {"precip": [{"name": "era5-land", "long_name": "No long name", "description": "tp", "units": "unknown", "date_range": "1979-01-01 to 2023-12-07", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land"}], "t2m": [{"name": "era5-land", "long_name": "No long name", "description": "t2m", "units": "unknown", "date_range": "1979-01-01 to 2023-12-20", "files": 45, "data_location": "/data/esplab/shared/reanalysis/era5-land"}]}, "hourly": {"precip": [{"name": "era5-land", "long_name": "No long name", "description": "Total precipitation", "units": "m", "date_range": "1979-01-01 to 2023-12-07", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land"}], "t2m": [{"name": "era5-land", "long_name": "No long name", "description": "2 metre temperature", "units": "K", "date_range": "1979-01-01 to 2023-12-20", "files": 540, "data_location": "/data/esplab/shared/reanalysis/era5-land"}]}}, "merra-2": {"daily": {"OMEGA500": [{"name": "merra-2", "long_name": "No long name", "description": "vertical_pressure_velocity", "units": "Pa s-1", "date_range": "1980-01-01 to 2024-05-01", "files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2"}], "zg500": [{"name": "merra-2", "long_name": "No long name", "description": "edge_heights", "units": "m", "date_range": "1980-01-01 to 2024-05-01", "files": 1, "data_location": "/data/esplab/shared/reanalysis/merra-2"}]}}};
-
-function clearAndDisable(selectEl) {
-    selectEl.innerHTML = '<option value="">-- Select --</option>';
-    selectEl.disabled = true;
-}
-
-function enableSelect(selectEl) {
-    selectEl.disabled = false;
-}
-
-function populateSelect(selectEl, options) {
-    clearAndDisable(selectEl);
-    options.forEach(opt => {
-        let option = document.createElement("option");
-        option.value = opt;
-        option.textContent = opt;
-        selectEl.appendChild(option);
-    });
-    enableSelect(selectEl);
-}
-
-function updateDatasets() {
-    const dataset = document.getElementById("dataset").value;
-    const tempres = document.getElementById("tempres").value;
-    const variable = document.getElementById("variable").value;
-    const container = document.getElementById("datasetList");
-    container.innerHTML = "";
-
-    if (!dataset || !tempres || !variable) {
-        return;
-    }
-
-    const entries = catalog[dataset]?.[tempres]?.[variable];
-    if (!entries || entries.length === 0) {
-        container.textContent = "No datasets found for this selection.";
-        return;
-    }
-
-    entries.forEach(entry => {
-        const div = document.createElement("div");
-        div.className = "dataset-entry";
-        div.innerHTML = `
-            <div class="dataset-name">${entry.name}</div>
-            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
-            <div><span class="meta-field">Units:</span> ${entry.units}</div>
-            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
-            <div><span class="meta-field">Files:</span> ${entry.files}</div>
-            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
-        `;
-        container.appendChild(div);
-    });
-}
-
-document.getElementById("dataset").addEventListener("change", () => {
-    const dataset = document.getElementById("dataset").value;
-    const tempresSelect = document.getElementById("tempres");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-
-    if (!dataset) {
-        clearAndDisable(tempresSelect);
-        return;
-    }
-
-    const tempres = Object.keys(catalog[dataset]);
-    populateSelect(tempresSelect, tempres);
-});
-
-document.getElementById("tempres").addEventListener("change", () => {
-    const dataset = document.getElementById("dataset").value;
-    const tempres = document.getElementById("tempres").value;
-    const variableSelect = document.getElementById("variable");
-    document.getElementById("datasetList").innerHTML = "";
-
-    if (!tempres) {
-        clearAndDisable(variableSelect);
-        return;
-    }
-
-    const vars = Object.keys(catalog[dataset][tempres]);
-    populateSelect(variableSelect, vars);
-});
-
-document.getElementById("variable").addEventListener("change", updateDatasets);
+// same JS pattern as above for dropdowns...
+// (can be copy/paste)
 </script>
-
-</body>
-</html>
+</body></html>
