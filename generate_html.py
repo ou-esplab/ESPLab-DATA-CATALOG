@@ -400,12 +400,6 @@ def generate_model_page(catalog):
 </head>
 <body>
 
-<div class="tabs">
-  <a class="tab-button" href="obs.html">Observations</a>
-  <a class="tab-button" href="reanalysis.html">Reanalysis</a>
-  <a class="tab-button" href="model.html">Model</a>
-</div>
-
 <h1>Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
 
 <div>
