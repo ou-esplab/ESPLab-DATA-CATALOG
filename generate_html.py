@@ -59,7 +59,7 @@ def generate_obs_page(catalog):
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Observations</title>
-<link rel="stylesheet" href="docs/style.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -227,7 +227,7 @@ def generate_reanalysis_page(catalog):
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reanalysis</title>
-<link rel="stylesheet" href="docs/style.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -396,7 +396,7 @@ def generate_model_page(catalog):
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Model</title>
-<link rel="stylesheet" href="docs/style.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -562,7 +562,7 @@ def generate_index_html():
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ESPLab Data Catalog</title>
-  <link rel="stylesheet" href="docs/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
