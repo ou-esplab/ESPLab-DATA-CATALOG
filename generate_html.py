@@ -343,13 +343,15 @@ def generate_model_page(catalog):
     data_dict = {}
 
     for key, source in catalog["sources"].items():
+        print(key)
         parts = key.split("/")
+        print("MODEL: ",parts)
         if len(parts) < 4:
             continue
 
-        category = parts[0]
-        project = parts[1]
-        experiment = parts[2]
+        category = parts[1]
+        project = parts[2]
+        experiment = parts[3]
 
         categories.append(category)
         projects.append(project)
@@ -362,15 +364,15 @@ def generate_model_page(catalog):
 
         if project == "subx":
             # category/project/experiment/variable
-            variable = parts[3]
+            variable = parts[4]
             data_dict[category][project][experiment].setdefault(variable, [])
             entry_list = data_dict[category][project][experiment][variable]
 
         elif project == "nmme":
             # category/project/experiment/temporal/variable
-            if len(parts) >= 5:
-                temporal = parts[3]
-                variable = parts[4]
+            if len(parts) >= 6:
+                temporal = parts[5]
+                variable = parts[6]
                 data_dict[category][project][experiment].setdefault(temporal, {})
                 data_dict[category][project][experiment][temporal].setdefault(variable, [])
                 entry_list = data_dict[category][project][experiment][temporal][variable]
