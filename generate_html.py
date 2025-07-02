@@ -63,7 +63,7 @@ def generate_obs_page(catalog):
 </head>
 <body>
 
-<h1>Observations <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
+<h1>Observations</h1>
 
 <div>
 <label for="domain">Domain:</label>
@@ -231,7 +231,7 @@ def generate_reanalysis_page(catalog):
 </head>
 <body>
 
-<h1>Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
+<h1>Reanalysis</h1>
 
 <div>
 <label for="dataset">Dataset:</label>
@@ -400,7 +400,7 @@ def generate_model_page(catalog):
 </head>
 <body>
 
-<h1>Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
+<h1>Model</h1>
 
 <div>
 <label for="category">Category:</label>
@@ -568,8 +568,8 @@ def generate_index_html():
 
 <!-- Banner -->
 <div class="banner" style="background-color:#f1f1f1; padding:20px; display:flex; align-items:center;">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:60px; margin-right:15px;">
-  <h1 style="margin:0; color:{OU_RED}; font-size:1.8em;">ESPLab Data Catalog</h1>
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:80px; margin-right:15px;">
+  <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
 </div>
 
 <div class="tab" style="margin-top:10px;">
