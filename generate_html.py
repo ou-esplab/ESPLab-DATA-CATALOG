@@ -239,7 +239,8 @@ def generate_reanalysis_page(catalog):
 </head>
 <body>
 <div class="banner">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo">
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:80px; margin-right:15px;">
+  <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
   <span>ESPLab Data Catalog</span>
 </div>
 <div class="tab">
