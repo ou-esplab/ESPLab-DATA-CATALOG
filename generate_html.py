@@ -12,7 +12,7 @@ REANALYSIS_DIR = os.path.join(OUTPUT_DIR, "reanalysis")
 
 OU_RED = "#841617"
 OU_GOLD = "#FFB81C"
-ESPLAB_LOGO = "docs/esplab_logo.png"
+ESPLAB_LOGO = "esplab_logo.png"
 
 def load_catalog_json(path):
     with open(path) as f:
@@ -68,6 +68,8 @@ def generate_obs_page(catalog):
   <a class="tab-button" href="reanalysis.html">Reanalysis</a>
   <a class="tab-button" href="model.html">Model</a>
 </div>
+
+<h1>Observations <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
 
 <div>
 <label for="domain">Domain:</label>
@@ -241,7 +243,7 @@ def generate_reanalysis_page(catalog):
   <a class="tab-button" href="model.html">Model</a>
 </div>
 
-<h1>Reanalysis</h1>
+<h1>Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
 
 <div>
 <label for="dataset">Dataset:</label>
@@ -416,7 +418,7 @@ def generate_model_page(catalog):
   <a class="tab-button" href="model.html">Model</a>
 </div>
 
-<h1>Model</h1>
+<h1>Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;"></h1>
 
 <div>
 <label for="category">Category:</label>
@@ -575,62 +577,53 @@ def generate_index_html():
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog</title>
-<link rel="stylesheet" href="docs/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ESPLab Data Catalog</title>
+  <link rel="stylesheet" href="docs/style.css" />
 </head>
 <body>
-<div class="banner">
-    <img src="docs/esplab_logo.png" alt="ESPLab logo" style="height:30px; vertical-align:middle;">
+
+  <div class="banner">
+    <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;">
     <span>ESPLab Data Catalog</span>
   </div>
 
-<div class="tab">
-  <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
-  <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
-  <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
-</div>
+  <div class="tabs">
+    <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
+    <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
+    <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
+  </div>
 
-<!--
-<div id="obs" class="tabcontent" style="display: block;">
-  <iframe src="obs.html"></iframe>
-</div>
+  <div id="obs" class="tabcontent" style="display: block;">
+    <iframe src="obs.html" style="width:100%; height:600px; border:none;"></iframe>
+  </div>
+  <div id="reanalysis" class="tabcontent" style="display: none;">
+    <iframe src="reanalysis.html" style="width:100%; height:600px; border:none;"></iframe>
+  </div>
+  <div id="model" class="tabcontent" style="display: none;">
+    <iframe src="model.html" style="width:100%; height:600px; border:none;"></iframe>
+  </div>
 
-<div id="reanalysis" class="tabcontent">
-  <iframe src="reanalysis.html"></iframe>
-</div>
-
-<div id="model" class="tabcontent">
-  <iframe src="model.html"></iframe>
-</div>
--->
-
-<script>
-function openTab(evt, tabName) {{
-  // Hide all tabcontent
-  let tabcontent = document.getElementsByClassName("tabcontent");
-  for (let i = 0; i < tabcontent.length; i++) {{
-    tabcontent[i].style.display = "none";
+  <script>
+  function openTab(evt, tabName) {{
+    let tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {{
+      tabcontent[i].style.display = "none";
+    }}
+    let tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {{
+      tablinks[i].classList.remove("active");
+    }}
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
   }}
-
-  // Remove active class from all tablinks
-  let tablinks = document.getElementsByClassName("tablinks");
-  for (let i = 0; i < tablinks.length; i++) {{
-    tablinks[i].classList.remove("active");
-  }}
-
-  // Show current tab and set active button
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.classList.add("active");
-}}
-</script>
+  </script>
 
 </body>
 </html>
 """
     return html
-
 
 def write_html(path, content):
     with open(path, "w", encoding="utf-8") as f:
