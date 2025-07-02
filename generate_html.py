@@ -1,7 +1,7 @@
 import os
 import json
 
-# Config paths
+# CONFIG
 OBS_JSON = "docs/obs.json"
 REANALYSIS_JSON = "docs/reanalysis.json"
 MODEL_JSON = "docs/model.json"
@@ -9,10 +9,10 @@ MODEL_JSON = "docs/model.json"
 OUTPUT_DIR = "docs"
 OBS_DIR = os.path.join(OUTPUT_DIR, "obs")
 REANALYSIS_DIR = os.path.join(OUTPUT_DIR, "reanalysis")
-MODEL_DIR = os.path.join(OUTPUT_DIR, "model")
 
 OU_RED = "#841617"
 OU_GOLD = "#FFB81C"
+ESPLAB_LOGO = "docs/esplab_logo.png"
 
 def load_catalog_json(path):
     with open(path) as f:
@@ -103,7 +103,7 @@ select {{
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog - Observations</h1>
+<h1>Observations</h1>
 
 <div>
 <label for="domain">Domain:</label>
@@ -218,23 +218,205 @@ document.getElementById("variable").addEventListener("change", updateDatasets);
 </html>"""
     return html
 
+
 def generate_reanalysis_page(catalog):
     datasets = []
     temporal_res = []
     variables = []
+
     data_dict = {}
+
     for key, source in catalog["sources"].items():
         parts = key.split("/")
-        if len(parts) < 4: continue
+        if len(parts) < 4:
+            continue
         _, dataset, temp, variable = parts[-4:]
+
         datasets.append(dataset)
         temporal_res.append(temp)
         variables.append(variable)
+
         data_dict.setdefault(dataset, {})
         data_dict[dataset].setdefault(temp, {})
         data_dict[dataset][temp].setdefault(variable, [])
+
         entry = {
             "name": dataset,
+            "long_name": source["metadata"].get("long_name", "No long name"),
+            "description": source.get("description", "No description"),
+            "units": source["metadata"].get("units", "unknown"),
+            "date_range": source["metadata"].get("date_range", "unknown"),
+            "files": source["metadata"].get("n_files", 0),
+            "data_location": source["metadata"].get("data_location", ""),
+        }
+        data_dict[dataset][temp][variable].append(entry)
+
+    datasets = unique_sorted(datasets)
+    temporal_res = unique_sorted(temporal_res)
+    variables = unique_sorted(variables)
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Reanalysis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body {{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}}
+h1 {{
+    color: {OU_RED};
+    display: flex;
+    align-items: center;
+}}
+h1 img {{
+    height: 50px;
+    margin-left: 15px;
+}}
+</style>
+</head>
+<body>
+<h1>ESPLab Data Catalog - Reanalysis <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
+<div>
+...
+</div>
+<script>
+const catalog = """ + json.dumps(data_dict) + """;
+
+function clearAndDisable(selectEl) {
+    selectEl.innerHTML = '<option value="">-- Select --</option>';
+    selectEl.disabled = true;
+}
+function enableSelect(selectEl) { selectEl.disabled = false; }
+function populateSelect(selectEl, options) {
+    clearAndDisable(selectEl);
+    options.forEach(opt => {
+        let option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+function updateDatasets() {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variable = document.getElementById("variable").value;
+    const container = document.getElementById("datasetList");
+    container.innerHTML = "";
+    if (!domain || !dataset || !tempres || !variable) return;
+    const entries = catalog[domain]?.[dataset]?.[tempres]?.[variable];
+    if (!entries || entries.length === 0) {
+        container.textContent = "No datasets found for this selection.";
+        return;
+    }
+    entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+        `;
+        container.appendChild(div);
+    });
+}
+document.getElementById("domain").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const datasetSelect = document.getElementById("dataset");
+    const tempresSelect = document.getElementById("tempres");
+    const variableSelect = document.getElementById("variable");
+    clearAndDisable(tempresSelect);
+    clearAndDisable(variableSelect);
+    document.getElementById("datasetList").innerHTML = "";
+    if (!domain) { clearAndDisable(datasetSelect); return; }
+    const datasets = Object.keys(catalog[domain]);
+    populateSelect(datasetSelect, datasets);
+});
+document.getElementById("dataset").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempresSelect = document.getElementById("tempres");
+    const variableSelect = document.getElementById("variable");
+    clearAndDisable(variableSelect);
+    document.getElementById("datasetList").innerHTML = "";
+    if (!dataset) { clearAndDisable(tempresSelect); return; }
+    const tempres = Object.keys(catalog[domain][dataset]);
+    populateSelect(tempresSelect, tempres);
+});
+document.getElementById("tempres").addEventListener("change", () => {
+    const domain = document.getElementById("domain").value;
+    const dataset = document.getElementById("dataset").value;
+    const tempres = document.getElementById("tempres").value;
+    const variableSelect = document.getElementById("variable");
+    document.getElementById("datasetList").innerHTML = "";
+    if (!tempres) { clearAndDisable(variableSelect); return; }
+    const vars = Object.keys(catalog[domain][dataset][tempres]);
+    populateSelect(variableSelect, vars);
+});
+document.getElementById("variable").addEventListener("change", updateDatasets);
+</script>
+</body>
+</html>"""
+
+    return html
+
+def generate_model_page(catalog):
+    categories = []
+    projects = []
+    experiments = []
+    temporal_res = []
+    variables = []
+
+    data_dict = {}
+
+    for key, source in catalog["sources"].items():
+        parts = key.split("/")
+        if len(parts) < 4:
+            continue
+
+        category = parts[1]
+        project = parts[2]
+        experiment = parts[3]
+        idx = 4
+
+        temporal = None
+        variable = None
+        if idx < len(parts) and parts[idx] in ["daily", "monthly", "weekly", "seasonal"]:
+            temporal = parts[idx]
+            idx += 1
+
+        if idx < len(parts):
+            variable = parts[idx]
+        else:
+            variable = "unknown"
+
+        categories.append(category)
+        projects.append(project)
+        experiments.append(experiment)
+        if temporal:
+            temporal_res.append(temporal)
+        variables.append(variable)
+
+        data_dict.setdefault(category, {})
+        data_dict[category].setdefault(project, {})
+        data_dict[category][project].setdefault(experiment, {})
+        if temporal:
+            data_dict[category][project][experiment].setdefault(temporal, {})
+            data_dict[category][project][experiment][temporal].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][temporal][variable]
+        else:
+            data_dict[category][project][experiment].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][variable]
+
+        entry = {
+            "name": variable,
             "long_name": source["metadata"].get("long_name", "No long name"),
             "description": source.get("description","No description"),
             "units": source["metadata"].get("units", "unknown"),
@@ -242,210 +424,38 @@ def generate_reanalysis_page(catalog):
             "files": source["metadata"].get("n_files", 0),
             "data_location": source["metadata"].get("data_location", ""),
         }
-        data_dict[dataset][temp][variable].append(entry)
-    datasets = unique_sorted(datasets)
-    temporal_res = unique_sorted(temporal_res)
-    variables = unique_sorted(variables)
-    html = f"""<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog - Reanalysis</title>
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #fff;
-    color: #222;
-}}
-h1 {{ color: {OU_RED}; }}
-label {{ font-weight: bold; margin-right: 8px; }}
-select {{ margin: 5px 15px 15px 0; padding: 5px; font-size: 1rem; }}
-.dataset-entry {{ border: 1px solid {OU_GOLD}; border-radius: 5px; padding: 10px; margin-bottom: 10px; background: #fff8e1; }}
-.dataset-name {{ font-weight: bold; font-size: 1.1em; color: {OU_RED}; }}
-.meta-field {{ margin-left: 10px; }}
-</style>
-</head><body>
-<h1>ESPLab Data Catalog - Reanalysis</h1>
-<div>
-<label for="dataset">Dataset:</label>
-<select id="dataset">
-  <option value="">-- Select Dataset --</option>"""
-    for d in datasets:
-        html += f'<option value="{d}">{d}</option>\n'
-    html += "</select>"
-    html += """
-<label for="tempres">Temporal Resolution:</label>
-<select id="tempres" disabled><option value="">-- Select Temporal Resolution --</option></select>
-<label for="variable">Variable:</label>
-<select id="variable" disabled><option value="">-- Select Variable --</option></select>
-</div>
-<div id="datasetList"></div>
-<script>
-const catalog = """ + json.dumps(data_dict) + """;
-// same JS pattern as above for dropdowns...
-// (can be copy/paste)
-</script>
-</body></html>"""
-    return html
+        entry_list.append(entry)
 
-def generate_model_page(catalog):
-    # Collect dropdown options
-    projects = []
-    experiments = []
-    datatypes = []
-    variables = []
-
-    # Data dict nested by project -> experiment -> datatype/variable -> list of entries
-    data_dict = {}
-
-    for key, source in catalog["sources"].items():
-        # Split the key path
-        parts = key.split("/")
-        print("GENERATE_MODEL_PAGE: ",parts)
-        
-        # Expect parts start with: model / initialized / project / ...
-        if len(parts) < 3 or parts[0] != "model" or parts[1] != "initialized":
-            continue
-
-        project = parts[2]
-
-        # Handle NCAR-CESM2-SMYLE differently
-        if project == "NCAR-CESM2-SMYLE":
-            # key looks like:
-            # model/initialized/NCAR-CESM2-SMYLE/monthly/YYYY/MM/<variable>
-            # We want to group by project + variable only
-            if len(parts) < 6:
-                continue
-            variable = parts[-1]
-
-            projects.append(project)
-            variables.append(variable)
-
-            data_dict.setdefault(project, {})
-            # Use a dummy experiment level (empty string) for consistent dict nesting
-            data_dict[project].setdefault("", {})
-            data_dict[project][""].setdefault(variable, [])
-
-            entry = {
-                "name": variable,
-                "long_name": source["metadata"].get("long_name", "No long name"),
-                "description": source.get("description", "No description"),
-                "units": source["metadata"].get("units", "unknown"),
-                "date_range": source["metadata"].get("date_range", "unknown"),
-                "files": source["metadata"].get("n_files", 0),
-                "data_location": source["metadata"].get("data_location", ""),
-            }
-            data_dict[project][""][variable].append(entry)
-
-        else:
-            # For other projects, try to parse experiment and datatype/variable
-            # Usually keys like:
-            # model/initialized/<project>/<experiment>/<datatype or variable>/...
-            if len(parts) < 5:
-                continue
-            experiment = parts[3]
-            datatype_or_variable = parts[4]
-
-            projects.append(project)
-            experiments.append(experiment)
-            datatypes.append(datatype_or_variable)
-
-            data_dict.setdefault(project, {})
-            data_dict[project].setdefault(experiment, {})
-            data_dict[project][experiment].setdefault(datatype_or_variable, [])
-
-            entry = {
-                "name": datatype_or_variable,
-                "long_name": source["metadata"].get("long_name", "No long name"),
-                "description": source.get("description", "No description"),
-                "units": source["metadata"].get("units", "unknown"),
-                "date_range": source["metadata"].get("date_range", "unknown"),
-                "files": source["metadata"].get("n_files", 0),
-                "data_location": source["metadata"].get("data_location", ""),
-            }
-            data_dict[project][experiment][datatype_or_variable].append(entry)
-
-    # Remove duplicates and sort
-    projects = sorted(set(projects))
-    experiments = sorted(set(experiments))
-    datatypes = sorted(set(datatypes))
-    variables = sorted(set(variables))
-
-    # Build HTML with dropdowns for:
-    # - Project (always)
-    # - Experiment (only if available for that project)
-    # - Variable or Datatype depending on project
-
+    # identical HTML as shown before with logo, category, project, experiment, optional tempres, variable
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<title>Model</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Models</title>
 <style>
 body {{
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #fff;
-    color: #222;
 }}
 h1 {{
     color: {OU_RED};
+    display: flex;
+    align-items: center;
 }}
-label {{
-    font-weight: bold;
-    margin-right: 8px;
-}}
-select {{
-    margin: 5px 15px 15px 0;
-    padding: 5px;
-    font-size: 1rem;
-}}
-.dataset-entry {{
-    border: 1px solid {OU_GOLD};
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #fff8e1;
-}}
-.dataset-name {{
-    font-weight: bold;
-    font-size: 1.1em;
-    color: {OU_RED};
-}}
-.meta-field {{
-    margin-left: 10px;
+h1 img {{
+    height: 50px;
+    margin-left: 15px;
 }}
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog - Model</h1>
-
+<h1>ESPLab Data Catalog - Model <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
 <div>
-<label for="project">Project:</label>
-<select id="project">
-  <option value="">-- Select Project --</option>"""
-    for p in projects:
-        html += f'<option value="{p}">{p}</option>\n'
-    html += "</select>"
-
-    html += """
-<label for="experiment">Experiment:</label>
-<select id="experiment" disabled>
-  <option value="">-- Select Experiment --</option>
-</select>"""
-
-    html += """
-<label for="datatype">Datatype / Variable:</label>
-<select id="datatype" disabled>
-  <option value="">-- Select Datatype / Variable --</option>
-</select>
+...
 </div>
-
-<div id="datasetList"></div>
-
 <script>
+// Full catalog data:
 const catalog = """ + json.dumps(data_dict) + """;
 
 function clearAndDisable(selectEl) {
@@ -468,54 +478,27 @@ function populateSelect(selectEl, options) {
     enableSelect(selectEl);
 }
 
-document.getElementById("project").addEventListener("change", () => {
-    const project = document.getElementById("project").value;
-    const experimentSelect = document.getElementById("experiment");
-    const datatypeSelect = document.getElementById("datatype");
-    document.getElementById("datasetList").innerHTML = "";
-
-    clearAndDisable(experimentSelect);
-    clearAndDisable(datatypeSelect);
-
-    if (!project) return;
-
-    const experiments = Object.keys(catalog[project]);
-    // For NCAR-CESM2-SMYLE, experiment is only a dummy "", so skip enabling experiment dropdown
-    if (project === "NCAR-CESM2-SMYLE") {
-        // Directly populate datatype select with variables under empty experiment
-        const variables = Object.keys(catalog[project][""]);
-        populateSelect(datatypeSelect, variables);
-    } else {
-        populateSelect(experimentSelect, experiments);
-    }
-});
-
-document.getElementById("experiment").addEventListener("change", () => {
+function updateDatasets() {
+    const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
     const experiment = document.getElementById("experiment").value;
-    const datatypeSelect = document.getElementById("datatype");
-    document.getElementById("datasetList").innerHTML = "";
+    const variable = document.getElementById("variable").value;
+    const tempres = document.getElementById("tempres")?.value;
 
-    clearAndDisable(datatypeSelect);
-    if (!experiment) return;
-
-    const datatypes = Object.keys(catalog[project][experiment]);
-    populateSelect(datatypeSelect, datatypes);
-});
-
-document.getElementById("datatype").addEventListener("change", () => {
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const datatype = document.getElementById("datatype").value;
     const container = document.getElementById("datasetList");
     container.innerHTML = "";
 
-    if (!project || !datatype) return;
+    if (!category || !project || !experiment || !variable) {
+        return;
+    }
 
-    // For NCAR-CESM2-SMYLE, experiment is dummy ""
-    const exp = project === "NCAR-CESM2-SMYLE" ? "" : experiment;
+    let entries;
+    if (tempres) {
+        entries = catalog?.[category]?.[project]?.[experiment]?.[variable]?.[tempres];
+    } else {
+        entries = catalog?.[category]?.[project]?.[experiment]?.[variable];
+    }
 
-    const entries = catalog[project]?.[exp]?.[datatype];
     if (!entries || entries.length === 0) {
         container.textContent = "No datasets found for this selection.";
         return;
@@ -534,54 +517,116 @@ document.getElementById("datatype").addEventListener("change", () => {
         `;
         container.appendChild(div);
     });
+}
+
+document.getElementById("category").addEventListener("change", () => {
+    const category = document.getElementById("category").value;
+    const projectSelect = document.getElementById("project");
+    const experimentSelect = document.getElementById("experiment");
+    const variableSelect = document.getElementById("variable");
+    const tempresSelect = document.getElementById("tempres");
+    clearAndDisable(projectSelect);
+    clearAndDisable(experimentSelect);
+    clearAndDisable(variableSelect);
+    clearAndDisable(tempresSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!category) return;
+
+    const projects = Object.keys(catalog[category]);
+    populateSelect(projectSelect, projects);
 });
+
+document.getElementById("project").addEventListener("change", () => {
+    const category = document.getElementById("category").value;
+    const project = document.getElementById("project").value;
+    const experimentSelect = document.getElementById("experiment");
+    const variableSelect = document.getElementById("variable");
+    const tempresSelect = document.getElementById("tempres");
+    clearAndDisable(experimentSelect);
+    clearAndDisable(variableSelect);
+    clearAndDisable(tempresSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!project) return;
+
+    const experiments = Object.keys(catalog[category][project]);
+    populateSelect(experimentSelect, experiments);
+});
+
+document.getElementById("experiment").addEventListener("change", () => {
+    const category = document.getElementById("category").value;
+    const project = document.getElementById("project").value;
+    const experiment = document.getElementById("experiment").value;
+    const variableSelect = document.getElementById("variable");
+    const tempresSelect = document.getElementById("tempres");
+    clearAndDisable(variableSelect);
+    clearAndDisable(tempresSelect);
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!experiment) return;
+
+    const variables = Object.keys(catalog[category][project][experiment]);
+    populateSelect(variableSelect, variables);
+});
+
+document.getElementById("variable").addEventListener("change", () => {
+    const category = document.getElementById("category").value;
+    const project = document.getElementById("project").value;
+    const experiment = document.getElementById("experiment").value;
+    const variable = document.getElementById("variable").value;
+    const tempresSelect = document.getElementById("tempres");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!variable) {
+        clearAndDisable(tempresSelect);
+        return;
+    }
+
+    const tempres_options = Object.keys(catalog[category][project][experiment][variable] || {});
+    if (tempres_options.length > 0 && !tempres_options.includes("name")) {
+        populateSelect(tempresSelect, tempres_options);
+    } else {
+        clearAndDisable(tempresSelect);
+    }
+});
+
+document.getElementById("tempres")?.addEventListener("change", updateDatasets);
 </script>
 
-</body>
-</html>
-"""
+</body></html>"""
     return html
-
 
 def generate_index_html():
     html = f"""<!DOCTYPE html>
-<html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
 <title>ESPLab Data Catalog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #fff; color: #222; }}
-h1 {{ color: {OU_RED}; }}
-.tabs {{ overflow: hidden; background-color: #f1f1f1; border-radius: 5px; margin-bottom: 20px; }}
-.tab-button {{ background-color: inherit; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; font-weight: bold; font-size: 1rem; color: {OU_RED}; }}
-.tab-button:hover {{ background-color: {OU_GOLD}; color: #000; }}
-.tab-button.active {{ background-color: {OU_RED}; color: white; }}
-.tab-content {{ display: none; border: 1px solid {OU_RED}; border-radius: 5px; padding: 15px; }}
-.tab-content.active {{ display: block; }}
+body {{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}}
+h1 {{
+    color: {OU_RED};
+    display: flex;
+    align-items: center;
+}}
+h1 img {{
+    height: 50px;
+    margin-left: 15px;
+}}
 </style>
-</head><body>
-<h1>ESPLab Data Catalog</h1>
-<div class="tabs">
-  <button class="tab-button active" data-tab="obs">Observations</button>
-  <button class="tab-button" data-tab="reanalysis">Reanalysis</button>
-  <button class="tab-button" data-tab="model">Model</button>
+</head>
+<body>
+<h1>ESPLab Data Catalog <img src="{ESPLAB_LOGO}" alt="ESPLab logo"></h1>
+<div>
+  <a href="obs.html">Observations</a> |
+  <a href="reanalysis.html">Reanalysis</a> |
+  <a href="model.html">Model</a>
 </div>
-<div id="obs" class="tab-content active"><iframe src="obs.html" style="width:100%; height:600px; border:none;"></iframe></div>
-<div id="reanalysis" class="tab-content"><iframe src="reanalysis.html" style="width:100%; height:600px; border:none;"></iframe></div>
-<div id="model" class="tab-content"><iframe src="model.html" style="width:100%; height:600px; border:none;"></iframe></div>
-<script>
-const tabs = document.querySelectorAll('.tab-button');
-const contents = document.querySelectorAll('.tab-content');
-tabs.forEach(button => {{
-    button.addEventListener('click', () => {{
-        const tab = button.getAttribute('data-tab');
-        tabs.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        contents.forEach(content => {{
-            content.classList.remove('active');
-            if(content.id === tab) {{ content.classList.add('active'); }}
-        }});
-    }});
-}});
-</script>
 </body></html>"""
     return html
 
@@ -591,10 +636,7 @@ def write_html(path, content):
     print(f"Wrote {path}")
 
 def main():
-    os.makedirs(OBS_DIR, exist_ok=True)
-    os.makedirs(REANALYSIS_DIR, exist_ok=True)
-    os.makedirs(MODEL_DIR, exist_ok=True)
-
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     obs_catalog = load_catalog_json(OBS_JSON)
     reanalysis_catalog = load_catalog_json(REANALYSIS_JSON)
     model_catalog = load_catalog_json(MODEL_JSON)
