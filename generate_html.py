@@ -190,26 +190,31 @@ document.getElementById("variable").addEventListener("change", () => {{
 """
     return html
 
+
 def generate_reanalysis_page(catalog):
     datasets = []
+    temporal_res = []
+    variables = []
     data_dict = {}
 
     for key, source in catalog["sources"].items():
         parts = key.split("/")
+        print("REANALYSIS: ", parts)
+        # expects parts like ['reanalysis', 'era5', '4xdaily', 'msl']
         if len(parts) < 4:
             continue
-        dataset = parts[-4]
-        temp = parts[-3]
-        variable = parts[-2]
+        _, dataset, temp, variable = parts[-4:]
 
         datasets.append(dataset)
+        temporal_res.append(temp)
+        variables.append(variable)
 
         data_dict.setdefault(dataset, {})
         data_dict[dataset].setdefault(temp, {})
         data_dict[dataset][temp].setdefault(variable, [])
 
         entry = {
-            "name": dataset,
+            "name": variable,
             "long_name": source["metadata"].get("long_name", "No long name"),
             "description": source.get("description", "No description"),
             "units": source["metadata"].get("units", "unknown"),
@@ -220,31 +225,45 @@ def generate_reanalysis_page(catalog):
         data_dict[dataset][temp][variable].append(entry)
 
     datasets = sorted(set(datasets))
+    temporal_res = sorted(set(temporal_res))
+    variables = sorted(set(variables))
 
+    # then build your HTML as before
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Reanalysis</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reanalysis</title>
+  <link rel="stylesheet" href="docs/style.css">
 </head>
 <body>
-
+<div class="banner">
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo">
+  <span>ESPLab Data Catalog</span>
+</div>
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
+  <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
+  <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
+</div>
 <h1>Reanalysis</h1>
 
 <div>
 <label for="dataset">Dataset:</label>
 <select id="dataset">
-  <option value="">-- Select Dataset --</option>
-  {"".join(f'<option value="{d}">{d}</option>' for d in datasets)}
-</select>
+  <option value="">-- Select Dataset --</option>"""
+    for d in datasets:
+        html += f'<option value="{d}">{d}</option>\n'
+    html += "</select>"
 
+    html += """
 <label for="tempres">Temporal Resolution:</label>
 <select id="tempres" disabled>
   <option value="">-- Select Temporal Resolution --</option>
-</select>
+</select>"""
 
+    html += """
 <label for="variable">Variable:</label>
 <select id="variable" disabled>
   <option value="">-- Select Variable --</option>
@@ -254,84 +273,75 @@ def generate_reanalysis_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-const catalog = {json.dumps(data_dict)};
+const catalog = """ + json.dumps(data_dict) + """;
 
-function clearSelect(sel) {{
-    sel.innerHTML = '<option value="">-- Select --</option>';
-    sel.disabled = true;
-}}
-
-function populateSelect(sel, options) {{
-    clearSelect(sel);
-    options.forEach(opt => {{
-        let option = document.createElement("option");
-        option.value = opt;
-        option.textContent = opt;
-        sel.appendChild(option);
-    }});
-    sel.disabled = false;
-}}
-
-document.getElementById("dataset").addEventListener("change", () => {{
-    const dataset = document.getElementById("dataset").value;
-    const tempresSel = document.getElementById("tempres");
-    const variableSel = document.getElementById("variable");
-    document.getElementById("datasetList").innerHTML = "";
-    clearSelect(variableSel);
-    if (!dataset) {{
-        clearSelect(tempresSel);
-        return;
-    }}
-    const tempres = Object.keys(catalog[dataset] || {{}});
-    populateSelect(tempresSel, tempres);
-}});
-
-document.getElementById("tempres").addEventListener("change", () => {{
-    const dataset = document.getElementById("dataset").value;
-    const tempres = document.getElementById("tempres").value;
-    const variableSel = document.getElementById("variable");
-    document.getElementById("datasetList").innerHTML = "";
-    if (!tempres) {{
-        clearSelect(variableSel);
-        return;
-    }}
-    const vars = Object.keys(catalog[dataset][tempres] || {{}});
-    populateSelect(variableSel, vars);
-}});
-
-document.getElementById("variable").addEventListener("change", () => {{
-    const dataset = document.getElementById("dataset").value;
-    const tempres = document.getElementById("tempres").value;
-    const variable = document.getElementById("variable").value;
-    const container = document.getElementById("datasetList");
-    container.innerHTML = "";
-    if (!dataset || !tempres || !variable) {{
-        return;
-    }}
-    const entries = catalog[dataset][tempres][variable] || [];
-    if (entries.length === 0) {{
-        container.textContent = "No datasets found for this selection.";
-        return;
-    }}
-    entries.forEach(entry => {{
-        const div = document.createElement("div");
-        div.className = "dataset-entry";
-        div.innerHTML = `
-            <div class="dataset-name">${{entry.name}}</div>
-            <div><strong>Description:</strong> ${{entry.long_name}}</div>
-            <div><strong>Units:</strong> ${{entry.units}}</div>
-            <div><strong>Date Range:</strong> ${{entry.date_range}}</div>
-            <div><strong>Files:</strong> ${{entry.files}}</div>
-            <div><strong>Data Location:</strong> ${{entry.data_location}}</div>
-        `;
-        container.appendChild(div);
-    }});
-}});
+function clearAndDisable(selectEl) {
+  selectEl.innerHTML = '<option value="">-- Select --</option>';
+  selectEl.disabled = true;
+}
+function enableSelect(selectEl) { selectEl.disabled = false; }
+function populateSelect(selectEl, options) {
+  clearAndDisable(selectEl);
+  options.forEach(opt => {
+    let option = document.createElement("option");
+    option.value = opt;
+    option.textContent = opt;
+    selectEl.appendChild(option);
+  });
+  enableSelect(selectEl);
+}
+function updateDatasets() {
+  const dataset = document.getElementById("dataset").value;
+  const tempres = document.getElementById("tempres").value;
+  const variable = document.getElementById("variable").value;
+  const container = document.getElementById("datasetList");
+  container.innerHTML = "";
+  if (!dataset || !tempres || !variable) return;
+  const entries = catalog[dataset]?.[tempres]?.[variable];
+  if (!entries || entries.length === 0) {
+    container.textContent = "No datasets found for this selection.";
+    return;
+  }
+  entries.forEach(entry => {
+    const div = document.createElement("div");
+    div.className = "dataset-entry";
+    div.innerHTML = `
+      <div class="dataset-name">${entry.name}</div>
+      <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+      <div><span class="meta-field">Units:</span> ${entry.units}</div>
+      <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+      <div><span class="meta-field">Files:</span> ${entry.files}</div>
+      <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+document.getElementById("dataset").addEventListener("change", () => {
+  const dataset = document.getElementById("dataset").value;
+  const tempresSelect = document.getElementById("tempres");
+  const variableSelect = document.getElementById("variable");
+  clearAndDisable(tempresSelect);
+  clearAndDisable(variableSelect);
+  document.getElementById("datasetList").innerHTML = "";
+  if (!dataset) return;
+  const temps = Object.keys(catalog[dataset]);
+  populateSelect(tempresSelect, temps);
+});
+document.getElementById("tempres").addEventListener("change", () => {
+  const dataset = document.getElementById("dataset").value;
+  const tempres = document.getElementById("tempres").value;
+  const variableSelect = document.getElementById("variable");
+  clearAndDisable(variableSelect);
+  document.getElementById("datasetList").innerHTML = "";
+  if (!tempres) return;
+  const vars = Object.keys(catalog[dataset][tempres]);
+  populateSelect(variableSelect, vars);
+});
+document.getElementById("variable").addEventListener("change", updateDatasets);
 </script>
-
 </body>
-</html>
-"""
+</html>"""
+
     return html
 
 
