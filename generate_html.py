@@ -577,10 +577,14 @@ def generate_index_html():
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:30px; vertical-align:middle;">ESPLab Data Catalog</title>
+<title>ESPLab Data Catalog</title>
 <link rel="stylesheet" href="docs/style.css" />
 </head>
 <body>
+<div class="banner">
+    <img src="docs/esplab_logo.png" alt="ESPLab logo" style="height:30px; vertical-align:middle;">
+    <span>ESPLab Data Catalog</span>
+  </div>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
