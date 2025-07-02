@@ -290,49 +290,97 @@ const catalog = """ + json.dumps(data_dict) + """;
     return html
 
 def generate_model_page(catalog):
-    categories = []
+    # Collect dropdown options
     projects = []
     experiments = []
-    models = []
+    datatypes = []
     variables = []
+
+    # Data dict nested by project -> experiment -> datatype/variable -> list of entries
     data_dict = {}
 
     for key, source in catalog["sources"].items():
-        # expected: model/<category>/<project>/<experiment>/<model>/<variable>
+        # Split the key path
         parts = key.split("/")
-        if len(parts) < 6:
+        # Expect parts start with: model / initialized / project / ...
+        if len(parts) < 3 or parts[0] != "model" or parts[1] != "initialized":
             continue
-        _, category, project, experiment, model, variable = parts
-        categories.append(category)
-        projects.append(project)
-        experiments.append(experiment)
-        models.append(model)
-        variables.append(variable)
 
-        data_dict.setdefault(category, {})
-        data_dict[category].setdefault(project, {})
-        data_dict[category][project].setdefault(experiment, {})
-        data_dict[category][project][experiment].setdefault(model, {})
-        data_dict[category][project][experiment][model].setdefault(variable, [])
+        project = parts[2]
 
-        entry = {
-            "name": model,
-            "long_name": source["metadata"].get("long_name", "No long name"),
-            "description": source.get("description", "No description"),
-            "units": source["metadata"].get("units", "unknown"),
-            "date_range": source["metadata"].get("date_range", "unknown"),
-            "files": source["metadata"].get("n_files", 0),
-            "data_location": source["metadata"].get("data_location", ""),
-        }
-        data_dict[category][project][experiment][model][variable].append(entry)
+        # Handle NCAR-CESM2-SMYLE differently
+        if project == "NCAR-CESM2-SMYLE":
+            # key looks like:
+            # model/initialized/NCAR-CESM2-SMYLE/monthly/YYYY/MM/<variable>
+            # We want to group by project + variable only
+            if len(parts) < 6:
+                continue
+            variable = parts[-1]
 
-    categories = unique_sorted(categories)
+            projects.append(project)
+            variables.append(variable)
+
+            data_dict.setdefault(project, {})
+            # Use a dummy experiment level (empty string) for consistent dict nesting
+            data_dict[project].setdefault("", {})
+            data_dict[project][""].setdefault(variable, [])
+
+            entry = {
+                "name": variable,
+                "long_name": source["metadata"].get("long_name", "No long name"),
+                "description": source.get("description", "No description"),
+                "units": source["metadata"].get("units", "unknown"),
+                "date_range": source["metadata"].get("date_range", "unknown"),
+                "files": source["metadata"].get("n_files", 0),
+                "data_location": source["metadata"].get("data_location", ""),
+            }
+            data_dict[project][""][variable].append(entry)
+
+        else:
+            # For other projects, try to parse experiment and datatype/variable
+            # Usually keys like:
+            # model/initialized/<project>/<experiment>/<datatype or variable>/...
+            if len(parts) < 5:
+                continue
+            experiment = parts[3]
+            datatype_or_variable = parts[4]
+
+            projects.append(project)
+            experiments.append(experiment)
+            datatypes.append(datatype_or_variable)
+
+            data_dict.setdefault(project, {})
+            data_dict[project].setdefault(experiment, {})
+            data_dict[project][experiment].setdefault(datatype_or_variable, [])
+
+            entry = {
+                "name": datatype_or_variable,
+                "long_name": source["metadata"].get("long_name", "No long name"),
+                "description": source.get("description", "No description"),
+                "units": source["metadata"].get("units", "unknown"),
+                "date_range": source["metadata"].get("date_range", "unknown"),
+                "files": source["metadata"].get("n_files", 0),
+                "data_location": source["metadata"].get("data_location", ""),
+            }
+            data_dict[project][experiment][datatype_or_variable].append(entry)
+
+    # Remove duplicates and sort
+    projects = sorted(set(projects))
+    experiments = sorted(set(experiments))
+    datatypes = sorted(set(datatypes))
+    variables = sorted(set(variables))
+
+    # Build HTML with dropdowns for:
+    # - Project (always)
+    # - Experiment (only if available for that project)
+    # - Variable or Datatype depending on project
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" />
+<head>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog - Models</title>
+<title>ESPLab Data Catalog - Model</title>
 <style>
 body {{
     font-family: Arial, sans-serif;
@@ -370,21 +418,15 @@ select {{
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog - Models</h1>
+<h1>ESPLab Data Catalog - Model</h1>
 
 <div>
-<label for="category">Category:</label>
-<select id="category">
-  <option value="">-- Select Category --</option>"""
-    for c in categories:
-        html += f'<option value="{c}">{c}</option>\n'
-    html += "</select>"
-
-    html += """
 <label for="project">Project:</label>
-<select id="project" disabled>
-  <option value="">-- Select Project --</option>
-</select>"""
+<select id="project">
+  <option value="">-- Select Project --</option>"""
+    for p in projects:
+        html += f'<option value="{p}">{p}</option>\n'
+    html += "</select>"
 
     html += """
 <label for="experiment">Experiment:</label>
@@ -393,15 +435,9 @@ select {{
 </select>"""
 
     html += """
-<label for="model">Model:</label>
-<select id="model" disabled>
-  <option value="">-- Select Model --</option>
-</select>"""
-
-    html += """
-<label for="variable">Variable:</label>
-<select id="variable" disabled>
-  <option value="">-- Select Variable --</option>
+<label for="datatype">Datatype / Variable:</label>
+<select id="datatype" disabled>
+  <option value="">-- Select Datatype / Variable --</option>
 </select>
 </div>
 
@@ -414,7 +450,11 @@ function clearAndDisable(selectEl) {
     selectEl.innerHTML = '<option value="">-- Select --</option>';
     selectEl.disabled = true;
 }
-function enableSelect(selectEl) { selectEl.disabled = false; }
+
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
+
 function populateSelect(selectEl, options) {
     clearAndDisable(selectEl);
     options.forEach(opt => {
@@ -425,20 +465,60 @@ function populateSelect(selectEl, options) {
     });
     enableSelect(selectEl);
 }
-function updateDatasets() {
-    const category = document.getElementById("category").value;
+
+document.getElementById("project").addEventListener("change", () => {
+    const project = document.getElementById("project").value;
+    const experimentSelect = document.getElementById("experiment");
+    const datatypeSelect = document.getElementById("datatype");
+    document.getElementById("datasetList").innerHTML = "";
+
+    clearAndDisable(experimentSelect);
+    clearAndDisable(datatypeSelect);
+
+    if (!project) return;
+
+    const experiments = Object.keys(catalog[project]);
+    // For NCAR-CESM2-SMYLE, experiment is only a dummy "", so skip enabling experiment dropdown
+    if (project === "NCAR-CESM2-SMYLE") {
+        // Directly populate datatype select with variables under empty experiment
+        const variables = Object.keys(catalog[project][""]);
+        populateSelect(datatypeSelect, variables);
+    } else {
+        populateSelect(experimentSelect, experiments);
+    }
+});
+
+document.getElementById("experiment").addEventListener("change", () => {
     const project = document.getElementById("project").value;
     const experiment = document.getElementById("experiment").value;
-    const model = document.getElementById("model").value;
-    const variable = document.getElementById("variable").value;
+    const datatypeSelect = document.getElementById("datatype");
+    document.getElementById("datasetList").innerHTML = "";
+
+    clearAndDisable(datatypeSelect);
+    if (!experiment) return;
+
+    const datatypes = Object.keys(catalog[project][experiment]);
+    populateSelect(datatypeSelect, datatypes);
+});
+
+document.getElementById("datatype").addEventListener("change", () => {
+    const project = document.getElementById("project").value;
+    const experiment = document.getElementById("experiment").value;
+    const datatype = document.getElementById("datatype").value;
     const container = document.getElementById("datasetList");
     container.innerHTML = "";
-    if (!category || !project || !experiment || !model || !variable) return;
-    const entries = catalog[category]?.[project]?.[experiment]?.[model]?.[variable];
+
+    if (!project || !datatype) return;
+
+    // For NCAR-CESM2-SMYLE, experiment is dummy ""
+    const exp = project === "NCAR-CESM2-SMYLE" ? "" : experiment;
+
+    const entries = catalog[project]?.[exp]?.[datatype];
     if (!entries || entries.length === 0) {
         container.textContent = "No datasets found for this selection.";
         return;
     }
+
     entries.forEach(entry => {
         const div = document.createElement("div");
         div.className = "dataset-entry";
@@ -452,66 +532,14 @@ function updateDatasets() {
         `;
         container.appendChild(div);
     });
-}
-document.getElementById("category").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const projectSelect = document.getElementById("project");
-    const experimentSelect = document.getElementById("experiment");
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(projectSelect);
-    clearAndDisable(experimentSelect);
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!category) return;
-    const projects = Object.keys(catalog[category]);
-    populateSelect(projectSelect, projects);
 });
-document.getElementById("project").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experimentSelect = document.getElementById("experiment");
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(experimentSelect);
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!project) return;
-    const experiments = Object.keys(catalog[category][project]);
-    populateSelect(experimentSelect, experiments);
-});
-document.getElementById("experiment").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!experiment) return;
-    const models = Object.keys(catalog[category][project][experiment]);
-    populateSelect(modelSelect, models);
-});
-document.getElementById("model").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const model = document.getElementById("model").value;
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!model) return;
-    const variables = Object.keys(catalog[category][project][experiment][model]);
-    populateSelect(variableSelect, variables);
-});
-document.getElementById("variable").addEventListener("change", updateDatasets);
 </script>
-</body></html>"""
 
+</body>
+</html>
+"""
     return html
+
 
 def generate_index_html():
     html = f"""<!DOCTYPE html>
