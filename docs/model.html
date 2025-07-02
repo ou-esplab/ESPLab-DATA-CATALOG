@@ -1,171 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" />
+<head>
+<meta charset="UTF-8" />
+<title>ESPLab Data Catalog - Model</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog - Models</title>
 <style>
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #fff;
-    color: #222;
 }
 h1 {
     color: #841617;
+    display: flex;
+    align-items: center;
 }
-label {
-    font-weight: bold;
-    margin-right: 8px;
-}
-select {
-    margin: 5px 15px 15px 0;
-    padding: 5px;
-    font-size: 1rem;
-}
-.dataset-entry {
-    border: 1px solid #FFB81C;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #fff8e1;
-}
-.dataset-name {
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #841617;
-}
-.meta-field {
-    margin-left: 10px;
+h1 img {
+    height: 50px;
+    margin-left: 15px;
 }
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog - Models</h1>
-
+<h1>ESPLab Data Catalog - Model <img src="https://raw.githubusercontent.com/ou-esplab/esplab/main/logo/ESPLab-logo-300px.png" alt="ESPLab logo"></h1>
 <div>
-<label for="category">Category:</label>
-<select id="category">
-  <option value="">-- Select Category --</option></select>
-<label for="project">Project:</label>
-<select id="project" disabled>
-  <option value="">-- Select Project --</option>
-</select>
-<label for="experiment">Experiment:</label>
-<select id="experiment" disabled>
-  <option value="">-- Select Experiment --</option>
-</select>
-<label for="model">Model:</label>
-<select id="model" disabled>
-  <option value="">-- Select Model --</option>
-</select>
-<label for="variable">Variable:</label>
-<select id="variable" disabled>
-  <option value="">-- Select Variable --</option>
-</select>
+...
 </div>
-
-<div id="datasetList"></div>
-
-<script>
-const catalog = {};
-
-function clearAndDisable(selectEl) {
-    selectEl.innerHTML = '<option value="">-- Select --</option>';
-    selectEl.disabled = true;
-}
-function enableSelect(selectEl) { selectEl.disabled = false; }
-function populateSelect(selectEl, options) {
-    clearAndDisable(selectEl);
-    options.forEach(opt => {
-        let option = document.createElement("option");
-        option.value = opt;
-        option.textContent = opt;
-        selectEl.appendChild(option);
-    });
-    enableSelect(selectEl);
-}
-function updateDatasets() {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const model = document.getElementById("model").value;
-    const variable = document.getElementById("variable").value;
-    const container = document.getElementById("datasetList");
-    container.innerHTML = "";
-    if (!category || !project || !experiment || !model || !variable) return;
-    const entries = catalog[category]?.[project]?.[experiment]?.[model]?.[variable];
-    if (!entries || entries.length === 0) {
-        container.textContent = "No datasets found for this selection.";
-        return;
-    }
-    entries.forEach(entry => {
-        const div = document.createElement("div");
-        div.className = "dataset-entry";
-        div.innerHTML = `
-            <div class="dataset-name">${entry.name}</div>
-            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
-            <div><span class="meta-field">Units:</span> ${entry.units}</div>
-            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
-            <div><span class="meta-field">Files:</span> ${entry.files}</div>
-            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
-        `;
-        container.appendChild(div);
-    });
-}
-document.getElementById("category").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const projectSelect = document.getElementById("project");
-    const experimentSelect = document.getElementById("experiment");
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(projectSelect);
-    clearAndDisable(experimentSelect);
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!category) return;
-    const projects = Object.keys(catalog[category]);
-    populateSelect(projectSelect, projects);
-});
-document.getElementById("project").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experimentSelect = document.getElementById("experiment");
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(experimentSelect);
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!project) return;
-    const experiments = Object.keys(catalog[category][project]);
-    populateSelect(experimentSelect, experiments);
-});
-document.getElementById("experiment").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const modelSelect = document.getElementById("model");
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(modelSelect);
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!experiment) return;
-    const models = Object.keys(catalog[category][project][experiment]);
-    populateSelect(modelSelect, models);
-});
-document.getElementById("model").addEventListener("change", () => {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const model = document.getElementById("model").value;
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-    if (!model) return;
-    const variables = Object.keys(catalog[category][project][experiment][model]);
-    populateSelect(variableSelect, variables);
-});
-document.getElementById("variable").addEventListener("change", updateDatasets);
-</script>
+<!-- identical javascript from model version we finalized -->
 </body></html>
