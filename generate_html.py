@@ -238,16 +238,6 @@ def generate_reanalysis_page(catalog):
   <link rel="stylesheet" href="docs/style.css">
 </head>
 <body>
-<div class="banner">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:80px; margin-right:15px;">
-  <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
-  <span>ESPLab Data Catalog</span>
-</div>
-<div class="tab">
-  <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
-  <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
-  <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
-</div>
 <h1>Reanalysis</h1>
 
 <div>
