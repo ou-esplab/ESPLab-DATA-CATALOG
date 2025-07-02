@@ -302,6 +302,8 @@ def generate_model_page(catalog):
     for key, source in catalog["sources"].items():
         # Split the key path
         parts = key.split("/")
+        print("GENERATE_MODEL_PAGE: ",parts)
+        
         # Expect parts start with: model / initialized / project / ...
         if len(parts) < 3 or parts[0] != "model" or parts[1] != "initialized":
             continue
@@ -380,7 +382,7 @@ def generate_model_page(catalog):
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESPLab Data Catalog - Model</title>
+<title>Models</title>
 <style>
 body {{
     font-family: Arial, sans-serif;
