@@ -8,41 +8,41 @@
 </head>
 <body>
 
-  <div class="banner">
-    <img src="esplab_logo.png" alt="ESPLab logo" style="height:30px; vertical-align:middle;">
-    <span>ESPLab Data Catalog</span>
-  </div>
+<div class="banner" style="padding:10px; background-color:#f1f1f1;">
+  <img src="esplab_logo.png" alt="ESPLab logo" style="height:40px; vertical-align:middle;">
+  <span style="font-size:1.5em; vertical-align:middle; margin-left:10px;">ESPLab Data Catalog</span>
+</div>
 
-  <div class="tabs">
-    <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
-    <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
-    <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
-  </div>
+<div class="tab" style="margin-top:10px;">
+  <button class="tablinks active" onclick="openTab(event, 'obs')">Observations</button>
+  <button class="tablinks" onclick="openTab(event, 'reanalysis')">Reanalysis</button>
+  <button class="tablinks" onclick="openTab(event, 'model')">Model</button>
+</div>
 
-  <div id="obs" class="tabcontent" style="display: block;">
-    <iframe src="obs.html" style="width:100%; height:600px; border:none;"></iframe>
-  </div>
-  <div id="reanalysis" class="tabcontent" style="display: none;">
-    <iframe src="reanalysis.html" style="width:100%; height:600px; border:none;"></iframe>
-  </div>
-  <div id="model" class="tabcontent" style="display: none;">
-    <iframe src="model.html" style="width:100%; height:600px; border:none;"></iframe>
-  </div>
+<div id="obs" class="tabcontent" style="display: block;">
+  <iframe src="obs.html" style="width:100%; height:600px; border:none;"></iframe>
+</div>
+<div id="reanalysis" class="tabcontent" style="display: none;">
+  <iframe src="reanalysis.html" style="width:100%; height:600px; border:none;"></iframe>
+</div>
+<div id="model" class="tabcontent" style="display: none;">
+  <iframe src="model.html" style="width:100%; height:600px; border:none;"></iframe>
+</div>
 
-  <script>
-  function openTab(evt, tabName) {
-    let tabcontent = document.getElementsByClassName("tabcontent");
-    for (let i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    let tablinks = document.getElementsByClassName("tablinks");
-    for (let i = 0; i < tablinks.length; i++) {
-      tablinks[i].classList.remove("active");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.classList.add("active");
+<script>
+function openTab(evt, tabName) {
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
-  </script>
+  var tablinks = document.getElementsByClassName("tablinks");
+  for (var i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+</script>
 
 </body>
 </html>
