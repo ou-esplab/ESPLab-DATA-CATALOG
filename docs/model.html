@@ -2,28 +2,157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>ESPLab Data Catalog - Model</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Models</title>
 <style>
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #fff;
+    color: #222;
 }
 h1 {
     color: #841617;
-    display: flex;
-    align-items: center;
 }
-h1 img {
-    height: 50px;
-    margin-left: 15px;
+label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+select {
+    margin: 5px 15px 15px 0;
+    padding: 5px;
+    font-size: 1rem;
+}
+.dataset-entry {
+    border: 1px solid #FFB81C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff8e1;
+}
+.dataset-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #841617;
+}
+.meta-field {
+    margin-left: 10px;
 }
 </style>
 </head>
 <body>
-<h1>ESPLab Data Catalog - Model <img src="https://raw.githubusercontent.com/ou-esplab/esplab/main/logo/ESPLab-logo-300px.png" alt="ESPLab logo"></h1>
+<h1>ESPLab Data Catalog - Model</h1>
+
 <div>
-...
+<label for="project">Project:</label>
+<select id="project">
+  <option value="">-- Select Project --</option><option value="NCAR-CESM2-CLIMO">NCAR-CESM2-CLIMO</option>
+<option value="nmme">nmme</option>
+<option value="subx">subx</option>
+</select>
+<label for="experiment">Experiment:</label>
+<select id="experiment" disabled>
+  <option value="">-- Select Experiment --</option>
+</select>
+<label for="datatype">Datatype / Variable:</label>
+<select id="datatype" disabled>
+  <option value="">-- Select Datatype / Variable --</option>
+</select>
 </div>
-<!-- identical javascript from model version we finalized -->
-</body></html>
+
+<div id="datasetList"></div>
+
+<script>
+const catalog = {"NCAR-CESM2-CLIMO": {"S2SHINDCASTSclimoALL": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 13776, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 366, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 126280, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 13776, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/raw"}]}, "S2SHINDCASTSclimoATM": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 110972, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 127930, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 111137, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/raw"}]}, "S2SHINDCASTSclimoATMclimoLND": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 108443, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 130460, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 109183, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/raw"}]}, "S2SHINDCASTSclimoLND": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 101709, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 127930, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 106949, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/raw"}]}, "S2SHINDCASTSclimoOCN": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 111824, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 128140, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 111989, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/raw"}]}, "S2SHINDCASTSclimoOCNclimoATM": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 111011, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 127930, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 111176, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/raw"}]}, "S2SHINDCASTSclimoOCNclimoLND": {"anoms": [{"name": "anoms", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 81495, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms"}], "climo": [{"name": "climo", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "1970-01-01 to 1970-01-01", "files": 2928, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo"}], "p1": [{"name": "p1", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 96690, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/p1"}], "raw": [{"name": "raw", "long_name": "Total (convective and large-scale) precipitation rate (liq + ice)", "description": "Total (convective and large-scale) precipitation rate (liq + ice)", "units": "kg/m2/s", "date_range": "unknown", "files": 82337, "data_location": "/data/esplab/shared/model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/raw"}]}}, "nmme": {"climatology": {"monthly": [{"name": "monthly", "long_name": "Total Precipitation", "description": "Total Precipitation", "units": "mm/day", "date_range": "unknown", "files": 24, "data_location": "/data/esplab/shared/model/initialized/nmme/climatology/monthly"}]}, "forecast": {"monthly": [{"name": "monthly", "long_name": "NCEP-CFSv2 202305", "description": "NCEP-CFSv2 202305", "units": "mmday-1", "date_range": "unknown", "files": 78, "data_location": "/data/esplab/shared/model/initialized/nmme/forecast/monthly"}], "seasonal": [{"name": "seasonal", "long_name": "NCEP-CFSv2 202305", "description": "NCEP-CFSv2 202305", "units": "mmday-1", "date_range": "unknown", "files": 78, "data_location": "/data/esplab/shared/model/initialized/nmme/forecast/seasonal"}]}, "hindcast": {"prec": [{"name": "prec", "long_name": "Total Precipitation", "description": "Total Precipitation", "units": "mm/day", "date_range": "unknown", "files": 1727, "data_location": "/data/esplab/shared/model/initialized/nmme/hindcast/prec"}], "sst": [{"name": "sst", "long_name": "Sea Surface Temperature", "description": "Sea Surface Temperature", "units": "Kelvin_scale", "date_range": "unknown", "files": 4559, "data_location": "/data/esplab/shared/model/initialized/nmme/hindcast/sst"}], "tref": [{"name": "tref", "long_name": "Reference Temperature at 2 Meters", "description": "Reference Temperature at 2 Meters", "units": "Kelvin_scale", "date_range": "unknown", "files": 4559, "data_location": "/data/esplab/shared/model/initialized/nmme/hindcast/tref"}]}}, "subx": {"forecast": {"prsfc": [{"name": "prsfc", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 28859, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/prsfc"}], "raw": [{"name": "raw", "long_name": "pr", "description": "pr", "units": "unknown", "date_range": "unknown", "files": 11453, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/raw"}], "tas2m": [{"name": "tas2m", "long_name": "2-meter Air Temperature", "description": "2-meter Air Temperature", "units": "Kelvin_scale", "date_range": "unknown", "files": 21286, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/tas2m"}], "ua200": [{"name": "ua200", "long_name": "Zonal wind at 200 mbar pressure surface", "description": "Zonal wind at 200 mbar pressure surface", "units": "m/s", "date_range": "unknown", "files": 2612, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/ua200"}], "weekly": [{"name": "weekly", "long_name": "GMAO-GEOS_V2p1 20171127", "description": "GMAO-GEOS_V2p1 20171127", "units": "ms-1", "date_range": "unknown", "files": 4786, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/weekly"}], "zg500": [{"name": "zg500", "long_name": "zg_500", "description": "zg_500", "units": "unknown", "date_range": "unknown", "files": 25397, "data_location": "/data/esplab/shared/model/initialized/subx/forecast/zg500"}]}, "hindcast": {"mrsosfc": [{"name": "mrsosfc", "long_name": "mrso", "description": "mrso", "units": "kg/m2", "date_range": "unknown", "files": 6296, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/mrsosfc"}], "prsfc": [{"name": "prsfc", "long_name": "pr_sfc", "description": "pr_sfc", "units": "unknown", "date_range": "unknown", "files": 411813, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/prsfc"}], "pslmsl": [{"name": "pslmsl", "long_name": "psl", "description": "psl", "units": "Pa", "date_range": "unknown", "files": 296297, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/pslmsl"}], "rluttoa": [{"name": "rluttoa", "long_name": "rlut", "description": "rlut", "units": "W/m2", "date_range": "unknown", "files": 375390, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/rluttoa"}], "tas2m": [{"name": "tas2m", "long_name": "tas", "description": "tas", "units": "unitless", "date_range": "unknown", "files": 360090, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/tas2m"}], "tasmax_2m": [{"name": "tasmax_2m", "long_name": "Maximum reference height temperature over output period", "description": "Maximum reference height temperature over output period", "units": "K", "date_range": "unknown", "files": 16500, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/tasmax_2m"}], "tssfc": [{"name": "tssfc", "long_name": "ts", "description": "ts", "units": "Kelvin_scale", "date_range": "unknown", "files": 433642, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/tssfc"}], "ua200": [{"name": "ua200", "long_name": "ua", "description": "ua", "units": "m/s", "date_range": "unknown", "files": 371532, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/ua200"}], "ua850": [{"name": "ua850", "long_name": "ua", "description": "ua", "units": "m/s", "date_range": "unknown", "files": 391185, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/ua850"}], "uas10m": [{"name": "uas10m", "long_name": "uas", "description": "uas", "units": "m/s", "date_range": "unknown", "files": 27061, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/uas10m"}], "va200": [{"name": "va200", "long_name": "va", "description": "va", "units": "m/s", "date_range": "unknown", "files": 414445, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/va200"}], "va850": [{"name": "va850", "long_name": "va", "description": "va", "units": "m/s", "date_range": "unknown", "files": 389361, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/va850"}], "vas10m": [{"name": "vas10m", "long_name": "vas", "description": "vas", "units": "m/s", "date_range": "unknown", "files": 25782, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/vas10m"}], "zg200": [{"name": "zg200", "long_name": "zg", "description": "zg", "units": "m", "date_range": "unknown", "files": 389302, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/zg200"}], "zg500": [{"name": "zg500", "long_name": "zg_500", "description": "zg_500", "units": "unknown", "date_range": "unknown", "files": 390525, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/zg500"}], "zg850": [{"name": "zg850", "long_name": "zg_850", "description": "zg_850", "units": "unknown", "date_range": "unknown", "files": 36010, "data_location": "/data/esplab/shared/model/initialized/subx/hindcast/zg850"}]}}};
+
+function clearAndDisable(selectEl) {
+    selectEl.innerHTML = '<option value="">-- Select --</option>';
+    selectEl.disabled = true;
+}
+
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
+
+function populateSelect(selectEl, options) {
+    clearAndDisable(selectEl);
+    options.forEach(opt => {
+        let option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+
+document.getElementById("project").addEventListener("change", () => {
+    const project = document.getElementById("project").value;
+    const experimentSelect = document.getElementById("experiment");
+    const datatypeSelect = document.getElementById("datatype");
+    document.getElementById("datasetList").innerHTML = "";
+
+    clearAndDisable(experimentSelect);
+    clearAndDisable(datatypeSelect);
+
+    if (!project) return;
+
+    const experiments = Object.keys(catalog[project]);
+    // For NCAR-CESM2-SMYLE, experiment is only a dummy "", so skip enabling experiment dropdown
+    if (project === "NCAR-CESM2-SMYLE") {
+        // Directly populate datatype select with variables under empty experiment
+        const variables = Object.keys(catalog[project][""]);
+        populateSelect(datatypeSelect, variables);
+    } else {
+        populateSelect(experimentSelect, experiments);
+    }
+});
+
+document.getElementById("experiment").addEventListener("change", () => {
+    const project = document.getElementById("project").value;
+    const experiment = document.getElementById("experiment").value;
+    const datatypeSelect = document.getElementById("datatype");
+    document.getElementById("datasetList").innerHTML = "";
+
+    clearAndDisable(datatypeSelect);
+    if (!experiment) return;
+
+    const datatypes = Object.keys(catalog[project][experiment]);
+    populateSelect(datatypeSelect, datatypes);
+});
+
+document.getElementById("datatype").addEventListener("change", () => {
+    const project = document.getElementById("project").value;
+    const experiment = document.getElementById("experiment").value;
+    const datatype = document.getElementById("datatype").value;
+    const container = document.getElementById("datasetList");
+    container.innerHTML = "";
+
+    if (!project || !datatype) return;
+
+    // For NCAR-CESM2-SMYLE, experiment is dummy ""
+    const exp = project === "NCAR-CESM2-SMYLE" ? "" : experiment;
+
+    const entries = catalog[project]?.[exp]?.[datatype];
+    if (!entries || entries.length === 0) {
+        container.textContent = "No datasets found for this selection.";
+        return;
+    }
+
+    entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+        `;
+        container.appendChild(div);
+    });
+});
+</script>
+
+</body>
+</html>
