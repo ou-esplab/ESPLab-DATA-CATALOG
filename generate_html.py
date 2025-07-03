@@ -350,8 +350,371 @@ document.getElementById("variable").addEventListener("change", updateDatasets);
 
     return html
 
-
 def generate_model_page(catalog):
+    import json
+
+    categories = []
+    projects = []
+    experiments = []
+    data_dict = {}
+
+    for key, source in catalog["sources"].items():
+        parts = key.split("/")
+        if len(parts) < 4:
+            continue
+
+        category = parts[1]
+        project = parts[2]
+
+        categories.append(category)
+        projects.append(project)
+
+        data_dict.setdefault(category, {})
+        data_dict[category].setdefault(project, {})
+
+        if project == "subx":
+            variable = parts[4]
+            experiment = parts[3]
+            data_dict[category][project].setdefault(experiment, {})
+            data_dict[category][project][experiment].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][variable]
+        elif project == "nmme":
+            experiment = parts[3]
+            temporal = parts[4]
+            variable = parts[5]
+            data_dict[category][project].setdefault(experiment, {})
+            data_dict[category][project][experiment].setdefault(temporal, {})
+            data_dict[category][project][experiment][temporal].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][temporal][variable]
+        elif project == "NCAR-CESM2-SMYLE":
+            temporal = parts[3]
+            year = parts[4]
+            month = parts[5]
+            data_dict[category][project].setdefault(temporal, {})
+            data_dict[category][project][temporal].setdefault(year, {})
+            data_dict[category][project][temporal][year].setdefault(month, [])
+            entry_list = data_dict[category][project][temporal][year][month]
+        elif project == "NCAR-CESM2-CLIMO":
+            experiment = parts[3]
+            datatype = parts[4]
+            variable = parts[5]
+            data_dict[category][project].setdefault(experiment, {})
+            data_dict[category][project][experiment].setdefault(datatype, {})
+            data_dict[category][project][experiment][datatype].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][datatype][variable]
+        else:
+            entry_list = []
+
+        entry = {
+            "name": variable if 'variable' in locals() else "unknown",
+            "long_name": source["metadata"].get("long_name", "No long name"),
+            "description": source.get("description", "No description"),
+            "units": source["metadata"].get("units", "unknown"),
+            "date_range": source["metadata"].get("date_range", "unknown"),
+            "files": source["metadata"].get("n_files", 0),
+            "data_location": source["metadata"].get("data_location", ""),
+        }
+        entry_list.append(entry)
+
+    categories = sorted(set(categories))
+    projects = sorted(set(projects))
+    experiments = sorted(set(experiments))
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Model</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>Model</h1>
+
+<div>
+  <label for="category">Category:</label>
+  <select id="category">
+    <option value="">-- Select Category --</option>"""
+    for c in categories:
+        html += f"<option value='{c}'>{c}</option>\n"
+    html += "</select>"
+
+    html += """
+  <label for="project">Project:</label>
+  <select id="project" disabled>
+    <option value="">-- Select Project --</option>
+  </select>
+
+  <label for="experiment">Experiment:</label>
+  <select id="experiment" disabled>
+    <option value="">-- Select Experiment --</option>
+  </select>
+
+  <label for="variable">Variable:</label>
+  <select id="variable" disabled>
+    <option value="">-- Select Variable --</option>
+  </select>
+
+  <label for="tempres">Temporal Resolution:</label>
+  <select id="tempres" disabled>
+    <option value="">-- Select Temporal Resolution --</option>
+  </select>
+
+  <!-- Added for SMYLE: year and month dropdowns -->
+  <label for="year">Year:</label>
+  <select id="year" disabled>
+    <option value="">-- Select Year --</option>
+  </select>
+
+  <label for="month">Month:</label>
+  <select id="month" disabled>
+    <option value="">-- Select Month --</option>
+  </select>
+</div>
+
+<div id="datasetList"></div>
+
+<script>
+const catalog = {json.dumps(data_dict)};
+
+// Helper functions
+function clearAndDisable(selectEl, placeholder="-- Select --") {
+    selectEl.innerHTML = `<option value="">${placeholder}</option>`;
+    selectEl.disabled = true;
+}
+function enableSelect(selectEl) {
+    selectEl.disabled = false;
+}
+function populateSelect(selectEl, options, placeholder="-- Select --") {
+    clearAndDisable(selectEl, placeholder);
+    options.forEach(opt => {
+        const option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        selectEl.appendChild(option);
+    });
+    enableSelect(selectEl);
+}
+
+// Reference selects
+const categorySelect = document.getElementById("category");
+const projectSelect = document.getElementById("project");
+const experimentSelect = document.getElementById("experiment");
+const variableSelect = document.getElementById("variable");
+const tempresSelect = document.getElementById("tempres");
+const yearSelect = document.getElementById("year");
+const monthSelect = document.getElementById("month");
+
+// When category changes
+categorySelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+
+    clearAndDisable(projectSelect, "-- Select Project --");
+    clearAndDisable(experimentSelect, "-- Select Experiment --");
+    clearAndDisable(variableSelect, "-- Select Variable --");
+    clearAndDisable(tempresSelect, "-- Select Temporal Resolution --");
+    clearAndDisable(yearSelect, "-- Select Year --");
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!category) return;
+
+    const projects = Object.keys(catalog[category] || {});
+    populateSelect(projectSelect, projects, "-- Select Project --");
+});
+
+// When project changes
+projectSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+
+    clearAndDisable(experimentSelect, "-- Select Experiment --");
+    clearAndDisable(variableSelect, "-- Select Variable --");
+    clearAndDisable(tempresSelect, "-- Select Temporal Resolution --");
+    clearAndDisable(yearSelect, "-- Select Year --");
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!project) return;
+
+    if (project === "NCAR-CESM2-SMYLE") {
+        // SMYLE has no experiment dropdown; populate temporal directly
+        const temporals = Object.keys(catalog[category][project] || {});
+        populateSelect(tempresSelect, temporals, "-- Select Temporal Resolution --");
+        tempresSelect.disabled = false;
+    } else {
+        const experiments = Object.keys(catalog[category][project] || {});
+        populateSelect(experimentSelect, experiments, "-- Select Experiment --");
+        experimentSelect.disabled = false;
+    }
+});
+
+// When experiment changes (not for SMYLE)
+experimentSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+    const experiment = experimentSelect.value;
+
+    clearAndDisable(variableSelect, "-- Select Variable --");
+    clearAndDisable(tempresSelect, "-- Select Temporal Resolution --");
+    clearAndDisable(yearSelect, "-- Select Year --");
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!experiment) return;
+
+    if (project === "subx") {
+        const variables = Object.keys(catalog[category][project][experiment] || {});
+        populateSelect(variableSelect, variables, "-- Select Variable --");
+        variableSelect.disabled = false;
+    }
+    else if (project === "nmme") {
+        const temporals = Object.keys(catalog[category][project][experiment] || {});
+        populateSelect(tempresSelect, temporals, "-- Select Temporal Resolution --");
+        tempresSelect.disabled = false;
+    }
+    else if (project === "NCAR-CESM2-CLIMO") {
+        const datatypes = Object.keys(catalog[category][project][experiment] || {});
+        populateSelect(variableSelect, datatypes, "-- Select Variable --");
+        variableSelect.disabled = false;
+    }
+});
+
+// When temporal resolution changes
+tempresSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+    const experiment = experimentSelect.value; // might be empty for SMYLE
+    const tempres = tempresSelect.value;
+
+    clearAndDisable(variableSelect, "-- Select Variable --");
+    clearAndDisable(yearSelect, "-- Select Year --");
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!tempres) return;
+
+    if (project === "nmme") {
+        const variables = Object.keys(catalog[category][project][experiment][tempres] || {});
+        populateSelect(variableSelect, variables, "-- Select Variable --");
+        variableSelect.disabled = false;
+    }
+    else if (project === "NCAR-CESM2-SMYLE") {
+        // For SMYLE, populate year dropdown
+        const years = Object.keys(catalog[category][project][tempres] || {});
+        populateSelect(yearSelect, years, "-- Select Year --");
+        yearSelect.disabled = false;
+    }
+});
+
+// When variable changes
+variableSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+    const experiment = experimentSelect.value;
+    const variable = variableSelect.value;
+
+    clearAndDisable(tempresSelect, "-- Select Temporal Resolution --");
+    clearAndDisable(yearSelect, "-- Select Year --");
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!variable) return;
+
+    if (project === "NCAR-CESM2-CLIMO") {
+        // For CLIMO, variable here is datatype, so show temporal resolution options
+        const temporals = Object.keys(catalog[category][project][experiment][variable] || {});
+        populateSelect(tempresSelect, temporals, "-- Select Temporal Resolution --");
+        tempresSelect.disabled = false;
+    }
+    else if (project === "subx") {
+        // For subx, variable leads directly to dataset list
+        updateDatasets();
+    }
+});
+
+// When year changes (SMYLE only)
+yearSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+    const tempres = tempresSelect.value;
+    const year = yearSelect.value;
+
+    clearAndDisable(monthSelect, "-- Select Month --");
+    document.getElementById("datasetList").innerHTML = "";
+
+    if (!year) return;
+
+    const months = Object.keys(catalog[category][project][tempres][year] || {});
+    populateSelect(monthSelect, months, "-- Select Month --");
+    monthSelect.disabled = false;
+});
+
+// When month changes (SMYLE only)
+monthSelect.addEventListener("change", () => {
+    updateDatasets();
+});
+
+function updateDatasets() {
+    const category = categorySelect.value;
+    const project = projectSelect.value;
+    const experiment = experimentSelect.value;
+    const variable = variableSelect.value;
+    const tempres = tempresSelect.value;
+    const year = yearSelect.value;
+    const month = monthSelect.value;
+
+    let entries = [];
+    const container = document.getElementById("datasetList");
+    container.innerHTML = "";
+
+    try {
+        if (project === "subx") {
+            entries = catalog[category][project][experiment][variable];
+        }
+        else if (project === "nmme") {
+            entries = catalog[category][project][experiment][tempres][variable];
+        }
+        else if (project === "NCAR-CESM2-CLIMO") {
+            entries = catalog[category][project][experiment][variable][tempres];
+        }
+        else if (project === "NCAR-CESM2-SMYLE") {
+            entries = catalog[category][project][tempres][year][month];
+        }
+    } catch (e) {
+        console.log("No matching entries found:", e);
+    }
+
+    if (!entries || entries.length === 0) {
+        container.textContent = "No datasets found for this selection.";
+        return;
+    }
+
+    entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${entry.name}</div>
+            <div><span class="meta-field">Description:</span> ${entry.long_name}</div>
+            <div><span class="meta-field">Units:</span> ${entry.units}</div>
+            <div><span class="meta-field">Date Range:</span> ${entry.date_range}</div>
+            <div><span class="meta-field">Files:</span> ${entry.files}</div>
+            <div><span class="meta-field">Data Location:</span> ${entry.data_location}</div>
+        `;
+        container.appendChild(div);
+    });
+}
+</script>
+
+</body>
+</html>
+"""
+
+    return html
+
+
+def generate_model_page_old(catalog):
     categories = []
     projects = []
     experiments = []
@@ -393,15 +756,22 @@ def generate_model_page(catalog):
             data_dict[category][project][experiment][temporal].setdefault(variable, [])
             entry_list = data_dict[category][project][experiment][temporal][variable]
 
+        #elif project == "NCAR-CESM2-SMYLE":
+        #    # category/project/temporal/YYYY/MM
+        #    temporal = parts[3]
+        #    year = parts[4]
+        #    month = parts[5]
+        #    data_dict[category][project].setdefault(temporal, {})
+        #    data_dict[category][project][temporal].setdefault(year, {})
+        #    data_dict[category][project][temporal][year].setdefault(month, [])
+        #    entry_list = data_dict[category][project][temporal][year][month]
         elif project == "NCAR-CESM2-SMYLE":
-            # category/project/temporal/YYYY/MM
-            temporal = parts[3]
-            year = parts[4]
-            month = parts[5]
-            data_dict[category][project].setdefault(temporal, {})
-            data_dict[category][project][temporal].setdefault(year, {})
-            data_dict[category][project][temporal][year].setdefault(month, [])
-            entry_list = data_dict[category][project][temporal][year][month]
+            year = parts[3]
+            month = parts[4]
+            pdata = data_dict[category][project]
+            pdata.setdefault(year, {})
+            pdata[year].setdefault(month, [])
+            entry_list = pdata[year][month]
         elif project == "NCAR-CESM2-CLIMO":
             # category/project/experiment/datatype/variable
             experiment = parts[3]
@@ -481,7 +851,7 @@ def generate_model_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-const catalog = """ + json.dumps(data_dict) + """;
+const catalog = {json.dumps(data_dict)};
 
 // Helper functions
 function clearAndDisable(selectEl) {
@@ -679,7 +1049,7 @@ def generate_index_html():
 
 <!-- Banner -->
 <div class="banner" style="background-color:#f1f1f1; padding:20px; display:flex; align-items:center;">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:100px; margin-right:15px;">
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:90px; margin-right:15px;">
   <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
 </div>
 
