@@ -679,7 +679,7 @@ def generate_index_html():
 
 <!-- Banner -->
 <div class="banner" style="background-color:#f1f1f1; padding:20px; display:flex; align-items:center;">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:90px; margin-right:15px;">
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:100px; margin-right:15px;">
   <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
 </div>
 
