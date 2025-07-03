@@ -482,7 +482,7 @@ def generate_model_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-const catalog = {{json.dumps(data_dict)}};
+const catalog = {json.dumps(data_dict)};
 
 // Helper functions
 function clearAndDisable(selectEl) {
