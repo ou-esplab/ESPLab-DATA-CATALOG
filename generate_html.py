@@ -343,65 +343,65 @@ def generate_model_page(catalog):
     data_dict = {}
 
     for key, source in catalog["sources"].items():
-        print(key)
+        print("MODEL KEY: ",key)
         parts = key.split("/")
-        print("MODEL: ",parts)
+        print("MODEL PARTS: ",parts)
         if len(parts) < 4:
             continue
 
         category = parts[1]
         project = parts[2]
-        experiment = parts[3]
 
         categories.append(category)
         projects.append(project)
-        experiments.append(experiment)
+       # experiments.append(experiment)
 
         # initialize project dict
         data_dict.setdefault(category, {})
         data_dict[category].setdefault(project, {})
-        data_dict[category][project].setdefault(experiment, {})
+        #data_dict[category][project].setdefault(experiment, {})
 
         if project == "subx":
             # category/project/experiment/variable
             variable = parts[4]
+            experiment = parts[3]
+            data_dict[category][project].setdefault(experiment, {})
             data_dict[category][project][experiment].setdefault(variable, [])
             entry_list = data_dict[category][project][experiment][variable]
 
         elif project == "nmme":
-            # category/project/experiment/temporal/variable
-            if len(parts) >= 6:
-                temporal = parts[5]
-                variable = parts[6]
+            # category/project/experiment/experiment/variable
+            experiment = parts[3]
+            if (experiment == 'hindcast'):
+                temporal = parts[3]
+                variable = parts[4]
+                data_dict[category][project].setdefault(experiment, {})
                 data_dict[category][project][experiment].setdefault(temporal, {})
                 data_dict[category][project][experiment][temporal].setdefault(variable, [])
                 entry_list = data_dict[category][project][experiment][temporal][variable]
             else:
                 continue
 
+
         elif project == "NCAR-CESM2-SMYLE":
-            # category/project/experiment/temporal/YYYY/MM/
-            if len(parts) >= 6:
-                temporal = parts[3]
-                year = parts[4]
-                month = parts[5]
-                data_dict[category][project][experiment].setdefault(temporal, {})
-                data_dict[category][project][experiment][temporal].setdefault(year, {})
-                data_dict[category][project][experiment][temporal][year].setdefault(month, [])
-                entry_list = data_dict[category][project][experiment][temporal][year][month]
-            else:
-                continue
+            # category/project/temporal/YYYY/MM/
+            temporal = parts[3]
+            year = parts[4]
+            month = parts[5]
+            data_dict[category][project][experiment].setdefault(temporal, {})
+            data_dict[category][project][experiment][temporal].setdefault(year, {})
+            data_dict[category][project][experiment][temporal][year].setdefault(month, [])
+            entry_list = data_dict[category][project][experiment][temporal][year][month]
 
         elif project == "NCAR-CESM2-CLIMO":
             # category/project/experiment/datatype/variable
-            if len(parts) >= 5:
-                datatype = parts[3]
-                variable = parts[4]
-                data_dict[category][project][experiment].setdefault(datatype, {})
-                data_dict[category][project][experiment][datatype].setdefault(variable, [])
-                entry_list = data_dict[category][project][experiment][datatype][variable]
-            else:
-                continue
+            experiment = parts[3]
+            datatype = parts[4]
+            variable = parts[5]
+            data_dict[category][project].setdefault(experiment, {})
+            data_dict[category][project][experiment].setdefault(datatype, {})
+            data_dict[category][project][experiment][datatype].setdefault(variable, [])
+            entry_list = data_dict[category][project][experiment][datatype][variable]
 
         else:
             # fallback
@@ -648,7 +648,7 @@ def generate_index_html():
 
 <!-- Banner -->
 <div class="banner" style="background-color:#f1f1f1; padding:20px; display:flex; align-items:center;">
-  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:80px; margin-right:15px;">
+  <img src="{ESPLAB_LOGO}" alt="ESPLab logo" style="height:90px; margin-right:15px;">
   <h1 style="margin:0; color:{OU_RED}; font-size:2.0em;">ESPLab Data Catalog</h1>
 </div>
 

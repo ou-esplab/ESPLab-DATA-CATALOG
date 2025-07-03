@@ -123,47 +123,37 @@ def build_model_catalog(base_dir=BASE_DIR):
                 else:
                     # For other experiments (including NCAR-CESM2-CLIMO not p1), assume structure:
                     # /<variable>/*.nc inside experiment directory
-                    for variable in sorted(os.listdir(experiment_path)):
-                        variable_path = os.path.join(experiment_path, variable)
-                        if not os.path.isdir(variable_path):
+                    for datatype in sorted(os.listdir(experiment_path)):
+                        datatype_path = os.path.join(experiment_path, datatype)
+                        if not os.path.isdir(datatype_path) or datatype in IGNORE_DIRS:
                             continue
+                        for variable in sorted(os.listdir(datatype_path)):
+                            variable_path = os.path.join(datatype_path, variable)
+                            if not os.path.isdir(variable_path):
+                                continue
+                            nc_files = get_nc_files_recursive(variable_path)
+                            if not nc_files:
+                                continue
 
-                        # Try to find NetCDF files directly in variable_path
-                        nc_files = get_nc_files_recursive(variable_path)
+                            long_name, units, date_range = extract_metadata(nc_files)
 
-                        if not nc_files:
-                            print(f"    No NetCDF files found for {category}/{project}/{experiment}/{variable}")
-                            continue
-
-                        # For these, extract IC dates from filename pattern like: <variable>_NCAR-CESM2_<yyyymmdd>.e<num>.daily.nc
-                        ic_dates = []
-                        for f in nc_files:
-                            basename = os.path.basename(f)
-                            m = re.search(r'_(\d{8})\.e', basename)
-                            if m:
-                                ic_dates.append(m.group(1))
-                        ic_dates = sorted(set(ic_dates))
-
-                        long_name, units, date_range = extract_metadata(nc_files)
-
-                        key = f"model/{category}/{project}/{experiment}/{variable}"
-                        catalog["sources"][key] = {
-                            "description": long_name,
-                            "driver": "netcdf",
-                            "args": {
-                                "urlpath": os.path.join(variable_path, "*.nc"),
-                                "engine": "netcdf4"
-                            },
-                            "metadata": {
-                                "long_name": long_name,
-                                "units": units,
-                                "date_range": date_range,
-                                "n_files": len(nc_files),
-                                "IC_dates": ic_dates,
-                                "data_location": variable_path
+                            key = f"model/{category}/{project}/{experiment}/{datatype}/{variable}"
+                            catalog["sources"][key] = {
+                                "description": long_name,
+                                "driver": "netcdf",
+                                "args": {
+                                    "urlpath": os.path.join(variable_path, "*.nc"),
+                                    "engine": "netcdf4"
+                                },
+                                "metadata": {
+                                    "long_name": long_name,
+                                    "units": units,
+                                    "date_range": date_range,
+                                    "n_files": len(nc_files),
+                                    "data_location": variable_path
+                                }
                             }
-                        }
-
+ 
     return catalog
 
 def write_catalog(catalog, output_path="catalogs/model.yaml"):
