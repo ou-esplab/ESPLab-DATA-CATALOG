@@ -14,6 +14,21 @@ OU_RED = "#841617"
 OU_GOLD = "#FFB81C"
 ESPLAB_LOGO = "esplab_logo.png"
 
+
+def print_summary(d, level=0, max_level=2):
+    indent = '  ' * level
+    if level > max_level:
+        print(f"{indent}...")
+        return
+    if isinstance(d, dict):
+        for k, v in d.items():
+            print(f"{indent}{k}:")
+            print_summary(v, level + 1, max_level)
+    elif isinstance(d, list):
+        print(f"{indent}List with {len(d)} entries")
+    else:
+        print(f"{indent}{d}")
+
 def load_catalog_json(path):
     with open(path) as f:
         return json.load(f)
@@ -419,7 +434,8 @@ def generate_model_page(catalog):
     projects = sorted(set(projects))
     experiments = sorted(set(experiments))
 
-    print(json.dumps(data_dict[category], indent=2))
+    # put the debug print right here
+    print_summary(data_dict.get("initialized", {}))
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -466,8 +482,9 @@ def generate_model_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-const catalog = {{json.dumps(data_dict)}};  // Python will inject
+const catalog = {{json.dumps(data_dict)}};
 
+// Helper functions
 function clearAndDisable(selectEl) {
     selectEl.innerHTML = '<option value="">-- Select --</option>';
     selectEl.disabled = true;
@@ -486,7 +503,7 @@ function populateSelect(selectEl, options) {
     enableSelect(selectEl);
 }
 
-// Category change
+// On category change
 document.getElementById("category").addEventListener("change", function() {
     const category = this.value;
     const projectSelect = document.getElementById("project");
@@ -502,7 +519,7 @@ document.getElementById("category").addEventListener("change", function() {
     populateSelect(projectSelect, projects);
 });
 
-// Project change
+// On project change
 document.getElementById("project").addEventListener("change", function() {
     const category = document.getElementById("category").value;
     const project = this.value;
@@ -518,13 +535,15 @@ document.getElementById("project").addEventListener("change", function() {
     populateSelect(experimentSelect, experiments);
 });
 
-// Experiment change
+// On experiment change
 document.getElementById("experiment").addEventListener("change", function() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
     const experiment = this.value;
+
     const variableSelect = document.getElementById("variable");
     const tempresSelect = document.getElementById("tempres");
+
     clearAndDisable(variableSelect);
     clearAndDisable(tempresSelect);
     document.getElementById("datasetList").innerHTML = "";
@@ -532,50 +551,42 @@ document.getElementById("experiment").addEventListener("change", function() {
     if (!experiment) return;
 
     if (project === "subx") {
+        // Keys: variables only, no temporal dropdown
         const variables = Object.keys(catalog[category][project][experiment] || {});
         populateSelect(variableSelect, variables);
+        variableSelect.disabled = false;
+        tempresSelect.disabled = true;
     }
     else if (project === "nmme") {
+        // Keys: temporal resolutions
         const temporals = Object.keys(catalog[category][project][experiment] || {});
         populateSelect(tempresSelect, temporals);
+        tempresSelect.disabled = false;
+        variableSelect.disabled = true;
     }
     else if (project === "NCAR-CESM2-CLIMO") {
+        // Keys: datatypes
         const datatypes = Object.keys(catalog[category][project][experiment] || {});
-        populateSelect(variableSelect, datatypes); // using variable select for datatype
+        populateSelect(variableSelect, datatypes);
+        variableSelect.disabled = false;
+        tempresSelect.disabled = true;
     }
     else if (project === "NCAR-CESM2-SMYLE") {
+        // Keys: temporal resolutions
         const temporals = Object.keys(catalog[category][project][experiment] || {});
         populateSelect(tempresSelect, temporals);
+        tempresSelect.disabled = false;
+        variableSelect.disabled = true;
     }
 });
 
-// Temporal change (for nmme and smyle)
-document.getElementById("tempres").addEventListener("change", function() {
-    const category = document.getElementById("category").value;
-    const project = document.getElementById("project").value;
-    const experiment = document.getElementById("experiment").value;
-    const temporal = this.value;
-    const variableSelect = document.getElementById("variable");
-    clearAndDisable(variableSelect);
-    document.getElementById("datasetList").innerHTML = "";
-
-    if (!temporal) return;
-
-    if (project === "nmme") {
-        const variables = Object.keys(catalog[category][project][experiment][temporal] || {});
-        populateSelect(variableSelect, variables);
-    }
-    else if (project === "NCAR-CESM2-SMYLE") {
-        updateDatasets();
-    }
-});
-
-// Variable change
+// On variable (or datatype for NCAR-CESM2-CLIMO) change
 document.getElementById("variable").addEventListener("change", function() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
     const experiment = document.getElementById("experiment").value;
     const variable = this.value;
+
     const tempresSelect = document.getElementById("tempres");
     clearAndDisable(tempresSelect);
     document.getElementById("datasetList").innerHTML = "";
@@ -583,17 +594,23 @@ document.getElementById("variable").addEventListener("change", function() {
     if (!variable) return;
 
     if (project === "NCAR-CESM2-CLIMO") {
+        // Show variables under selected datatype in temporal dropdown
         const variables = Object.keys(catalog[category][project][experiment][variable] || {});
         populateSelect(tempresSelect, variables);
+        tempresSelect.disabled = false;
     }
-    else if (project === "subx" || project === "nmme") {
+    else if (project === "subx") {
+        // Subx shows results immediately, no temporal dropdown
         updateDatasets();
     }
 });
 
-// Final temporal change (2nd stage for climo)
-document.getElementById("tempres").addEventListener("change", updateDatasets);
+// On temporal resolution change
+document.getElementById("tempres").addEventListener("change", function() {
+    updateDatasets();
+});
 
+// Function to update dataset list
 function updateDatasets() {
     const category = document.getElementById("category").value;
     const project = document.getElementById("project").value;
@@ -602,7 +619,7 @@ function updateDatasets() {
     const tempres = document.getElementById("tempres").value;
 
     let entries = [];
-    let container = document.getElementById("datasetList");
+    const container = document.getElementById("datasetList");
     container.innerHTML = "";
 
     try {
@@ -612,14 +629,14 @@ function updateDatasets() {
         else if (project === "nmme") {
             entries = catalog[category][project][experiment][tempres][variable];
         }
-        else if (project === "NCAR-CESM2-SMYLE") {
-            entries = catalog[category][project][experiment][tempres];
-        }
         else if (project === "NCAR-CESM2-CLIMO") {
             entries = catalog[category][project][experiment][variable][tempres];
         }
+        else if (project === "NCAR-CESM2-SMYLE") {
+            entries = catalog[category][project][experiment][tempres];
+        }
     } catch (e) {
-        console.log("No matching entries", e);
+        console.log("No matching entries found:", e);
     }
 
     if (!entries || entries.length === 0) {
