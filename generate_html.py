@@ -107,8 +107,7 @@ def generate_obs_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-#const catalog = {json.dumps(data_dict)};
-const catalog = {{json.dumps(data_dict)}};
+const catalog = {json.dumps(data_dict)};
 function clearSelect(sel) {{
     sel.innerHTML = '<option value="">-- Select --</option>';
     sel.disabled = true;
@@ -395,15 +394,14 @@ def generate_model_page(catalog):
             entry_list = data_dict[category][project][experiment][temporal][variable]
 
         elif project == "NCAR-CESM2-SMYLE":
-            # category/project/temporal/YYYY/MM/
+            # category/project/temporal/YYYY/MM
             temporal = parts[3]
             year = parts[4]
             month = parts[5]
-            data_dict[category][project][experiment].setdefault(temporal, {})
-            data_dict[category][project][experiment][temporal].setdefault(year, {})
-            data_dict[category][project][experiment][temporal][year].setdefault(month, [])
-            entry_list = data_dict[category][project][experiment][temporal][year][month]
-
+            data_dict[category][project].setdefault(temporal, {})
+            data_dict[category][project][temporal].setdefault(year, {})
+            data_dict[category][project][temporal][year].setdefault(month, [])
+            entry_list = data_dict[category][project][temporal][year][month]
         elif project == "NCAR-CESM2-CLIMO":
             # category/project/experiment/datatype/variable
             experiment = parts[3]
@@ -483,7 +481,7 @@ def generate_model_page(catalog):
 <div id="datasetList"></div>
 
 <script>
-const catalog = {{json.dumps(data_dict)}};
+const catalog = {json.dumps(data_dict)};
 
 // Helper functions
 function clearAndDisable(selectEl) {
