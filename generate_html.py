@@ -136,7 +136,7 @@ document.getElementById("domain").addEventListener("change", () => {{
         clearSelect(datasetSel);
         return;
     }}
-    const datasets = Object.keys(catalog[domain] || {{}});
+    const datasets = Object.keys(catalog[domain] || {});
     populateSelect(datasetSel, datasets);
 }});
 
@@ -151,7 +151,7 @@ document.getElementById("dataset").addEventListener("change", () => {{
         clearSelect(tempresSel);
         return;
     }}
-    const tempres = Object.keys(catalog[domain][dataset] || {{}});
+    const tempres = Object.keys(catalog[domain][dataset] || {});
     populateSelect(tempresSel, tempres);
 }});
 
@@ -165,7 +165,7 @@ document.getElementById("tempres").addEventListener("change", () => {{
         clearSelect(variableSel);
         return;
     }}
-    const vars = Object.keys(catalog[domain][dataset][tempres] || {{}});
+    const vars = Object.keys(catalog[domain][dataset][tempres] || {});
     populateSelect(variableSel, vars);
 }});
 
