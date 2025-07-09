@@ -16,14 +16,14 @@ sources:
       n_files: 9740
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH
   obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg:
-    description: Land Sea Mask
+    description: Daily Accumulated Precipitation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/*.nc
       engine: netcdf4
     metadata:
-      long_name: Land Sea Mask
-      units: unknown
+      long_name: Daily Accumulated Precipitation
+      units: mm
       date_range: 1948-01-01 to 2006-12-31
       n_files: 60
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg
@@ -40,14 +40,16 @@ sources:
       n_files: 45
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL
   obs/gridded/atm/precip/daily/NASA-GPCP-v01r03:
-    description: longitude_bnds
+    description: NOAA Climate Data Record (CDR) of Daily GPCP Satellite-Gauge Combined
+      Precipitation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03/*.nc
       engine: netcdf4
     metadata:
-      long_name: longitude_bnds
-      units: unknown
+      long_name: NOAA Climate Data Record (CDR) of Daily GPCP Satellite-Gauge Combined
+        Precipitation
+      units: mm/day
       date_range: 1996-10-01 to 2020-05-31
       n_files: 25
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/NASA-GPCP-v01r03
@@ -88,26 +90,26 @@ sources:
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/atm/precip/monthly/CPC-UNI-HIRES
   obs/gridded/atm/precip/monthly/GPCC:
-    description: Time Boundaries
+    description: 'GPCC Precipitation: Monitoring Version 2020'
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC/*.nc
       engine: netcdf4
     metadata:
-      long_name: Time Boundaries
-      units: unknown
+      long_name: 'GPCC Precipitation: Monitoring Version 2020'
+      units: mm
       date_range: 1982-01-01 to 2023-08-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/atm/precip/monthly/GPCC
   obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2:
-    description: time_bnds
+    description: Average Monthly Rate of Precipitation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2/*.nc
       engine: netcdf4
     metadata:
-      long_name: time_bnds
-      units: unknown
+      long_name: Average Monthly Rate of Precipitation
+      units: mm/day
       date_range: 1979-01-01 to 2023-09-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/atm/precip/monthly/NASA-GPCP-v3.2
@@ -124,14 +126,14 @@ sources:
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/atm/precip/monthly/NOAA-PRECL
   obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR:
-    description: Missing
+    description: Daily Mean OLR
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR/*.nc
       engine: netcdf4
     metadata:
-      long_name: Missing
-      units: unknown
+      long_name: Daily Mean OLR
+      units: W/m^2
       date_range: 1974-06-01 to 2022-12-31
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-interp-OLR
@@ -148,16 +150,16 @@ sources:
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR
   obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC:
-    description: NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern
-      Hemisphere Sea Ice Concentration
+    description: Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration
+      Source Estimated Standard Deviation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc
       engine: netcdf4
     metadata:
-      long_name: NOAA/NSIDC Climate Data Record of Passive Microwave Monthly Northern
-        Hemisphere Sea Ice Concentration
-      units: '1'
+      long_name: Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration
+        Source Estimated Standard Deviation
+      units: unknown
       date_range: 1979-01-01 to 2021-12-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC
@@ -186,26 +188,26 @@ sources:
       n_files: 42
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES
   obs/gridded/ocn/SST/monthly/HADISST:
-    description: time_bnds
+    description: sst
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST/*.nc
       engine: netcdf4
     metadata:
-      long_name: time_bnds
-      units: unknown
+      long_name: sst
+      units: C
       date_range: 1870-01-16 to 2024-01-16
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/HADISST
   obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5:
-    description: Time Boundaries
+    description: Monthly Means of Sea Surface Temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5/*.nc
       engine: netcdf4
     metadata:
-      long_name: Time Boundaries
-      units: unknown
+      long_name: Monthly Means of Sea Surface Temperature
+      units: degC
       date_range: 1854-01-01 to 2024-02-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5

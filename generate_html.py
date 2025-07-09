@@ -65,7 +65,6 @@ def generate_obs_page(catalog):
             "data_location": source["metadata"].get("data_location", ""),
         }
         data_dict[domain][dataset][temp][variable].append(entry)
-        #print(data_dict[domain][dataset][temp][variable])
     domains = sorted(set(domains))
 
         
@@ -136,7 +135,7 @@ document.getElementById("domain").addEventListener("change", () => {{
         clearSelect(datasetSel);
         return;
     }}
-    const datasets = Object.keys(catalog[domain] || {});
+    const datasets = Object.keys(catalog[domain] || {{}});
     populateSelect(datasetSel, datasets);
 }});
 
@@ -151,7 +150,7 @@ document.getElementById("dataset").addEventListener("change", () => {{
         clearSelect(tempresSel);
         return;
     }}
-    const tempres = Object.keys(catalog[domain][dataset] || {});
+    const tempres = Object.keys(catalog[domain][dataset] || {{}});
     populateSelect(tempresSel, tempres);
 }});
 
@@ -165,7 +164,7 @@ document.getElementById("tempres").addEventListener("change", () => {{
         clearSelect(variableSel);
         return;
     }}
-    const vars = Object.keys(catalog[domain][dataset][tempres] || {});
+    const vars = Object.keys(catalog[domain][dataset][tempres] || {{}});
     populateSelect(variableSel, vars);
 }});
 
@@ -184,19 +183,19 @@ document.getElementById("variable").addEventListener("change", () => {{
         container.textContent = "No datasets found for this selection.";
         return;
     }}
-    entries.forEach(entry => {
-    const div = document.createElement("div");
-    div.className = "dataset-entry";
-    div.innerHTML = `
-        <div class="dataset-name">${entry.name}</div>
-        <div><strong>Description:</strong> ${entry.long_name}</div>
-        <div><strong>Units:</strong> ${entry.units}</div>
-        <div><strong>Date Range:</strong> ${entry.date_range}</div>
-        <div><strong>Files:</strong> ${entry.files}</div>
-        <div><strong>Data Location:</strong> ${entry.data_location}</div>
-    `;
-    container.appendChild(div);
-});
+    entries.forEach(entry => {{
+        const div = document.createElement("div");
+        div.className = "dataset-entry";
+        div.innerHTML = `
+            <div class="dataset-name">${{entry.name}}</div>
+            <div><strong>Description:</strong> ${{entry.long_name}}</div>
+            <div><strong>Units:</strong> ${{entry.units}}</div>
+            <div><strong>Date Range:</strong> ${{entry.date_range}}</div>
+            <div><strong>Files:</strong> ${{entry.files}}</div>
+            <div><strong>Data Location:</strong> ${{entry.data_location}}</div>
+        `;
+        container.appendChild(div);
+    }});
 }});
 </script>
 
