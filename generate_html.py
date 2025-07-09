@@ -187,7 +187,7 @@ document.getElementById("variable").addEventListener("change", () => {{
         const div = document.createElement("div");
         div.className = "dataset-entry";
         div.innerHTML = `
-            <div class="dataset-name">${{entry.name}}</div>
+            <div class="dataset-name">${entry.name}</div>
             <div><strong>Description:</strong> ${entry.long_name}</div>
             <div><strong>Units:</strong> ${entry.units}</div>
             <div><strong>Date Range:</strong> ${entry.date_range}</div>
