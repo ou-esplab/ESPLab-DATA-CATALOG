@@ -4,15 +4,17 @@ metadata:
   description: Auto-generated obs data catalog
 sources:
   obs/gridded/atm/precip/daily/CMORPH:
-    description: time_bounds
+    description: NOAA Climate Data Record (CDR) of CPC Morphing Technique (CMORPH)
+      High Resolution Global Precipitation Estimates
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH/*.nc
       engine: netcdf4
     metadata:
-      long_name: time_bounds
-      units: unknown
-      date_range: unknown
+      long_name: NOAA Climate Data Record (CDR) of CPC Morphing Technique (CMORPH)
+        High Resolution Global Precipitation Estimates
+      units: mm/day
+      date_range: 1998-01-01 to 2024-08-31
       n_files: 9740
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CMORPH
   obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg:

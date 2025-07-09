@@ -20,10 +20,12 @@ def get_netcdf_files(directory):
 def extract_metadata_all_files(nc_files):
     try:
         ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=True)
-        print(list(ds.data_vars))
         var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
+        print(var_name)
         long_name = ds[var_name].attrs.get('long_name', var_name)
+        print(long_name)
         units = ds[var_name].attrs.get('units', 'unknown')
+        print(units)
         if "time" in ds.coords:
             times = pd.to_datetime(ds.time.values, errors='coerce')
             times = times.dropna() if hasattr(times, 'dropna') else times
@@ -34,6 +36,7 @@ def extract_metadata_all_files(nc_files):
         else:
             date_range = "unknown"
         ds.close()
+        print("RETURNING: ",long_name,units,date_range,len(nc_files))
         return {
             "long_name": long_name,
             "units": units,
@@ -137,6 +140,7 @@ def build_obs_catalog(base_dir):
                                 print(f"✔️ Processing obs/gridded/{domain}/{variable}/{temp_res}/{dataset}/{subdir}")
                                 #meta = extract_metadata(sub_nc_files)
                                 meta = extract_metadata_all_files(sub_nc_files)
+                                print("meta: ",meta)
                                 key = f"obs/gridded/{domain}/{variable}/{temp_res}/{dataset}/{subdir}"
                                 catalog["sources"][key] = {
                                     "description": meta['long_name'],
