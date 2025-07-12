@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 BASE_DIR = "/data/esplab/shared/obs"
-IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints'}
+IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints', 'ice'}
 
 def get_netcdf_files(directory):
     files = sorted([
@@ -19,13 +19,12 @@ def get_netcdf_files(directory):
 
 def extract_metadata_all_files(nc_files):
     try:
-        ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=True)
+        #ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=True)
+        ds = xr.open_mfdataset(nc_files, combine='by_coords',decode_times=True)
+        print(ds['time'])
         var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
-        print(var_name)
         long_name = ds[var_name].attrs.get('long_name', var_name)
-        print(long_name)
         units = ds[var_name].attrs.get('units', 'unknown')
-        print(units)
         if "time" in ds.coords:
             times = pd.to_datetime(ds.time.values, errors='coerce')
             times = times.dropna() if hasattr(times, 'dropna') else times
@@ -36,7 +35,6 @@ def extract_metadata_all_files(nc_files):
         else:
             date_range = "unknown"
         ds.close()
-        print("RETURNING: ",long_name,units,date_range,len(nc_files))
         return {
             "long_name": long_name,
             "units": units,
@@ -44,32 +42,7 @@ def extract_metadata_all_files(nc_files):
             "n_files": len(nc_files)
         }
     except Exception as e:
-        print(f"⚠️ Failed to extract metadata from multiple files: {e}")
-        # fallback to first file metadata
-        return extract_metadata(nc_files)
-
-def extract_metadata(nc_files):
-    try:
-        ds = xr.open_dataset(nc_files[0], decode_times=True, use_cftime=True)
-        var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
-        long_name = ds[var_name].attrs.get('long_name', var_name)
-        units = ds[var_name].attrs.get('units', 'unknown')
-        if 'time' in ds.coords:
-            times = pd.to_datetime(ds.time.values, errors='coerce')
-            if times.isnull().all():
-                date_range = "unknown"
-            else:
-                date_range = f"{times.min().strftime('%Y-%m-%d')} to {times.max().strftime('%Y-%m-%d')}"
-        else:
-            date_range = "unknown"
-        ds.close()
-        return {
-            "long_name": long_name,
-            "units": units,
-            "date_range": date_range,
-            "n_files": len(nc_files)
-        }
-    except Exception as e:
+#        print(f"⚠️ Failed to extract metadata from multiple files: {e}")
         print(f"⚠️ Failed to extract metadata from {nc_files[0]}: {e}")
         return {
             "long_name": "unknown",

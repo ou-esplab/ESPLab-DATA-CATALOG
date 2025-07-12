@@ -151,32 +151,6 @@ sources:
       date_range: 2002-01-01 to 2023-07-26
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/fluxes-radiation/OLR/daily/NOAA-noninterp-OLR
-  obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC:
-    description: Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration
-      Source Estimated Standard Deviation
-    driver: netcdf
-    args:
-      urlpath: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC/*.nc
-      engine: netcdf4
-    metadata:
-      long_name: Passive Microwave Monthly Northern Hemisphere Sea Ice Concentration
-        Source Estimated Standard Deviation
-      units: unknown
-      date_range: 1979-01-01 to 2021-12-01
-      n_files: 1
-      data_location: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC
-  obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID:
-    description: SIC
-    driver: netcdf
-    args:
-      urlpath: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID/*.nc
-      engine: netcdf4
-    metadata:
-      long_name: SIC
-      units: unknown
-      date_range: unknown
-      n_files: 516
-      data_location: /data/esplab/shared/obs/gridded/ice/ice_concentration/monthly/NOAA-NSIDC-REGRID
   obs/gridded/ocn/SST/daily/NOAA-OISSTv2-HIRES:
     description: Daily Sea Surface Temperature
     driver: netcdf
@@ -213,15 +187,27 @@ sources:
       date_range: 1854-01-01 to 2024-02-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5
+  obs/gridded/ocn/SST/monthly/NOAA-OISSTv2:
+    description: Time Boundaries
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-OISSTv2/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: Time Boundaries
+      units: unknown
+      date_range: 1981-12-01 to 2023-01-01
+      n_files: 1
+      data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-OISSTv2
   obs/gridded/ocn/SST/weekly/NOAA-OISSTv2:
-    description: Monthly Mean of Sea Surface Temperature
+    description: Weekly Mean of Sea Surface Temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2/*.nc
       engine: netcdf4
     metadata:
-      long_name: Monthly Mean of Sea Surface Temperature
+      long_name: Weekly Mean of Sea Surface Temperature
       units: degC
-      date_range: unknown
-      n_files: 3
+      date_range: 1981-10-29 to 2023-01-29
+      n_files: 2
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/weekly/NOAA-OISSTv2
