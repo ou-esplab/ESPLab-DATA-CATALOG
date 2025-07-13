@@ -188,14 +188,14 @@ sources:
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-ERSSTv5
   obs/gridded/ocn/SST/monthly/NOAA-OISSTv2:
-    description: Time Boundaries
+    description: Monthly Mean of Sea Surface Temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-OISSTv2/*.nc
       engine: netcdf4
     metadata:
-      long_name: Time Boundaries
-      units: unknown
+      long_name: Monthly Mean of Sea Surface Temperature
+      units: degC
       date_range: 1981-12-01 to 2023-01-01
       n_files: 1
       data_location: /data/esplab/shared/obs/gridded/ocn/SST/monthly/NOAA-OISSTv2
