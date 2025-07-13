@@ -1,0 +1,17 @@
+name: data-dashboard
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - xarray
+  - dask
+  - pandas
+  - matplotlib
+  - netcdf4
+  - intake
+  - intake-xarray
+  - pip
+  - pip:
+      # Add any pip-only packages here (optional)
+      # - git+https://github.com/<user>/<repo>.git
