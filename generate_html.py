@@ -226,6 +226,7 @@ def generate_reanalysis_page(catalog):
         data_dict.setdefault(dataset, {})
         data_dict[dataset].setdefault(temp, {})
         data_dict[dataset][temp].setdefault(variable, [])
+        print(source["metadata"])
 
         entry = {
             "name": variable,

@@ -128,6 +128,7 @@ def build_reanalysis_catalog(base_dir):
 
                 print(f"✔️ Processing reanalysis/{dataset}/{temp_res}/{variable}")
                 meta = extract_metadata_all_files(nc_files)
+                print(meta)
 
                 key = f"reanalysis/{dataset}/{temp_res}/{variable}"
                 catalog["sources"][key] = {
