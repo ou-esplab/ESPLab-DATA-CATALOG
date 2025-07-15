@@ -19,8 +19,11 @@ def get_netcdf_files(directory):
 def extract_metadata_all_files(nc_files):
     try:
         ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=False)
+        print(ds.data_vars)
         var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
+        print(var_name)
         long_name = ds[var_name].attrs.get('long_name', var_name)
+        print(long_name)
         units = ds[var_name].attrs.get('units', 'unknown')
         if "time" in ds.coords:
             times = pd.to_datetime(ds.time.values, errors='coerce')
