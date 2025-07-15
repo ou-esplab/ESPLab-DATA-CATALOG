@@ -246,15 +246,15 @@ sources:
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v:
-    description: v
+    description: unknown
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/*.nc
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 2023-01-01 00:00:00 to 2023-12-31 00:00:00
-      n_files: 84
+      date_range: unknown
+      n_files: 83
       data_location: /data/esplab/shared/reanalysis/era5
   reanalysis/era5/daily/v10:
     description: v10

@@ -21,7 +21,6 @@ def extract_metadata_all_files(nc_files):
     try:
         #ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=True)
         ds = xr.open_mfdataset(nc_files, combine='by_coords',decode_times=True)
-        print(ds['time'])
         var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
         long_name = ds[var_name].attrs.get('long_name', var_name)
         units = ds[var_name].attrs.get('units', 'unknown')

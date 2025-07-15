@@ -35,35 +35,7 @@ def extract_metadata_all_files(nc_files):
         else:
             date_range = "unknown"
         ds.close()
-        return {
-            "long_name": long_name,
-            "units": units,
-            "date_range": date_range,
-            "n_files": len(nc_files)
-        }
-    except Exception as e:
-        print(f"⚠️ Failed to extract metadata from multiple files: {e}")
-        # fallback to first file metadata
-        return extract_metadata(nc_files)
-
-
-def extract_metadata(nc_files):
-    try:
-        ds = xr.open_dataset(nc_files[-1], decode_times=True, use_cftime=True)
-        print(ds.data_vars)
-        var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
-        print(var_name)
-        long_name = ds[var_name].attrs.get('long_name', var_name)
-        units = ds[var_name].attrs.get('units', 'unknown')
-
-        if 'time' in ds.coords:
-            times = ds['time'].values
-            times_str = [str(t) for t in times]
-            date_range = f"{times_str[0]} to {times_str[-1]}"
-        else:
-            date_range = "unknown"
-
-        ds.close()
+        print("EXTRACT_METADATA_ALL_FILES: ",long_name,units,date_range,len(nc_files))
         return {
             "long_name": long_name,
             "units": units,
@@ -78,6 +50,39 @@ def extract_metadata(nc_files):
             "date_range": "unknown",
             "n_files": len(nc_files)
         }
+
+#def extract_metadata(nc_files):
+#    print("EXTRACT METADATA")
+#    try:
+#        ds = xr.open_dataset(nc_files[-1], decode_times=True, use_cftime=True)
+#        print(ds.data_vars)
+#        var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
+#        print(var_name)
+#        long_name = ds[var_name].attrs.get('long_name', var_name)
+#        units = ds[var_name].attrs.get('units', 'unknown')
+#
+#        if 'time' in ds.coords:
+#            times = ds['time'].values
+#            times_str = [str(t) for t in times]
+#            date_range = f"{times_str[0]} to {times_str[-1]}"
+#        else:
+##            date_range = "unknown"
+#
+#        ds.close()
+#        return {
+##            "long_name": long_name,
+#            "units": units,
+#            "date_range": date_range,
+#            "n_files": len(nc_files)
+##        }
+#    except Exception as e:
+#        print(f"⚠️ Failed to extract metadata from {nc_files[0]}: {e}")
+#        return {
+##            "long_name": "unknown",
+#            "units": "unknown",
+#            "date_range": "unknown",
+#            "n_files": len(nc_files)
+#        }
 
 def build_reanalysis_catalog(base_dir):
     catalog = {
