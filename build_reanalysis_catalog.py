@@ -19,7 +19,7 @@ def get_netcdf_files(directory):
 def extract_metadata_all_files(nc_files):
     try:
         ds = xr.open_mfdataset(nc_files, combine='by_coords', parallel=False)
-        var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
+        var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
         long_name = ds[var_name].attrs.get('long_name', var_name)
         units = ds[var_name].attrs.get('units', 'unknown')
         if "time" in ds.coords:
@@ -41,13 +41,15 @@ def extract_metadata_all_files(nc_files):
     except Exception as e:
         print(f"⚠️ Failed to extract metadata from multiple files: {e}")
         # fallback to first file metadata
-        return extract_metadata_all_files(nc_files)
+        return extract_metadata(nc_files)
 
 
 def extract_metadata(nc_files):
     try:
-        ds = xr.open_dataset(nc_files[0], decode_times=True, use_cftime=True)
-        var_name = list(ds.data_vars)[0] if ds.data_vars else "unknown"
+        ds = xr.open_dataset(nc_files[-1], decode_times=True, use_cftime=True)
+        print(ds.data_vars)
+        var_name = list(ds.data_vars)[-1] if ds.data_vars else "unknown"
+        print(var_name)
         long_name = ds[var_name].attrs.get('long_name', var_name)
         units = ds[var_name].attrs.get('units', 'unknown')
 
