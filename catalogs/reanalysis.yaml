@@ -22,8 +22,8 @@ sources:
       engine: netcdf4
     metadata:
       units: unknown
-      date_range: 1979-01-01 to 2023-12-07
-      n_files: 45
+      date_range: 1979-01-01 to 2022-12-31
+      n_files: 44
       data_location: /data/esplab/shared/reanalysis/era5-land/daily/precip
   reanalysis/era5-land/hourly/precip:
     description: Total precipitation
@@ -33,8 +33,8 @@ sources:
       engine: netcdf4
     metadata:
       units: m
-      date_range: 1979-01-01 to 2023-12-07
-      n_files: 540
+      date_range: 1979-01-01 to 2023-11-30
+      n_files: 552
       data_location: /data/esplab/shared/reanalysis/era5-land/hourly/precip
   reanalysis/era5-land/hourly/t2m:
     description: 2 metre temperature
@@ -114,313 +114,324 @@ sources:
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/4xdaily/z
   reanalysis/era5/daily/olr:
-    description: ttr
+    description: Top net long-wave (thermal) radiation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/olr/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2022-12-31
-      n_files: 83
+      units: J m**-2
+      date_range: 1940-01-01 to 2023-07-23
+      n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/olr
   reanalysis/era5/daily/precip:
-    description: tp
+    description: Total precipitation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/precip/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2022-12-31
-      n_files: 83
+      units: m
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/precip
   reanalysis/era5/daily/sst:
-    description: sst
+    description: Sea surface temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/sst/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2022-12-31
-      n_files: 83
+      units: K
+      date_range: 1940-01-01 to 2023-12-31
+      n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/sst
   reanalysis/era5/daily/swvl1p:
-    description: swvl1
+    description: Volumetric soil water layer 1
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/swvl1p/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: m**3 m**-3
       date_range: 1940-01-01 to 2023-08-21
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/swvl1p
   reanalysis/era5/daily/t2m:
-    description: t2m
+    description: 2 metre temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/t2m/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: K
       date_range: 1940-01-01 to 2023-07-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/t2m
   reanalysis/era5/daily/v10:
-    description: v10
+    description: 10 metre V wind component
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/v10/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: m s**-1
       date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/v10
   reanalysis/era5/daily/u200:
-    description: u
+    description: U component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/u200/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/u200
   reanalysis/era5/daily/u500:
-    description: u
+    description: U component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/u500/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/u500
   reanalysis/era5/daily/u850:
-    description: u
+    description: U component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/u850/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/u850
   reanalysis/era5/daily/u:
-    description: u
+    description: U component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/u/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/u
   reanalysis/era5/daily/v200:
-    description: v
+    description: V component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/v200/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/v200
   reanalysis/era5/daily/v500:
-    description: v
+    description: V component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/v500/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/v500
   reanalysis/era5/daily/v850:
-    description: v
+    description: V component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/v850/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/v850
   reanalysis/era5/daily/z200:
-    description: z
+    description: Geopotential
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/z200/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m**2 s**-2
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/z200
   reanalysis/era5/daily/z500:
-    description: z
+    description: Geopotential
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/z500/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m**2 s**-2
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/z500
   reanalysis/era5/daily/z850:
-    description: z
+    description: Geopotential
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/z850/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 84
+      units: m**2 s**-2
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/z850
   reanalysis/era5/daily/u10:
-    description: u10
+    description: 10 metre U wind component
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/u10/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: m s**-1
       date_range: 1940-01-01 to 2023-06-23
       n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/u10
   reanalysis/era5/daily/v:
-    description: unknown
+    description: V component of wind
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/v/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: unknown
-      n_files: 83
+      units: m s**-1
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/v
   reanalysis/era5/daily/t:
-    description: t
+    description: Temperature
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/t/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1979-01-01 to 2023-10-26
-      n_files: 45
+      units: K
+      date_range: 1940-01-01 to 2023-10-26
+      n_files: 84
       data_location: /data/esplab/shared/reanalysis/era5/daily/t
   reanalysis/era5/daily/q:
-    description: q
+    description: Specific humidity
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/q/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1979-01-01 to 2023-10-28
-      n_files: 45
+      units: kg kg**-1
+      date_range: 1940-01-01 to 2022-12-31
+      n_files: 83
       data_location: /data/esplab/shared/reanalysis/era5/daily/q
   reanalysis/era5/daily/psfc:
-    description: sp
+    description: Surface pressure
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/psfc/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: Pa
       date_range: 1979-01-01 to 2023-12-18
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/psfc
   reanalysis/era5/daily/evap:
-    description: e
+    description: Evaporation
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/evap/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: m of water equivalent
       date_range: 1979-01-01 to 2023-12-17
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/evap
   reanalysis/era5/daily/tcwv:
-    description: tcwv
+    description: Total column vertically-integrated water vapour
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/tcwv/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: kg m**-2
       date_range: 1979-01-01 to 2023-12-23
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/tcwv
   reanalysis/era5/daily/omega:
-    description: w
+    description: Vertical velocity
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/omega/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: Pa s**-1
       date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/omega
   reanalysis/era5/daily/vimd:
-    description: vimd
+    description: Vertically integrated moisture divergence
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/vimd/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: kg m**-2
       date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/vimd
   reanalysis/era5/daily/vinwvf:
-    description: p72.162
+    description: Vertical integral of northward water vapour flux
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/vinwvf/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: kg m**-1 s**-1
       date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/vinwvf
   reanalysis/era5/daily/vinevf:
-    description: p71.162
+    description: Vertical integral of eastward water vapour flux
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/vinevf/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
+      units: kg m**-1 s**-1
       date_range: 1979-01-01 to 2023-12-31
       n_files: 45
       data_location: /data/esplab/shared/reanalysis/era5/daily/vinevf
   reanalysis/era5/daily/z:
-    description: z
+    description: Geopotential
     driver: netcdf
     args:
       urlpath: /data/esplab/shared/reanalysis/era5/daily/z/*.nc
       engine: netcdf4
     metadata:
-      units: unknown
-      date_range: 1979-01-01 to 2022-12-31
-      n_files: 44
+      units: m**2 s**-2
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 85
       data_location: /data/esplab/shared/reanalysis/era5/daily/z
+  reanalysis/era5/daily/msl:
+    description: Mean sea level pressure
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/era5/daily/msl/*.nc
+      engine: netcdf4
+    metadata:
+      units: Pa
+      date_range: 1940-01-01 to 2023-06-23
+      n_files: 84
+      data_location: /data/esplab/shared/reanalysis/era5/daily/msl
   reanalysis/era5/hourly/olr:
     description: Top net long-wave (thermal) radiation
     driver: netcdf
@@ -440,8 +451,8 @@ sources:
       engine: netcdf4
     metadata:
       units: m
-      date_range: 1940-01-01 to 2023-07-19
-      n_files: 1003
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 1020
       data_location: /data/esplab/shared/reanalysis/era5/hourly/precip
   reanalysis/era5/hourly/psfc:
     description: Surface pressure
@@ -462,8 +473,8 @@ sources:
       engine: netcdf4
     metadata:
       units: kg kg**-1
-      date_range: 1940-01-01 to 2023-10-28
-      n_files: 1006
+      date_range: 1940-01-01 to 2022-12-31
+      n_files: 1020
       data_location: /data/esplab/shared/reanalysis/era5/hourly/q
   reanalysis/era5/hourly/sst:
     description: Sea surface temperature
@@ -528,8 +539,8 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 1008
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 1020
       data_location: /data/esplab/shared/reanalysis/era5/hourly/u
   reanalysis/era5/hourly/v:
     description: V component of wind
@@ -539,8 +550,8 @@ sources:
       engine: netcdf4
     metadata:
       units: m s**-1
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 1008
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 1020
       data_location: /data/esplab/shared/reanalysis/era5/hourly/v
   reanalysis/era5/hourly/tcwv:
     description: Total column vertically-integrated water vapour
@@ -572,8 +583,8 @@ sources:
       engine: netcdf4
     metadata:
       units: m**2 s**-2
-      date_range: 1940-01-01 to 2023-12-31
-      n_files: 1008
+      date_range: 1940-01-01 to 2024-12-31
+      n_files: 1020
       data_location: /data/esplab/shared/reanalysis/era5/hourly/z
   reanalysis/era5/hourly/vimd:
     description: Vertically integrated moisture divergence
@@ -608,6 +619,174 @@ sources:
       date_range: 1979-01-01 to 2023-12-31
       n_files: 540
       data_location: /data/esplab/shared/reanalysis/era5/hourly/vinevf
+  reanalysis/merra-2/3-hourly/EPV:
+    description: ertels_potential_vorticity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: ertels_potential_vorticity
+      units: K m+2 kg-1 s-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/H:
+    description: edge_heights
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: edge_heights
+      units: m
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/O3:
+    description: ozone_mass_mixing_ratio
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: ozone_mass_mixing_ratio
+      units: kg kg-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/OMEGA:
+    description: vertical_pressure_velocity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: vertical_pressure_velocity
+      units: Pa s-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/PHIS:
+    description: surface geopotential height
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: surface geopotential height
+      units: m+2 s-2
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/PS:
+    description: surface_pressure
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: surface_pressure
+      units: Pa
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/QI:
+    description: mass_fraction_of_cloud_ice_water
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: mass_fraction_of_cloud_ice_water
+      units: kg kg-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/QL:
+    description: mass_fraction_of_cloud_liquid_water
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: mass_fraction_of_cloud_liquid_water
+      units: kg kg-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/QV:
+    description: specific_humidity
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: specific_humidity
+      units: kg kg-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/RH:
+    description: relative_humidity_after_moist
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: relative_humidity_after_moist
+      units: '1'
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/SLP:
+    description: sea_level_pressure
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: sea_level_pressure
+      units: Pa
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/T:
+    description: air_temperature
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: air_temperature
+      units: K
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/U:
+    description: eastward_wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: eastward_wind
+      units: m s-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
+  reanalysis/merra-2/3-hourly/V:
+    description: northward_wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/reanalysis/merra-2/3-hourly/*.nc4
+      engine: netcdf4
+    metadata:
+      long_name: northward_wind
+      units: m s-1
+      date_range: 1980-01-01 to 2024-05-01
+      n_files: 16193
+      data_location: /data/esplab/shared/reanalysis/merra-2/3-hourly
   reanalysis/merra-2/daily/zg500:
     description: edge_heights
     driver: netcdf

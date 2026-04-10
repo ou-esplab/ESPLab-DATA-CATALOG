@@ -1,0 +1,776 @@
+🔍 Processing initialized models...
+
+  Processing NCAR-CESM2-CLIMO...
+✓ Processed S2SHINDCASTSclimoALL/anoms/pr_sfc
+✓ Processed S2SHINDCASTSclimoALL/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoALL/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoALL/p1/rlut
+✓ Processed S2SHINDCASTSclimoALL/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoALL/p1/ts
+✓ Processed S2SHINDCASTSclimoALL/p1/ua_200
+✓ Processed S2SHINDCASTSclimoALL/p1/ua_850
+✓ Processed S2SHINDCASTSclimoALL/p1/va_200
+✓ Processed S2SHINDCASTSclimoALL/p1/va_850
+✓ Processed S2SHINDCASTSclimoALL/p1/zg_200
+✓ Processed S2SHINDCASTSclimoALL/p1/zg_500
+✓ Processed S2SHINDCASTSclimoALL/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoATM/anoms/pr_sfc
+✓ Processed S2SHINDCASTSclimoATM/anoms/rlut_toa
+✓ Processed S2SHINDCASTSclimoATM/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoATM/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoATM/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoATM/anoms/va_200
+✓ Processed S2SHINDCASTSclimoATM/anoms/va_850
+✓ Processed S2SHINDCASTSclimoATM/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoATM/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoATM/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoATM/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoATM/climo/ua_200
+✓ Processed S2SHINDCASTSclimoATM/climo/ua_850
+✓ Processed S2SHINDCASTSclimoATM/climo/va_200
+✓ Processed S2SHINDCASTSclimoATM/climo/va_850
+✓ Processed S2SHINDCASTSclimoATM/climo/zg_500
+✓ Processed S2SHINDCASTSclimoATM/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoATM/p1/rlut
+✓ Processed S2SHINDCASTSclimoATM/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoATM/p1/ts
+✓ Processed S2SHINDCASTSclimoATM/p1/ua_200
+✓ Processed S2SHINDCASTSclimoATM/p1/ua_850
+✓ Processed S2SHINDCASTSclimoATM/p1/va_200
+✓ Processed S2SHINDCASTSclimoATM/p1/va_850
+✓ Processed S2SHINDCASTSclimoATM/p1/zg_200
+✓ Processed S2SHINDCASTSclimoATM/p1/zg_500
+✓ Processed S2SHINDCASTSclimoATM/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoATM/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoATM/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoATM/raw/ua_200
+✓ Processed S2SHINDCASTSclimoATM/raw/ua_850
+✓ Processed S2SHINDCASTSclimoATM/raw/va_200
+✓ Processed S2SHINDCASTSclimoATM/raw/va_850
+✓ Processed S2SHINDCASTSclimoATM/raw/zg_200
+✓ Processed S2SHINDCASTSclimoATM/raw/zg_500
+✓ Processed S2SHINDCASTSclimoLND/anoms/pr_sfc
+✓ Processed S2SHINDCASTSclimoLND/anoms/rlut_toa
+✓ Processed S2SHINDCASTSclimoLND/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoLND/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoLND/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoLND/anoms/va_200
+✓ Processed S2SHINDCASTSclimoLND/anoms/va_850
+✓ Processed S2SHINDCASTSclimoLND/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoLND/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoLND/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoLND/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoLND/climo/ua_200
+✓ Processed S2SHINDCASTSclimoLND/climo/ua_850
+✓ Processed S2SHINDCASTSclimoLND/climo/va_200
+✓ Processed S2SHINDCASTSclimoLND/climo/va_850
+✓ Processed S2SHINDCASTSclimoLND/climo/zg_500
+✓ Processed S2SHINDCASTSclimoLND/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoLND/p1/rlut
+✓ Processed S2SHINDCASTSclimoLND/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoLND/p1/ts
+✓ Processed S2SHINDCASTSclimoLND/p1/ua_200
+✓ Processed S2SHINDCASTSclimoLND/p1/ua_850
+✓ Processed S2SHINDCASTSclimoLND/p1/va_200
+✓ Processed S2SHINDCASTSclimoLND/p1/va_850
+✓ Processed S2SHINDCASTSclimoLND/p1/zg_200
+✓ Processed S2SHINDCASTSclimoLND/p1/zg_500
+✓ Processed S2SHINDCASTSclimoLND/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoLND/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoLND/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoLND/raw/ua_200
+✓ Processed S2SHINDCASTSclimoLND/raw/ua_850
+✓ Processed S2SHINDCASTSclimoLND/raw/va_200
+✓ Processed S2SHINDCASTSclimoLND/raw/va_850
+✓ Processed S2SHINDCASTSclimoLND/raw/zg_200
+✓ Processed S2SHINDCASTSclimoLND/raw/zg_500
+✓ Processed S2SHINDCASTSclimoOCN/anoms/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCN/anoms/rlut_toa
+✓ Processed S2SHINDCASTSclimoOCN/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCN/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoOCN/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoOCN/anoms/va_200
+✓ Processed S2SHINDCASTSclimoOCN/anoms/va_850
+✓ Processed S2SHINDCASTSclimoOCN/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoOCN/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCN/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoOCN/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCN/climo/ua_200
+✓ Processed S2SHINDCASTSclimoOCN/climo/ua_850
+✓ Processed S2SHINDCASTSclimoOCN/climo/va_200
+✓ Processed S2SHINDCASTSclimoOCN/climo/va_850
+✓ Processed S2SHINDCASTSclimoOCN/climo/zg_500
+✓ Processed S2SHINDCASTSclimoOCN/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCN/p1/rlut
+✓ Processed S2SHINDCASTSclimoOCN/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoOCN/p1/ts
+✓ Processed S2SHINDCASTSclimoOCN/p1/ua_200
+✓ Processed S2SHINDCASTSclimoOCN/p1/ua_850
+✓ Processed S2SHINDCASTSclimoOCN/p1/va_200
+✓ Processed S2SHINDCASTSclimoOCN/p1/va_850
+✓ Processed S2SHINDCASTSclimoOCN/p1/zg_200
+✓ Processed S2SHINDCASTSclimoOCN/p1/zg_500
+✓ Processed S2SHINDCASTSclimoOCN/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCN/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoOCN/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCN/raw/ua_200
+✓ Processed S2SHINDCASTSclimoOCN/raw/ua_850
+✓ Processed S2SHINDCASTSclimoOCN/raw/va_200
+✓ Processed S2SHINDCASTSclimoOCN/raw/va_850
+✓ Processed S2SHINDCASTSclimoOCN/raw/zg_200
+✓ Processed S2SHINDCASTSclimoOCN/raw/zg_500
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/pr_sfc
+⚠️  No valid .nc files found for rlut_
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/rlut_toa
+⚠️  No valid .nc files found for ts_
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/va_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/va_850
+⚠️  No valid .nc files found for zg_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/ua_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/ua_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/va_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/va_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/climo/zg_500
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/rlut
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/ts
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/ua_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/ua_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/va_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/va_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/zg_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/p1/zg_500
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/rlut_
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/ts_
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/ua_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/ua_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/va_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/va_850
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/zg_200
+✓ Processed S2SHINDCASTSclimoATMclimoLND/raw/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/rlut_toa
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/climo/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/rlut
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/ts
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/zg_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/p1/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/zg_200
+✓ Processed S2SHINDCASTSclimoOCNclimoATM/raw/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/pr_sfc
+⚠️  No valid .nc files found for rlut_
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/rlut_toa
+⚠️  No valid .nc files found for ts_
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/va_850
+⚠️  No valid .nc files found for zg_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/anoms/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/rlut_toa
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/climo/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/rlut
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/tas_2m
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/ts
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/zg_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/p1/zg_500
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/pr_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/rlut_
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/rlut_toa
+⚠️  No valid .nc files found for tas_2m
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/ts_
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/ts_sfc
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/ua_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/ua_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/va_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/va_850
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/zg_200
+✓ Processed S2SHINDCASTSclimoOCNclimoLND/raw/zg_500
+
+  Processing NCAR-CESM2-SMYLE...
+✓ Processed daily/PRECC
+✓ Processed daily/PRECL
+✓ Processed daily/TREFHT
+✓ Processed daily/TS
+✓ Processed daily/U850
+✓ Processed daily/Z850
+✓ Processed monthly/PRECC
+✓ Processed monthly/PRECL
+✓ Processed monthly/TREFHT
+✓ Processed monthly/TS
+⚠️  No files found for monthly/U850
+⚠️  No files found for monthly/Z850
+
+🔍 Processing NMME models...
+
+  Processing CanESM5...
+✓ Processed forecast/h200
+✓ Processed forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/hgt
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing COLA-RSMAS-CCSM4...
+✓ Processed forecast/h200
+⚠️  No .nc files found for variable: forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/gz
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing COLA-RSMAS-CESM1...
+✓ Processed forecast/h200
+⚠️  No .nc files found for variable: forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/gz
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing GEM5.2-NEMO...
+✓ Processed forecast/h200
+✓ Processed forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/hgt
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing GFDL-SPEAR...
+✓ Processed forecast/h200
+✓ Processed forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/h200
+✓ Processed hindcast/h500
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing NASA-GEOSS2S...
+✓ Processed forecast/h200
+✓ Processed forecast/h500
+✓ Processed forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/h200
+✓ Processed hindcast/h500
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing NCAR-CESM1...
+⚠️  No .nc files found for variable: forecast/h200
+⚠️  No .nc files found for variable: forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+⚠️  No .nc files found for variable: forecast/prec
+⚠️  No .nc files found for variable: forecast/sst
+⚠️  No .nc files found for variable: forecast/tref
+
+  Processing NCEP-CFSv2...
+⚠️  No .nc files found for variable: forecast/h200
+⚠️  No .nc files found for variable: forecast/h500
+⚠️  No .nc files found for variable: forecast/olr
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed hindcast/h200
+✓ Processed hindcast/h500
+✓ Processed hindcast/prec
+✓ Processed hindcast/sst
+✓ Processed hindcast/tref
+
+  Processing NOAA-SFS...
+✓ Processed forecast/h200
+✓ Processed forecast/h500
+✓ Processed forecast/prec
+✓ Processed forecast/sst
+✓ Processed forecast/tref
+✓ Processed reforecast/h200
+✓ Processed reforecast/h500
+✓ Processed reforecast/prec
+✓ Processed reforecast/sst
+✓ Processed reforecast/tref
+
+🔍 Processing SubC models...
+
+  Processing ECCC-GEM...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing ECCC-GEPS5...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+⚠️  No .nc files found for variable: hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing ECCC-GEPS6...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+⚠️  No .nc files found for variable: hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing ECCC-GEPS7...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+⚠️  No .nc files found for variable: hindcast/va
+✓ Processed hindcast/zg
+
+  Processing ECCC-GEPS8...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing EMC-GEFS...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing EMC-GEFSv12...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+
+  Processing EMC-GEFSv12_CPC...
+✓ Processed forecast/pr
+⚠️  No .nc files found for variable: forecast/rlut
+✓ Processed forecast/tas
+⚠️  No .nc files found for variable: forecast/ts
+⚠️  No .nc files found for variable: forecast/ua
+⚠️  No .nc files found for variable: forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+⚠️  No .nc files found for variable: hindcast/rlut
+✓ Processed hindcast/tas
+⚠️  No .nc files found for variable: hindcast/ts
+⚠️  No .nc files found for variable: hindcast/ua
+⚠️  No .nc files found for variable: hindcast/va
+✓ Processed hindcast/zg
+
+  Processing ESRL-FIM...
+⚠️  No .nc files found for variable: forecast/ua
+⚠️  No .nc files found for variable: forecast/va
+⚠️  No .nc files found for variable: forecast/zg
+
+  Processing ESRL-FIMr1p1...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing GMAO-GEOS_V2p1...
+✓ Processed forecast/pr
+✓ Processed forecast/tas
+✓ Processed forecast/zg
+
+  Processing GMAO-GEOS_V2p1_5daily...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing NCEP-CFSv2...
+✓ Processed forecast/pr
+⚠️  No .nc files found for variable: forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+⚠️  No .nc files found for variable: hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing NRL-NESM...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+  Processing RSMAS-CCSM4...
+✓ Processed forecast/pr
+✓ Processed forecast/rlut
+✓ Processed forecast/tas
+✓ Processed forecast/ts
+✓ Processed forecast/ua
+✓ Processed forecast/va
+✓ Processed forecast/zg
+✓ Processed hindcast/pr
+✓ Processed hindcast/rlut
+✓ Processed hindcast/tas
+✓ Processed hindcast/ts
+✓ Processed hindcast/ua
+✓ Processed hindcast/va
+✓ Processed hindcast/zg
+
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoALL/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATM/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoLND/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCN/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoATMclimoLND/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoATM/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/anoms/zg_500: Geopotential Z at 500 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/pr_sfc: kg/m2/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/pr_sfc: Total (convective and large-scale) precipitation rate (liq + ice)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/rlut_toa: W/m2
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/rlut_toa: Upwelling longwave flux at top of model
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ts_sfc: K
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ts_sfc: Surface temperature (radiative)
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ua_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ua_200: Zonal wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ua_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/ua_850: Zonal wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/va_200: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/va_200: Meridional wind at 200 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/va_850: m/s
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/va_850: Meridional wind at 850 mbar pressure surface
+✓ Filled units for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/zg_500: m
+✓ Filled description for model/initialized/NCAR-CESM2-CLIMO/S2SHINDCASTSclimoOCNclimoLND/climo/zg_500: Geopotential Z at 500 mbar pressure surface
+✅ Model catalog written to catalogs/model.yaml

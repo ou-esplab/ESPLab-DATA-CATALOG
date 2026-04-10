@@ -3,6 +3,18 @@ metadata:
   version: 1
   description: Auto-generated obs data catalog
 sources:
+  obs/indices/mlso:
+    description: mlso
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/indices/mlso/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: mlso
+      units: unknown
+      date_range: 1979-01-01 to 2019-08-31
+      n_files: 1
+      data_location: /data/esplab/shared/obs/indices/mlso
   obs/gridded/atm/precip/daily/CMORPH:
     description: NOAA Climate Data Record (CDR) of CPC Morphing Technique (CMORPH)
       High Resolution Global Precipitation Estimates
@@ -27,8 +39,22 @@ sources:
       long_name: Daily Accumulated Precipitation
       units: mm
       date_range: 1948-01-01 to 2006-12-31
-      n_files: 60
+      n_files: 59
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg
+      type: historical
+  obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT:
+    description: Daily Accumulated Precipitation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: Daily Accumulated Precipitation
+      units: mm
+      date_range: 1948-01-01 to 2024-08-28
+      n_files: 35
+      data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/CPC-UNI-CONUS-0.25deg/RT
+      type: realtime
   obs/gridded/atm/precip/daily/CPC-UNI-GLOBAL:
     description: Daily total of precipitation
     driver: netcdf
@@ -79,6 +105,18 @@ sources:
       date_range: 1981-01-01 to 2024-12-31
       n_files: 44
       data_location: /data/esplab/shared/obs/gridded/atm/precip/daily/chirps-v2.0/p25
+  obs/gridded/atm/precip/monthly/CMAP:
+    description: Average Monthly Rate of Precipitation
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/shared/obs/gridded/atm/precip/monthly/CMAP/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: Average Monthly Rate of Precipitation
+      units: mm/day
+      date_range: 1979-01-01 to 2025-07-01
+      n_files: 1
+      data_location: /data/esplab/shared/obs/gridded/atm/precip/monthly/CMAP
   obs/gridded/atm/precip/monthly/CPC-UNI-HIRES:
     description: Monthly Average of Daily Accumulated Precipitation
     driver: netcdf

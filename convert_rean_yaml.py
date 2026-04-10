@@ -1,9 +1,11 @@
 import yaml
 import json
 
+# Read in the YAML catalog
 with open("catalogs/reanalysis.yaml") as f:
     data = yaml.safe_load(f)
 
+# Write catalog to JSON
 with open("docs/reanalysis.json", "w") as f:
     json.dump(data, f, indent=2)
 

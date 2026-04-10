@@ -17,11 +17,21 @@ select {
     font-size: 1rem;
 }
 .dataset-entry {
-    border: 1px solid #FFB81C;
-    border-radius: 5px;
-    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
     margin-bottom: 10px;
-    background: #fff8e1;
+    margin-top: 20px;
+    background: #fffacd;
+    color: #000000;
+}
+.dataset-entry > div:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #841617;
+}
+.dataset-entry > div {
+    color: #000000;
 }
 .dataset-name {
     font-weight: bold;
