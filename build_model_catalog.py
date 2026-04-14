@@ -13,8 +13,8 @@ from model_definitions import MODEL_DEFINITIONS
 
 # Define the base directories to build the model catalog off of and ignore certain subdirectories
 BASE_DIR = "/data/esplab/shared/model"
-SUBC_DIR = "/data/esplab/subc-backup/"
-NMME_DIR = "/data/esplab/nmme-backup/"
+SUBC_DIR = "/data/esplab/subc-backup"
+NMME_DIR = "/data/esplab/nmme-backup"
 IGNORE_DIRS = {'tmp', 'old_versions', '.ipynb_checkpoints'}
 
 # Define a function to recursively find all the .nc files under a certain directory

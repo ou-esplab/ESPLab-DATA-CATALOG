@@ -436,6 +436,7 @@
 ✓ Processed forecast/tas
 ✓ Processed forecast/ts
 ✓ Processed forecast/ua
+✓ Processed forecast/uas
 ✓ Processed forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr
@@ -477,6 +478,7 @@
 ✓ Processed forecast/tas
 ⚠️  No .nc files found for variable: forecast/ts
 ⚠️  No .nc files found for variable: forecast/ua
+✓ Processed forecast/uas
 ⚠️  No .nc files found for variable: forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr
@@ -498,6 +500,7 @@
 ✓ Processed forecast/tas
 ✓ Processed forecast/ts
 ✓ Processed forecast/ua
+✓ Processed forecast/uas
 ✓ Processed forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr
@@ -519,6 +522,7 @@
 ✓ Processed forecast/tas
 ✓ Processed forecast/ts
 ✓ Processed forecast/ua
+✓ Processed forecast/uas
 ✓ Processed forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr
@@ -535,6 +539,7 @@
 ✓ Processed forecast/tas
 ✓ Processed forecast/ts
 ✓ Processed forecast/ua
+⚠️  No .nc files found for variable: forecast/uas
 ✓ Processed forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr
@@ -567,6 +572,7 @@
 ✓ Processed forecast/tas
 ✓ Processed forecast/ts
 ✓ Processed forecast/ua
+✓ Processed forecast/uas
 ✓ Processed forecast/va
 ✓ Processed forecast/zg
 ✓ Processed hindcast/pr

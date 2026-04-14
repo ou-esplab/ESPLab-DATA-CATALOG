@@ -3088,7 +3088,7 @@ sources:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3096,12 +3096,12 @@ sources:
       date_range: 2026-04 to 2026-04
       n_files: 1
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/forecast/h200
+      data_location: /data/esplab/nmme-backup/CanESM5/forecast/h200
   model/nmme-backup/CanESM5/forecast/h500:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/forecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/forecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3109,51 +3109,51 @@ sources:
       date_range: 2026-04 to 2026-04
       n_files: 1
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/forecast/h500
+      data_location: /data/esplab/nmme-backup/CanESM5/forecast/h500
   model/nmme-backup/CanESM5/forecast/prec:
-    description: Total Precipitation
+    description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
-      long_name: Total Precipitation
-      units: mm/day
-      date_range: 2024-07 to 2026-04
-      n_files: 22
+      long_name: unknown
+      units: unknown
+      date_range: 2024-01 to 2026-04
+      n_files: 28
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/forecast/prec
+      data_location: /data/esplab/nmme-backup/CanESM5/forecast/prec
   model/nmme-backup/CanESM5/forecast/sst:
-    description: Sea Surface Temperature
+    description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
-      long_name: Sea Surface Temperature
-      units: Kelvin_scale
-      date_range: 2024-07 to 2026-04
-      n_files: 22
+      long_name: unknown
+      units: unknown
+      date_range: 2024-01 to 2026-04
+      n_files: 28
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/forecast/sst
+      data_location: /data/esplab/nmme-backup/CanESM5/forecast/sst
   model/nmme-backup/CanESM5/forecast/tref:
-    description: Reference Temperature
+    description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
-      long_name: Reference Temperature
-      units: Kelvin_scale
-      date_range: 2024-07 to 2026-04
-      n_files: 22
+      long_name: unknown
+      units: unknown
+      date_range: 2024-01 to 2026-04
+      n_files: 28
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/forecast/tref
+      data_location: /data/esplab/nmme-backup/CanESM5/forecast/tref
   model/nmme-backup/CanESM5/hindcast/hgt:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/hindcast/hgt/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/hindcast/hgt/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3161,12 +3161,12 @@ sources:
       date_range: 1990-01 to 1993-05
       n_files: 41
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/hindcast/hgt
+      data_location: /data/esplab/nmme-backup/CanESM5/hindcast/hgt
   model/nmme-backup/CanESM5/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3174,12 +3174,12 @@ sources:
       date_range: 1990-01 to 2023-12
       n_files: 408
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/hindcast/prec
+      data_location: /data/esplab/nmme-backup/CanESM5/hindcast/prec
   model/nmme-backup/CanESM5/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3187,12 +3187,12 @@ sources:
       date_range: 1990-01 to 2023-12
       n_files: 408
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/hindcast/sst
+      data_location: /data/esplab/nmme-backup/CanESM5/hindcast/sst
   model/nmme-backup/CanESM5/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//CanESM5/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/CanESM5/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3200,12 +3200,12 @@ sources:
       date_range: 1990-01 to 2023-12
       n_files: 408
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//CanESM5/hindcast/tref
+      data_location: /data/esplab/nmme-backup/CanESM5/hindcast/tref
   model/nmme-backup/COLA-RSMAS-CCSM4/forecast/h200:
     description: Geopotential Height (above sea level)
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height (above sea level)
@@ -3213,12 +3213,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/h200
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/h200
   model/nmme-backup/COLA-RSMAS-CCSM4/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3226,12 +3226,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/prec
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/prec
   model/nmme-backup/COLA-RSMAS-CCSM4/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3239,12 +3239,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/sst
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/sst
   model/nmme-backup/COLA-RSMAS-CCSM4/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3252,12 +3252,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/forecast/tref
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/forecast/tref
   model/nmme-backup/COLA-RSMAS-CCSM4/hindcast/gz:
     description: Geopotential Height (above sea level)
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/gz/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/gz/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height (above sea level)
@@ -3265,12 +3265,12 @@ sources:
       date_range: 1982-02 to 2010-12
       n_files: 347
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/gz
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/gz
   model/nmme-backup/COLA-RSMAS-CCSM4/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3278,12 +3278,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/prec
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/prec
   model/nmme-backup/COLA-RSMAS-CCSM4/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3291,12 +3291,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/sst
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/sst
   model/nmme-backup/COLA-RSMAS-CCSM4/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3304,12 +3304,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CCSM4/hindcast/tref
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CCSM4/hindcast/tref
   model/nmme-backup/COLA-RSMAS-CESM1/forecast/h200:
     description: Geopotential Height (above sea level)
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height (above sea level)
@@ -3317,12 +3317,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 183
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/h200
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/h200
   model/nmme-backup/COLA-RSMAS-CESM1/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3330,12 +3330,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/prec
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/prec
   model/nmme-backup/COLA-RSMAS-CESM1/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3343,12 +3343,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/sst
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/sst
   model/nmme-backup/COLA-RSMAS-CESM1/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3356,12 +3356,12 @@ sources:
       date_range: 2011-01 to 2026-04
       n_files: 184
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/forecast/tref
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/forecast/tref
   model/nmme-backup/COLA-RSMAS-CESM1/hindcast/gz:
     description: Geopotential Height (above sea level)
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/gz/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/gz/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height (above sea level)
@@ -3369,12 +3369,12 @@ sources:
       date_range: 1982-02 to 2010-12
       n_files: 347
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/gz
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/gz
   model/nmme-backup/COLA-RSMAS-CESM1/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3382,12 +3382,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/prec
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/prec
   model/nmme-backup/COLA-RSMAS-CESM1/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3395,12 +3395,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/sst
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/sst
   model/nmme-backup/COLA-RSMAS-CESM1/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3408,12 +3408,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//COLA-RSMAS-CESM1/hindcast/tref
+      data_location: /data/esplab/nmme-backup/COLA-RSMAS-CESM1/hindcast/tref
   model/nmme-backup/GEM5.2-NEMO/forecast/h200:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3421,12 +3421,12 @@ sources:
       date_range: 2024-07 to 2026-04
       n_files: 22
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/h200
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/h200
   model/nmme-backup/GEM5.2-NEMO/forecast/h500:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3434,12 +3434,12 @@ sources:
       date_range: 2024-07 to 2026-04
       n_files: 22
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/h500
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/h500
   model/nmme-backup/GEM5.2-NEMO/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3447,12 +3447,12 @@ sources:
       date_range: 2024-07 to 2026-04
       n_files: 22
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/prec
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/prec
   model/nmme-backup/GEM5.2-NEMO/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3460,12 +3460,12 @@ sources:
       date_range: 2024-07 to 2026-04
       n_files: 22
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/sst
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/sst
   model/nmme-backup/GEM5.2-NEMO/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3473,12 +3473,12 @@ sources:
       date_range: 2024-07 to 2026-04
       n_files: 22
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/forecast/tref
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/forecast/tref
   model/nmme-backup/GEM5.2-NEMO/hindcast/hgt:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/hgt/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/hgt/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3486,12 +3486,12 @@ sources:
       date_range: 1990-01 to 2024-06
       n_files: 408
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/hgt
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/hgt
   model/nmme-backup/GEM5.2-NEMO/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3499,12 +3499,12 @@ sources:
       date_range: 1990-01 to 2024-06
       n_files: 414
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/prec
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/prec
   model/nmme-backup/GEM5.2-NEMO/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3512,12 +3512,12 @@ sources:
       date_range: 1990-01 to 2024-06
       n_files: 414
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/sst
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/sst
   model/nmme-backup/GEM5.2-NEMO/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3525,12 +3525,12 @@ sources:
       date_range: 1990-01 to 2024-06
       n_files: 414
       ensemble_members: 20
-      data_location: /data/esplab/nmme-backup//GEM5.2-NEMO/hindcast/tref
+      data_location: /data/esplab/nmme-backup/GEM5.2-NEMO/hindcast/tref
   model/nmme-backup/GFDL-SPEAR/forecast/h200:
     description: Geopotential Height at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 200 hPa
@@ -3538,12 +3538,12 @@ sources:
       date_range: 2020-12 to 2026-04
       n_files: 63
       ensemble_members: 30
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/h200
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/h200
   model/nmme-backup/GFDL-SPEAR/forecast/h500:
     description: Geopotential Height at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 200 hPa
@@ -3551,12 +3551,12 @@ sources:
       date_range: 2020-12 to 2026-01
       n_files: 62
       ensemble_members: 30
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/h500
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/h500
   model/nmme-backup/GFDL-SPEAR/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3564,12 +3564,12 @@ sources:
       date_range: 2020-12 to 2026-04
       n_files: 63
       ensemble_members: 30
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/prec
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/prec
   model/nmme-backup/GFDL-SPEAR/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3577,12 +3577,12 @@ sources:
       date_range: 2020-12 to 2026-01
       n_files: 62
       ensemble_members: 30
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/sst
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/sst
   model/nmme-backup/GFDL-SPEAR/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3590,12 +3590,12 @@ sources:
       date_range: 2020-12 to 2026-04
       n_files: 63
       ensemble_members: 30
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/forecast/tref
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/forecast/tref
   model/nmme-backup/GFDL-SPEAR/hindcast/h200:
     description: Geopotential Height at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 200 hPa
@@ -3603,12 +3603,12 @@ sources:
       date_range: 1991-01 to 2020-12
       n_files: 360
       ensemble_members: 15
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/h200
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/h200
   model/nmme-backup/GFDL-SPEAR/hindcast/h500:
     description: Geopotential Height at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 200 hPa
@@ -3616,12 +3616,12 @@ sources:
       date_range: 1991-01 to 2020-12
       n_files: 360
       ensemble_members: 15
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/h500
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/h500
   model/nmme-backup/GFDL-SPEAR/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3629,12 +3629,12 @@ sources:
       date_range: 1991-01 to 2020-12
       n_files: 360
       ensemble_members: 15
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/prec
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/prec
   model/nmme-backup/GFDL-SPEAR/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3642,12 +3642,12 @@ sources:
       date_range: 1991-01 to 2020-12
       n_files: 360
       ensemble_members: 15
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/sst
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/sst
   model/nmme-backup/GFDL-SPEAR/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3655,12 +3655,12 @@ sources:
       date_range: 1991-01 to 2020-12
       n_files: 360
       ensemble_members: 15
-      data_location: /data/esplab/nmme-backup//GFDL-SPEAR/hindcast/tref
+      data_location: /data/esplab/nmme-backup/GFDL-SPEAR/hindcast/tref
   model/nmme-backup/NASA-GEOSS2S/forecast/h200:
     description: Geopotential Height at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 200 hPa
@@ -3668,12 +3668,12 @@ sources:
       date_range: 2017-02 to 2026-04
       n_files: 111
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/h200
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/h200
   model/nmme-backup/NASA-GEOSS2S/forecast/h500:
     description: Geopotential Height at 500 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 500 hPa
@@ -3681,12 +3681,12 @@ sources:
       date_range: 2017-02 to 2026-04
       n_files: 111
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/h500
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/h500
   model/nmme-backup/NASA-GEOSS2S/forecast/olr:
     description: Upwelling Longwave Flux at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/olr/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/olr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Upwelling Longwave Flux at Top of Atmosphere
@@ -3694,12 +3694,12 @@ sources:
       date_range: 2026-04 to 2026-04
       n_files: 1
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/olr
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/olr
   model/nmme-backup/NASA-GEOSS2S/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3707,12 +3707,12 @@ sources:
       date_range: 2017-02 to 2026-04
       n_files: 111
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/prec
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/prec
   model/nmme-backup/NASA-GEOSS2S/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3720,12 +3720,12 @@ sources:
       date_range: 2017-02 to 2026-04
       n_files: 111
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/sst
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/sst
   model/nmme-backup/NASA-GEOSS2S/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3733,12 +3733,12 @@ sources:
       date_range: 2017-02 to 2026-04
       n_files: 111
       ensemble_members: 10
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/forecast/tref
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/forecast/tref
   model/nmme-backup/NASA-GEOSS2S/hindcast/h200:
     description: Evaporation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Evaporation
@@ -3746,12 +3746,12 @@ sources:
       date_range: 1981-02 to 2017-01
       n_files: 432
       ensemble_members: 4
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/h200
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/h200
   model/nmme-backup/NASA-GEOSS2S/hindcast/h500:
     description: Evaporation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Evaporation
@@ -3759,12 +3759,12 @@ sources:
       date_range: 1981-02 to 2017-01
       n_files: 432
       ensemble_members: 4
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/h500
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/h500
   model/nmme-backup/NASA-GEOSS2S/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3772,12 +3772,12 @@ sources:
       date_range: 1981-02 to 2017-01
       n_files: 432
       ensemble_members: 4
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/prec
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/prec
   model/nmme-backup/NASA-GEOSS2S/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3785,12 +3785,12 @@ sources:
       date_range: 1981-02 to 2017-01
       n_files: 432
       ensemble_members: 4
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/sst
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/sst
   model/nmme-backup/NASA-GEOSS2S/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
@@ -3798,25 +3798,25 @@ sources:
       date_range: 1981-02 to 2017-01
       n_files: 432
       ensemble_members: 4
-      data_location: /data/esplab/nmme-backup//NASA-GEOSS2S/hindcast/tref
+      data_location: /data/esplab/nmme-backup/NASA-GEOSS2S/hindcast/tref
   model/nmme-backup/NCEP-CFSv2/forecast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: mm/day
-      date_range: 2011-03 to 2026-04
-      n_files: 182
+      date_range: 2011-01 to 2026-04
+      n_files: 184
       ensemble_members: 32
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/prec
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/prec
   model/nmme-backup/NCEP-CFSv2/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3824,25 +3824,25 @@ sources:
       date_range: 2026-03 to 2026-04
       n_files: 2
       ensemble_members: 32
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/sst
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/sst
   model/nmme-backup/NCEP-CFSv2/forecast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
       units: Kelvin_scale
-      date_range: 2011-03 to 2026-04
-      n_files: 182
+      date_range: 2011-01 to 2026-04
+      n_files: 184
       ensemble_members: 32
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/forecast/tref
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/forecast/tref
   model/nmme-backup/NCEP-CFSv2/hindcast/h200:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3850,12 +3850,12 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 24
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/h200
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/h200
   model/nmme-backup/NCEP-CFSv2/hindcast/h500:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -3863,25 +3863,25 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 24
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/h500
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/h500
   model/nmme-backup/NCEP-CFSv2/hindcast/prec:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: mm/day
-      date_range: 1982-01 to 2010-12
-      n_files: 348
+      date_range: 1982-01 to 2011-02
+      n_files: 350
       ensemble_members: 24
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/prec
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/prec
   model/nmme-backup/NCEP-CFSv2/hindcast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3889,25 +3889,25 @@ sources:
       date_range: 1982-01 to 2010-12
       n_files: 348
       ensemble_members: 24
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/sst
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/sst
   model/nmme-backup/NCEP-CFSv2/hindcast/tref:
     description: Reference Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Reference Temperature
       units: Kelvin_scale
-      date_range: 1982-01 to 2010-12
-      n_files: 348
+      date_range: 1982-01 to 2011-02
+      n_files: 350
       ensemble_members: 24
-      data_location: /data/esplab/nmme-backup//NCEP-CFSv2/hindcast/tref
+      data_location: /data/esplab/nmme-backup/NCEP-CFSv2/hindcast/tref
   model/nmme-backup/NOAA-SFS/forecast/h200:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/forecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/forecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3915,12 +3915,12 @@ sources:
       date_range: 2026-03 to 2026-03
       n_files: 1
       ensemble_members: 31
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/forecast/h200
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/forecast/h200
   model/nmme-backup/NOAA-SFS/forecast/h500:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/forecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/forecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3928,12 +3928,12 @@ sources:
       date_range: 2026-03 to 2026-03
       n_files: 1
       ensemble_members: 31
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/forecast/h500
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/forecast/h500
   model/nmme-backup/NOAA-SFS/forecast/prec:
     description: prec
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/forecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/forecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: prec
@@ -3941,12 +3941,12 @@ sources:
       date_range: 2026-03 to 2026-04
       n_files: 2
       ensemble_members: 31
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/forecast/prec
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/forecast/prec
   model/nmme-backup/NOAA-SFS/forecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/forecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/forecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -3954,12 +3954,12 @@ sources:
       date_range: 2026-03 to 2026-04
       n_files: 2
       ensemble_members: 31
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/forecast/sst
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/forecast/sst
   model/nmme-backup/NOAA-SFS/forecast/tref:
     description: Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/forecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/forecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Temperature
@@ -3967,12 +3967,12 @@ sources:
       date_range: 2026-03 to 2026-04
       n_files: 2
       ensemble_members: 31
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/forecast/tref
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/forecast/tref
   model/nmme-backup/NOAA-SFS/reforecast/h200:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/reforecast/h200/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/reforecast/h200/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3980,12 +3980,12 @@ sources:
       date_range: 1991-03 to 2025-04
       n_files: 97
       ensemble_members: 11
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/reforecast/h200
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/reforecast/h200
   model/nmme-backup/NOAA-SFS/reforecast/h500:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/reforecast/h500/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/reforecast/h500/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -3993,12 +3993,12 @@ sources:
       date_range: 1991-03 to 2025-05
       n_files: 104
       ensemble_members: 11
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/reforecast/h500
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/reforecast/h500
   model/nmme-backup/NOAA-SFS/reforecast/prec:
     description: prec
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/reforecast/prec/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/reforecast/prec/**/*.nc
       engine: netcdf4
     metadata:
       long_name: prec
@@ -4006,12 +4006,12 @@ sources:
       date_range: 1991-03 to 2025-05
       n_files: 104
       ensemble_members: 11
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/reforecast/prec
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/reforecast/prec
   model/nmme-backup/NOAA-SFS/reforecast/sst:
     description: Sea Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/reforecast/sst/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/reforecast/sst/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Sea Surface Temperature
@@ -4019,12 +4019,12 @@ sources:
       date_range: 1991-03 to 2025-04
       n_files: 69
       ensemble_members: 11
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/reforecast/sst
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/reforecast/sst
   model/nmme-backup/NOAA-SFS/reforecast/tref:
     description: Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/nmme-backup//NOAA-SFS/reforecast/tref/**/*.nc
+      urlpath: /data/esplab/nmme-backup/NOAA-SFS/reforecast/tref/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Temperature
@@ -4032,12 +4032,12 @@ sources:
       date_range: 1991-03 to 2025-05
       n_files: 104
       ensemble_members: 11
-      data_location: /data/esplab/nmme-backup//NOAA-SFS/reforecast/tref
+      data_location: /data/esplab/nmme-backup/NOAA-SFS/reforecast/tref
   model/subc-backup/ECCC-GEM/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4045,12 +4045,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/pr
   model/subc-backup/ECCC-GEM/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4058,12 +4058,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/rlut
   model/subc-backup/ECCC-GEM/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4071,12 +4071,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/tas
   model/subc-backup/ECCC-GEM/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4084,12 +4084,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/ts
   model/subc-backup/ECCC-GEM/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4097,12 +4097,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/ua
   model/subc-backup/ECCC-GEM/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4110,12 +4110,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/va
   model/subc-backup/ECCC-GEM/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4123,12 +4123,12 @@ sources:
       date_range: 2017-07-27 to 2018-09-13
       n_files: 414
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEM/forecast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEM/forecast/zg
   model/subc-backup/ECCC-GEM/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4136,12 +4136,12 @@ sources:
       date_range: 1995-01-04 to 2014-12-28
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/pr
   model/subc-backup/ECCC-GEM/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4149,12 +4149,12 @@ sources:
       date_range: 1995-01-04 to 2014-12-28
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/rlut
   model/subc-backup/ECCC-GEM/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4162,12 +4162,12 @@ sources:
       date_range: 1995-01-04 to 2014-12-28
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/tas
   model/subc-backup/ECCC-GEM/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4175,12 +4175,12 @@ sources:
       date_range: 1995-01-04 to 2014-12-28
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/ts
   model/subc-backup/ECCC-GEM/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4188,12 +4188,12 @@ sources:
       date_range: 1995-01-04 to 2005-11-28
       n_files: 3982
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/ua
   model/subc-backup/ECCC-GEM/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4201,12 +4201,12 @@ sources:
       date_range: 1995-01-04 to 2003-10-05
       n_files: 3197
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/va
   model/subc-backup/ECCC-GEM/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEM/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEM/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4214,12 +4214,12 @@ sources:
       date_range: 1995-01-04 to 2014-12-28
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEM/hindcast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEM/hindcast/zg
   model/subc-backup/ECCC-GEPS5/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4227,12 +4227,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/pr
   model/subc-backup/ECCC-GEPS5/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4240,12 +4240,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/rlut
   model/subc-backup/ECCC-GEPS5/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4253,12 +4253,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/tas
   model/subc-backup/ECCC-GEPS5/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4266,12 +4266,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/ts
   model/subc-backup/ECCC-GEPS5/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4279,12 +4279,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/ua
   model/subc-backup/ECCC-GEPS5/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4292,12 +4292,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/va
   model/subc-backup/ECCC-GEPS5/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4305,12 +4305,12 @@ sources:
       date_range: 2018-09-20 to 2019-06-20
       n_files: 274
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/forecast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/forecast/zg
   model/subc-backup/ECCC-GEPS5/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4318,12 +4318,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/pr
   model/subc-backup/ECCC-GEPS5/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4331,12 +4331,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/rlut
   model/subc-backup/ECCC-GEPS5/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4344,12 +4344,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/tas
   model/subc-backup/ECCC-GEPS5/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4357,12 +4357,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/ts
   model/subc-backup/ECCC-GEPS5/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4370,12 +4370,12 @@ sources:
       date_range: 1998-01-03 to 1998-12-10
       n_files: 342
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/va
   model/subc-backup/ECCC-GEPS5/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4383,12 +4383,12 @@ sources:
       date_range: 1998-01-03 to 1999-07-12
       n_files: 556
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS5/hindcast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS5/hindcast/zg
   model/subc-backup/ECCC-GEPS6/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4396,12 +4396,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/pr
   model/subc-backup/ECCC-GEPS6/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4409,12 +4409,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/rlut
   model/subc-backup/ECCC-GEPS6/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4422,12 +4422,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/tas
   model/subc-backup/ECCC-GEPS6/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4435,12 +4435,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/ts
   model/subc-backup/ECCC-GEPS6/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4448,12 +4448,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/ua
   model/subc-backup/ECCC-GEPS6/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4461,12 +4461,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/va
   model/subc-backup/ECCC-GEPS6/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4474,12 +4474,12 @@ sources:
       date_range: 2019-06-27 to 2021-12-02
       n_files: 890
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/forecast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/forecast/zg
   model/subc-backup/ECCC-GEPS6/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4487,12 +4487,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/pr
   model/subc-backup/ECCC-GEPS6/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4500,12 +4500,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/rlut
   model/subc-backup/ECCC-GEPS6/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4513,12 +4513,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/tas
   model/subc-backup/ECCC-GEPS6/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4526,12 +4526,12 @@ sources:
       date_range: 1998-01-03 to 2017-12-27
       n_files: 7299
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/ts
   model/subc-backup/ECCC-GEPS6/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4539,12 +4539,12 @@ sources:
       date_range: 1998-01-03 to 1998-09-13
       n_files: 254
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/va
   model/subc-backup/ECCC-GEPS6/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4552,12 +4552,12 @@ sources:
       date_range: 1998-01-03 to 1999-01-18
       n_files: 381
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS6/hindcast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS6/hindcast/zg
   model/subc-backup/ECCC-GEPS7/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4565,12 +4565,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/pr
   model/subc-backup/ECCC-GEPS7/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4578,12 +4578,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/rlut
   model/subc-backup/ECCC-GEPS7/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4591,12 +4591,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/tas
   model/subc-backup/ECCC-GEPS7/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4604,12 +4604,12 @@ sources:
       date_range: 2024-05-09 to 2024-06-06
       n_files: 29
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/ts
   model/subc-backup/ECCC-GEPS7/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4617,12 +4617,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/ua
   model/subc-backup/ECCC-GEPS7/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4630,12 +4630,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/va
   model/subc-backup/ECCC-GEPS7/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4643,12 +4643,12 @@ sources:
       date_range: 2021-12-02 to 2024-06-06
       n_files: 918
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/forecast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/forecast/zg
   model/subc-backup/ECCC-GEPS7/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4656,12 +4656,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/pr
   model/subc-backup/ECCC-GEPS7/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4669,12 +4669,12 @@ sources:
       date_range: 2001-01-01 to 2001-02-22
       n_files: 53
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/rlut
   model/subc-backup/ECCC-GEPS7/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4682,12 +4682,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/tas
   model/subc-backup/ECCC-GEPS7/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4695,12 +4695,12 @@ sources:
       date_range: 2001-01-01 to 2006-12-18
       n_files: 2178
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/ts
   model/subc-backup/ECCC-GEPS7/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4708,12 +4708,12 @@ sources:
       date_range: 2001-01-01 to 2005-01-01
       n_files: 1462
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/ua
   model/subc-backup/ECCC-GEPS7/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4721,103 +4721,116 @@ sources:
       date_range: 2001-01-01 to 2001-03-09
       n_files: 68
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS7/hindcast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS7/hindcast/zg
   model/subc-backup/ECCC-GEPS8/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: kg m-2 s-1
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 189
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 191
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/pr
   model/subc-backup/ECCC-GEPS8/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
       units: W/m2
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 189
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 191
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/rlut
   model/subc-backup/ECCC-GEPS8/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
       units: Kelvin_scale
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 189
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 191
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/tas
   model/subc-backup/ECCC-GEPS8/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
       units: Kelvin_scale
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 189
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 191
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/ts
   model/subc-backup/ECCC-GEPS8/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
       units: m/s
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 177
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 179
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/ua
+  model/subc-backup/ECCC-GEPS8/forecast/uas:
+    description: 10-meter Eastward Wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/uas/**/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: 10-meter Eastward Wind
+      units: m/s
+      date_range: 2024-06-13 to 2025-10-02
+      n_files: 137
+      ensemble_members: 21
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/uas
   model/subc-backup/ECCC-GEPS8/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
       units: m/s
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 175
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 177
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/va
   model/subc-backup/ECCC-GEPS8/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
       units: m
-      date_range: 2024-06-13 to 2026-04-02
-      n_files: 189
+      date_range: 2024-06-13 to 2026-04-09
+      n_files: 191
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/forecast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/forecast/zg
   model/subc-backup/ECCC-GEPS8/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4825,12 +4838,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/pr
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/pr
   model/subc-backup/ECCC-GEPS8/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -4838,12 +4851,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/rlut
   model/subc-backup/ECCC-GEPS8/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -4851,12 +4864,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/tas
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/tas
   model/subc-backup/ECCC-GEPS8/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4864,12 +4877,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/ts
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/ts
   model/subc-backup/ECCC-GEPS8/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -4877,12 +4890,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/ua
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/ua
   model/subc-backup/ECCC-GEPS8/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -4890,12 +4903,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/va
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/va
   model/subc-backup/ECCC-GEPS8/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -4903,12 +4916,12 @@ sources:
       date_range: 2001-01-01 to 2020-12-31
       n_files: 7305
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ECCC-GEPS8/hindcast/zg
+      data_location: /data/esplab/subc-backup/ECCC-GEPS8/hindcast/zg
   model/subc-backup/EMC-GEFS/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -4916,12 +4929,12 @@ sources:
       date_range: 2017-06-30 to 2021-04-28
       n_files: 1399
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/pr
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/pr
   model/subc-backup/EMC-GEFS/forecast/rlut:
     description: Top-of Atmosphere Upward Long-Wave Radiation Flux
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Top-of Atmosphere Upward Long-Wave Radiation Flux
@@ -4929,12 +4942,12 @@ sources:
       date_range: 2017-06-30 to 2021-04-28
       n_files: 1399
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/rlut
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/rlut
   model/subc-backup/EMC-GEFS/forecast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -4942,12 +4955,12 @@ sources:
       date_range: 2017-06-30 to 2021-04-28
       n_files: 1399
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/tas
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/tas
   model/subc-backup/EMC-GEFS/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -4955,12 +4968,12 @@ sources:
       date_range: 2017-06-30 to 2021-04-28
       n_files: 1399
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/ts
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/ts
   model/subc-backup/EMC-GEFS/forecast/ua:
     description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: unknown
@@ -4968,12 +4981,12 @@ sources:
       date_range: 2017-06-30 to 2017-06-30
       n_files: 1
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/ua
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/ua
   model/subc-backup/EMC-GEFS/forecast/va:
     description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: unknown
@@ -4981,12 +4994,12 @@ sources:
       date_range: 2017-06-30 to 2017-06-30
       n_files: 1
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/va
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/va
   model/subc-backup/EMC-GEFS/forecast/zg:
     description: unknown
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: unknown
@@ -4994,12 +5007,12 @@ sources:
       date_range: 2017-06-30 to 2017-06-30
       n_files: 1
       ensemble_members: 21
-      data_location: /data/esplab/subc-backup//EMC-GEFS/forecast/zg
+      data_location: /data/esplab/subc-backup/EMC-GEFS/forecast/zg
   model/subc-backup/EMC-GEFS/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5007,12 +5020,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/pr
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/pr
   model/subc-backup/EMC-GEFS/hindcast/rlut:
     description: Top-of Atmosphere Upward Long-Wave Radiation Flux
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Top-of Atmosphere Upward Long-Wave Radiation Flux
@@ -5020,12 +5033,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/rlut
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/rlut
   model/subc-backup/EMC-GEFS/hindcast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -5033,12 +5046,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/tas
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/tas
   model/subc-backup/EMC-GEFS/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5046,12 +5059,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/ts
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/ts
   model/subc-backup/EMC-GEFS/hindcast/ua:
     description: U-Component of Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: U-Component of Wind
@@ -5059,12 +5072,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/ua
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/ua
   model/subc-backup/EMC-GEFS/hindcast/va:
     description: V-Component of Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: V-Component of Wind
@@ -5072,12 +5085,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/va
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/va
   model/subc-backup/EMC-GEFS/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFS/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFS/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5085,12 +5098,12 @@ sources:
       date_range: 1999-01-06 to 2016-12-28
       n_files: 939
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFS/hindcast/zg
+      data_location: /data/esplab/subc-backup/EMC-GEFS/hindcast/zg
   model/subc-backup/EMC-GEFSv12/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5098,12 +5111,12 @@ sources:
       date_range: 2020-09-30 to 2022-07-01
       n_files: 640
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/pr
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/pr
   model/subc-backup/EMC-GEFSv12/forecast/rlut:
     description: Top-of Atmosphere Upward Long-Wave Radiation Flux
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Top-of Atmosphere Upward Long-Wave Radiation Flux
@@ -5111,12 +5124,12 @@ sources:
       date_range: 2020-09-30 to 2022-07-01
       n_files: 640
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/rlut
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/rlut
   model/subc-backup/EMC-GEFSv12/forecast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -5124,12 +5137,12 @@ sources:
       date_range: 2020-09-30 to 2022-07-01
       n_files: 640
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/tas
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/tas
   model/subc-backup/EMC-GEFSv12/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5137,12 +5150,12 @@ sources:
       date_range: 2020-09-30 to 2022-07-01
       n_files: 640
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/ts
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/ts
   model/subc-backup/EMC-GEFSv12/forecast/ua:
     description: U-Component of Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: U-Component of Wind
@@ -5150,12 +5163,12 @@ sources:
       date_range: 2020-10-01 to 2022-07-01
       n_files: 639
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/ua
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/ua
   model/subc-backup/EMC-GEFSv12/forecast/va:
     description: V-Component of Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: V-Component of Wind
@@ -5163,12 +5176,12 @@ sources:
       date_range: 2020-10-01 to 2022-07-01
       n_files: 639
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/va
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/va
   model/subc-backup/EMC-GEFSv12/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5176,51 +5189,64 @@ sources:
       date_range: 2020-10-01 to 2022-07-01
       n_files: 639
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12/forecast/zg
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12/forecast/zg
   model/subc-backup/EMC-GEFSv12_CPC/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: kg m-2 s-1
-      date_range: 2022-04-02 to 2026-04-02
-      n_files: 1462
+      date_range: 2022-04-02 to 2026-04-09
+      n_files: 1469
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/pr
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/pr
   model/subc-backup/EMC-GEFSv12_CPC/forecast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
       units: Kelvin_scale
-      date_range: 2022-04-02 to 2026-04-02
-      n_files: 1462
+      date_range: 2022-04-02 to 2026-04-09
+      n_files: 1469
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/tas
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/tas
+  model/subc-backup/EMC-GEFSv12_CPC/forecast/uas:
+    description: 10-meter U-Component of Wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/uas/**/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: 10-meter U-Component of Wind
+      units: m/s
+      date_range: 2022-04-02 to 2022-07-15
+      n_files: 105
+      ensemble_members: 31
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/uas
   model/subc-backup/EMC-GEFSv12_CPC/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
       units: gpm
-      date_range: 2022-04-02 to 2026-04-02
-      n_files: 1462
+      date_range: 2022-04-02 to 2026-04-09
+      n_files: 1469
       ensemble_members: 31
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/forecast/zg
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/forecast/zg
   model/subc-backup/EMC-GEFSv12_CPC/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5228,12 +5254,12 @@ sources:
       date_range: 1989-01-04 to 2019-08-28
       n_files: 1600
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/pr
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/pr
   model/subc-backup/EMC-GEFSv12_CPC/hindcast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -5241,12 +5267,12 @@ sources:
       date_range: 1989-01-04 to 2019-08-28
       n_files: 1600
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/tas
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/tas
   model/subc-backup/EMC-GEFSv12_CPC/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5254,103 +5280,116 @@ sources:
       date_range: 1989-01-04 to 2019-08-28
       n_files: 1600
       ensemble_members: 11
-      data_location: /data/esplab/subc-backup//EMC-GEFSv12_CPC/hindcast/zg
+      data_location: /data/esplab/subc-backup/EMC-GEFSv12_CPC/hindcast/zg
   model/subc-backup/ESRL-FIMr1p1/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: kg m-2 s-1
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3163
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3170
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/pr
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/pr
   model/subc-backup/ESRL-FIMr1p1/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
       units: W/m2
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3163
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3170
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/rlut
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/rlut
   model/subc-backup/ESRL-FIMr1p1/forecast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
       units: Kelvin_scale
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3163
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3170
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/tas
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/tas
   model/subc-backup/ESRL-FIMr1p1/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
       units: Kelvin_scale
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3163
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3170
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/ts
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/ts
   model/subc-backup/ESRL-FIMr1p1/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
       units: m s-1
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3128
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3135
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/ua
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/ua
+  model/subc-backup/ESRL-FIMr1p1/forecast/uas:
+    description: 10-meter Eastward Wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/uas/**/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: 10-meter Eastward Wind
+      units: m s-1
+      date_range: 2017-08-02 to 2019-09-30
+      n_files: 790
+      ensemble_members: 4
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/uas
   model/subc-backup/ESRL-FIMr1p1/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
       units: m s-1
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3107
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3114
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/va
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/va
   model/subc-backup/ESRL-FIMr1p1/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
       units: gpm
-      date_range: 2017-08-02 to 2026-04-01
-      n_files: 3163
+      date_range: 2017-08-02 to 2026-04-08
+      n_files: 3170
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/forecast/zg
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/forecast/zg
   model/subc-backup/ESRL-FIMr1p1/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5358,12 +5397,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/pr
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/pr
   model/subc-backup/ESRL-FIMr1p1/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -5371,12 +5410,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/rlut
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/rlut
   model/subc-backup/ESRL-FIMr1p1/hindcast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -5384,12 +5423,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/tas
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/tas
   model/subc-backup/ESRL-FIMr1p1/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5397,12 +5436,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/ts
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/ts
   model/subc-backup/ESRL-FIMr1p1/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -5410,12 +5449,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/ua
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/ua
   model/subc-backup/ESRL-FIMr1p1/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -5423,12 +5462,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/va
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/va
   model/subc-backup/ESRL-FIMr1p1/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5436,12 +5475,12 @@ sources:
       date_range: 1999-01-06 to 2017-06-28
       n_files: 965
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//ESRL-FIMr1p1/hindcast/zg
+      data_location: /data/esplab/subc-backup/ESRL-FIMr1p1/hindcast/zg
   model/subc-backup/GMAO-GEOS_V2p1/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5449,12 +5488,12 @@ sources:
       date_range: 2026-03-22 to 2026-04-01
       n_files: 3
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/pr
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/pr
   model/subc-backup/GMAO-GEOS_V2p1/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -5462,12 +5501,12 @@ sources:
       date_range: 2026-03-22 to 2026-04-01
       n_files: 3
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/tas
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/tas
   model/subc-backup/GMAO-GEOS_V2p1/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5475,12 +5514,12 @@ sources:
       date_range: 2026-03-22 to 2026-04-01
       n_files: 3
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1/forecast/zg
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1/forecast/zg
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5488,12 +5527,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 632
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/pr
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/pr
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -5501,12 +5540,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 622
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/rlut
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/rlut
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -5514,12 +5553,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 632
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/tas
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/tas
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5527,12 +5566,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 622
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/ts
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ts
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -5540,12 +5579,25 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 620
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/ua
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/ua
+  model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/uas:
+    description: 10-meter U-Component of Wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/uas/**/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: 10-meter U-Component of Wind
+      units: m s-1
+      date_range: 2017-07-25 to 2025-06-30
+      n_files: 580
+      ensemble_members: 4
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/uas
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -5553,12 +5605,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 620
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/va
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/va
   model/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5566,12 +5618,12 @@ sources:
       date_range: 2017-07-25 to 2026-04-06
       n_files: 631
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/forecast/zg
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/forecast/zg
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5579,12 +5631,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/pr
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/pr
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -5592,12 +5644,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/rlut
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/rlut
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -5605,12 +5657,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/tas
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/tas
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5618,12 +5670,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/ts
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ts
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -5631,12 +5683,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/ua
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/ua
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -5644,12 +5696,12 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/va
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/va
   model/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5657,90 +5709,90 @@ sources:
       date_range: 1999-01-01 to 2016-12-27
       n_files: 1314
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//GMAO-GEOS_V2p1_5daily/hindcast/zg
+      data_location: /data/esplab/subc-backup/GMAO-GEOS_V2p1_5daily/hindcast/zg
   model/subc-backup/NCEP-CFSv2/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: kg m-2 s-1
-      date_range: 2017-10-15 to 2026-04-02
-      n_files: 3092
+      date_range: 2017-10-15 to 2026-04-09
+      n_files: 3099
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/pr
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/pr
   model/subc-backup/NCEP-CFSv2/forecast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
       units: Kelvin_scale
-      date_range: 2026-01-01 to 2026-04-02
-      n_files: 92
+      date_range: 2026-01-01 to 2026-04-09
+      n_files: 99
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/tas
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/tas
   model/subc-backup/NCEP-CFSv2/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
       units: Kelvin_scale
-      date_range: 2026-01-01 to 2026-04-02
-      n_files: 58
+      date_range: 2026-01-01 to 2026-04-09
+      n_files: 65
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/ts
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/ts
   model/subc-backup/NCEP-CFSv2/forecast/ua:
     description: Zonal Wind at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Wind at 200 hPa
       units: m/s
-      date_range: 2026-02-19 to 2026-04-02
-      n_files: 43
+      date_range: 2026-02-19 to 2026-04-09
+      n_files: 50
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/ua
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/ua
   model/subc-backup/NCEP-CFSv2/forecast/va:
     description: Meridional Wind at 200 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Wind at 200 hPa
       units: m/s
-      date_range: 2026-02-19 to 2026-04-02
-      n_files: 43
+      date_range: 2026-02-19 to 2026-04-09
+      n_files: 50
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/va
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/va
   model/subc-backup/NCEP-CFSv2/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
       units: m
-      date_range: 2026-01-01 to 2026-04-02
-      n_files: 92
+      date_range: 2026-01-01 to 2026-04-09
+      n_files: 99
       ensemble_members: 4
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/forecast/zg
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/forecast/zg
   model/subc-backup/NCEP-CFSv2/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5748,12 +5800,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/pr
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/pr
   model/subc-backup/NCEP-CFSv2/hindcast/tas:
     description: 2-meter Mean Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Mean Air Temperature
@@ -5761,12 +5813,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/tas
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/tas
   model/subc-backup/NCEP-CFSv2/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5774,12 +5826,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/ts
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/ts
   model/subc-backup/NCEP-CFSv2/hindcast/ua:
     description: Zonal Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Wind
@@ -5787,12 +5839,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/ua
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/ua
   model/subc-backup/NCEP-CFSv2/hindcast/va:
     description: Meridional Wind
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Wind
@@ -5800,12 +5852,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/va
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/va
   model/subc-backup/NCEP-CFSv2/hindcast/zg:
     description: Geopotential Height at 500 hPa
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height at 500 hPa
@@ -5813,12 +5865,12 @@ sources:
       date_range: 1999-01-01 to 2017-09-30
       n_files: 6848
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NCEP-CFSv2/hindcast/zg
+      data_location: /data/esplab/subc-backup/NCEP-CFSv2/hindcast/zg
   model/subc-backup/NRL-NESM/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5826,12 +5878,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/pr
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/pr
   model/subc-backup/NRL-NESM/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -5839,12 +5891,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/rlut
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/rlut
   model/subc-backup/NRL-NESM/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -5852,12 +5904,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/tas
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/tas
   model/subc-backup/NRL-NESM/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5865,12 +5917,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/ts
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/ts
   model/subc-backup/NRL-NESM/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -5878,12 +5930,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2215
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/ua
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/ua
   model/subc-backup/NRL-NESM/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -5891,12 +5943,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/va
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/va
   model/subc-backup/NRL-NESM/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5904,12 +5956,12 @@ sources:
       date_range: 2017-08-05 to 2023-08-29
       n_files: 2216
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/forecast/zg
+      data_location: /data/esplab/subc-backup/NRL-NESM/forecast/zg
   model/subc-backup/NRL-NESM/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -5917,12 +5969,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/pr
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/pr
   model/subc-backup/NRL-NESM/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -5930,12 +5982,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/rlut
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/rlut
   model/subc-backup/NRL-NESM/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -5943,12 +5995,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/tas
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/tas
   model/subc-backup/NRL-NESM/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -5956,12 +6008,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/ts
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/ts
   model/subc-backup/NRL-NESM/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -5969,12 +6021,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/ua
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/ua
   model/subc-backup/NRL-NESM/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -5982,12 +6034,12 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/va
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/va
   model/subc-backup/NRL-NESM/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//NRL-NESM/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/NRL-NESM/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -5995,103 +6047,116 @@ sources:
       date_range: 1999-01-02 to 2016-12-31
       n_files: 6574
       ensemble_members: 1
-      data_location: /data/esplab/subc-backup//NRL-NESM/hindcast/zg
+      data_location: /data/esplab/subc-backup/NRL-NESM/hindcast/zg
   model/subc-backup/RSMAS-CCSM4/forecast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
       units: kg m-2 s-1
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 457
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 458
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/pr
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/pr
   model/subc-backup/RSMAS-CCSM4/forecast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
       units: W/m2
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 450
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 451
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/rlut
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/rlut
   model/subc-backup/RSMAS-CCSM4/forecast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
       units: Kelvin_scale
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 457
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 458
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/tas
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/tas
   model/subc-backup/RSMAS-CCSM4/forecast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
       units: Kelvin_scale
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 450
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 451
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/ts
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/ts
   model/subc-backup/RSMAS-CCSM4/forecast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
       units: m s-1
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 449
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 450
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/ua
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/ua
+  model/subc-backup/RSMAS-CCSM4/forecast/uas:
+    description: 10-meter U-Component of Wind
+    driver: netcdf
+    args:
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/uas/**/*.nc
+      engine: netcdf4
+    metadata:
+      long_name: 10-meter U-Component of Wind
+      units: m s-1
+      date_range: 2017-06-25 to 2022-10-02
+      n_files: 276
+      ensemble_members: 9
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/uas
   model/subc-backup/RSMAS-CCSM4/forecast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
       units: m s-1
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 449
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 450
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/va
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/va
   model/subc-backup/RSMAS-CCSM4/forecast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
       units: m
-      date_range: 2017-06-25 to 2026-03-29
-      n_files: 455
+      date_range: 2017-06-25 to 2026-04-05
+      n_files: 456
       ensemble_members: 9
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/forecast/zg
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/forecast/zg
   model/subc-backup/RSMAS-CCSM4/hindcast/pr:
     description: Total Precipitation
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/pr/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/pr/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Total Precipitation
@@ -6099,12 +6164,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/pr
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/pr
   model/subc-backup/RSMAS-CCSM4/hindcast/rlut:
     description: Outgoing Longwave Radiation at Top of Atmosphere
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/rlut/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/rlut/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Outgoing Longwave Radiation at Top of Atmosphere
@@ -6112,12 +6177,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/rlut
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/rlut
   model/subc-backup/RSMAS-CCSM4/hindcast/tas:
     description: 2-meter Air Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/tas/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/tas/**/*.nc
       engine: netcdf4
     metadata:
       long_name: 2-meter Air Temperature
@@ -6125,12 +6190,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/tas
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/tas
   model/subc-backup/RSMAS-CCSM4/hindcast/ts:
     description: Surface Temperature
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/ts/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/ts/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Surface Temperature
@@ -6138,12 +6203,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/ts
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/ts
   model/subc-backup/RSMAS-CCSM4/hindcast/ua:
     description: Zonal Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/ua/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/ua/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Zonal Velocity
@@ -6151,12 +6216,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/ua
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/ua
   model/subc-backup/RSMAS-CCSM4/hindcast/va:
     description: Meridional Velocity
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/va/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/va/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Meridional Velocity
@@ -6164,12 +6229,12 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/va
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/va
   model/subc-backup/RSMAS-CCSM4/hindcast/zg:
     description: Geopotential Height
     driver: netcdf
     args:
-      urlpath: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/zg/**/*.nc
+      urlpath: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/zg/**/*.nc
       engine: netcdf4
     metadata:
       long_name: Geopotential Height
@@ -6177,4 +6242,4 @@ sources:
       date_range: 1999-01-07 to 2016-12-31
       n_files: 6569
       ensemble_members: 3
-      data_location: /data/esplab/subc-backup//RSMAS-CCSM4/hindcast/zg
+      data_location: /data/esplab/subc-backup/RSMAS-CCSM4/hindcast/zg
